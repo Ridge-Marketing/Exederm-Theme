@@ -1,0 +1,39 @@
+let $thumbImages= $('#Thumbnails').find('a.thumbnail-options');
+let $productImage= $('#featuredProductImg');
+
+if ($thumbImages.length) {
+    $thumbImages.on('click', function(e) {
+        e.preventDefault();
+        let newImage = $(this).attr('href');
+        switchImage(newImage, null, $productImage);
+    })
+}
+function switchImage(src, imgObject, el) {
+    let $el = $(el);
+    $el.attr('src', src);
+}
+
+$(document).ready(function() {
+    $('div.tabs').each(function() {
+        let active, content, links= $(this).find('.tabselect-btn');
+            active = links.first().addClass('activeTab');
+            active.closest('.tab-wrapper').removeClass('tw-bg-aliceblue').addClass('tw-bg-mediumblue');
+            content = $(active.val());
+            links.not(':first').each(function() {
+                $($(this).val()).hide();
+              });
+        $(this).find('.tabselect-btn').click(function(e) {
+            if (active) {
+                active.removeClass('activeTab');
+                active.closest('.tab-wrapper').removeClass('tw-bg-mediumblue').addClass('tw-bg-aliceblue');
+                content.hide();
+            }
+            active= $(this);
+            active.closest('.tab-wrapper').removeClass('tw-bg-aliceblue').addClass('tw-bg-mediumblue');
+            content = $($(this).attr('value'));
+            active.addClass('activeTab');
+            content.show();
+            return false;
+        });
+    });
+});

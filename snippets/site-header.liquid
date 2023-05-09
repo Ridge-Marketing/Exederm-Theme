@@ -1,0 +1,108 @@
+<!-- HEADER FOR 1024PX AND ABOVE -->
+<header class="tw-pt-4 tw-hidden lg:tw-block tw-transition-transform tw-duration-500 page_head tw-z-50 tw-fixed tw-w-full tw-bg-white">
+  <div class="tw-container tw-mx-auto xl:tw-max-w-1336px tw-px-10 2xl:tw-px-0 tw-flex tw-justify-between">
+    <a href="/" class="tw-w-52 tw-self-center tw-pb-4">
+      {% include 'exederm-logo.liquid' %}
+    </a>
+
+    <div class="tw-text-right">
+      <a class="tw-font-encode-sans tw-text-green tw-font-semibold tw-text-12px/16px" href="/pages/contact-us">Contact Us</a>
+      <span>|</span>
+      <a class="tw-font-encode-sans tw-text-green tw-font-semibold tw-text-12px/16px" href="/pages/bullseye-store-locator-page">Find a Retailer</a>
+      <a
+        aria-label="go to account"
+        class="tw-px-4 tw-text-green"
+        href="/account">
+        <i class="fa fa-user"></i>
+      </a>
+      <a
+        href="#"
+        class="openCart tw-text-green"
+        aria-label="go to cart">
+        <span class="fa fa-shopping-cart" aria-hidden="true"></span>
+        <span id="CartCount">
+          <span class="cart-bg">
+            <span class="qty">{{ cart.item_count }}</span>
+          </span>
+        </span>
+      </a>
+
+      <ul class="tw-list-none tw-flex tw-m-0">
+        {% for link in linklists.test-menu.links %}
+          {% if link.active or link.child_active %}
+            {% assign textColor = "tw-text-green" %}
+          {% else %}
+            {% assign textColor = "tw-text-black" %}
+          {% endif %}
+          {% if link.title == 'Products' %}
+            <li class="tw-group tw-pb-4">
+              <a href="{{ link.url }}" class="tw-whitespace-nowrap tw-block {{textColor}} tw-py-3 tw-px-2 xl:tw-px-3 tw-text-14px/20px tw-font-semibold tw-font-encode-sans">
+                {{ link.title }}
+              </a>
+              <div style="background-color: #f9f9f9; margin-top: 15px" class="tw-hidden group-hover:tw-block tw-shadow-0-2-6-33 tw-text-left tw-w-72 tw-absolute tw-z-10">
+                <ul class="tw-m-0 tw-list-none">
+                  {% for sub_link in link.links %}
+                    {% if sub_link.active %}
+                      {% assign textColor = "tw-text-white tw-bg-green" %}
+                    {% else %}
+                      {% assign textColor = "tw-text-matterhorn" %}
+                    {% endif %}
+                    <li class="tw-py-3 hover:tw-bg-green {{textColor}} hover:tw-text-white">
+                      <a
+                        style="color: inherit"
+                        class="tw-px-6 tw-text-14px/25px tw-font-open-sans"
+                        href="{{sub_link.url}}">{{ sub_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </li>
+          {% else %}
+            <li>
+              <a href="{{ link.url }}" class="tw-whitespace-nowrap tw-block {{textColor}} tw-py-3 tw-px-2 xl:tw-px-3 tw-text-14px/20px tw-font-semibold tw-font-encode-sans">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</header>
+<div style="height: 98px;" class="tw-hidden lg:tw-block"></div>
+
+<!-- HEADER FOR SCREEN SIZES BELOW 1024PX -->
+<header id="page_head" class="lg:tw-hidden tw-py-6 tw-transition-transform tw-duration-500 page_head tw-fixed tw-bg-white tw-w-full tw-z-50">
+  <div class="tw-container tw-mx-auto tw-px-5 md:tw-px-10 tw-flex tw-justify-between">
+    <a href="/" class="tw-w-52">
+      {% include 'exederm-logo.liquid' %}
+    </a>
+
+    <div class="tw-text-green tw-self-center">
+      <a class="openNav tw-text-3xl" href="#">
+        <span class="icon icon-hamburger tw-px-1"></span>
+      </a>
+      <a class="openCart tw-text-3xl" href="#">
+        <span class="fa fa-shopping-cart tw-px-1"></span>
+      </a>
+    </div>
+  </div>
+</header>
+<div style="height: 96px;" class="lg:tw-hidden"></div>
+
+<div class="tw-bg-green tw-py-3 tw-text-14px/20px tw-font-open-sans tw-text-center">
+  <a class="tw-font-semibold" href="/pages/coupons">
+    <span style="color: #edf6dc;">Get up to $1 off Exederm Flare Control Cream.
+    </span>
+    <span class="tw-text-white tw-underline">Get the coupon.</span>
+  </a>
+</div>
+
+<script>
+  $("a.openCart").on("click", function() {
+    toggleCartDrawer(1);
+  })
+  $("a.openNav").on("click", function() {
+    toggleNavDrawer(1);
+  })
+</script>

@@ -1,0 +1,71 @@
+<!-- DRAWER FOR NAV MENU ITEMS ON TABLETS & MOBILE  -->
+<div
+  id="navDrawer__test"
+  style="z-index: 999;"
+  class="tw-h-full tw-w-300px tw-fixed tw-z-20 tw-top-0 tw-left-0 tw-bg-white tw-overflow-x-hidden tw-pt-6 tw-transform tw--translate-x-300px tw-transition-transform tw-duration-500">
+  <a
+    class="tw-absolute tw-top-5 tw-right-5 tw-block tw-text-green"
+    href="javascript:void(0)"
+    id="nav__close-btn">
+    <span class="far fa-times fa-2x" aria-label="close menu"></span>
+  </a>
+  <div class="tw-pt-9">
+    {% for link in linklists.test-menu.links %}
+      <hr class=" tw-mx-5 tw-border-t tw-border-t-solid tw-border-gainsboro">
+      <!-- need different logic for nav item with individual dropdown lists -->
+      {% if link.title == "Products" %}
+        <a class="nav__dropdown__test tw-flex tw-justify-between tw-items-center tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white tw-cursor-pointer" value="#{{link.title | replace: ' ', '_'}}__list">
+          {{ link.title }}
+          <span class="far fa-plus" aria-label="expand submenu"></span>
+          <span class="far fa-minus tw-hidden" aria-label="close submenu"></span>
+        </a>
+        <div id="Products__list" class="tw-bg-aliceblue tw-hidden tw-overflow-hidden">
+          <div class="tw-py-2">
+            <ul class="tw-m-0 tw-list-none">
+              {% for sub_link in link.links %}
+                <li class="tw-py-2 hover:tw-bg-green hover:tw-text-white">
+                  <a class="tw-px-9 tw-text-14px/25px tw-font-open-sans hover:tw-text-white" href="{{sub_link.url}}">{{ sub_link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% else %}
+        <a href={{link.url}} class="tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white">{{ link.title }}</a>
+      {% endif %}
+    {% endfor %}
+    {% for link in linklists.mobile-menu-items.links %}
+      <hr class=" tw-mx-5 tw-border-t tw-border-t-solid tw-border-gainsboro">
+      <a href={{link.url}} class="tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white">{{ link.title }}</a>
+    {% endfor %}
+    <!-- LOGIC TO CONTROL IF USER SEES 'CREATE ACCOUNT' AND 'LOG IN' BUTTONS OR 'ACCOUNT PAGE' BUTTON  -->
+    {% if customer %}
+      <hr class=" tw-mx-5 tw-border-t tw-border-t-solid tw-border-gainsboro">
+      <a href="/account" class="tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white">Account Page</a>
+    {% else %}
+      <hr class=" tw-mx-5 tw-border-t tw-border-t-solid tw-border-gainsboro">
+      <a href="/account/login" class="tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white">Login</a>
+      <hr class=" tw-mx-5 tw-border-t tw-border-t-solid tw-border-gainsboro">
+      <a href="/account/register" class="tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white">Create Account</a>
+    {% endif %}
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div
+  id="CartDrawer"
+  style="z-index: 9999;"
+  class="ajaxcart-popup tw-overflow-y-scroll tw-h-full tw-w-300px tw-fixed tw-z-10 tw-top-0 tw-right-0 tw-transform tw-translate-x-300px tw-bg-footer-gray tw-pt-6 tw-transition-transform tw-duration-500">
+  <a
+    id="cart__close-btn"
+    class="tw-absolute tw-top-5 tw-right-5 tw-block tw-text-green"
+    href="javascript:void(0)">
+    <span class="far fa-times fa-2x" aria-label="close cart drawer"></span>
+  </a>
+  <div id="CartContainer" class="tw-px-4 tw-pt-10"></div>
+</div>
+
+<script>
+  $("#cart__close-btn").on("click", () => toggleCartDrawer(0));
+  $("#nav__close-btn").on("click", () => toggleNavDrawer(0));
+</script>

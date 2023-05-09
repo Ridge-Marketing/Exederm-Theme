@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-pages-content",
+      "settings": {
+        "featured_collection": "babies"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

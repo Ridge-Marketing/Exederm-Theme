@@ -1,0 +1,101 @@
+{
+  "sections": {
+    "main": {
+      "type": "irritants-main",
+      "blocks": {
+        "665c1657-2074-415b-9d0f-53c156d0572b": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/fragrance.png?v=1612841829",
+            "card-text": "Fragrance",
+            "link": "shopify:\/\/pages\/fragrance"
+          }
+        },
+        "bc30eb1e-8cd4-4f33-808b-a217fe83f55e": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/colors-and-dyes.png?v=1612841830",
+            "card-text": "Color & Dyes",
+            "link": "shopify:\/\/pages\/color-dyes"
+          }
+        },
+        "effd6ca3-1eb4-466e-a33c-22af11d9687d": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/parabens.png?v=1612841830",
+            "card-text": "Parabens",
+            "link": "shopify:\/\/pages\/parabens"
+          }
+        },
+        "76afe494-c1ce-45b6-b238-4e9b59f44912": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/formaldehyde.png?v=1612841830",
+            "card-text": "Formaldehyde",
+            "link": "shopify:\/\/pages\/formaldehyde"
+          }
+        },
+        "91a4e0a2-1f9e-4a2c-b122-57d7e6d0e82d": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/sodium-laureth-sulfate.png?v=1612841830",
+            "card-text": "Sodium Laureth Sulfate",
+            "link": "shopify:\/\/pages\/sls-or-sles"
+          }
+        },
+        "bd2cd00e-adf9-4a62-acf5-e1c5443477d9": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/lanolin.png?v=1612841830",
+            "card-text": "Lanolin",
+            "link": "shopify:\/\/pages\/lanolin"
+          }
+        },
+        "a23e5075-6095-4ae6-b24d-23d54d3c7b72": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/botanicals.png?v=1612841830",
+            "card-text": "Botanicals",
+            "link": "shopify:\/\/pages\/herbs-botanicals"
+          }
+        },
+        "c771ff88-d1c0-490b-806f-d6271034d946": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/pthalates.png?v=1612841830",
+            "card-text": "Phthalates",
+            "link": "shopify:\/\/pages\/phthalates"
+          }
+        },
+        "0a28366c-7ba8-4c6f-bcbd-8b0292e4b951": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/cocamidopropyl-betaine.png?v=1612841830",
+            "card-text": "Cocamidopropyl Betaine",
+            "link": "shopify:\/\/pages\/cocamidopropyl-betaine"
+          }
+        }
+      },
+      "block_order": [
+        "665c1657-2074-415b-9d0f-53c156d0572b",
+        "bc30eb1e-8cd4-4f33-808b-a217fe83f55e",
+        "effd6ca3-1eb4-466e-a33c-22af11d9687d",
+        "76afe494-c1ce-45b6-b238-4e9b59f44912",
+        "91a4e0a2-1f9e-4a2c-b122-57d7e6d0e82d",
+        "bd2cd00e-adf9-4a62-acf5-e1c5443477d9",
+        "a23e5075-6095-4ae6-b24d-23d54d3c7b72",
+        "c771ff88-d1c0-490b-806f-d6271034d946",
+        "0a28366c-7ba8-4c6f-bcbd-8b0292e4b951"
+      ],
+      "settings": {
+        "hero-text": "We are all different, and what may be adequate for most people can cause irritation, contact dermatitis or an allergic reaction in others with more sensitive skin.",
+        "hero-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Hero_-_About_Irritants_-_Main.jpg?v=1630341983",
+        "posthero-text": "Firstly, it's important to state that most cosmetics and other skin care products are perfectly adequate for the normal person. However, if you've got eczema, dermatitis, or dry sensitive skin that may not be good enough.",
+        "card-heading": "Even if your existing product claims to be \"Hypoallergenic\" or \"Sensitive\" it's worth checking the label to see if it contains any common irritants:"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

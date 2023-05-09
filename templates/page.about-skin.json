@@ -1,0 +1,98 @@
+{
+  "wrapper": "section.tw-ladada",
+  "sections": {
+    "hero": {
+      "type": "about-skin-hero",
+      "settings": {
+        "hero-text": "Skin is a remarkable and complicated organ that we all take for granted. Sometimes, things can go wrong. There are hundreds of different types of skin conditions, your dermatologist is always the best source of expert information.",
+        "hero-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/about_skin_main_hero.jpg?v=1630335712",
+        "posthero-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/about-skin-subhero.png?v=1627652606",
+        "posthero-head": "What is Eczema & Dermatitis?",
+        "posthero-text": "Eczema and dermatitis are interchangeable words derived from old Greek and Latin they both basically mean the same thing: inflammation of the skin. It's uncomfortable and irritating, but it's not life-threatening and it's not contagious. There is no miracle cure but it can be very effectively managed and often avoided. Eczema & Dermatitis affects about one in every five people at some time in their lives."
+      }
+    },
+    "quote": {
+      "type": "skin-quote-section",
+      "settings": {
+        "quote_head": "<p>Eczema & Dermatitis affects about <strong>one in every five people <\/strong>at some time in their lives.<\/p>",
+        "quote_subhead": "There are two main types of either Eczema or Dermatitis:",
+        "quote_para": "<p><strong>Atopic: <\/strong>This describes a chronic itchy skin condition very common in children and often associated with allergy problems such as hay fever or asthma.<\/p><p><\/p><p><strong>Contact: <\/strong><br\/>This describes a skin condition provoked by contact with an irritant substance such as detergent, soap or even nickel. It can affect all age groups. It is the most common form of adult dermatitis or eczema.<\/p>"
+      }
+    },
+    "main": {
+      "type": "skin-card-section",
+      "blocks": {
+        "9c4535cd-baa3-43d7-ab5c-85758bb43f1c": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/atopic-eczema-boximg.png?v=1614327593",
+            "card-text": "Atopic Eczema",
+            "card-desc": "Atopic eczema or dermatitis is a chronic, itchy skin condition that is a very common symptom of conditions such as childhood eczema but may occur at any age. Learn more about this skin condition, triggers and tips for relief.",
+            "link": "shopify:\/\/pages\/atopic-eczema"
+          }
+        },
+        "584a9724-d1ad-49bf-a912-916290336024": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/contact-dermatitis-boximg.png?v=1614327593",
+            "card-text": "Contact Dermatitis",
+            "card-desc": "Contact dermatitis is a skin condition associated with environmental triggers or irritants (normally something that has touched against the skin). It tends to be short term in nature and the good news is that it can normally be easily managed or prevented.",
+            "link": "shopify:\/\/pages\/contact-dermatitis"
+          }
+        },
+        "503b215c-0d84-41e7-b9c6-859d45e55ebe": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/seborrheic-dermatitis-boximg.png?v=1614327593",
+            "card-text": "Seborrheic Dermatitis",
+            "card-desc": "Seborrheic dermatitis is a common skin disorder that mainly affects the scalp, causing scaly, itchy, red skin and stubborn dandruff. Learn more about this skin condition, triggers and tips for relief.",
+            "link": "shopify:\/\/pages\/seborrheic-dermatitis"
+          }
+        },
+        "ad23b7de-2115-456f-9534-2947ff9e857f": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/hand-dermatitis-boximg.png?v=1614327593",
+            "card-text": "Hand Dermatitis",
+            "card-desc": "Any type of eczema or dermatitis that develops on the hands can be classified as hand dermatitis. Often hand dermatitis often has unique causes, most frequently environmental or job-related.",
+            "link": "shopify:\/\/pages\/hand-dermatitis"
+          }
+        },
+        "3c49059a-8381-41d7-a536-d34c6716e0d2": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/childrens-skin-boximg.png?v=1614327593",
+            "card-text": "Children's Skin",
+            "card-desc": "Eczema is a common, non-contagious skin condition that affects people of all ages, including babies and children. Learn more about this skin condition in infants and children.",
+            "link": "shopify:\/\/pages\/childrens-skin"
+          }
+        },
+        "c5fdd759-d157-4cad-8af6-6aaca9822da8": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/adult-skin-boximg.png?v=1614327593",
+            "card-text": "Adult Skin",
+            "card-desc": "Atopic eczema or dermatitis affects 15-20% of children but only 3% of adults. Learn more about this skin condition, triggers and tips for relief.",
+            "link": "shopify:\/\/pages\/adult-skin"
+          }
+        }
+      },
+      "block_order": [
+        "9c4535cd-baa3-43d7-ab5c-85758bb43f1c",
+        "584a9724-d1ad-49bf-a912-916290336024",
+        "503b215c-0d84-41e7-b9c6-859d45e55ebe",
+        "ad23b7de-2115-456f-9534-2947ff9e857f",
+        "3c49059a-8381-41d7-a536-d34c6716e0d2",
+        "c5fdd759-d157-4cad-8af6-6aaca9822da8"
+      ],
+      "settings": {
+        "card-heading": "On this site we focus mainly on dry, sensitive and reactive or allergic skin conditions where exederm ultra sensitive products can be of most help. Click below to get straight to the information most relevant for you:"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "quote",
+    "main"
+  ]
+}

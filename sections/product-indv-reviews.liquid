@@ -1,0 +1,41 @@
+<div class="main-content tw-container tw-mx-auto tw-px-5 md:tw-px-10 2xl:tw-px-0 xl:tw-max-w-1336px">
+    <div class="clearfix"></div>
+   
+   <!--section for recommended products collection-->
+           
+      
+       <div class="clearfix"></div>
+
+    <div class="grid__item large--whole tw-mb-14">
+         
+      <div class="yotpo yotpo-main-widget" 
+        data-product-id="{{ product.id }}" 
+        data-name="{{ product.title | escape }}" 
+        data-url="{{ shop.url }}{{ product.url }}" 
+        data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+        data-description="{{ product.description | escape }}">
+      </div>
+   
+    </div>
+    {% comment %}
+    HIDDEN TO REMOVE FROM CODE, IF FINALIZED CAN DELETE FOLLOWING CODE 
+    {% endcomment %}
+    <section class="tw-mb-14 tw-hidden">
+      <div class="tw-container tw-px-5 md:tw-px-10 2xl:tw-px-0 tw-mx-auto xl:tw-max-w-1336px">
+          <div class="tw-text-22px/28px tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
+              <span class="tw-px-3 tw-bg-white">You May Also Like&nbsp;<span>
+          </div> 
+  
+          {% assign prod_handles= product.metafields.product_handles.recommended | split: ',' %} 
+          <div class="tw-mt-16 xl:tw-max-w-1336px tw-block tw-py-0 
+          sm:tw-grid sm:tw-grid-cols-2 sm:tw-justify-items-center
+          lg:tw-grid-cols-4"> 
+              {% for handle in prod_handles %}
+              {% assign product= all_products[handle] %} 
+              {% include 'product-card' %}
+              {% endfor %}  
+        </div>
+      </div>
+  </section>
+
+  </div>

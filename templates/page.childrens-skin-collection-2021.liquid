@@ -1,0 +1,73 @@
+<!-- /templates/page.liquid -->
+
+<!-- 2021 Children's Skin Page with Recommended Products Collection -->
+    	{% assign about_skin = page.metafields.about_skin %}
+
+<div class="aboutskin-cs-hero-container basic-page" style="background-color:#e3e3e3;">
+  <div class="as-wrap-indiv-cs">
+        <h1 style="color:#ffffff;">{{ page.title }}</h1>    
+  </div>
+</div>
+<!--second-hero-section-->
+<!--div class="as-indiv-secondary-hero-container" style="background-color:#F9F4EB;">
+ <div id="aboutskin-hero2" class="grid-uniform">
+   <div class="grid__item large--one-whole">
+   <div class="as-wrap2">
+           <div id="as1">
+             <div id="as-exp1">
+                 <h2 class="as-exp-subhead2-cs">Any type of eczema or dermatitis that develops on the hands can be classified as hand dermatitis. Often hand dermatitis often has unique causes, most frequently environmental or job-related. Up to 10% of people will suffer from hand dermatitis at some point.</h2>  
+             </div>
+     </div>
+</div>
+  </div>
+</div>
+</div-->
+
+{% include 'breadcrumb' %}
+
+<main class="wrapper main-content basic-page" role="main">
+<div class="grid-uniform">
+  <div class="grid__item large--one-whole">   
+    
+ 
+    <div class="section group">
+	<div class="col-768 span_1_of_2-768">
+	{{ about_skin['para_1'] }}
+      
+	</div>
+	<div class="col-768 span_1_of_2-768">
+	 {{ about_skin['para_2'] }}
+      
+	</div>
+</div>
+    
+        <div class="section group">
+	<div class="col-768 span_1_of_2-768">
+	{{ about_skin['para_3'] }}
+      
+	</div>
+	<div class="col-768 span_1_of_2-768">
+	 {{ about_skin['para_4'] }}
+      
+	</div>
+</div>
+
+    
+    </div>
+  
+ </div>
+ <div class="hSpacer twenty-five"></div>
+
+    <div class="rte">
+
+    <div class="collection-name"><span>&nbsp;Recommended Products&nbsp;</span></div>
+ 
+
+   <div class="hSpacer twenty-five"></div>
+   
+   <!--section for recommended products collection-->
+    {% section 'recommended-products-collection' %}
+
+  </div>
+
+</main>

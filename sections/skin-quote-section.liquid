@@ -1,0 +1,54 @@
+<div class="tw-bg-cover tw-bg-position-full tw-mb-9 lg:tw-mb-12" style="background-image:url('{{ 'why-exederm-bg.png' | asset_img_url: 'master' }}')">
+  <div class="tw-container tw-mx-auto xl:tw-max-w-1336px tw-px-5 md:tw-px-10 2xl:tw-px-0 tw-py-10 lg:tw-pt-20 lg:tw-pb-16 2xl:tw-grid 2xl:tw-grid-cols-2 
+  2xl:tw-pt-20 2xl:tw-pb-16">
+      <div id="quote-main">
+          {{section.settings.quote_head}}
+      </div>
+  
+      <div>
+      <p class="tw-text-26px/33px tw-text-matterhorn tw-font-encode-sans tw-font-medium tw-pb-7">
+          {{section.settings.quote_subhead}}
+      </p>
+      <div id="quote-subtext">
+          <p>
+              {{section.settings.quote_para}}
+          </p>
+      </div>
+      </div>
+  </div>
+  </div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Skin Quote Section",
+    "settings": [
+    {
+      "type": "richtext",
+      "id": "quote_head",
+      "label": "Quote section Header",
+      "default": "<p>This is the quote section header</p>"
+   },
+   {
+      "type": "text",
+      "id": "quote_subhead",
+      "label": "Quote section subheader",
+      "default": "This is the quote section subheader"
+   },
+   {
+      "type": "richtext",
+      "id": "quote_para",
+      "label": "Quote section paragraph",
+      "default": "<p>This is the quote section paragraph</p>"
+   }
+    ],
+    "presets": [
+      {
+        "name": "Quote Section",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

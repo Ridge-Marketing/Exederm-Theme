@@ -1,0 +1,7817 @@
+/*============================================================================
+  Shopify Timber
+  Copyright 2015 Shopify Inc.
+  Author Carson Shold @cshold
+  Built with Sass - http://sass-lang.com/
+
+  Some things to know about this file:
+    - Sass is compiled on Shopify's server so you don't need to convert it to CSS yourself
+    - The output CSS is compressed and comments are removed
+    - You cannot use @imports in this file
+        * Use grunt or gulp tasks to enable @imports - https://github.com/Shopify/shopify-css-import
+    - Helpers variables, mixins, and starter classes are provided. Change as needed.
+    - The file is prepped with a CSS reset
+    - The font icons are prepared using https://icomoon.io/app
+==============================================================================*/
+
+/*============================================================================
+  Table of Contents
+
+  #Breakpoint and Grid Variables
+  #General Variables
+  #Sass Mixins
+  #Normalize
+  #Grid Setup
+  #Basic Styles
+  #Helper Classes
+  #Typography
+  #Rich Text Editor
+  #Links and Buttons
+  #Lists
+  #Tables
+  #Reponsive Tables
+  #OOCSS Media Object
+  #Images and Iframes
+  #Forms
+  #Icons
+  #Pagination
+  #Site Header
+  #Site Nav and Dropdowns
+  #Mobile Nav
+  #Drawers
+  #Site Footer
+  #Product and Collection Grids
+  #Collection Filters
+  #Breadcrumbs
+  #Product Page
+  #Notes and Form Feedback
+  #Cart Page
+  #Ajax Cart Styles
+  #Home Slide Show Styles
+  #Individual Page Styles
+==============================================================================*/
+
+/*============================================================================
+  #Breakpoint and Grid Variables
+==============================================================================*/
+$viewportIncrement: 1px;
+
+$small: 480px;
+$medium: 768px;
+$large: 769px;
+
+$postSmall: $small + $viewportIncrement;
+$preMedium: $medium - $viewportIncrement;
+$preLarge: $large - $viewportIncrement;
+
+/*================ The following are dependencies of csswizardry grid ================*/
+$breakpoints: (
+  'small' '(max-width: #{$small})',
+  'medium' '(min-width: #{$postSmall}) and (max-width: #{$medium})',
+  'medium-down' '(max-width: #{$medium})',
+  'large' '(min-width: #{$large})'
+);
+$breakpoint-has-widths: ('small', 'medium', 'medium-down', 'large');
+$breakpoint-has-push:  ('medium', 'medium-down', 'large');
+$breakpoint-has-pull:  ('medium', 'medium-down', 'large');
+
+/*============================================================================
+  #General Variables
+==============================================================================*/
+
+// Timber Colors
+$colorPrimary: #3E9A76;
+$colorSecondary: #3E9A76;
+$color-primary: #3E9A76;
+$color-secondary: #3E9A76;
+$color-babyblue: #eef4f7;
+$color-darkgrey: #535353;
+$color-orange: #f7a81d;
+$color-primary-darker: darken($color-primary, 10%);
+$color-primary-darker-darker: darken($color-primary, 20%);
+$color-secondary-darker: darken($color-secondary, 10%);
+
+// Button colors
+$colorBtnPrimary: $colorPrimary;
+$colorBtnPrimaryHover: darken($colorBtnPrimary, 10%);
+$colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
+$colorBtnPrimaryText: #fff;
+
+$colorBtnSecondary: $colorSecondary;
+$colorBtnSecondaryHover: darken($colorBtnSecondary, 10%);
+$colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
+$colorBtnSecondaryText: #fff;
+
+// Text link colors
+$colorLink: $colorPrimary;
+$colorLinkHover: lighten($colorPrimary, 15%);
+
+// Text colors
+$colorTextBody: {{ settings.color_body_text }};
+
+// Backgrounds
+$colorBody: {{ settings.color_body_bg }};
+
+// Border colors
+$colorBorder: {{ settings.color_borders }};
+
+// Nav and dropdown link background
+$colorNav: #f2f2f2;
+$colorNavText: #333;
+
+// Site Footer
+$colorFooterBg: {{ settings.color_footer_bg }};
+$colorFooterText: {{ settings.color_footer_text }};
+
+// Logo max width
+$logoMaxWidth: {{ settings.logo_max_width | default: '450' | remove: 'px' }}px;
+
+// Helper colors
+$disabledGrey: #f6f6f6;
+$disabledBorder: darken($disabledGrey, 25%);
+
+$errorRed: #d02e2e;
+$errorRedBg: #fff6f6;
+$successGreen: #56ad6a;
+$successGreenBg: #ecfef0;
+
+// Drawers
+$drawerNavWidth: 300px;
+$drawerCartWidth: 300px;
+$colorDrawers: $color-primary;
+$colorDrawerBorder: #3E9A76 /*&darken($colorDrawers, 10%)*/;
+$colorDrawerText: white;
+$drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
+
+// Sizing variables
+$siteWidth: 1520px;/*1180px*/
+$gutter: 30px;
+$gridGutter: 0; // can be a %, but nested grids will have smaller margins because of it
+$radius: 3px;
+
+// Z-index
+$zindexNavDropdowns: 5;
+$zindexDrawer: 10;
+
+/*================ Typography ================*/
+
+$headerFontStack:'Encode Sans', sans-serif;
+$headerFontWeight: 500;
+
+$bodyFontStack: 'Open Sans', sans-serif;
+$baseFontSize: 14px; // Henceforth known as 1em
+
+@font-face {
+  font-family: 'icons';
+  src: url('{{ "icons.eot" | asset_url }}');
+  src: url('{{ "icons.eot" | asset_url }}#iefix') format("embedded-opentype"),
+       url('{{ "icons.woff" | asset_url }}') format("woff"),
+       url('{{ "icons.ttf" | asset_url }}') format("truetype"),
+       url('{{ "icons.svg" | asset_url }}#timber-icons') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+$socialIconFontStack: 'icons';
+
+$light: 300;
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+
+/*Font Awesome is also linked via index.liquid*/
+
+/*============================================================================
+  #Sass Mixins
+==============================================================================*/
+.clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both; }
+  *zoom: 1;
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: table;
+    clear: both; }
+  *zoom: 1;
+}
+
+/*============================================================================
+  Prefixer mixin for generating vendor prefixes:
+    - Based on https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/addons/_prefixer.scss
+    - Usage:
+
+      // Input:
+      .element {
+        @include prefixer(transform, scale(1), ms webkit spec);
+      }
+
+      // Output:
+      .element {
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+==============================================================================*/
+
+@mixin prefixer($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}: $value;
+    } @else if $prefix == moz {
+      -moz-#{$property}: $value;
+    } @else if $prefix == ms {
+      -ms-#{$property}: $value;
+    } @else if $prefix == o {
+      -o-#{$property}: $value;
+    } @else if $prefix == spec {
+      #{$property}: $value;
+    } @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin transform($transform) {
+  @include prefixer(transform, $transform, ms webkit spec);
+}
+
+@mixin user-select($value: none) {
+  @include prefixer(user-select, $value, webkit moz ms spec);
+}
+
+@mixin backface($visibility: hidden) {
+  @include prefixer(backface-visibility, $visibility, webkit spec);
+}
+
+@function em($target, $context: $baseFontSize) {
+  @if $target == 0 {
+    @return 0;
+  }
+  @return $target / $context + 0em;
+}
+
+@function color-control($color) {
+  @if (lightness( $color ) > 40) {
+    @return #000;
+  }
+  @else {
+    @return #fff;
+  }
+}
+
+//Media Query mixin
+@mixin respond($size) {
+  @media screen and (max-width: $size) { @content; }
+}
+
+//Transitions
+@mixin transition($transition-property, $transition-time, $method: linear) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+/*============================================================================
+  Layer promotion mixin for creating smoother animations with higher FPS.
+==============================================================================*/
+@mixin promote-layer($properties: transform) {
+  -webkit-transform: translateZ(0); // translateZ hack
+  will-change: $properties; // spec
+}
+
+/*============================================================================
+  Dependency-free breakpoint mixin
+    - Based on http://blog.grayghostvisuals.com/sass/sass-media-query-mixin/
+    - Usage docs: http://shopify.github.io/Timber/#sass-mixins
+==============================================================================*/
+$min: min-width;
+$max: max-width;
+@mixin at-query ($constraint_, $viewport1_, $viewport2_:null) {
+ $constraint: $constraint_; $viewport1: $viewport1_; $viewport2: $viewport2_;
+  @if type-of($constraint_) == number {
+    $viewport1 : $constraint_; $viewport2 : $viewport1_; $constraint : null;
+  }
+  @if $constraint == $min {
+    @media screen and ($min: $viewport1) {
+      @content;
+    }
+  } @else if $constraint == $max {
+    @media screen and ($max: $viewport1) {
+      @content;
+    }
+  } @else {
+    @media screen and ($min: $viewport1) and ($max: $viewport2) {
+      @content;
+    }
+  }
+}
+
+/*============================================================================
+  #Normalize
+==============================================================================*/
+*, input, :before, :after {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*============================================================================
+  #Grid Setup
+    - Based on csswizardry grid, but with floated columns, a fixed gutter size, and BEM classes
+    - Breakpoints defined above, under #Breakpoint and Grid Variables
+    - Note the inclusion of .grid-uniform to take care of clearfixes on evenly sized grid items
+==============================================================================*/
+$responsive:         true;
+$mobile-first:       true;
+$use-silent-classes: false;
+$push:               true;
+$pull:               false;
+
+/* Force clearfix on grids */
+.grid,
+.grid-uniform {
+  @include clearfix;
+}
+
+.lt-ie9 .grid, .lt-ie9 .grid-uniform{
+  text-align:left;
+}
+
+/* Manual grid__item clearfix */
+.grid__item.clear {
+  clear: both;
+}
+
+$class-type: unquote(".");
+
+@if $use-silent-classes == true {
+  $class-type: unquote("%");
+}
+
+@mixin grid-media-query($media-query) {
+  $breakpoint-found: false;
+
+  @each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $declaration: nth($breakpoint, 2);
+
+    @if $media-query == $name and $declaration {
+      $breakpoint-found: true;
+
+      @media only screen and #{$declaration} {
+        @content;
+      }
+    }
+  }
+
+  @if $breakpoint-found == false {
+    @warn "Breakpoint '#{$media-query}' does not exist";
+  }
+}
+
+
+/*============================================================================
+  Drop relative positioning into silent classes which can't take advantage of
+  the `[class*="push--"]` and `[class*="pull--"]` selectors.
+==============================================================================*/
+@mixin silent-relative() {
+  @if $use-silent-classes == true {
+    position:relative;
+  }
+}
+
+/*============================================================================
+  Grid Setup
+    1. Allow the grid system to be used on lists.
+    2. Remove any margins and paddings that might affect the grid system.
+    3. Apply a negative `margin-left` to negate the columns' gutters.
+==============================================================================*/
+#{$class-type}grid,
+#{$class-type}grid-uniform {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  // margin-left: -$gridGutter;
+}
+
+#{$class-type}grid__item {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  padding-left: $gridGutter;
+  vertical-align: top;
+  @if $mobile-first == true {
+    width: 100%;
+  }
+}
+
+/*============================================================================
+  Reversed grids allow you to structure your source in the opposite
+  order to how your rendered layout will appear.
+==============================================================================*/
+#{$class-type}grid--rev {
+  @extend #{$class-type}grid;
+  direction: rtl;
+  text-align: left;
+
+  > #{$class-type}grid__item {
+    direction: ltr;
+    text-align: left;
+    float: right;
+  }
+}
+
+/* Gutterless grids have all the properties of regular grids, minus any spacing. */
+#{$class-type}grid--full {
+  @extend #{$class-type}grid;
+  margin-left: 0;
+
+  > #{$class-type}grid__item {
+    padding-left: 0;
+  }
+}
+
+/*============================================================================
+  WIDTHS
+    - Create width classes, prefixed by the specified namespace.
+==============================================================================*/
+@mixin device-type($namespace:"") {
+  /** Whole */
+  #{$class-type}#{$namespace}one-whole       { width: 100%; }
+
+  /* Halves */
+  #{$class-type}#{$namespace}one-half        { width: 50%; }
+
+  /* Thirds */
+  #{$class-type}#{$namespace}one-third       { width: 33.333%; }
+  #{$class-type}#{$namespace}two-thirds      { width: 66.666%; }
+
+  /* Quarters */
+  #{$class-type}#{$namespace}one-quarter     { width: 25%; }
+  #{$class-type}#{$namespace}two-quarters    { width: 50%; }
+  #{$class-type}#{$namespace}three-quarters  { width: 75%; }
+
+  /* Fifths */
+  #{$class-type}#{$namespace}one-fifth       { width: 20%; }
+  #{$class-type}#{$namespace}two-fifths      { width: 40%; }
+  #{$class-type}#{$namespace}three-fifths    { width: 60%; }
+  #{$class-type}#{$namespace}four-fifths     { width: 80%; }
+
+  /* Sixths */
+  #{$class-type}#{$namespace}one-sixth       { width: 16.666%; }
+  #{$class-type}#{$namespace}two-sixths      { width: 33.333%; }
+  #{$class-type}#{$namespace}three-sixths    { width: 50%; }
+  #{$class-type}#{$namespace}four-sixths     { width: 66.666%; }
+  #{$class-type}#{$namespace}five-sixths     { width: 83.333%; }
+
+  /* Eighths */
+  #{$class-type}#{$namespace}one-eighth      { width: 12.5%; }
+  #{$class-type}#{$namespace}two-eighths     { width: 25%; }
+  #{$class-type}#{$namespace}three-eighths   { width: 37.5%; }
+  #{$class-type}#{$namespace}four-eighths    { width: 50%; }
+  #{$class-type}#{$namespace}five-eighths    { width: 62.5%; }
+  #{$class-type}#{$namespace}six-eighths     { width: 75%; }
+  #{$class-type}#{$namespace}seven-eighths   { width: 87.5%; }
+
+  /* Tenths */
+  #{$class-type}#{$namespace}one-tenth       { width: 10%; }
+  #{$class-type}#{$namespace}two-tenths      { width: 20%; }
+  #{$class-type}#{$namespace}three-tenths    { width: 30%; }
+  #{$class-type}#{$namespace}four-tenths     { width: 40%; }
+  #{$class-type}#{$namespace}five-tenths     { width: 50%; }
+  #{$class-type}#{$namespace}six-tenths      { width: 60%; }
+  #{$class-type}#{$namespace}seven-tenths    { width: 70%; }
+  #{$class-type}#{$namespace}eight-tenths    { width: 80%; }
+  #{$class-type}#{$namespace}nine-tenths     { width: 90%; }
+
+  /* Twelfths */
+  #{$class-type}#{$namespace}one-twelfth     { width: 8.333%; }
+  #{$class-type}#{$namespace}two-twelfths    { width: 16.666%; }
+  #{$class-type}#{$namespace}three-twelfths  { width: 25%; }
+  #{$class-type}#{$namespace}four-twelfths   { width: 33.333%; }
+  #{$class-type}#{$namespace}five-twelfths   { width: 41.666% }
+  #{$class-type}#{$namespace}six-twelfths    { width: 50%; }
+  #{$class-type}#{$namespace}seven-twelfths  { width: 58.333%; }
+  #{$class-type}#{$namespace}eight-twelfths  { width: 66.666%; }
+  #{$class-type}#{$namespace}nine-twelfths   { width: 75%; }
+  #{$class-type}#{$namespace}ten-twelfths    { width: 83.333%; }
+  #{$class-type}#{$namespace}eleven-twelfths { width: 91.666%; }
+}
+
+/*================ Clearfix helper on uniform grids ================*/
+@mixin clearfix-helper($namespace:"") {
+  .grid-uniform {
+    #{$class-type}#{$namespace}one-half:nth-child(2n+1),
+    #{$class-type}#{$namespace}one-third:nth-child(3n+1),
+    #{$class-type}#{$namespace}one-quarter:nth-child(4n+1),
+    #{$class-type}#{$namespace}one-fifth:nth-child(5n+1),
+    #{$class-type}#{$namespace}one-sixth:nth-child(6n+1),
+    #{$class-type}#{$namespace}two-sixths:nth-child(3n+1),
+    #{$class-type}#{$namespace}three-sixths:nth-child(2n+1),
+    #{$class-type}#{$namespace}two-eighths:nth-child(4n+1),
+    #{$class-type}#{$namespace}four-eighths:nth-child(2n+1),
+    #{$class-type}#{$namespace}five-tenths:nth-child(2n+1),
+    #{$class-type}#{$namespace}one-twelfth:nth-child(12n+1),
+    #{$class-type}#{$namespace}two-twelfths:nth-child(6n+1),
+    #{$class-type}#{$namespace}three-twelfths:nth-child(4n+1),
+    #{$class-type}#{$namespace}four-twelfths:nth-child(3n+1),
+    #{$class-type}#{$namespace}six-twelfths:nth-child(2n+1)    { clear: both; }
+  }
+}
+
+/*================ Helper show/hide classes around our breakpoints ================*/
+@mixin device-helper($namespace:"") {
+  #{$class-type}#{$namespace}show        { display: block!important; }
+  #{$class-type}#{$namespace}hide        { display: none!important; }
+
+  #{$class-type}#{$namespace}text-left   { text-align: left!important; }
+  #{$class-type}#{$namespace}text-right  { text-align: right!important; }
+  #{$class-type}#{$namespace}text-center { text-align: center!important; }
+
+  #{$class-type}#{$namespace}left        { float: left!important; }
+  #{$class-type}#{$namespace}right       { float: right!important; }
+}
+
+/*================ Our regular, non-responsive width and helper classes ================*/
+@include device-type();
+@include device-helper();
+
+/*================ Our responsive classes, if we have enabled them ================*/
+@if $responsive == true {
+  @each $name in $breakpoint-has-widths {
+    @include grid-media-query($name) {
+      @include device-type('#{$name}--');
+      @include device-helper('#{$name}--');
+      @include clearfix-helper('#{$name}--');
+    }
+  }
+}
+
+/*============================================================================
+  PUSH
+    - Push classes, to move grid items over to the right by certain amounts
+==============================================================================*/
+@mixin push-setup($namespace: "") {
+  /* Whole */
+  #{$class-type}push--#{$namespace}one-whole       { left: 100%; @include silent-relative(); }
+
+  /* Halves */
+  #{$class-type}push--#{$namespace}one-half        { left: 50%; @include silent-relative(); }
+
+  /* Thirds */
+  #{$class-type}push--#{$namespace}one-third       { left: 33.333%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}two-thirds      { left: 66.666%; @include silent-relative(); }
+
+  /* Quarters */
+  #{$class-type}push--#{$namespace}one-quarter     { left: 25%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}two-quarters    { left: 50%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}three-quarters  { left: 75%; @include silent-relative(); }
+
+  /* Fifths */
+  #{$class-type}push--#{$namespace}one-fifth       { left: 20%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}two-fifths      { left: 40%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}three-fifths    { left: 60%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}four-fifths     { left: 80%; @include silent-relative(); }
+
+  /* Sixths */
+  #{$class-type}push--#{$namespace}one-sixth       { left: 16.666%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}two-sixths      { left: 33.333%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}three-sixths    { left: 50%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}four-sixths     { left: 66.666%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}five-sixths     { left: 83.333%; @include silent-relative(); }
+
+  /* Eighths */
+  #{$class-type}push--#{$namespace}one-eighth      { left: 12.5%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}two-eighths     { left: 25%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}three-eighths   { left: 37.5%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}four-eighths    { left: 50%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}five-eighths    { left: 62.5%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}six-eighths     { left: 75%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}seven-eighths   { left: 87.5%; @include silent-relative(); }
+
+  /* Tenths */
+  #{$class-type}push--#{$namespace}one-tenth       { left: 10%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}two-tenths      { left: 20%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}three-tenths    { left: 30%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}four-tenths     { left: 40%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}five-tenths     { left: 50%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}six-tenths      { left: 60%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}seven-tenths    { left: 70%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}eight-tenths    { left: 80%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}nine-tenths     { left: 90%; @include silent-relative(); }
+
+  /* Twelfths */
+  #{$class-type}push--#{$namespace}one-twelfth     { left: 8.333%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}two-twelfths    { left: 16.666%; @include silent-relative();  }
+  #{$class-type}push--#{$namespace}three-twelfths  { left: 25%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}four-twelfths   { left: 33.333%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}five-twelfths   { left: 41.666%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}six-twelfths    { left: 50%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}seven-twelfths  { left: 58.333%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}eight-twelfths  { left: 66.666%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}nine-twelfths   { left: 75%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}ten-twelfths    { left: 83.333%; @include silent-relative(); }
+  #{$class-type}push--#{$namespace}eleven-twelfths { left: 91.666%; @include silent-relative(); }
+}
+
+@if $push == true {
+  [class*="push--"]{ position:relative; }
+
+  @include push-setup();
+
+  @if $responsive == true {
+    @each $name in $breakpoint-has-push {
+      @include grid-media-query($name) {
+        @include push-setup('#{$name}--');
+      }
+    }
+  }
+}
+
+/*============================================================================
+  PULL
+    - Pull classes, to move grid items back to the left by certain amounts
+==============================================================================*/
+@mixin pull-setup($namespace: "") {
+  /* Whole */
+  #{$class-type}pull--#{$namespace}one-whole       { right: 100%; @include silent-relative(); }
+
+  /* Halves */
+  #{$class-type}pull--#{$namespace}one-half        { right: 50%; @include silent-relative(); }
+
+  /* Thirds */
+  #{$class-type}pull--#{$namespace}one-third       { right: 33.333%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}two-thirds      { right: 66.666%; @include silent-relative(); }
+
+  /* Quarters */
+  #{$class-type}pull--#{$namespace}one-quarter     { right: 25%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}two-quarters    { right: 50%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}three-quarters  { right: 75%; @include silent-relative(); }
+
+  /* Fifths */
+  #{$class-type}pull--#{$namespace}one-fifth       { right: 20%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}two-fifths      { right: 40%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}three-fifths    { right: 60%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}four-fifths     { right: 80%; @include silent-relative(); }
+
+  /* Sixths */
+  #{$class-type}pull--#{$namespace}one-sixth       { right: 16.666%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}two-sixths      { right: 33.333%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}three-sixths    { right: 50%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}four-sixths     { right: 66.666%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}five-sixths     { right: 83.333%; @include silent-relative(); }
+
+  /* Eighths */
+  #{$class-type}pull--#{$namespace}one-eighth      { right: 12.5%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}two-eighths     { right: 25%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}three-eighths   { right: 37.5%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}four-eighths    { right: 50%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}five-eighths    { right: 62.5%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}six-eighths     { right: 75%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}seven-eighths   { right: 87.5%; @include silent-relative(); }
+
+  /* Tenths */
+  #{$class-type}pull--#{$namespace}one-tenth       { right: 10%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}two-tenths      { right: 20%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}three-tenths    { right: 30%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}four-tenths     { right: 40%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}five-tenths     { right: 50%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}six-tenths      { right: 60%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}seven-tenths    { right: 70%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}eight-tenths    { right: 80%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}nine-tenths     { right: 90%; @include silent-relative(); }
+
+  /* Twelfths */
+  #{$class-type}pull--#{$namespace}one-twelfth     { right: 8.333%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}two-twelfths    { right: 16.666%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}three-twelfths  { right: 25%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}four-twelfths   { right: 33.333%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}five-twelfths   { right: 41.666%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}six-twelfths    { right: 50%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}seven-twelfths  { right: 58.333%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}eight-twelfths  { right: 66.666%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}nine-twelfths   { right: 75%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}ten-twelfths    { right: 83.333%; @include silent-relative(); }
+  #{$class-type}pull--#{$namespace}eleven-twelfths { right: 91.666%; @include silent-relative(); }
+}
+
+@if $pull == true {
+  [class*="pull--"]{ position:relative; }
+
+  @include pull-setup();
+
+  @if $responsive == true {
+    @each $name in $breakpoint-has-pull {
+      @include grid-media-query($name) {
+        @include pull-setup('#{$name}--');
+      }
+    }
+  }
+}
+
+/*============================================================================
+  #Basic Styles
+==============================================================================*/
+html {
+  background-color: white;
+}
+
+body {
+  background-color: $colorBody;
+  color:#5b5b5b;
+}
+
+[tabindex='-1']:focus {
+  outline: none;
+}
+
+.wrapper-no-adjust {
+  @include clearfix();
+  max-width: $siteWidth;
+  margin: 0 auto;
+  padding: 0 ($gutter / 2) !important;
+
+  @include at-query ($min, $small) {
+    padding: 0 $gutter;
+  }
+}
+
+.lt-ie9 .wrapper-no-adjust{
+  width: $siteWidth;
+  text-align:left;
+}
+
+.search-container {
+  @include clearfix();
+  max-width: $siteWidth;
+  margin: 0 auto;
+  padding: 0 ($gutter / 2) !important;
+
+  @include at-query ($min, $small) {
+    padding: 0 $gutter;
+  }
+}
+
+.lt-ie9 .search-container{
+  width: $siteWidth;
+}
+
+.wrapper {
+  @include clearfix();
+  max-width: $siteWidth;
+  margin: 0 auto;
+  padding: 0 ($gutter / 2) !important;
+
+  @include at-query ($min, $small) {
+    padding: 0 $gutter;
+  }
+
+  @include respond($medium){
+    margin:0 auto; /*0 auto 0 -30px*/
+  }
+}
+
+.lt-ie9 .wrapper{
+  width: $siteWidth;
+    text-align:left;
+}
+
+.main-content {
+  display: block;
+  margin-top: 50px;
+}
+
+/*============================================================================
+  #Helper Classes
+==============================================================================*/
+.is-transitioning {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.display-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.display-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
+
+@include at-query ($min, $large) {
+  .large--display-table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .large--display-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+
+/*============================================================================
+  #Typography
+==============================================================================*/
+body,
+input,
+textarea,
+button,
+select {
+  font-size: 15px;
+  line-height: 21px;
+  font-family: $bodyFontStack;
+  color: #5b5b5b;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, .header-one {
+  display: block;
+  font-family: $headerFontStack;
+  font-weight: $headerFontWeight;
+  margin: 0 0 0.5em;
+  line-height: 1.4;
+
+  a {
+    text-decoration: none;
+    font-weight: inherit;
+  }
+}
+
+/*================ Use em() Sass function to declare font-size ================*/
+h1, .header-one {
+  font-size: em(45px);
+}
+
+h2 {
+  font-size: em(28px);
+}
+
+h3 {
+  font-size: em(22px);
+}
+
+h4 {
+  font-size: em(20px);
+}
+
+h5 {
+  font-size: em(16px);
+}
+
+h6 {
+  font-size: em(14px);
+}
+
+
+.h1 { @extend h1; }
+.h2 { @extend h2; }
+.h3 { @extend h3; }
+.h4 { @extend h4; }
+.h5 { @extend h5; }
+.h6 { @extend h6; }
+
+p {
+  margin: 0 0 ($gutter / 2) 0;
+
+  img {
+    margin: 0;
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+small {
+  font-size: 0.9em;
+}
+
+sup, sub {
+  position: relative;
+  font-size: 60%;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.5em;
+}
+
+/*================ Blockquotes ================*/
+blockquote {
+  font-size: 1.125em;
+  line-height: 1.45;
+  font-style: italic;
+  margin: 0 0 $gutter;
+  padding: ($gutter / 2) $gutter;
+  border-left: 1px solid $colorBorder;
+
+  p {
+    margin-bottom: 0;
+
+    & + cite {
+      margin-top: $gutter / 2;
+    }
+  }
+
+  cite {
+    display: block;
+    font-size: 0.75em;
+
+    &:before {
+      content: '\2014 \0020';
+    }
+  }
+}
+
+/*================ Code ================*/
+code, pre {
+  background-color: #faf7f5;
+  font-family: Consolas,monospace;
+  font-size: 1em;
+  border: 0 none;
+  padding: 0 2px;
+  color: #51ab62;
+}
+
+pre {
+  overflow: auto;
+  padding: $gutter / 2;
+  margin: 0 0 $gutter;
+}
+
+/*================ Horizontal Rules ================*/
+hr {
+  clear: both;
+  border-top: solid #d5d5d5;
+  border-width: 1px 0 0;
+  height: 0;
+
+  &.hr--small {
+    margin: ($gutter / 2) 0;
+  }
+
+  &.hr--clear {
+    border-top-color: transparent;
+  }
+}
+
+/*================ Section Headers ================*/
+.section-header {
+  margin-bottom: $gutter / 1.5;
+}
+
+@include at-query ($min, $large) {
+  .section-header {
+    display: table;
+    width: 100%;
+  }
+
+  .section-header__title {
+    margin-bottom: $gutter / 2.5;
+  }
+
+  .section-header__left {
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 0;
+
+    h1, h2, h3, h4,
+    .h1, .h2, .h3, .h4 {
+      margin-bottom: 0;
+    }
+  }
+
+  .section-header__right {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    width: 335px;
+
+    @include at-query ($max, $medium) {
+      margin-bottom: $gutter;
+    }
+  }
+}
+
+.section-header__right {
+  .form-horizontal,
+  .collection-view {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @include at-query ($min, $postSmall) {
+    label + select,
+    .collection-view {
+      margin-left: $gutter / 2;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .section-header {
+  text-align:center;
+  }
+}
+
+.collection-view {
+  display: inline-block;
+  border: 1px solid $colorBorder;
+  border-radius: $radius;
+  padding: 0 5px;
+  height: 37px; // same as form elements
+  overflow: hidden;
+
+  /*================ Only show on larger screens ================*/
+  @include at-query ($min, $large) {
+    display: inline-block;
+  }
+}
+
+.change-view {
+  display: block;
+  background: none;
+  border: 0 none;
+  float: left;
+  padding: 10px 8px;
+  color: $colorBorder;
+  line-height: 1;
+
+  &:hover,
+  &:focus {
+    color: $colorPrimary;
+  }
+}
+
+.change-view--active {
+  cursor: default;
+  color: $colorPrimary;
+}
+
+/*============================================================================
+  #Rich Text Editor
+==============================================================================*/
+.rte {
+  margin-bottom: $gutter / 2;
+
+  a {
+    text-decoration: underline;
+  }
+
+  // Add some top margin to headers from the rich text editor
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  > div {
+    margin-bottom: $gutter / 2;
+  }
+
+  li {
+    margin-bottom: 0.4em;
+  }
+}
+
+.rte--header {
+  margin-bottom: 0;
+}
+
+/*============================================================================
+  #Links and Buttons
+==============================================================================*/
+a,
+.text-link {
+  color: $colorLink;
+  text-decoration: underline;
+  background: transparent;
+  font-weight:500;
+}
+
+a:hover,
+a:focus {
+  color: $colorLinkHover;
+}
+
+button {
+  overflow: visible;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+.btn,
+.rte .btn {
+  display: inline-block;
+  padding: 8px 10px;
+  width: auto;
+  margin: 0;
+  line-height: 1.42;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  @include user-select(none);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /*border-radius: $radius;*/
+  width:200px;
+  
+
+  /*================ Set primary button colors - can override later ================*/
+  background-color: $colorBtnPrimary;
+  color: $colorBtnPrimaryText;
+
+  &:hover {
+    background-color: $colorBtnPrimaryHover;
+    color: $colorBtnPrimaryText;
+  }
+
+  &:active,
+  &:focus {
+   background-color: $colorBtnPrimaryActive;
+   color: $colorBtnPrimaryText;
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: default;
+    color: $disabledBorder;
+    background-color: $disabledGrey;
+  }
+}
+
+.btn--secondary,
+.rte .btn--secondary {
+  @extend .btn;
+  background-color: $colorBtnSecondary;
+
+  &:hover {
+    background-color: $colorBtnSecondaryHover;
+    color: $colorBtnSecondaryText;
+  }
+
+  &:active,
+  &:focus {
+   background-color: $colorBtnSecondaryActive;
+   color: $colorBtnSecondaryText;
+  }
+}
+
+.btn--small {
+  padding: 4px 5px;
+  font-size: em(12px);
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn--large {
+  padding: 10px 30px;
+  font-size: 16px;
+  -webkit-box-shadow: 0px 5px 13px -4px rgba(0,0,0,0.42); 
+  box-shadow: 0px 5px 13px -4px rgba(0,0,0,0.42);
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/*================ Force an input/button to look like a text link ================*/
+.text-link {
+  display: inline;
+  border: 0 none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*============================================================================
+  #Lists
+==============================================================================*/
+/*ul, ol {
+  margin: 0 0 ($gutter / 2) 40px;
+  padding: 0;
+}*/
+
+ul, ol {
+  margin: 0 0 ($gutter / 2) 40px;
+  padding: 0;
+
+}
+
+ol { list-style: decimal; }
+ul ul, ul ol,
+ol ol, ol ul { margin: 4px 0 5px 20px; }
+li { margin: 0; }
+
+ul.square { list-style: square outside; }
+ul.disc { list-style: disc outside; }
+ol.alpha { list-style: lower-alpha outside; }
+
+.no-bullets {
+  list-style: none outside;
+  margin-left: 0;
+}
+
+.inline-list {
+  margin-left: 0;
+
+  li {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+
+/*============================================================================
+  #Tables
+==============================================================================*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table.full {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.table-wrap {
+  max-width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+th {
+  font-weight: bold;
+}
+
+th, td {
+  text-align: left;
+  padding: $gutter / 2;
+  border: 1px solid $colorBorder;
+}
+
+/*============================================================================
+  Responsive tables, defined with .table--responsive on table element.
+  Only defined for IE9+
+==============================================================================*/
+.table--responsive {
+  @include at-query($max, 680px) {
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+    }
+
+    // IE9 table layout fixes
+    tr,
+    td {
+      float: left;
+      clear: both;
+      width: 100%;
+    }
+
+    th,
+    td {
+      display: block;
+      text-align: right;
+      padding: 15px;
+    }
+
+    td:before {
+      content: attr(data-label);
+      float: left;
+      text-align: center;
+      font-size: 18px;
+      padding-right: 10px;
+    }
+
+    &.cart-table {
+      img {
+        margin: 0 auto;
+      }
+
+      .js-qty {
+        float: right;
+      }
+    }
+  }
+}
+
+@include at-query($max, $small) {
+  .table--small-hide {
+    display: none !important;
+  }
+
+  .table__section + .table__section {
+    position: relative;
+    margin-top: 10px;
+    padding-top: 15px;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 15px;
+      right: 15px;
+      border-bottom: 1px solid $colorBorder;
+    }
+  }
+}
+
+
+/*============================================================================
+  #OOCSS Media Object
+    - http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+==============================================================================*/
+.media,
+.media-flex {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
+}
+
+.media-img {
+  float: left;
+  margin-right: $gutter;
+}
+
+.media-img-right {
+  float: right;
+  margin-left: $gutter;
+}
+
+.media-img img,
+.media-img-right img {
+  display: block;
+}
+
+
+/*============================================================================
+  #Images and Iframes
+==============================================================================*/
+img {
+  border: 0 none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+img,
+iframe {
+  max-width: 100%;
+}
+
+.lt-ie9 img{
+  width:100%;
+}
+
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  height: auto;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+/*============================================================================
+  #Forms
+==============================================================================*/
+form {
+  margin-bottom: 0;
+}
+
+.form-vertical {
+  margin-bottom: $gutter / 2;
+  background-color:#e4f5ef;
+  padding:20px;
+  overflow:auto;
+
+  input, textarea{
+    font-weight:400;
+  }
+
+  &.white{
+    background-color:white;
+  }
+
+  .form-required{
+    color:#999999;
+    font-weight:$bold;
+    margin-bottom:15px;
+  }
+
+  .form-privacy{
+    font-size:12px;
+    line-height:16px;
+    color:$color-darkgrey;
+  }
+}
+
+span.left.city, span.right.state {
+    margin: 0;
+    width: 100% !important;
+}
+
+.wufoo li {
+    width: 90%;
+}
+
+/*================ Prevent zoom on touch devices in active inputs ================*/
+@include at-query($max, $medium) {
+  input,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+input,
+textarea,
+button,
+select {
+  padding: 0;
+  margin: 0;
+  @include user-select(text);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button,
+input,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button {
+  background: none;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+input[type="image"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+fieldset {
+  border: 1px solid $colorBorder;
+  padding: $gutter / 2;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid $colorBorder;
+  max-width: 100%;
+  padding: 8px 10px;
+  border-radius: $radius;
+
+  &:focus {
+    border: 1px solid darken($colorBorder, 10%);
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: default;
+    background-color: $disabledGrey;
+    border-color: $disabledBorder;
+  }
+
+  &.input-full {
+    width: 100%;
+  }
+}
+
+textarea {
+  min-height: 100px;
+}
+
+/*================ Input element overrides ================*/
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin: 0 8px 0 0;
+  padding: 0;
+  width: auto;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+  -moz-appearance: radio;
+}
+
+input[type="image"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-position: right center;
+  background: {
+    image: url('{{ "ico-select.svg" | asset_url }}');
+    repeat: no-repeat;
+    position: right 10px center;
+    color: transparent;
+  }
+  padding-right: 28px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  cursor: pointer;
+
+  /*================ Hide the svg arrow in IE9 and below ================*/
+  .ie9 &,
+  .lt-ie9 & {
+    padding-right: 10px;
+    background-image: none;
+  }
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+// Force option color (affects IE only)
+option {
+  color: #000;
+  background-color: #fff;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/*================ Form labels ================*/
+.hidden-label {
+  position: absolute;
+  height: 0;
+  width: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  // No placeholders, so force show labels
+  .ie9 &,
+  .lt-ie9 & {
+    position: static;
+    height: auto;
+    width: auto;
+    margin-bottom: 2px;
+    overflow: visible;
+    clip: initial;
+  }
+}
+
+label[for] {
+  cursor: pointer;
+}
+
+/*================ Horizontal Form ================*/
+.form-vertical {
+  input,
+  select,
+  textarea {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: inline-block;
+  }
+}
+
+/*================ Error styles ================*/
+input,
+select,
+textarea {
+  &.error {
+    border-color: $errorRed;
+    background-color: $errorRedBg;
+    color: $errorRed;
+  }
+}
+
+label.error {
+  color: $errorRed;
+}
+
+
+
+/*================ Input Group ================*/
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+
+  .input-group-field:first-child,
+  .input-group-btn:first-child,
+  .input-group-btn:first-child > .btn,
+  input[type="hidden"]:first-child + .input-group-field,
+  input[type="hidden"]:first-child + .input-group-btn > .btn {
+    border-radius: $radius 0 0 $radius;
+  }
+
+  .input-group-field:last-child,
+  .input-group-btn:last-child > .btn {
+   border-radius: 0 $radius $radius 0;
+  }
+
+  input {
+    // Nasty Firefox hack for inputs http://davidwalsh.name/firefox-buttons
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+      margin-top: -1px;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.input-group-field,
+.input-group-btn {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.input-group .btn,
+.input-group .input-group-field {
+  height: 37px;
+}
+
+.input-group .input-group-field {
+  width: 100%;
+}
+
+.input-group-btn {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  padding: 0;
+}
+
+/*============================================================================
+  #Icons
+==============================================================================*/
+.icon-fallback-text .icon {
+  display: none;
+
+  .supports-fontface & {
+    display: inline-block;
+  }
+}
+
+/*============================================================================
+  A generic way to visually hide content while
+  remaining accessible to screen readers (h5bp.com)
+==============================================================================*/
+.supports-fontface .icon-fallback-text .fallback-text {
+  @extend .visually-hidden;
+}
+
+.icon:before {
+  display: none;
+}
+
+.supports-fontface .icon:before {
+  display: inline;
+  font-family: $socialIconFontStack;
+  text-decoration: none;
+  speak: none; // future fallback, limited in effect currently
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*================ Icon mapping ================*/
+.icon-amazon_payments:before { content: "\e800"; }
+.icon-american_express:before { content: "\41"; }
+.icon-arrow-down:before { content: "\e607"; }
+.icon-bitcoin:before { content: "\42"; }
+.icon-cart:before { content: "\e600"; }
+.icon-cirrus:before { content: "\43"; }
+.icon-dankort:before { content: "\64"; }
+.icon-diners_club:before { content: "\63"; }
+.icon-discover:before { content: "\44"; }
+.icon-facebook:before { content: "\66"; }
+.icon-fancy:before { content: "\46"; }
+.icon-google:before { content: "\67"; }
+.icon-google_wallet:before { content: "\47"; }
+.icon-grid-view:before { content: "\e603"; }
+.icon-hamburger:before { content: "\e601"; }
+.icon-instagram:before { content: "\69"; }
+.icon-interac:before { content: "\49"; }
+.icon-jcb:before { content: "\4a"; }
+.icon-list-view:before { content: "\e604"; }
+.icon-maestro:before { content: "\6d"; }
+.icon-master:before { content: "\4d"; }
+.icon-minus:before { content: "\e602"; }
+.icon-paypal:before { content: "\50"; }
+.icon-pinterest:before { content: "\70"; }
+.icon-plus:before { content: "\e605"; }
+.icon-rss:before { content: "\72"; }
+.icon-search:before { content: "\73"; }
+.icon-stripe:before { content: "\53"; }
+.icon-tumblr:before { content: "\74"; }
+.icon-twitter:before { content: "\54"; }
+.icon-vimeo:before { content: "\76"; }
+.icon-visa:before { content: "\56"; }
+.icon-x:before { content: "\e606"; }
+.icon-youtube:before { content: "\79"; }
+
+.payment-icons {
+  @include user-select(none);
+  cursor: default;
+
+  li {
+    margin: 0 ($gutter / 4) ($gutter / 4);
+    color: {{ settings.color_footer_social_link }};
+    cursor: default;
+  }
+
+  .icon {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .fallback-text {
+    text-transform: capitalize;
+  }
+}
+
+.social-icons li {
+  margin: 0 ($gutter / 2) ($gutter / 2);
+  vertical-align: middle;
+
+  @include at-query ($min, $postSmall) {
+    margin-left: 0;
+  }
+
+  .icon {
+    font-size: 30px;
+    line-height: 26px;
+  }
+
+  a {
+    color: {{ settings.color_footer_social_link }};
+
+    &:hover {
+      color: darken({{ settings.color_footer_social_link }}, 10%);
+    }
+  }
+}
+
+#social-icons {
+  text-align:right;
+}
+
+#social-icons a:hover {
+	-webkit-filter: brightness(0.9);
+	filter: brightness(0.9);
+}
+
+@media screen and (max-width:480px) {
+  #social-icons {
+   text-align:left;
+  }
+}
+
+
+/*============================================================================
+  #Pagination
+==============================================================================*/
+.pagination {
+  margin-bottom: 1em;
+  text-align: center;
+
+  > span {
+    display: inline-block;
+    line-height: 1;
+  }
+
+  a {
+    display: block;
+  }
+
+  a,
+  .page.current {
+    padding: 8px;
+  }
+}
+
+/*============================================================================
+  #Site Header
+==============================================================================*/
+.site-header {
+  padding-top:30px;
+  padding-bottom:10px;
+  -webkit-box-shadow: 0px 7px 14px 1px rgba(33,77,60,0.33); 
+  box-shadow: 0px 7px 14px 1px rgba(33,77,60,0.33);
+
+  .grid--table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+    > .grid__item {
+      float: none;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+
+.site-header__logo {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+
+  @include at-query ($min, $large) {
+    text-align: left;
+  }
+
+  a,
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+
+  a, img {
+    display: block;
+  }
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+.site-header__logo-link {
+  max-width: $logoMaxWidth;
+  margin: 0 auto;
+}
+
+.site-header__cart-toggle {
+  display: inline-block;
+  text-decoration:none;
+}
+
+.site-header__search {
+  display: inline-block;
+  max-width: 400px;
+  margin-top: $gutter / 2;
+  width: 100%;
+}
+
+.search-bar {
+  max-width: 100%;
+
+  @include at-query ($max, $medium) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width:855px) {
+.wrapper-no-adjust {
+ *zoom:1;
+ max-width:1520px;
+ margin:0 auto;
+ padding:0 75px !important;
+  }
+
+  .wrapper.main-content.basic-page {
+	max-width: 1320px;
+	}
+  
+}
+
+/*@media screen and (min-width:855px) and (max-width:1200px) {
+.wrapper.main-content.basic-page {
+	margin: 0 30px;
+	}
+}*/
+
+/*============================================================================
+  #Top Links on Desktop Above Site Nav
+==============================================================================*/
+
+.cart-header-links {
+  	font-family:"Encode Sans";
+  	color: #3e9a76;
+    font-size: 12px;
+  	line-height:15px;
+    font-weight: 600;
+  	text-decoration:none;
+}
+
+#CartCount {
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/qty-bg.png?v=1610930407");
+	background-repeat: no-repeat;
+	padding: 1px 16px 3px 8px;
+	margin: 10px 0 0 8px;
+  	font-weight: 600;
+	color: #535353;
+}
+.qty  {
+    font-size: 13px;
+    font-weight: 600;
+  	color:#535353;
+}
+.cart-header-divider {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 14px;
+    color: #c4c9bd;
+}
+
+ .fa-user, .fa-shopping-cart {
+     font-size: 110%!important;
+}
+
+
+
+/*============================================================================
+  #Site Nav and Dropdowns
+==============================================================================*/
+
+.site-nav {
+  font-size: em(20px);
+  cursor: default;
+  margin: 0 0 0 (-$gutter / 2);
+
+  li {
+    margin: 0;
+    display: block;
+    border:0 none;
+    font-size:14px;
+  }
+
+  >li {
+    position: relative;
+    display: inline-block;
+    text-transform:lowercase;
+
+    a{
+      font-weight:600;
+      color:#000000;
+      transition: all .2s ease 0s;
+    }
+    
+    a:hover, 
+    a:focus {
+      transition: all .2s ease 0s;}
+  }
+}
+
+/* Extra code for "coupon bar" below the header */
+
+ #couponbar {
+     z-index: -10;
+     position: relative;
+     text-align: center;
+     margin: 0px;
+     padding: 13px 15px;
+     left: 0px;
+     height: auto;
+     width: 100%;
+     box-sizing: border-box;
+     border: medium none;
+     background-color: #3e9a76;
+     color: #edf6dc;
+     font-size: 14px;
+     font-weight: 500;
+     line-height: 18px;
+     font-family: "Open Sans", sans-serif;
+     height:45px;
+}
+ a.couponbarlink {
+     transition: all .3s ease 0s;
+     color: inherit;
+     text-decoration: none;
+}
+ a.couponbarlink:hover {
+     transition: all .3s ease 0s;
+     -webkit-filter: brightness(0.3);
+     filter: brightness(0.9);
+}
+ @media screen and (min-width: 375px) and (max-width: 480px) {
+     #couponbar {
+         font-size: 12px;
+    }
+}
+ @media screen and (max-width: 374px) {
+     #couponbar {
+         font-size: 11px;
+    }
+}
+
+
+/*================ Home to hamburger and cart that toggle drawers ================*/
+.site-nav--mobile {
+  @extend .site-nav;
+
+  .text-right & {
+    margin: 0 (-$gutter / 2) 0 0;
+  }
+}
+/*main links- also used on desktop version*/
+
+.site-nav__link {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  white-space: nowrap;
+ /* color: #56a28b;
+  font-size:20px;*/
+	font-size: 15px;
+	text-transform: none;
+	font-weight: 600;
+	color: #000000;
+	letter-spacing: .01em;
+
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #3E9A76;
+  }
+
+  .icon-hamburger {
+  color:#3E9A76;
+  }
+  
+  .fa-shopping-cart {
+  color:#3E9A76;
+  }
+  
+  .icon-arrow-down {
+    position: relative;
+    top: -2px;
+    font-size: 10px;
+    padding-left: $gutter / 4;
+  }
+
+  .site-nav--active > & {
+    font-weight: bold;
+  }
+
+  .site-nav--mobile & {
+    display: inline-block;
+  }
+
+  @include respond(1160px){
+    padding:20px 10px;
+    font-size:18px;
+  }
+  @include respond(950px){
+    padding:20px 2px;
+    font-size:16px;
+  }
+    @include respond($medium){
+    padding:20px 2px;
+    font-size:26px;
+  }
+}
+
+/*================ Dropdowns ================*/
+.site-nav__dropdown {
+opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  margin: 0;
+  z-index: $zindexNavDropdowns;
+
+  .supports-no-touch .site-nav--has-dropdown:hover &,
+  .site-nav--has-dropdown.nav-hover &,
+  .nav-focus + &,
+  .supports-no-touch .site-nav--has-dropdown:focus &,
+  .supports-no-touch .site-nav--has-dropdown[aria-expanded=true]> &{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .site-nav__link{
+    font-size: /*0.6em*/14px;
+    padding: 8px 20px;
+    text-align: left;
+    background: rgba(255,255,255,0.7);
+    color:#535353;
+    &:hover{
+      // background: #e7f2f8;
+    }
+  }
+
+  a {
+    background-color: $colorNav;
+
+    &:hover,
+    /*&:active,*/
+    &:focus {
+      color: #F7F6EA;
+      background:#3E9A76;
+
+    }
+  }
+}
+
+	.site-nav__dropdown a:active, .site-nav__dropdown a:focus {
+	font-weight:bold!important;
+}
+
+.site-nav__dropdown{
+  padding: 10px 0;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+  -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+}
+
+.site-nav li:nth-of-type(3)/*:first-of-type*/{
+  .site-nav__dropdown{
+    &:after{
+      content: ' ';
+      display: table;
+      clear: both;
+    }
+    li:nth-of-type(1),/*:first-of-type,*/ li:nth-of-type(8){
+      border-right: 0;
+      
+      a{
+        font-weight: bold;
+        font-size: 18px;
+        padding: 5px 20px;
+      }
+    }
+  }	
+	
+	
+}
+
+/*================ Search bar in header ================*/
+.nav-search {
+  position: relative;
+  padding: 10px 0;
+
+  @include at-query ($max, $medium) {
+    padding: 0 0 ($gutter / 2);
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/*============================================================================
+  #Mobile Nav
+  - List of items inside the mobile drawer
+==============================================================================*/
+.mobile-nav {
+  // Negative of .drawer left/right padding for full-width link tap area
+  margin: (-$gutter / 2) (-$gutter / 2) 0 (-$gutter / 2);
+
+  li {
+    margin-bottom: 0;
+  }
+}
+
+.icon-minus:hover, .icon-plus:hover {
+	color: #000;
+	background: #3E9A76;
+}
+
+.mobile-nav__search {
+  padding: $gutter / 2;
+
+  .search-bar {
+    margin-bottom: 0;
+  }
+}
+
+.mobile-nav__item {
+  position: relative;
+  display: block;
+
+  // Background color on top level items so there is no
+  // element overlap on subnav's CSS toggle animation
+  .mobile-nav > & {
+    background-color: /*$color-primary*/#ffffff;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: $gutter / 2;
+    right: $gutter / 2;
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  .mobile-nav > &:last-child:after {
+    display: none;
+  }
+}
+
+// Login/logout links can't have a class on them, so style <a> element
+.mobile-nav__item a {
+  display: block;
+  color:#535353;
+}
+
+.mobile-nav__toggle button{
+  color:#000;
+}
+
+.mobile-nav__item a {
+  color:#535353;
+}
+
+.mobile-nav__item a:hover {
+  color:#ffffff;
+  background-color:#3E9A76;
+}
+
+.mobile-nav__item a,
+.mobile-nav__toggle button {
+  padding: 11px 15px;
+  text-decoration: none;
+  
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #f7f6ea;
+    background-color: #3E9A76;    
+  }
+
+
+  &:active,
+  &:focus {
+    background-color: #3E9A76;
+  }
+}
+
+.mobile-nav__toggle button {
+	background:transparent;
+}
+
+.mobile-nav__item--active {
+  font-weight: bold;
+}
+
+.mobile-nav__has-sublist {
+  display: table;
+  width: 100%;
+
+  .mobile-nav__link {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    border:0 none;
+  }
+}
+
+.mobile-nav__toggle {
+  display: table-cell;
+  vertical-align: middle;
+  width: 1%;
+}
+
+.mobile-nav__toggle-open {
+  .mobile-nav--expanded & {
+    display: none;
+  }
+}
+
+.mobile-nav__toggle-close {
+  display: none;
+
+  .mobile-nav--expanded & {
+    display: block;
+  }
+}
+
+.mobile-nav li:nth-of-type(3)/*:first-of-type*/{
+  .mobile-nav__sublist{
+    &:after{
+      content: ' ';
+      display: table;
+      clear: both;
+    }
+    li:nth-of-type(1),/*:first-of-type,*/ li:nth-of-type(6)/*first-of-type, li:nth-of-type(7)*/{
+      border-right: 0;
+    
+      
+      a{
+        font-weight: bold;
+        padding: 6px 30px 6px 15px;
+      }
+    }
+  }
+}
+
+
+.mobile-nav__sublist {
+  margin: 0;
+  max-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: all 300ms cubic-bezier(0.57, 0.06, 0.05, 0.95);
+  @include backface();
+
+  .mobile-nav__item{
+    background-color:#F4FAFC/*$color-primary-darker*/;
+  }
+
+  .mobile-nav--expanded + & {
+    visibility: visible;
+    max-height: 700px;
+    transition: all 700ms cubic-bezier(0.57, 0.06, 0.05, 0.95);
+  }
+
+  .mobile-nav__item:after {
+    top: 0;
+    bottom: auto;
+    border-bottom: 0px solid #e3e3e3/*$color-primary-darker-darker*/;
+  }
+
+  .mobile-nav__link {
+    padding-left: $gutter;
+    font-weight: normal;
+    color: #535353;
+  }
+}
+
+/*============================================================================
+  #Drawers
+==============================================================================*/
+.js-drawer-open {
+  overflow: hidden;
+  height: 100%;
+}
+
+.drawer {
+  @include promote-layer();
+  display: none;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  top: 0;
+  bottom: 0;
+  padding: 0 ($gutter / 2) ($gutter / 2);
+  max-width: 95%;
+  z-index: $zindexDrawer;
+  color: white;
+  background-color: $color-primary;
+  transition: $drawerTransition;
+
+  a {
+    color: #000;
+    font-size:14px/*16px*/;
+    font-weight:400;
+    text-transform: capitalize;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  input,
+  textarea {
+    border-color: $colorDrawerBorder;
+    background-color: white;
+  }
+}
+
+.drawer--left {
+  width: $drawerNavWidth;
+  left: -$drawerNavWidth;
+  border-right: 1px solid $colorDrawerBorder;
+
+  .js-drawer-open-left & {
+    display: block;
+    @include transform(translateX($drawerNavWidth));
+
+    .lt-ie9 & {
+      left: 0;
+    }
+  }
+}
+
+.drawer--right {
+  width: $drawerCartWidth;
+  right: -$drawerCartWidth;
+  border-left: 1px solid $colorDrawerBorder;
+
+  .js-drawer-open-right & {
+    display: block;
+    @include transform(translateX(-$drawerCartWidth));
+
+    .lt-ie9 & {
+      right: 0;
+    }
+  }
+}
+
+#PageContainer {
+  overflow: hidden;
+}
+
+.is-moved-by-drawer {
+  @include promote-layer();
+  transition: $drawerTransition;
+
+  .js-drawer-open-left & {
+    @include transform(translateX($drawerNavWidth));
+  }
+
+  .js-drawer-open-right & {
+    @include transform(translateX(-$drawerCartWidth));
+  }
+}
+
+/*Updated Nav Drawer backround*/
+ #NavDrawer {
+     color: #3e9a76;
+     background-color: #ffffff;
+     box-shadow: 5px 1px 6px 0px rgba(0,0,0,.3);
+     -webkit-box-shadow: 5px 1px 6px 0px rgba(0,0,0,.3);
+     -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);  
+     border: none;
+}
+
+.drawer__header {
+  display: table;
+  height: 70px;
+  width: 100%;
+  margin-bottom: $gutter / 2;
+  /*border-bottom: 1px solid $colorDrawerBorder;*/
+}
+
+.drawer__title,
+.drawer__close {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.drawer__title {
+  width: 100%;
+  color:transparent; 
+}
+
+/*updated "x" icon button size*/
+#NavDrawer .icon.icon-x {
+  font-size: 36px;
+  color:#3E9A76;
+}
+
+.drawer__close {
+  width: 1%;
+  text-align: center;
+  font-size: em(18px);
+}
+
+.drawer__close button {
+  position: relative;
+  right: -20px;
+  height: 100%;
+  padding: 0 20px;
+  color: inherit;
+
+  &:active,
+  &:focus {
+    background-color: #ffffff;
+  }
+}
+
+/*============================================================================
+  #Product and Collection Grids
+==============================================================================*/
+.grid__image {
+  display: block;
+  margin: 0 auto ($gutter / 2);
+
+  img {
+    display: block;
+    margin: 4px auto 12px auto;
+  }
+}
+
+#collection-of-four {
+display:block;
+  position:relative;
+  margin:0 auto;
+}
+
+#product-grid-box {
+	max-width:100%;
+  	width:23%;
+  	border: 1px solid #eee;
+	height: 420px;
+	margin: 0 12px;
+	padding: 2%;
+    box-shadow: 0px 2px 9px rgba(0,0,0,0.19);
+  	text-align:center;
+}
+
+/*--Yotpo--*/
+ #yotpo-ratings-product-grid .standalone-bottomline {
+     float: none;
+     margin: 7% 18%;
+     display: flex;
+}
+ .yotpo a.text-m {
+     display: inline-block;
+     font-weight: 500;
+}
+ .yotpo .text-m {
+     font-size: 13px;
+     font-weight: 500;
+     margin: auto auto auto 5px;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1320px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 17%;
+         display: flex;
+    }
+}
+
+@media screen and (min-width: 1245px) and (max-width: 1280px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 12%;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 1235px) and (max-width: 1244px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 14%;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 1200px) and (max-width: 1234px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 13%;
+         display: flex;
+    }
+}
+@media screen and (min-width: 1199px) and (max-width: 1229px) {
+     #product-grid-box {
+        width:22%;
+    }
+}
+ @media screen and (min-width: 1079px) and (max-width: 1199px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 25%;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 980px) and (max-width: 1078px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 26%;
+         display: flex;
+    }
+}
+
+ @media screen and (min-width: 830px) and (max-width: 979px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 24%;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 826px) and (max-width: 829px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 22%;
+         display: flex;
+    }
+}
+
+ @media screen and (min-width: 769px) and (max-width: 825px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 23%;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 690px) and (max-width: 768px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 7% 20%;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 640px) and (max-width: 689px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         float: none;
+         margin: 6.5% 18%;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 500px) and (max-width: 639px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         margin: 2.5% 30%;
+         float: none;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 443px) and (max-width: 499px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         margin: 2.5% 28%;
+         float: none;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 415px) and (max-width: 442px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         margin: 3% 28%;
+         float: none;
+         display: flex;
+    }
+}
+ @media screen and (min-width: 408px) and (max-width: 414px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         margin: 3% 25%;
+         float: none;
+         display: flex;
+    }
+}
+ @media screen and (max-width: 407px) {
+     #yotpo-ratings-product-grid .standalone-bottomline {
+         margin: 3% 23%;
+         float: none;
+         display: flex;
+    }
+}
+
+
+ @media screen and (min-width: 1200px) and (max-width: 1280px) {
+     #product-grid-box {
+		max-width: 22%;
+		width: 320px;
+    }
+}
+
+ @media screen and (min-width: 1025px) and (max-width: 1199px) {
+     #product-grid-box {
+		max-width: 50%;
+		width: 360px;
+		margin: 0 5%;
+    }
+}
+
+ @media screen and (min-width: 960px) and (max-width: 1024px) {
+	#product-grid-box {
+		max-width: 50%;
+		width: 370px;
+		margin: 0 5%;
+	}
+}
+
+ @media screen and (min-width: 830px) and (max-width: 960px) {
+     #product-grid-box {
+         max-width: 47.5%;
+         width: 360px;
+         margin: 0 2%;
+    }
+}
+
+ @media screen and (min-width: 769px) and (max-width: 830px) {
+     #product-grid-box {
+         max-width: 47%;
+         width: 320px;
+         margin: 0 3%;
+    }
+}
+ @media screen and (max-width: 768px) {
+     #product-grid-box {
+         max-width: 43.7%;
+         width: 320px;
+         margin: 0 3% 0 3.3%;
+    }
+   
+   .collection-name {
+   		margin-top:60px;
+    }
+   
+   #ProductThumbs {
+	max-width: 420px;
+	margin: auto;
+	}
+}
+ @media screen and (min-width: 640px) and (max-width: 767px) {
+     #product-grid-box {
+         max-width: 45%;
+         width: 330px;
+         margin: 0 2%;
+    }
+}
+ @media screen and (max-width: 639px) {
+     #product-grid-box {
+         max-width: 100%;
+         width: 96%;
+         margin: 0 auto 0 2%;
+         padding: 4% 2% 0 2%;
+    }
+}
+
+/* Rollover box shadow for product thumbnails/product grid boxes throughout site*/
+#product-grid-box:hover {
+    -webkit-box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.33);
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.33);
+    transition: all .2s ease 0s;
+}
+
+/*Some formatting for the YotPo stars in the product grid boxes*/
+#yotpo-ratings-product-grid {
+    max-height: 30px;
+    height: 30px;
+}
+
+
+
+  .prod-price  {
+  	font-size: 18px;
+  	line-height: 26px;
+  	font-weight: 600;
+   	 display: block;
+	margin-top: 10px; 
+}
+
+.grid__image {
+	display: block;
+	margin: 4px 0;
+}  
+
+   .add-to-cart-link, #add  { 
+    display:inline-block;
+    padding: 8px 10px;
+    margin:0;
+    line-height:1.42;
+    font-size: 15px;
+    color: #3e9a76!important;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;   
+	text-decoration: underline;
+ 	border: 0px solid white;
+    background-color:transparent;
+	max-width: 100%;
+	border-radius: 0;
+    border:0;   
+}
+.add-to-cart-link:hover, #add:hover,
+.add-to-cart-link:focus, #add:focus {
+	color: #64c19c!important;
+    background-color:transparent;
+}
+
+.rte > div .collection-name {
+margin-bottom: 26px;
+}
+
+ .collection-name {
+     font-family: "Encode Sans";
+     font-size: 22px;
+     line-height: 28px;
+     text-align: center;
+     margin-bottom: 26px;
+     font-weight: 600;
+     width: 100%;
+     border-bottom: 1px solid #e4e4e4;
+     line-height: 0.1em;
+}
+ .collection-name span {
+     background: #fff;
+     padding: 0 10px;
+}
+ .collection-name2, h1.collection-name2, .collection-name2.h1 {
+     font-family: "Encode Sans";
+     font-size: 36px;
+     line-height: 45px;
+     text-align: center;
+     margin-bottom: 12px;
+     font-weight: 400;
+     width: 100%;
+     border-bottom: 1px solid #bbb;
+     line-height: 0.1em;
+     margin: 10px 0 30px;
+}
+ .collection-name2 span, h1.collection-name2 span, .collection-name2.h1 span {
+     background: #fff;
+     padding: 0 10px;
+}
+
+.prod-name, .prod-name a, .prod-name .h6 {
+	font-size:20px;
+	font-weight:400;
+}
+
+
+/*============================================================================
+  #Collection Filters
+==============================================================================*/
+.filter--active {
+  font-weight: bold;
+}
+
+/*============================================================================
+  #Breadcrumbs
+==============================================================================*/
+.breadcrumb {
+  background-color: $color-babyblue;
+  padding:15px 0;
+  width:100%;
+  margin-bottom:30px;
+  display:none; /*updated*/
+
+  a,
+  span {
+    color:$color-primary;
+    display: none/*inline-block;*/;
+    margin-right: 7px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+.breadcrumb-list{
+  list-style-type: none;
+  margin:0;
+  li{
+    display:none/*inline-block;*/;
+    margin-bottom:0;
+  }
+}
+
+
+/*============================================================================
+  #Product Page
+==============================================================================*/
+.product-single__variants {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+.product-single__photos {
+  margin-bottom: $gutter;
+}
+
+.product-single__photos,
+.product-single__thumbnails {
+  a, img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  li {
+    margin-bottom: $gutter;
+  }
+}
+
+.product-single__photos img {
+	border: 0px solid #979797;
+}
+
+.product-single__thumbnail {
+	border: .02em solid #979797;
+    padding:2px;
+	margin: 0 0 0 10px;
+}
+
+.grid__item .product-single__thumbnail {
+	min-height:50px;
+    max-width:90px;
+  	display:block;
+    margin: 0 0 0 10px;
+}
+
+/*Awards Metafields NEA award text*/ 
+    p.metafields4, .metafields-nea, p.metafields-nea, .metafields-nea p, .metafields-nea {
+     font-size: 22px;
+     font-weight: 400;
+     line-height: 28px;
+     letter-spacing: -.02em;
+}
+
+
+
+// ***************************** Start - Custom product tabs ****************************************//
+
+/* Style the tab */
+
+.custom-tab, .pt {
+  overflow: hidden;
+  background-color: #F4FAFC;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width:768px) {
+  .custom-tab, .pt {
+  margin-bottom:-5px;
+   }
+  
+  .col-768-max .span_2_of_2-768-max .award2-hero-container {
+  padding-top:0;    
+   }
+  
+  .award2-hero-container {
+  padding-top:0;
+    margin-top:0;
+   }
+}
+
+@media screen and (max-width:481px) {
+  .custom-tab button {
+  width:100%;
+  text-align:left;
+  background-image:none;
+  }
+  
+  .custom-tab button.active {
+  background-color:#deeef3;}
+}
+
+.product-tabs {
+  max-width:1200px;
+  text-align:left;
+  margin:0 auto;
+}
+
+/* Style the buttons that are used to open the tab content */
+
+.custom-tab button {
+
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 32px 16px 14px 16px;  
+  font-size:20px;
+  font-weight:600;  
+  color:#535353;
+  transition: 0.3s;  
+  background-image:url(https://cdn.shopify.com/s/files/1/0524/5622/7007/files/grayline.png?v=1613635424);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 2px;
+}
+
+.custom-tab button:last-child {
+  background: none;
+}
+
+/* Change background color of buttons on hover */
+
+.custom-tab button:hover {
+  font-weight: 600;
+  text-decoration:underline;
+}
+
+
+/* Create an active/current tablink class */
+
+.custom-tab button.active {
+
+  text-decoration:underline;
+  font-weight:600;
+  color:#3E9A76;
+}
+
+
+/* Style the tab content */
+
+.custom-tab-content {
+  display: none;
+  padding: 6px 12px;
+  border: 0px solid #ccc;
+  border-top: none;  
+  background-color:#F4FAFC;
+}
+
+/*Tab metafield copy*/
+
+ .metafields3-product-tabs li {
+     background-image: url(https://cdn.shopify.com/s/files/1/0524/5622/7007/files/checkmark.png?v=1613607256);
+     background-repeat: no-repeat;
+     margin: 5px 0;
+     padding: 4px 0 4px 30px;
+     background-size: 16px;
+     list-style-type: none;
+     background-position-y: 3px;
+}
+ p.metafields3-product-tabs {
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 24px;
+     letter-spacing: -.02em;
+}
+ ul.metafields3-product-tabs, .metafields3-product-tabs li {
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 24px;
+}
+ ul.metafields3-product-tabs {
+     margin: 30px 0 5px 0;
+}
+/*@media screen and (max-width:480px) {
+ ul.metafields3, .metafields3 li, .custom-tab-content p.metafields3, .custom-tab-content .metafields3 ul li {
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 24px;
+	}
+
+}*/
+
+// ***************************** End - Custom product tabs ****************************************//
+
+/*============================================================================
+  #Notes and Form Feedback
+==============================================================================*/
+.note,
+.errors {
+  border-radius: $radius;
+  padding: 6px 12px;
+  margin-bottom: $gutter / 2;
+  border: 1px solid transparent;
+  font-size: 0.9em;
+  text-align: left;
+
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.note {
+  border-color: $colorBorder;
+}
+
+.errors {
+  ul {
+    list-style: disc outside;
+    margin-left: 20px;
+  }
+}
+
+.form-success {
+  color: $successGreen;
+  background-color: $successGreenBg;
+  border-color: $successGreen;
+
+  a {
+    color: $successGreen;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.form-error,
+.errors {
+  color: $errorRed;
+  background-color: $errorRedBg;
+  border-color: $errorRed;
+
+  a {
+    color: $errorRed;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+
+/*============================================================================
+  #Cart Page
+==============================================================================*/
+.cart__row {
+  position: relative;
+  margin-top: $gutter;
+  padding-top: $gutter;
+  border-top: 1px solid $colorBorder;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  .js-qty {
+    margin: 0 auto;
+  }
+}
+
+.cart-table {
+  th {
+    font-weight: normal;
+  }
+
+  td,
+  th {
+    padding: 30px 15px;
+    border: none;
+  }
+}
+
+@include at-query ($min, $large) {
+  .cart__row--table-large {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+    .grid__item {
+      display: table-cell;
+      vertical-align: middle;
+      float: none;
+    }
+  }
+}
+
+.cart__image {
+  display: block;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.cart__subtotal {
+  margin: 0 0 0 ($gutter / 3);
+  display: inline;
+}
+
+.cart__mini-labels {
+  display: block;
+  margin: ($gutter / 3) 0;
+  font-size: em(12px);
+
+  @include at-query ($min, $large) {
+    display: none;
+  }
+}
+
+.cart__remove {
+  display: block;
+}
+
+.additional_checkout_buttons{
+  margin-top:30px;
+  text-align:center;
+}
+
+/*============================================================================
+  #Ajax Cart Styles (conditionally loaded)
+==============================================================================*/
+{% if settings.ajax_cart_method == "drawer" %}
+
+.ajaxcart__inner {
+  margin-bottom: $gutter;
+}
+
+.ajaxcart__row {
+  > .grid {
+    margin-left: -$gutter / 2;
+
+    > .grid__item {
+      padding-left: $gutter / 2;
+    }
+  }
+}
+
+.ajaxcart__product {
+  position: relative;
+  max-height: 500px;
+
+  &.is-removed {
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: all 450ms cubic-bezier(0.57,.06,.05,.95);
+    @include backface();
+  }
+}
+
+.ajaxcart__row {
+  padding-bottom: $gutter / 2;
+  margin-bottom: $gutter / 2;
+  border-bottom: 1px solid $colorDrawerBorder;
+}
+
+.ajaxcart__product-image {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+.ajaxcart__product-name,
+.ajaxcart__product-meta {
+  display: block;
+}
+
+.ajaxcart__product-name + .ajaxcart__product-meta {
+  padding-top: $gutter / 5;
+}
+
+/*================ Quantity Selectors ================*/
+.js-qty {
+  position: relative;
+  margin-bottom: 1em;
+  max-width: 100px;
+  min-width: 75px;
+  overflow: visible;
+  border: 1px solid #bbb;
+  margin: 8px 0;
+  padding:1px;
+  
+  
+
+  input {
+    display: block;
+    background: none;
+    text-align: center;
+    width: 100%;
+    padding: 5px 25px;
+    margin: 0;
+  }
+}
+
+.js-qty__adjust {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  border: 0 none;
+  padding: 0 8px;
+  background: none;
+  text-align: center;
+  overflow: hidden;
+  @include user-select(none);
+
+  &:hover,
+  &:focus {
+    color: $colorPrimary;
+  }
+}
+
+.js-qty__adjust--plus {
+  right: 0;
+  border-left: 1px solid #bbb;
+}
+
+.js-qty__adjust--minus {
+  left: 0;
+  border-right: 1px solid #bbb;
+}
+
+/*================ Quantity Selectors in Ajax Cart ================*/
+.ajaxcart__qty {
+  @extend .js-qty;
+  margin: 0;
+
+  .is-loading & {
+    opacity: 0.5;
+    transition: none;
+  }
+}
+
+.ajaxcart__qty-num {
+  border-color: $colorDrawerBorder;
+  color: $colorDrawerText;
+}
+
+.ajaxcart__qty-adjust {
+  @extend .js-qty__adjust;
+  color: $colorDrawerText;
+}
+
+.ajaxcart__qty--plus {
+  @extend .js-qty__adjust--plus;
+  border-color: $colorDrawerBorder;
+}
+
+.ajaxcart__qty--minus {
+  @extend .js-qty__adjust--minus;
+  border-color: $colorDrawerBorder;
+}
+
+{% endif %} // settings.ajax_cart_method
+
+/*============================================================================
+  #Exederm helper & general styles
+==============================================================================*/
+
+.hSpacer{
+  display:block;
+  width:100%;
+ 
+  &.twenty-five{
+    height:25px;
+  }
+  &.fifteen {
+  	height:15px;
+  }
+  &.ten{
+    height:10px;
+  }
+
+  &.forty{
+    height:40px;
+  }
+  
+  &.sixty {
+    height:60px;}
+}
+
+.check-list{
+    list-style: none;
+    padding: 0;
+    margin:0;
+    float: left;
+    font-weight:$regular;
+
+  li{
+    background-image:url(https://cdn.shopify.com/s/files/1/1211/7332/files/sprite_copy.png?3756116678429145426);
+    background-repeat:no-repeat;
+    text-transform: uppercase;
+    color: #898989;
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 4px 0 4px 30px;
+
+    &:last-of-type{
+      margin-bottom:0;
+    }
+  }
+
+  &.first{
+    margin-right:50px;
+  }
+}
+
+.med--center{
+  @include respond($medium){
+    text-align:center !important;
+  }
+}
+
+.small--center{
+    @include respond($small){
+    text-align:center !important;
+  }
+}
+
+.small-no-left{
+  @include respond($small){
+    padding-left:0;
+  }
+}
+
+/*============================================================================
+  #Exederm header styles
+==============================================================================*/
+
+#green-stripe{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  height:12px;
+  background-color:#ffffff;/*#5fa787;*/
+  display:block;
+}
+
+/*============================================================================
+  #Exederm footer styles
+==============================================================================*/
+ #footer-container {
+     margin: 0 auto;
+     background-color: #F6F5F4;
+    /*padding: 0 18%;
+    */
+     padding: 12px 0;
+}
+ .footer-main-block {
+     background-color: #f6f5f4;
+     width: 100%;
+     margin-top: 30px;
+}
+ .footer-main-block .border-right {
+     border-right: none;
+    /*1px solid #cbe4c7;
+    */
+     padding-right: 12px;
+}
+ .footer-main-block .grid__item a {
+     font-family: "Open Sans", sans-serif;
+     display: block;
+     font-size: 12px;
+     color: #535353;
+     font-weight: 400;
+     line-height: 30px;
+     text-decoration:none;
+}
+
+.footer-main-block .grid__item a:hover {
+	text-decoration:underline;
+  	color:#3E9A76;
+}
+
+ .footer-main-block .single a {
+     font-family: "Encode Sans", sans-serif;
+     display: block;
+     font-size: 14px;
+     font-weight: 700;
+     line-height: 38px;
+}
+ .footer-main-block .grid__item ul li:first-of-type a {
+     font-family: "Encode Sans", sans-serif;
+     font-size: 14px;
+     font-weight: 700;
+     line-height: 30px;
+}
+ .footer-main-block .push-down {
+     padding-top: 32px;
+}
+ .footer-main-block .push-down li:first-of-type a {
+     font-size: 12px !important;
+     font-weight: 400 !important;
+     line-height: 30px;
+}
+ .footer-main-block .all-bold a {
+     font-size: 16px;
+     font-weight: 700;
+}
+ .footer-disappear {
+     display: block;
+}
+ @media screen and (max-width: 1199px) {
+     .footer-disappear {
+         display: none;
+    }
+}
+ .footer-appear {
+     display: block;
+}
+ @media screen and (max-width: 1199px) {
+     .footer-appear {
+         display: block;
+    }
+}
+ .footer-linklist {
+     list-style-type: none;
+     margin: 0;
+}
+ .footerline {
+     margin: 0 0 30px;
+     border-bottom: solid #d5d5d5 1px;
+}
+/*Quick Access Bar container background color override*/
+ #qab_container {
+     background: #F6F5F4;
+}
+/*Smaller type for footer links on mobile screens*/
+ @media only screen and (max-width: 479px) {
+     .grid__item.one-half.footer-col {
+         padding: 0 0 0 20px;
+        /* margin: 0 auto;
+         */
+    }
+     .footer-main-block .grid__item a {
+         font-size: 11px;
+         letter-spacing: -.01em;
+         line-height: 30px;
+    }
+     .footer-main-block .single a {
+         font-size: 13px;
+         letter-spacing: -.02em;
+         line-height: 30px;
+    }
+     .footer-main-block .grid__item ul li:first-of-type a {
+         font-size: 13px;
+         line-height: 30px;
+         letter-spacing: -.02em;
+    }
+}
+/*tablet size footer */
+ @media screen and (max-width: 639px)  {
+     .footer-tablet {
+         display: none;
+    }
+}
+ @media screen and (min-width: 640px) and (max-width: 1199px)  {
+     .footer-tablet {
+         display: block;
+    }
+}
+ @media screen and (min-width: 1199px) {
+     .footer-tablet {
+         display: none;
+    }
+     .footer-main-block, .footer-disclaimer {
+         padding: 40px 9% 8px 9%;
+        /*40px 0 8px;
+        */
+    }
+}
+/*mobile footer disappears over 639px*/ 
+ @media only screen and (min-width: 639px) {
+     .footer-appear {
+         display: none;
+    }
+   
+   .site-header__logo-link {
+	padding-right: 15px;
+	}
+   
+}
+
+@media screen and (min-width:640px) and (max-width:1199px) {
+   .site-header__logo-link {
+	padding-right: 130px/*15px*/;
+	}
+}
+
+/*for footer screen size below 640px;
+ target size 414px*/
+ @media only screen and (max-width: 639px) {
+     .footer-appear {
+         display: block;
+    }
+     .grid__item.one-half.footer-col {
+         letter-spacing: -.02em;
+    }
+     .grid__item.one-whole img {
+         margin-bottom: 20px;
+    }
+     .footer-disclaimer {
+         padding: 0;
+    }
+   
+   #fr1, #fr2 {
+   padding-left:20px;
+   }
+}
+ @media screen and (max-width: 479px) {
+     .footer-main-block .wrapper, .footer-disclaimer .wrapper {
+         padding: 0 4px 0 0;
+         margin-left: 4px;
+    }
+}
+ @media screen and (max-width: 414px) {
+     .footer-appear {
+         display: block;
+         width: 380px;
+    }
+     #flg {
+         width: 380px;
+        /* margin: 0 0 0 20px;*/
+    }
+     #fd {
+         padding: 0 10px 0 12px;
+    }
+     .footer-main-block .grid__item ul li:first-of-type a {
+         margin-top: -14px;
+    }
+     .grid__item.one-half.footer-col {
+         letter-spacing: -.02em;
+         padding: 0; /*0 0 0 30px;*/
+         margin-bottom: 10px;
+    }
+     .grid__item.one-half .footer-col {
+         letter-spacing: -.02em;
+    }
+     .footer-main-block .grid__item a {
+         font-size: 11px;
+         letter-spacing: -.01em;
+         line-height: 28px;
+    }
+     .footer-main-block .single a {
+         font-size: 13px;
+         letter-spacing: -.02em;
+         line-height: 28px;
+    }
+}
+ @media screen and (max-width: 360px) {
+     #flg {
+         width: 340px;
+         margin: 0;
+    }
+   
+   .grid__item.one-half.footer-col {
+    letter-spacing: -.02em;
+    padding: 0 0 0 10px;
+    margin-bottom: 10px;
+	}
+}
+ .footer-disclaimer {
+     color: #535353;
+     font-size: 12px;
+     line-height: 16px;
+     font-weight: 400;
+     width: 100%;
+     background-color: #f6f5f4;
+    /*#6eae9b;
+    */
+    /*border-top:10px solid white;
+    */
+}
+ .lastitem, .lastitem li {
+     color: #f6f5f4 !important;
+}
+ .footer-bottom-nav ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     float: left;
+     font-weight: 300;
+}
+ .footer-bottom-nav ul li {
+     display: inline-block;
+     font-weight: 400;
+     font-size: 12px;
+     line-height: 14px;
+     color: #c4c9bd;
+}
+ .footer-bottom-nav ul li a {
+     color: #535353;
+     font-weight: 700;
+     padding: 12px 0;
+     display: inline-block;
+     font-size: 12px;
+}
+ .footer-bottom-nav ul li a:hover {
+     color: #535353;
+}
+ @media screen and (max-width: 768px) {
+     .footer-links {
+         text-align: left;
+    }
+}
+
+
+/*============================================================================
+  #Exederm homepage exclusive styles
+==============================================================================*/
+
+.basic-button{
+    font-weight:$regular;
+    font-size:18px;
+    padding:5px 15px;
+    color:white;
+    background-color: $color-secondary;
+    margin-top:10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    &:hover{
+      background-color: $color-secondary-darker;
+    }
+}
+
+
+.homepage-hero-container{
+  width:100%;
+  height:420px;
+  display:block;
+  /*background-image:url(https://cdn.shopify.com/s/files/1/1211/7332/files/EXE-004_Homepage_Revised_v4_02.jpg?1020533051153216260);*/
+  background-size:cover;
+  background-position:46%;
+  padding-bottom:15px;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+   height:340px;
+  }
+
+  @include respond($small){
+    background-image:url(https://cdn.shopify.com/s/files/1/1211/7332/files/EXE-004_Homepage_MOBILE_v3_02_4f78e5ff-5c8f-4090-be68-13f606f862ac.jpg?8068642555580753942);
+   }
+  
+
+  h1{
+    font-family: 'Encode Sans', sans-serif;
+    font-size:50px;
+    line-height:54px;
+    color:#535353;
+    margin-bottom:0;
+
+    @include respond(960px){
+      font-size:38px;
+      line-height:40px;
+    }
+
+    @include respond($medium){
+      font-size:35px;
+      line-height:38px;
+    }
+
+    @include respond($small){
+      font-size:29px;
+      line-height:33px;
+    }
+    @include respond(400px){
+      font-size:22px;
+      line-height:24px;
+    }
+  }
+
+  h2{
+    font-weight:$light;
+    font-size:44px;
+    line-height:40px;
+    color:#539c7c;
+
+    @include respond(960px){
+      font-size:36px;
+      line-height:35px;
+    }
+    @include respond($medium){
+      font-size:31px;
+      line-height:36px;
+    }
+    @include respond($small){
+      font-size:25px;
+      line-height:27px;
+    }
+    @include respond(400px){
+      font-size:20px;
+      line-height:25px;
+    }
+  }
+  button{
+    @extend .basic-button;
+
+    a{
+      color:white;
+    }
+  }
+
+  @include respond($medium){
+    height:340px;
+   /* padding-top:50px;
+    padding-left: 30px;*/
+
+  }
+}
+
+.lt-ie9 .homepage-hero-container{
+  text-align:left;
+  background-size:100%;
+}
+
+.homepage-top-coupon{
+  display:none;
+   @include respond($small){
+    display:block;
+    width:100% !important;
+    float:none;
+    text-align:center;
+  }
+}
+
+.homepage-coupon-column{
+
+  @include respond($small){
+    display:none;
+  }
+}
+
+.homepage-babies{
+  @include respond($medium){
+    width:50% !important;
+    float:left;
+  }
+  @include respond($small){
+    width:100% !important;
+    float:none;
+    text-align:center;
+  }
+}
+
+.homepage-adults{
+  @include respond($medium){
+    width:50% !important;
+    float:right;
+  }
+    @include respond($small){
+    width:100% !important;
+    float:none;
+    text-align:center;
+  }
+}
+
+.homepage-med{
+  clear:none !important;
+  @include respond($medium){
+    display:none;
+  }
+}
+
+.home-main-content{
+  h1, .header-one{
+    font-size:24px;
+    line-height:30px;
+    font-weight:$regular;
+  }
+  p{
+    font-weight:$light;
+    font-size:18px;
+    line-height:23px;
+  }
+  .button-light{
+    @extend .basic-button;
+    background-color:#d4e5f8;
+    color:$color-secondary;
+    &:hover{
+      background-color:darken(#d4e5f8, 10%);
+    }
+  }
+  .button-small{
+    @extend .basic-button;
+    font-size:14px;
+  }
+}
+
+.homepage-coupon-column{
+  text-align:right;
+  @include respond(768px){
+    text-align: left;
+  }
+}
+
+.site-header__logo-link img{
+  @include respond(380px){
+    max-width:70%;
+  }
+}
+
+.cycle-slideshow{
+  margin:0 35px;
+  img{
+    max-width:100%;
+    width:100%;
+  }
+  .cycle-prev, .cycle-next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  .cycle-prev{
+    left:-35px;
+  }
+  .cycle-next{
+    right:-35px;
+  }
+}
+
+/*============================================================================
+  #Exederm product page template styles for "product.liquid"
+==============================================================================*/
+
+/*============================================================================ #Exederm product page template styles for "product.liquid" ==============================================================================*/
+ .yotpo-label {
+     display: none !important;
+}
+ .yotpo .promoted-products-box {
+     display: none !important;
+}
+ .yotpo {
+     margin-bottom: 15px;
+}
+ .yotpo .yotpo-default-button, .yotpo input[type="button"].yotpo-default-button {
+     display: inline-block;
+     text-overflow: ellipsis;
+     border: none;
+     font-family: "Encode Sans", sans-serif !important;
+     text-transform: capitalize !important;
+     font-weight: 600 !important;
+     text-align: center;
+     font-size: 14px;
+     padding: 12px 18px !important;
+     background: #3e9a76 !important;
+     color: #fff;
+     height: auto;
+     margin: 0 0 5px 0;
+}
+ .yotpo.yotpo-main-widget .yotpo-icon-btn .yotpo-icon, .yotpo .yotpo-modal-dialog .yotpo-icon-btn .yotpo-icon {
+     font-size: 19px;
+     color: #fff;
+     display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+.yotpo-first-review-stars {
+	display: none;
+	}
+.yotpo.yotpo-main-widget.yotpo-small .yotpo-bottomline.yotpo-bottomline-2-boxes,
+.yotpo .yotpo-modal-dialog.yotpo-small .yotpo-bottomline.yotpo-bottomline-2-boxes,
+.yotpo-regular-box .yotpo-bottomline .yotpo-bottomline-2-boxes .yotpo-bottomline-empty-state {
+	display: none;
+    }
+.yotpo-regular-box.yotpo-bottomline.yotpo-bottomline-2-boxes.yotpo-bottomline-empty-state {
+	display: none;
+	}
+  .yotpo .yotpo-default-button, .yotpo input[type="button"].yotpo-default-button {
+	margin: 0 0 6px 0;
+	}
+  
+}
+
+.product-description.rte {
+     max-width: 570px;
+}
+ #productSelect-option-0 {
+     border: 1px solid #bbb;
+     border-radius: 0;
+}
+ .product-title {
+     font-size: 45px;
+     line-height: 54px;
+     font-family: 'Encode Sans', sans-serif;
+     color: #535353;
+}
+ #prod-desc-price {
+     padding-left: 8%;
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+	#prod-desc-price {
+	padding-left: 2%;
+	}
+  
+.metafields, ul {
+	margin: 0 0 0 15px;
+	}
+
+#AddToCartForm {
+	margin-left: -4px;
+	}
+  
+  .special-offer-text {
+    margin-left: -10px;
+  }
+  
+  .stores {
+    margin: 10px 0 0 0;
+    display: inline-block;
+    }
+  
+  
+}
+
+@media screen and (min-width:360px) and (max-width:480px) {
+  	#AddToCartForm {
+	margin-left: 7px;
+	}
+  
+    #prod-desc-price {
+	padding-left: 4px;
+	}
+  
+   /* .product-tabs {
+	margin: 0 3%;
+	}*/
+}
+
+@media screen and (min-width:422px) and (max-width:480px) {
+  	#AddToCartForm {
+	margin-left: -4px;
+	}
+  
+    #prod-desc-price {
+	padding-left: 0;
+	}  
+}
+
+@media screen and (max-width:480px) {
+  
+  .grid.product-single {
+	margin: auto 5%;
+	}
+  
+	.metafields, ul {
+	margin: 0 0 0 18px;
+	}
+ 
+  .special-offer-text {
+    margin-left: -15px;
+  }
+  
+}
+ .stores {
+     margin: 10px 0 0 0px;
+     display: inline-block;
+}
+ #topsection {
+     max-width: 1300px;
+}
+ #award-section {
+     margin: 0 auto;
+}
+ .nea-award-info {
+     display: block;
+     padding: 0 5%;
+     text-align: center;
+     max-width: 600px;
+}
+@media screen and (max-width: 1600px) {
+     .nea-award-info {
+         padding: 5% 8%;
+         max-width: 100%;
+    }
+}
+ @media screen and (max-width: 1280px) {
+     .nea-award-info {
+         padding: 10%;
+         max-width: 100%;
+    }
+}
+ @media screen and (min-width: 769px) and (max-width: 1279px) {
+     .nea-award-info {
+         padding: 2% 10%;
+         max-width: 100%;
+    }
+}
+ @media screen and (max-width: 768px) {
+    .nea-award-info {
+         padding: 3%;
+         max-width: 100%;
+    }
+   .award1-hero-container {
+   		 margin-bottom:0;
+    }
+}
+
+ @media screen and (min-width: 420px)and (max-width:479px) {
+     .nea-award-info {
+         padding: 4% 0;
+         max-width: 100%;
+    }
+ }
+
+
+ .award1-hero-container {
+     width: 100%;
+     height: 360px;
+     display: block;
+     background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/Exederm_FlareControl_inset-prodpg.png?v=1613693438");
+     background-size: cover;
+     background-position: 0;
+
+}
+@media screen and (min-width:769px) {
+   .award1-hero-container {
+     margin-bottom:37px;
+   }
+}
+
+@media screen and (max-width: 768px) {
+     .award1-hero-container {
+         background-position: 39%;
+    }
+}
+ @media screen and (max-width: 660px) {
+     .award1-hero-container {
+         background-position: 35%;
+    }
+}
+ @media screen and (max-width: 650px) {
+     .award1-hero-container {
+         height: 340px;
+         padding-top: 40px;
+    }
+}
+ .award2-hero-container {
+     width: 100%;
+     height: 360px;
+     display: block;
+     background-color: #F9F4EB;
+	 padding:4.2%;
+}
+ @media screen and (max-width: 768px) {
+     .award2-hero-container {
+         background-position: 39%;
+    }
+}
+ @media screen and (max-width: 660px) {
+     .award2-hero-container {
+         background-position: 35%;
+    }
+}
+ @media screen and (max-width: 650px) {
+     .award2-hero-container {
+         height: 340px;
+    }
+}
+ #AddToCartForm {
+     padding-left: 0;
+}
+ @media screen and (min-width: 856px) and (max-width: 1599px) {
+     .product-title {
+         font-size: 40px;
+         line-height: 50px;
+    }
+}
+ @media screen and (min-width: 769px) and (max-width: 855px) {
+     .product-title {
+         font-size: 38px;
+         line-height: 48px;
+    }
+}
+ @media screen and (max-width: 768px) {
+    /*.product-tabs {
+         padding: 0 4px;
+    }
+    
+   .product-tabs {
+	margin: 0 7%;
+	}*/
+     .product-title {
+         font-size: 32px;
+         line-height: 42px;
+    }
+}
+ #AddToCart .btn, #AddToCart .btn--secondary {
+     background-color: #3E9A76;
+     font-size: 16px;
+     line-height: 21px;
+     padding: 10px 15px;
+     width: 200px;
+}
+ #AddToCart .btn.disabled, #AddToCart .disabled.btn--secondary {
+     background-color: #f1f1f1;
+     font-size: 16px;
+     line-height: 21px;
+     padding: 10px 15px;
+     width: 200px;
+}
+ .prod-desc-extended h2, .prod-desc-extended .h2 {
+     font-size: 20px;
+     line-height: 22px;
+     padding: 0;
+     margin: 0;
+     color: #3e9a76;
+}
+ .prod-desc-extended p {
+     font-size: 15px;
+     line-height: 22px;
+     font-weight: 400;
+     color: #535353;
+}
+ #ProductPrice {
+     margin: 18px 0;
+}
+ @media screen and (max-width: 768px) {
+     .spec-offers {
+         text-align: center;
+    }
+}
+ .ingredients {
+     color: #4f709d;
+}
+ .button-products-page {
+     display: block;
+     margin-top: 20px;
+}
+ .button-products-page a {
+     color: white;
+     font-size: 14px;
+}
+
+#shopify-section-other-top-rated-products {
+	margin-bottom: 12px;
+}
+
+/*============================================================================
+  #Exederm basic page styles
+==============================================================================*/
+.basic-page{
+  h1{
+    font-size:45px;
+    line-height:56px;
+    font-family: 'Encode Sans', sans-serif;
+    color:#535353;
+    /*text-transform: capitalize;*/
+    font-weight:500;
+    margin-bottom:40px;
+    &.green{
+      color:$color-primary;
+    }
+  }
+  h2{
+    font-size:26px;
+    line-height:32px;
+    font-family: 'Encode Sans', sans-serif;
+    color:#535353;
+    margin-bottom:36px;
+  }
+  h3 {
+  	font-size:22px;
+    line-height:28px;
+    font-family: 'Encode Sans', sans-serif;
+    color:#535353;
+    margin-bottom:28px;
+  }
+  h4{
+    font-size:20px;
+    line-height:25px;
+    font-family: 'Encode Sans', sans-serif;
+    color:#535353;
+    margin-bottom:28px;
+  }
+  p{
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom:35px;
+    font-size:16px;
+    line-height:24px;
+    font-weight:400;
+  }
+  p + ul{
+    margin-top:-23px;
+  }
+  ul + h2{
+    margin-top:30px;
+  }
+  li {
+  font-weight:400;
+  }
+ } 
+
+@media screen and (min-width:961px) and (max-width:1400px) {
+  .basic-page h1.green {
+  font-size:3vw;
+  line-height:4vw;
+  margin-bottom:24px;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width:960px) {
+  .basic-page h1.green {
+  font-size:3.2vw;
+  line-height:4.3vw;
+  margin-bottom:24px;
+  }
+}
+
+@media screen and (min-width:540px) and (max-width:767px) {
+  .basic-page h1.green {
+  font-size:5.2vw;
+  line-height:6vw;
+  margin-bottom:24px;
+  }
+}
+
+@media screen and (max-width:539px) {
+  .basic-page h1.green {
+  font-size:36px;
+  line-height:48px;
+  margin-bottom:18px;
+  }
+  /*h3.about-irritants-section-title, h3.about-irritants-section-title2, h3.about-irritants-subtitle {
+  font-size:5vw;
+  line-height:7vw;*/
+	}
+
+
+/*
+@media screen only and (max-width:768px) {
+  .basic page {
+    h1 {
+    font-size:20px;
+    line-height:45px;
+    margin-bottom:36px;
+    margin-bottom:40px;
+      &.green{
+      color:$color-primary;
+      }  
+    }
+    h2 {
+    font-size:24px;
+    line-height:30px;
+    margin-bottom:24px;
+    }
+  	h3 {
+    font-size:18px;
+    line-height:24px;  	
+  	}
+    h4 {
+    font-size:16px;
+    line-height:21px;
+    }
+    p{
+    font-size:14px;
+    line-height:18px;
+    }
+   }
+}*/
+/*May need to use*/
+
+
+
+/*============================================================================
+  #Exederm collections page styles
+==============================================================================*/
+
+.babies-hero-container{
+  @extend .homepage-hero-container;
+  background-image:url(https://cdn.shopify.com/s/files/1/1211/7332/files/EXE-004_Products_Children_v2_02.jpg?1124939924229273763);
+  height:267px;
+  padding-top:100px;
+
+  @include respond($medium){
+    background-position:52%;
+  }
+
+  h1{
+    font-size:54px;
+    line-height:47px;
+    @include respond($medium){
+      font-size:45px;
+    }
+  }
+  h2{
+    font-size:38px;
+    line-height:39px;
+    padding-right:25%;
+    @include respond($medium){
+      font-size:29px;
+      line-height:29px;
+    }
+  }
+
+  @include respond($medium){
+    height:205px;
+    padding-top:65px;
+  }
+}
+
+.adults-hero-container{
+  @extend .babies-hero-container;
+  background-image:url(https://cdn.shopify.com/s/files/1/1211/7332/files/EXE-004_Products_Children_v2_02_3bb39574-6844-426b-88a6-8868c44d97c2.jpg?4221936516231421414);
+  @include respond($medium){
+    background-position: 60% 50%;
+  }
+}
+
+.collections-page .yotpo .pull-left{
+  text-align:center !important;
+  float:none !important;
+}
+
+/*============================================================================
+  #Exederm product overview page styles
+==============================================================================*/
+
+.products-hero-container{
+  @extend .homepage-hero-container;
+  background-image:url(https://cdn.shopify.com/s/files/1/1211/7332/files/EXE-004_Products_Overview_02.jpg?12791059967412829515);
+  height:267px;
+  padding-top:100px;
+  @include respond($medium){
+    height:205px;
+    padding-top:65px;
+    background-position:50%;
+  }
+  @include respond($small){
+    background-position:40%;
+  }
+    h1{
+    font-size:54px;
+    line-height:50px;
+  }
+  h2{
+    font-size:38px;
+    line-height:39px;
+    margin-bottom:0;
+  }
+}
+
+  .products-overview-babies{
+    text-align:right;
+    @include respond($medium){
+      text-align:center;
+      margin-bottom:30px;
+    }
+  }
+
+   .products-overview-adults{
+    text-align:left;
+        @include respond($medium){
+      text-align:center;
+    }
+  }
+
+  /*============================================================================
+  #Exederm faq page styles
+==============================================================================*/
+
+/*toggle styles*/
+ .panel-title > a:before {
+     float: right !important;
+     font-family: FontAwesome;
+     content: "\f068";
+     padding-right: 5px;
+}
+ .panel-title > a.collapsed:before {
+     float: right !important;
+     content: "\f067";
+}
+ .panel-title > a:hover, .panel-title > a:active, .panel-title > a:focus {
+     text-decoration: none;
+}
+
+  
+ #accordion h3 button span, #accordion .h3 button span, #accordion h3 .about-more-info .btn span, .about-more-info #accordion h3 .btn span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span {
+     font-size: 22px;
+     margin: 0;
+     color: #3e9a76;
+     font-weight: 400;
+}
+
+  #accordion h3, #accordion .h3 {
+	padding: 0;
+	line-height: auto;
+	margin: 18px 0;
+}
+
+ #accordion div {
+     padding: 0 0 10px 0;
+}
+ #accordion p {
+     margin: 0;
+    /* padding-left: 25px;
+     */
+     color: #000000;
+     font-weight: 400;
+     font-size: 16px;
+     line-height: 24px;
+}
+#accordion {
+	margin-bottom: 50px;
+}
+ .Accordion-panel {
+     margin-top: -10px;
+}
+ span.Accordion-title {
+     text-align: left;
+     float: left;
+}
+ span.Accordion-title > a:before {
+     float: right !important;
+     font-family: FontAwesome;
+     content: "\f068";
+     padding-right: 5px;
+}
+ span.Accordion-title > a.collapsed:before {
+     float: right !important;
+     content: "\f067";
+}
+ span.Accordion-title > a:hover, span.Accordion-title > a:active, span.Accordion-title > a:focus {
+     text-decoration: none;
+}
+ @media screen and (max-width: 768px) {
+     #accordion h3 button span, #accordion .h3 button span, #accordion h3 .about-more-info .btn span, .about-more-info #accordion h3 .btn span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span {
+         font-size: 16px;
+         margin: 0;
+         color: #3e9a76;
+         font-weight: 400;
+    }
+     #accordion h3, #accordion .h3 {
+         padding: 0px;
+    }
+     #accordion div {
+         padding: 10px;
+    }
+     #accordion p {
+         margin: 0;
+        /*padding-left:25px;
+        */
+    }
+     #accordion a:active, #accordion a:focus, #accordion a:hover {
+         color: #28634c;
+    }
+}
+ @media screen only and (max-width: 630px) {
+     span.Accordion-title {
+         text-align: left;
+         float: left;
+    }
+     #accordion h3 button span, #accordion .h3 button span, #accordion h3 .about-more-info .btn span, .about-more-info #accordion h3 .btn span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span, #accordion .h3 button span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span, #accordion h3 .about-more-info .btn span, #accordion .h3 .about-more-info .btn span, #accordion h3 .about-more-info .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn span, .about-more-info #accordion .h3 .btn span, .about-more-info #accordion h3 .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span, #accordion .h3 .about-more-info .btn span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn span, .about-more-info #accordion .h3 .btn--secondary span, #accordion h3 .about-more-info .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span {
+         font-size: 14px;
+         margin: 0;
+         color: #3e9a76;
+         font-weight: 600;
+         width: 95%;
+    }
+     .Accordion-panel .basic-page p {
+         margin-bottom: 35px;
+         font-size: 16px;
+         line-height: 24px;
+         font-weight: 500;
+    }
+}
+
+/*@media screen and (min-width:480px) and (max-width:560px) {
+ #accordion h3 button span, #accordion .h3 button span, #accordion h3 .about-more-info .btn span, .about-more-info #accordion h3 .btn span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span {
+ 		width:420px;
+ 	}
+
+}*/
+
+ @media screen and (max-width: 560px) {
+     #accordion h3 button span, #accordion .h3 button span, #accordion h3 .about-more-info .btn span, .about-more-info #accordion h3 .btn span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span {
+         font-size: 16px;
+         margin: 0;
+         color: #3e9a76;
+         /*font-weight: 600;*/
+         letter-spacing: -.02em;
+         width:340px;
+    }
+     #accordion p {
+         margin: 0;
+        /* padding-left: 25px;
+         */
+         color: #000000;
+         font-weight: 500;
+         font-size: 16px;
+         line-height: 22px;
+    }
+}
+
+ @media screen and (max-width: 421px) {
+     #accordion h3 button span, #accordion .h3 button span, #accordion h3 .about-more-info .btn span, .about-more-info #accordion h3 .btn span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span {
+         width:280px;
+    }
+ }
+
+ @media screen and (max-width: 414px) {
+     #accordion h3 button span, #accordion .h3 button span, #accordion h3 .about-more-info .btn span, .about-more-info #accordion h3 .btn span, #accordion .h3 .about-more-info .btn span, .about-more-info #accordion .h3 .btn span, #accordion h3 .about-more-info .btn--secondary span, .about-more-info #accordion h3 .btn--secondary span, #accordion .h3 .about-more-info .btn--secondary span, .about-more-info #accordion .h3 .btn--secondary span {
+       	 width:270px;
+    }
+ }
+
+  /*============================================================================
+  #Exederm about x page overview styles
+==============================================================================*/
+
+.relevant-info{
+  font-family: 'Encode Sans', sans-serif;
+  font-size:20px;
+  line-height:25px;
+  color:$color-darkgrey;
+}
+
+.about-more-info{
+  border:5px solid white;
+  padding:25px 15px;
+  font-size:24px;
+  line-height:24px;
+  font-family: 'Encode Sans', sans-serif;
+  color:$color-darkgrey;
+  min-height:145px;
+  position:relative;
+
+  @include respond(440px){
+    font-size:20px;
+    line-height:21px;
+  }
+
+  @include respond(380px){
+    font-size:14px;
+    line-height:16px;
+  }
+
+  button, .btn{
+    @extend button;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top:28px;
+    background-color:$color-secondary;
+    color:white;
+    padding:7px 12px;
+    position: absolute;
+    left:15px;
+    bottom:15px;
+
+    @include respond(340px){
+      .fa{
+        display:none;
+      }
+    }
+
+    &:hover{
+      background-color:$color-secondary-darker;
+    }
+  }
+}
+
+.about-skin-box{
+  background-color:#e4f5ef;
+  padding:45px 31% 45px 50px;
+  position:relative;
+  margin:30px 0;
+
+  @include respond(825px){
+    padding:45px 50px;
+  }
+
+  @include respond($small){
+    padding:20px 25px;
+  }
+
+  img{
+    float:right;
+    position: absolute;
+    bottom:0;
+    right:-30px;
+    width: 31%;
+  }
+
+  h2{
+    color: #51a389;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  strong{
+    color: #51a389;
+  }
+}
+
+.about-skin-box.irritant{
+  margin-bottom: 190px;
+  @include respond(825px){
+    margin-bottom:30px;
+  }
+  img{
+    bottom: -180px;
+  }
+}
+
+.about-x-img-hide{
+  @include respond(825px){
+    display:none !important;
+  }
+}
+
+.about-img{
+  @include respond($medium){
+    padding-left:0px;
+  }
+}
+
+  /*============================================================================
+  #Exederm about x page individual styles
+==============================================================================*/
+
+.about-skin-indv, .about-irri-indv{
+  h1{
+    font-size:28px;
+    line-height:29px;
+    font-family: 'Encode Sans', sans-serif;
+    color:$color-darkgrey;
+    text-transform: lowercase;
+  }
+  h2{
+    font-size:20px;
+    line-height:22px;
+    font-family: 'Encode Sans', sans-serif;
+    color:$color-primary;
+    margin-bottom:15px;
+  }
+  p{
+    margin-bottom:50px;
+  }
+  p:last-of-type{
+    margin-bottom:0px;
+  }
+  ul + h2{
+    margin-top:30px;
+  }
+  img{
+    display:block;
+    float:right;
+    margin:20px;
+    @include respond($medium){
+      float:none;
+      margin:20px auto;
+    }
+  }
+}
+
+.about-skin-box-indv{
+  background-color:#e4f5ef;
+  position:relative;
+  margin:30px 0;
+}
+
+.box-interior{
+  padding:45px 30px;
+  @include respond($medium){
+    padding:35px 25px 25px 0px;
+  }
+}
+
+  /*============================================================================
+  #Exederm store locator page styles
+==============================================================================*/
+
+.main_search_bar, .search_within_distance {
+  margin-bottom:20px;
+}
+
+  /*============================================================================
+  #Exederm contact page styles
+==============================================================================*/
+
+.contact-page{
+    h1{
+    font-size:28px;
+    line-height:29px;
+    font-family: 'Encode Sans', sans-serif;
+    color:$color-darkgrey;
+    text-transform: capitalize/*lowercase*/;
+    margin:28px 0;
+  }
+  h2{
+    font-size:20px;
+    line-height:22px;
+    font-family: 'Encode Sans', sans-serif;
+    color:$color-primary;
+    margin-bottom:15px;
+  }
+  h3{
+    font-size:21px;
+    line-height:28px;
+    color:$color-darkgrey;
+    font-weight:$light;
+  }
+}
+
+.form-half{
+  width:50%;
+  float:left !important;
+  &.left{
+    padding-right:10px;
+  }
+  &.right{
+    padding-left:10px;
+  }
+  @include respond($medium){
+    float:none !important;
+    width:100% !important;
+    padding:0 !important;
+  }
+}
+
+.small-down--show{
+  display: none;
+  @include respond(650px){
+    display: block;
+  }
+}
+
+.small-down--hide{
+  @include respond(650px){
+    display: none;
+  }
+}
+
+.footer-bottom-nav{
+  padding-bottom: 30px;
+}
+
+p.intro-text{
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.retailer-container{
+  position: relative;
+    // height: 0;
+    overflow: hidden;
+}
+.retailer_container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+  /*============================================================================
+  #Tiny slider css
+==============================================================================*/
+
+.tns-outer {
+	padding: 0 !important
+}
+
+.tns-outer [hidden] {
+	display: none !important
+}
+
+.tns-outer [aria-controls],
+.tns-outer [data-action] {
+	cursor: pointer
+}
+
+.tns-slider {
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	transition: all 0s
+}
+
+.tns-slider>.tns-item {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+.tns-horizontal.tns-subpixel {
+	white-space: nowrap
+}
+
+.tns-horizontal.tns-subpixel>.tns-item {
+	display: inline-block;
+	vertical-align: top;
+	white-space: normal
+}
+
+.tns-horizontal.tns-no-subpixel:after {
+	content: '';
+	display: table;
+	clear: both
+}
+
+.tns-horizontal.tns-no-subpixel>.tns-item {
+	float: left
+}
+
+.tns-horizontal.tns-carousel.tns-no-subpixel>.tns-item {
+	margin-right: -100%
+}
+
+.tns-no-calc {
+	position: relative;
+	left: 0
+}
+
+.tns-gallery {
+	position: relative;
+	left: 0;
+	min-height: 1px
+}
+
+.tns-gallery>.tns-item {
+	position: absolute;
+	left: -100%;
+	-webkit-transition: transform 0s, opacity 0s;
+	-moz-transition: transform 0s, opacity 0s;
+	transition: transform 0s, opacity 0s
+}
+
+.tns-gallery>.tns-slide-active {
+	position: relative;
+	left: auto !important
+}
+
+.tns-gallery>.tns-moving {
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	transition: all 0.25s
+}
+
+.tns-autowidth {
+	display: inline-block
+}
+
+.tns-lazy-img {
+	-webkit-transition: opacity 0.6s;
+	-moz-transition: opacity 0.6s;
+	transition: opacity 0.6s;
+	opacity: 0.6
+}
+
+.tns-lazy-img.tns-complete {
+	opacity: 1
+}
+
+.tns-ah {
+	-webkit-transition: height 0s;
+	-moz-transition: height 0s;
+	transition: height 0s
+}
+
+.tns-ovh {
+	overflow: hidden
+}
+
+.tns-visually-hidden {
+	position: absolute;
+	left: -10000em
+}
+
+.tns-transparent {
+	opacity: 0;
+	visibility: hidden
+}
+
+.tns-fadeIn {
+	opacity: 1;
+	filter: alpha(opacity=100);
+	z-index: 0
+}
+
+.tns-normal,
+.tns-fadeOut {
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: -1
+}
+
+.tns-vpfix {
+	white-space: nowrap
+}
+
+.tns-vpfix>div,
+.tns-vpfix>li {
+	display: inline-block
+}
+
+.tns-t-subp2 {
+	margin: 0 auto;
+	width: 310px;
+	position: relative;
+	height: 10px;
+	overflow: hidden
+}
+
+.tns-t-ct {
+	width: 2333.3333333%;
+
+	width: -webkit-calc(100% * 70 / 3);
+	width: -moz-calc(100% * 70 / 3);
+	width: calc(100% * 70 / 3);
+	position: absolute;
+	right: 0
+}
+
+.tns-t-ct:after {
+	content: '';
+	display: table;
+	clear: both
+}
+
+.tns-t-ct>div {
+	width: 1.4285714%;
+	width: -webkit-calc(100% / 70);
+	width: -moz-calc(100% / 70);
+	width: calc(100% / 70);
+	height: 10px;
+	float: left
+}
+
+
+  /*============================================================================
+  #Individual Page Styles
+==============================================================================*/
+
+
+/*"About Skin and Irritants" Page, CTA boxes are also on the "About Skin" page and the "About Irritants" page */
+
+  .box-half {
+    background-color: #f4fafc;
+    /*width: 580px;*/
+    max-height:380px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.20);
+    max-width:100%;
+    margin-bottom:30px;
+}
+
+a.cta-box-link {
+ 	text-decoration:none;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.20);
+  	display: block;
+	max-width: 580px;
+ 	transition: all .2s ease 0s;
+}
+
+a.cta-box-link:hover {
+	-webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.33); 
+	box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.33);
+    transition: all .2s ease 0s;
+}
+
+.cta-image1 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-elbow.png?v=1612641300');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+
+.cta-image2 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-irritants-blue.png?v=1612641300');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+
+.cta-title, .basic-page h2 {
+	color: #3e9a76;
+	font-family: "Encode Sans";
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 28px;
+	display:inline-block;
+	padding:26px;
+    text-align:left;
+}
+
+#cta-boxes .grid-item {
+	padding-left:0;
+}
+
+/*#cta-boxes {
+	margin-left: -30px;
+	}*
+
+/*
+@media screen and (min-width:481px) and (max-width:800px) {
+#cta-boxes {
+	margin-left: -15px;
+	}
+}
+
+
+@media screen and (max-width:480px) {
+#cta-boxes {
+	margin-left: -30px;
+	}
+}*/
+
+/*"About Skin" Page - 2021 */
+
+
+  .about-skin-subtitle {
+  display:inline-block;
+  max-width: 640px;
+  color: #535353;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 36px;
+}
+  
+.about-skin-section-title, .about-skin-subtitle h3 {
+  color: #535353!important;
+  font-family: "Encode Sans";
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: center;
+  max-width:1183px;
+  margin:0 2%;  
+}
+  
+.as-wrap {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 3% 15px;
+}
+
+.as-wrap2 {
+	max-width:100%;
+  	width: 1400px;
+	margin: 0 auto;
+	padding: 0 15px !important;
+  	height:200px;
+}
+  
+p.as-box  {
+  font-family: "Open Sans";
+  font-weight: 400;
+	display: block;
+	color: #000 !important;
+	margin: 0 30px;
+	font-size: 14px;
+	line-height: 20px;
+}  
+  
+  .basic-page h2, .basic-page .h2, h2 {
+  margin-bottom:0!important;
+  }
+  
+  @media screen and (min-width:769px) and (max-width:1201px) {
+    .large--one-half {
+    width:100%;
+    padding: 2px 23%;  
+    } 
+  }
+  
+ /*  @media screen and (min-width:640px) and (max-width:768px) {
+    .large--one-half {
+    width:100%;
+    padding:2px 15% 3px 14%;  
+    } 
+  } 
+  
+  @media screen and (min-width:480px) and (max-width:639px) {
+    .large--one-half {
+    width:100%;
+    padding: 2px 5% 3px 5%;  
+    } 
+  } */
+
+  @media screen and (min-width:410px) and (max-width:480px) {
+    .large--one-half {
+    width:100%;
+    padding: 2px 2% 3px 9%;  
+} 
+   .hSpacer.forty {
+	display: none;
+}
+    .about-skin-section-title, .about-skin-subtitle h3 {
+	margin: 0 /*2% 0 7%*/;
+}
+    .green-768 {
+	color: #3e9a76;
+	font-size: 36px!important;
+	line-height: 44px!important;
+	margin-bottom: 30px!important;
+}
+  } 
+
+  @media screen and (max-width:855px) {
+    p.as-box {
+    margin: 0 25px;
+    font-size:13px;
+    line-height:18px;
+    }
+  }
+ 
+ @media screen and (min-width:720px) and (max-width:855px) {
+       
+    .about-skin-section-title {
+	margin: 0 8% 28px 8%;    
+  }
+  
+  /* .basic-page h1.green {
+   font-size: }*/
+}
+
+  .as-box-half {
+    background-color: #f4fafc;
+    height:510px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.20);
+    max-width:100%;
+    margin-bottom:30px;
+}
+.aboutskin-hero-container {
+  width:100%;
+  height:360px;
+  display:block;
+  background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-hero.jpg?v=1612671895');
+  background-size:cover;
+  background-position:46%;
+  /*padding-top:115px;*/
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:340px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-hero-mobile1.jpg?v=1612839610');
+    background-image-repeat:no-repeat;
+  }
+}
+  
+.aboutskin-hero-container2 {
+  width:100%;
+  height:360px;
+  display:block;
+  /*background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-hero.jpg?v=1612671895');*/
+  background-size:cover;
+  background-position:46%;
+  /*padding-top:115px;*/
+
+  @include respond($medium){
+  background-position:39%;
+  }
+  
+  @include respond (960px) {
+  background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/what-is-eczema-med.jpg?v=16127505840');
+    	background-repeat:no-repeat;
+    background-size:cover;
+	width: 100%;
+	height: 360px;
+  }
+  
+ /* @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:340px;
+    padding-top:0;
+  }*/
+  
+  @include respond($small){
+    background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/what-is-eczema-med.jpg?v=16127505840');
+    background-repeat:no-repeat;
+    background-size:cover;
+	width: 100%;
+	height: 100%;
+  }    
+}
+
+.as-exp-subhead1 {
+	font-size: 26px;
+	line-height: 28px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	/* margin-bottom: 28px; */
+	font-weight: 600;
+	/* margin: 30px 0; */
+	display: block;
+	padding: 15% 0 0;
+}
+
+.as-exp-block1 {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+}
+
+@media screen and (max-width:959px) {
+	#as-exp1 {
+    display:block;
+	padding: 20px;
+}
+  #as-exp2 {
+  	display:block;
+  	padding:26px;
+}
+	.as-bg1 {
+	display: block;
+	padding: 0 10% 7%;
+	background-color: rgba(255, 252, 250, 0.8)!important;
+}
+  
+	.as-bg1-prod {
+	display: block;
+	padding: 0 10% 7%;
+	background-color: rgba(255, 252, 250, 0.8)!important;
+}  
+  .as-exp-subhead1 {
+	padding: 8% 0 0;
+	}
+}
+
+@media screen and (max-width:900px) {
+	.as-exp-block1 {
+	font-size: 16px;
+	line-height: 21px;
+	font-weight: 400;
+	}
+  .as-exp-subhead1 {
+	font-size: 22px;
+	line-height: 26px;
+}
+
+	.as-exp-subhead1 {
+	padding: 4% 0 0;
+}
+  .as-bg1 {
+	display: block;
+	padding: 0 10% 5%;
+	background-color: rgba(255, 252, 250, 0.8) !important;
+	}
+    .as-bg1-prod {
+	display: block;
+	padding: 0 10% 5%;
+	background-color: rgba(255, 252, 250, 0.8) !important;
+	}
+}
+
+@media screen and (max-width:768px) {
+#as-exp2 {
+	padding: 0 20px;
+	margin-bottom: 0;
+}
+  .hSpacer.forty {
+    display:none;
+  }
+}
+
+@media screen and (max-width:640px) {
+	.as-exp-block1 {
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 400;
+	}
+  .as-exp-subhead1 {
+	font-size: 22px;
+	line-height: 26px;
+}
+
+	.as-exp-subhead1 {
+	padding: 4% 0 0;
+    margin-bottom:-10px;  
+}
+  .as-bg1-prod {
+	display: block;
+	padding: 0 10% 5%;
+	background-color: rgba(255, 252, 250, 0.8) !important;
+	}
+  #as1 {
+  	margin-left:-15px!important;
+  	}
+}
+
+@media screen and (max-width:480px) {
+  .as-box-half {
+  height:510px;
+}
+  .cta-title {
+  padding: 26px 26px 18px!important;  
+  }
+}
+
+
+#what-is-bg {
+	background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/what-is-eczema-dermatitis3.jpg?v=1612745227');
+	background-repeat:no-repeat;
+    background-size:cover;
+	width: 100%;
+	height: 360px;
+    margin: 0 0 0 -50%;
+    background-position-x: 100%;
+ 
+  @include respond($medium){
+  background-position:39%;
+  }
+  
+  @include respond (960px) {
+  display:none;
+  }
+  
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:400px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-hero-mobile.jpg?v=1612671895');
+  }    
+}
+
+.aboutskin-hero-container3 {
+  width:100%;
+  min-height:360px;
+  display:block;
+  background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/as-bg-3.png?v=1612826729');
+  background-size:cover;
+  /*background-position:46%;
+  padding-top:115px;*/
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:340px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    height:100%;
+    padding-top:0;
+  }
+}
+
+.twotypes {
+	padding: 0 0 26px 0;
+	color: #535353;
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 32px;
+	display: block;
+}
+
+.two-types-desc {
+	margin-bottom:18px!important;
+}
+
+  
+/*atopic eczema*/
+.cta-image3 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/atopic-eczema-boximg.png?v=1612737660');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*contact-dermatitis*/
+.cta-image4 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/contact-dermatitis-boximg.png?v=1612737661');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*seborrheic dermatitis*/
+.cta-image5 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/seborrheic-dermatitis-boximg.png?v=1612737661');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*hand dermatitis*/
+.cta-image6 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/hand-dermatitis-boximg.png?v=1612737661');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*children's skin*/
+.cta-image7 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/childrens-skin-boximg.png?v=1612737661');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*adult skin*/
+.cta-image8 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/adult-skin-boximg.png?v=1612737660');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+
+/* "About Irritants Page - 2021" */
+
+  .ai-box-half {
+    background-color: #f4fafc;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.20);
+    max-width:100%;
+    margin-bottom:30px;
+}
+
+/*Fragrance*/
+.cta-image9 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/fragrance.png?v=1612841829');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}/*Colors and Dyes*/
+.cta-image10 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/colors-and-dyes.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*Parabens*/
+.cta-image11 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/parabens.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*Formaldehyde*/
+.cta-image12 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/formaldehyde.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*Sodium Laureth Sulfate*/
+.cta-image13 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/sodium-laureth-sulfate.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*Lanolin*/
+.cta-image14 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/lanolin.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*Botanicals*/
+.cta-image15 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/botanicals.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*Pthalates*/
+.cta-image16 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/pthalates.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+/*Cocamidopropyl Betaine*/
+.cta-image17 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/cocamidopropyl-betaine.png?v=1612841830');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+
+.aboutirritants-hero-container {
+  width:100%;
+  height:360px;
+  display:block;
+  background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-irritants-hero.jpg?v=1612843855');
+  background-size:cover;
+  background-position:20%;
+  /*padding-top:115px;*/
+
+  @include respond($medium){
+  background-position:39%;
+  }
+  
+  @include respond($small){
+   /*background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-hero-mobile1.jpg?v=1612839610');*/
+    background-image-repeat:no-repeat;
+  }
+}
+
+@media screen and (min-width:2140px) {
+    .aboutirritants-hero-container {
+    padding-left:115px;  
+    padding-top:0;
+    }
+}
+
+
+@media screen and (min-width:1680px) and (max-width:2140px) {
+    .aboutirritants-hero-container {
+    padding-left:115px;  
+    padding-top:1%;
+    }
+}
+
+@media screen and (min-width:1520px) and (max-width:1680px) {
+    .aboutirritants-hero-container {
+    padding-left:100px;  
+    padding-top:26px;
+    }
+}
+
+@media screen and (min-width:1401px) and (max-width:1520px) {
+    .aboutirritants-hero-container {
+    padding-left:61px;
+    padding-top:36px;
+    }
+}
+
+@media screen and (min-width: 855px) and (max-width:1400px) {
+    .aboutirritants-hero-container {
+    padding-left:61px;
+    padding-top:40px;
+    }
+}
+  
+@media screen and (min-width:768px) and (max-width:855px) {
+    .aboutirritants-hero-container {
+    padding-left: 61px;
+	padding-top: 6%;
+    }
+}
+
+@media screen and (min-width:661px) and (max-width:768px) {
+    .aboutirritants-hero-container {
+    padding-left: 30px;
+	padding-top: 2%;
+    }
+}
+
+@media screen and (max-width:660px) {
+    .aboutirritants-hero-container {
+    background-position:35%;
+    padding-top:20px;
+    }
+}
+
+@media screen and (min-width:520px) and (max-width:650px) {
+    .aboutirritants-hero-container {
+    height:340px;
+	padding:40px 20px 20px 20px;
+    }
+}
+
+@media screen and (min-width:422px) and (max-width:520px) {
+    .aboutirritants-hero-container {
+    height:340px;
+	padding:30px 0 0 20px;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:421px) {
+    .aboutirritants-hero-container {
+    height:340px;
+	padding:20px 0 0 20px;
+    }
+}
+
+
+.aboutirritants-hero-container2 {
+  width:100%;
+  height:172px;
+  display:block;
+  background-color:#F9F4EB;
+  background-size:cover;
+  background-position:46%;
+  /*padding-top:115px;*/
+
+ /* @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:260px;
+  }
+
+  @include respond($small){
+    background-image-repeat:no-repeat;
+  }*/
+}
+
+@media screen and (min-width:1007px) {
+  .aboutirritants-hero-container2 {
+  height:172px;
+  }
+}
+
+@media screen and (min-width:817px) and (max-width:1006px) {
+  .aboutirritants-hero-container2 {
+  height:200px;
+  }
+}
+
+@media screen and (min-width:713px) and (max-width:816px) {
+  .aboutirritants-hero-container2 {
+  height:230px;
+  }
+}
+
+@media screen and (min-width:481px) and (max-width:712px) {
+  .aboutirritants-hero-container2 {
+  height:260px;
+  min-height:260px;
+  max-height:320px;
+  }
+}
+
+@media screen and (max-width:855px) {
+  .aboutirritants-hero-container2 {
+    background-position:39%;
+  }
+}
+
+@media screen and (max-width:660px) {
+  .aboutirritants-hero-container2 {
+    background-position:35%;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .aboutirritants-hero-container2 {
+    background-image-repeat:no-repeat;
+  }
+}
+
+
+/* Individual Content Pages Common Styles - for About Skin and About Irritants Subpages*/
+
+.col-768 li {
+	margin: .20em 0 1em 0;
+}
+
+/* metafields subhead h2*/
+
+.meta-subtitle h2, h2.meta-subtitle  {
+	color: #535353;
+	font-family: "Encode Sans";
+	font-size: 22px;
+	font-weight: 500;
+	display:inline-block;
+	padding:0 0 10px 0;
+    text-align:left;
+} 
+
+p.metafields {
+  margin-bottom:14px;
+  font-weight:400;
+}
+
+p.metafields2 {
+	margin-bottom:34px;
+}
+
+p.metafields3 {
+  font-size:16px;
+  font-weight:400;
+  line-height:24px;
+  letter-spacing: -.02em;
+}
+
+ul.metafields3, .metafields3 li {
+  font-size:16px;
+  font-weight:400;
+  line-height:24px;
+ }
+
+ul.metafields3 {
+  margin: 30px 0 5px 20px;
+}
+
+/*.check-list.first {
+    margin-right: 50px;
+}
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+        margin-right: 0px;
+    float: left;
+    font-weight: 400;
+}*/
+
+.metafields3 li {
+	background-image: url(https://cdn.shopify.com/s/files/1/0524/5622/7007/files/checkmark.png?v=1613607256);
+	background-repeat: no-repeat;
+	margin: 5px 0;
+	padding: 4px 0 4px 30px;
+  	background-size:16px;
+  	list-style-type:none;
+    background-position-y: 3px;
+}
+
+@media screen and (max-width:480px){
+p.metafields3, ul.metafields3, li.medtafields3 {
+  font-size:16px;
+  font-weight:400;
+  line-height:22px;
+ }
+}
+/*end-metafields subhead*/
+
+@media screen and (max-width:1280px) {
+  #ap {
+  margin:0 20px 0 -10px;
+  }
+}
+
+/* Common styles for green box content on About Irritants individual pages (pages for each irritant) */
+
+.green-content-box {
+
+	font-family:"Encode Sans" sans-serif;
+	background-color:#f4fafc;
+	text-align:center;
+	display:block;
+	padding: 10px 60px 30px 60px;	
+}
+
+h4.experts {
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 25px;
+	margin:15px 0;
+}
+
+.expert-quote {
+	font-family: 'Encode Sans', sans-serif;
+	color: #3E9A76;
+	font-weight: 400;
+	font-size: 28px;
+	line-height: 34px;
+	display:block;
+	margin: 34px 0 0 0;
+}
+
+.attribution {
+	font-family: 'Open Sans', sans-serif;
+	color: #000;
+	font-weight: 400;
+	font-size: 14px;
+  	line-height:20px;
+	margin-bottom:15px;
+	display:block;
+}
+
+
+/* End Individual Content Pages Common Styles */
+
+/*"Atopic Eczema" page*/
+.aboutskin-atopic-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/atopic-eczema-hero.jpg?v=1613356441");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/atopic-eczema-hero-mobile_fc0c8f28-5490-464e-a1de-3737cbf140d0.jpg?v=1613357112');
+    background-image-repeat:no-repeat;
+  }
+}
+
+.as-wrap-indiv {
+	max-width: 100%;  
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 2.5% 15px;
+	height: 200px;
+}
+
+/*#as-indiv-secondary {
+	background-color:#F9F4EB;
+    background-size:cover;
+	width: 100%;
+	height: 200px;
+    margin: 0 0 0 -50%;
+    background-position-x: 100%;
+ 
+  @include respond($medium){
+  background-position:39%;
+  }
+  
+  @include respond (960px) {
+  display:none;
+  }
+  
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-color:#F9F4EB;
+  }    
+}*/
+
+.as-indiv-secondary-hero-container {
+  width:100%;
+  height:200px;
+  display:block;
+  background-size:cover;
+  background-position:46%;
+
+  @include respond($medium){
+  background-position:39%;
+  height:320px;
+  padding-top:20px;
+  }
+  
+  @include respond (960px) {
+  background-position:36%;
+  height:300px;
+  padding-top:20px;
+  }
+  
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:360px;
+    padding-top:20px;
+  }
+
+  @include respond($small){
+    /*background-color:#F9F4EB;*/
+    height:400px;
+ } 
+  
+  @include respond(400px){
+    height:460px;
+    padding-top:20px;
+}
+  @include respond(359px){
+    height:500px;
+    padding-top:20px;
+}
+  @include respond(315px){
+    height:600px;
+    padding-top:20px;
+  }
+
+}
+
+
+h2.as-exp-subhead2 {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	display: block;
+	padding: 1.5% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+h3.as-exp-subhead3 {
+	font-size: 20px;
+	line-height: 25px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	display: block;
+  	margin-top:1%;
+  	max-width:1140px;
+  
+}
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+h3.as-exp-subhead3 {
+	font-size: 18px;
+	line-height: 24px;
+  	margin-top:2.5%;
+	}
+}
+
+.as-bg1 {
+	padding:0 2%;
+}
+
+@media screen and (max-width:300px){
+  #as-exp1 {
+  width:280px;
+  }
+}
+
+/* "Contact Dermatitis" Page */
+
+.aboutskin-cd-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/contact-dermatitis-hero.jpg?v=1613442707");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/contact-dermatitis-mobile.jpg?v=1613442919');
+    background-image-repeat:no-repeat;
+  }
+}
+
+h2.as-exp-subhead2-cd {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	display: block;
+	padding: 3.25% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2-cd {
+	font-size: 24px;
+	line-height: 30px;
+  }
+}
+
+/* "Seborrheic Dermatitis" Page */
+
+.aboutskin-sd-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/seborrheic-dermatitis-hero.jpg?v=1613443855");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/seborrheic-dermatitis-mobile.jpg?v=1613443855');
+    background-image-repeat:no-repeat;
+  }
+}
+
+
+h2.as-exp-subhead2-sd {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	display: block;
+	padding: 3.25% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2-sd {
+	font-size: 22px;
+	line-height: 28px;
+  }
+}
+
+/* "Hand Dermatitis" Page */
+
+.aboutskin-hd-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/hand-dermatitis-hero.jpg?v=1613445228");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/hand-dermatitis-mobile.jpg?v=1613445228');
+    background-image-repeat:no-repeat;
+  }
+}
+
+
+h2.as-exp-subhead2-hd {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	display: block;
+	padding: 3.25% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2-hd {
+	font-size: 22px;
+	line-height: 28px;
+  }
+}
+
+.as-wrap-indiv-hd {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 3.5% 15px;
+	height: 200px;
+}
+
+@media screen and (min-width:1681px) {
+.as-wrap-indiv-hd {
+	padding: 2.5% 15px;
+	}
+}
+
+/* "Children's Skin" Page */
+
+.aboutskin-cs-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/childrens-skin-hero.jpg?v=1613446755");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/childrens-skin-mobile.jpg?v=1613446754');
+    background-image-repeat:no-repeat;
+  }
+}
+
+
+h2.as-exp-subhead2-cs {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	display: block;
+	padding: 3.25% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2-cs {
+	font-size: 22px;
+	line-height: 28px;
+  }
+}
+
+.as-wrap-indiv-cs {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 3.5% 15px;
+	height: 200px;
+}
+
+@media screen and (min-width:1681px) {
+.as-wrap-indiv-cs {
+	padding: 2.5% 15px;
+	}
+}
+
+/* "Adult Skin" Page */
+
+.aboutskin-ads-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/adult-skin-hero.jpg?v=1613446754");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/adult-skin-mobile.jpg?v=1613446754');
+    background-image-repeat:no-repeat;
+  }
+}
+
+
+h2.as-exp-subhead2-ads {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 500;
+	display: block;
+	padding: 3.25% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2-ads {
+	font-size: 22px;
+	line-height: 28px;
+  }
+}
+
+.as-wrap-indiv-ads {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 3.5% 15px;
+	height: 200px;
+}
+
+@media screen and (min-width:1681px) {
+.as-wrap-indiv-ads {
+	padding: 2.5% 15px;
+	}
+}
+
+/* About Irritants - "Fragrances & Perfumes" Page */
+.aboutirritants-fragrances-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/fragrance-hero.jpg?v=1613526152");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/fragrance-mobile.jpg?v=1613526541');
+    background-image-repeat:no-repeat;
+  }
+}
+
+.ai-indiv-secondary-hero-container {
+  width:100%;
+  height:200px;
+  display:block;
+  background-size:cover;
+  background-position:46%;
+  
+  @include respond(1200px){
+  padding-top:8px;
+  }
+
+  @include respond($medium){
+  background-position:39%;
+  height:300px;
+  padding-top:20px;
+  }
+  
+  @include respond (960px) {
+  background-position:36%;
+  height:260px;
+  padding-top:20px;
+  }
+  
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:300px;
+    padding-top:20px;
+  }
+
+  @include respond($small){
+    /*background-color:#F9F4EB;*/
+    height:320px;
+ } 
+  
+  @include respond(400px){
+    height:360px;
+    padding-top:20px;
+}
+  @include respond(359px){
+    height:420px;
+    padding-top:20px;
+}
+  @include respond(315px){
+    height:450px;
+    padding-top:20px;
+  }
+
+}
+
+@media screen and (min-width:480px){
+
+  #as-exp1 {
+  margin-top:1%;
+  }
+}
+
+/*About Irritants "Color & Dye" page*/
+
+.aboutirritants-color-dye-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/colors-and-dyes-hero.jpg?v=1613529412");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/colors-and-dyes-mobile.jpg?v=1613529561');
+    background-image-repeat:no-repeat;
+  }
+}
+
+/* About Irritants - "Parabens" Page */
+
+.aboutirritants-parabens-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/parabens-hero.jpg?v=1613531637");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/parabens-mobile.jpg?v=1613531246');
+    background-image-repeat:no-repeat;
+  }
+}
+
+/* About Irritants - "Formaldehyde" Page */
+
+.aboutirritants-formaldehyde-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/formaldehyde-hero.jpg?v=1613526152");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/formaldehyde-mobile_79a1a97e-0b6d-4063-924c-72f8fc06ac1e.jpg?v=1613533213');
+    background-image-repeat:no-repeat;
+  }
+}
+
+h2.as-exp-subhead2f {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+	padding: 1% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2f {
+	font-size: 24px;
+	line-height: 30px;
+	}
+}
+
+/* About Irritants - "SLS- Sodium Lauretn Sulfate" Page */
+
+.aboutirritants-sls-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/sodium-laureth-sulfate-hero.jpg?v=1613526152");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/sodium-laureth-sulfate-mobile.jpg?v=1613526152');
+    background-image-repeat:no-repeat;
+  }
+}
+
+h2.as-exp-subhead2s {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+	padding: 2.5% 0;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2s {
+	font-size: 24px;
+	line-height: 30px;
+	}
+}
+
+h3.as-exp-subhead3s {
+	font-size: 20px;
+	line-height: 25px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+  	margin-top:0;
+  	max-width:1140px;
+}
+
+/* About Irritants - "Lanolin" Page */
+
+.aboutirritants-lanolin-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/lanolin-hero.jpg?v=1613526152");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/lanolin-mobile.jpg?v=1613526152');
+    background-image-repeat:no-repeat;
+  }
+}
+
+/* About Irritants - "Botanicals" Page */
+
+.aboutirritants-botanicals-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/botanicals-hero.jpg?v=1613526152");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/botanicals-mobile.jpg?v=1613526152');
+    background-image-repeat:no-repeat;
+  }
+}
+
+h2.as-exp-subhead2b {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+	padding: 4.2% 0 1%;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2b {
+	font-size: 24px;
+	line-height: 30px;
+	}
+}
+
+h3.as-exp-subhead3b {
+	font-size: 20px;
+
+	line-height: 25px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+  	margin-top:0;
+  	max-width:1140px;
+}
+
+/* About Irritants - "Phthalates" Page */
+
+.aboutirritants-phthalates-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/phthalates-hero.jpg?v=1613526152");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/phthalates-mobile.jpg?v=1613526152');
+    background-image-repeat:no-repeat;
+  }
+}
+
+h2.as-exp-subhead2p {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+	padding: 4.2% 0 1%;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2p {
+	font-size: 24px;
+	line-height: 30px;
+	}
+}
+
+h3.as-exp-subhead3p {
+	font-size: 20px;
+	line-height: 25px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+  	margin-top:0;
+  	max-width:1140px;
+}
+
+
+/* About Irritants - "CAPB" Page */
+
+.aboutirritants-capb-hero-container {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/cocamidopropyl-betaine-hero.jpg?v=1613526152");
+	background-size: cover;
+	background-position: 46%;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:200px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/cocamidopropyl-betaine-mobile.jpg?v=1613526152');
+    background-image-repeat:no-repeat;
+  }
+}
+
+h2.as-exp-subhead2cb {
+	font-size: 26px;
+	line-height: 32px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+	padding: 4.2% 0 1%;
+  	max-width:1200px;
+  	letter-spacing:-.01em;
+}
+
+@media screen and (max-width:640px) {
+h2.as-exp-subhead2cb {
+	font-size: 24px;
+	line-height: 30px;
+	}
+}
+
+h3.as-exp-subhead3cb {
+	font-size: 20px;
+	line-height: 25px;
+	font-family: 'Encode Sans', sans-serif;
+	color: #535353;
+	font-weight: 600;
+	display: block;
+  	margin-top:0;
+  	max-width:1140px;
+}
+
+/* "FAQ" Page */
+/*See page template*/
+
+/*"Products" main page*/
+
+.products-hero-container {
+  width:100%;
+  height:360px;
+  display:block;
+  background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/products-hero.jpg?v=1613608918');
+  background-size:cover;
+  background-position:46%;
+  /*padding-top:115px;*/
+
+  @include respond($medium){
+  background-position:39%;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:340px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/products-mobile.jpg?v=1613609145');
+    background-image-repeat:no-repeat;
+  }
+}
+
+.products-bottom-hero-container {
+  width:100%;
+  height:360px;
+  display:block;
+  /*background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/product-philosphy-hero.jpg?v=1613546734');*
+  background-size:cover;
+  background-position:46%;
+  /*padding-top:115px;*/
+
+  @include respond($medium){
+  background-position:39%;
+  }
+  
+  @include respond (960px) {
+  background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/Exederm_IntensiveMoisturizer_Products-Main.jpg?v=1618891941');
+    	background-repeat:no-repeat;
+    background-size:cover;
+	width: 100%;
+	height: 360px;
+    background-position: 60%;
+  }
+  
+ /* @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:340px;
+    padding-top:0;
+  }*/
+  
+  @include respond($small){
+    background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/product-philosphy-mobile.jpg?v=1613547082');
+    background-repeat:no-repeat;
+    background-size:cover;
+	width: 100%;
+	height: 100%;
+  }    
+}
+
+.as-wrap-products {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+@media screen and (max-width:768px) {
+  .as-wrap-products {
+  padding:2.5% 15px 0;
+  }
+
+}
+
+#products-bg {
+	background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/Exederm_IntensiveMoisturizer_Products-Main.jpg?v=1618891941');
+	background-repeat:no-repeat;
+    background-size:cover;
+	width: 100%;
+	height: 360px;
+    margin: 0 0 0 -50%;
+    background-position-x: 80%;
+ 
+  @include respond($medium){
+  background-position:39%;
+  }
+  
+  @include respond (960px) {
+  display:none;
+  }
+  
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:400px;
+    padding-top:40px;
+  }
+
+  @include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/product-philosphy-mobile_7db7fc8e-03d2-4d5f-af54-5284a21a2d79.jpg?v=1618892327');
+  }    
+}
+
+/* Box image - "Eczema Care For Children" */
+.cta-image18 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/eczema-care-for-babies-and-children.jpg?v=1613609784');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+
+/* Box image - "Eczema Care For Adults" */
+.cta-image19 {
+	background-image: url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/eczema-care-for-adults.jpg?v=1613609784');
+	background-repeat:no-repeat;
+	height:295px;
+	margin:0;
+}
+
+.prodtxt {
+	font-size: 24px;
+	line-height: 54px;
+	font-weight: 400;
+}
+
+@media screen and (max-width:1200px) {
+	.prodtxt {
+	font-size: 22px;
+	line-height: 52px;
+	font-weight: 400;
+	}
+}
+
+@media screen and (max-width:1180px) {
+	.prodtxt {
+	font-size: 20px;
+	line-height: 50px;
+	font-weight: 400;
+	}
+}
+
+@media screen and (max-width:900px) {
+	.prodtxt {
+	font-size: 16px;
+	line-height: 21px;
+	font-weight: 400;
+	}
+}
+
+@media screen and (max-width:640px) {
+	.prodtxt {
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 400;
+	}
+}
+
+	#prod-exp1 {
+    display:block;
+	padding: 0 0 0 30px;
+}
+
+@media screen and (max-width:959px) {
+	#prod-exp1 {
+    display:block;
+	padding: 20px;
+	}
+}
+
+.as-bg2-prod {
+    display: block;
+    padding: 0 10% 5%;
+    background-color: rgba(255, 252, 250, 0);
+}
+
+@media screen and (max-width:1280px) {
+	.as-bg2-prod {
+	    padding: 0;
+	}
+}
+
+@media screen and (max-width:1200px) {
+	.as-bg2-prod {
+	 padding:4% 5% 0 1%;
+	}
+}
+
+@media screen and (max-width:1000px) {
+	#prod-exp1 {
+    padding: 0 0 0 10px;
+	}
+    .cta-title, .basic-page h2, .basic-page .h2 {
+	font-size: 18px;
+	font-weight: 600;
+	}
+}
+
+@media screen and (max-width:960px) {
+.as-bg2-prod {
+	display: block;
+	padding: 5% 5% 10% 10%;
+	background-color: rgba(255, 252, 250, 0.8);
+	margin-top: 8.5%;
+}
+  
+  .prodtxt {
+    font-size: 18px;
+    line-height: 48px;
+    font-weight: 400;
+    letter-spacing:-.02em;
+	}
+}
+
+@media screen and (max-width:640px) {
+ 	.as-bg2-prod {
+	display: block;
+	padding: 0 10% 5%;
+	background-color: rgba(255, 252, 250, 0.8);
+	}
+}
+
+@media screen and (max-width:600px) {
+ 	.as-bg2-prod {
+	display: block;
+	padding: 0 4% 4%;
+	background-color: rgba(255, 252, 250, 0.8);
+    margin-top:18%;
+	}
+
+  .prodtxt {
+    font-size: 16px;
+    line-height: 46px;
+    font-weight: 400;
+	}
+}
+
+@media screen and (min-width:480px) {
+	#prod-exp1 {
+	margin-top:1%;
+  }
+}
+
+@media screen and (min-width:478px) and (max-width:480px) {
+  	.as-bg2-prod {
+	display: block;
+	padding: 0 4% 4%;
+	background-color: rgba(255, 252, 250, 0.8);
+    margin-top:5%;
+}
+  
+  .check {
+	width: 20px;
+}
+  
+  #prod-exp1 {
+	padding: 0 0 3% 2%;
+	}
+}
+
+@media screen and (max-width:476px) {
+  	.as-bg2-prod {
+	display: block;
+	padding: 0 2% 2%;
+	background-color: rgba(255, 252, 250, 0.8);
+    margin-top:4%;
+	}
+  .check {
+	width: 20px;
+}
+
+}
+
+@media screen and (max-width:466px) {
+.as-bg2-prod {
+	padding: 1% 2%;
+	margin-top: 6%;
+	}
+}
+
+@media screen and (max-width:465px) {
+  .prodtxt {
+    font-size: 15px;
+    line-height: 45px;
+    font-weight: 400;
+	}
+  .as-bg2-prod {
+	padding: 1% 2%;
+	margin-top: 6%;
+	}
+
+  .check {
+	width: 17px;
+  }
+  
+  .cta-title, .basic-page h2, .basic-page .h2 {
+	font-size: 16px;
+	font-weight: 600;
+	}
+
+.fa.fa-chevron-right {
+	margin: 34px 18px 0-30px !important;
+}
+
+}
+
+@media screen and (max-width:421px) {
+  
+ 	.as-bg2-prod {
+    padding: 1% 2%;
+    margin-top: 10%;
+}
+	.prodtxt {
+	font-size: 13px;
+	line-height: 45px;
+	font-weight: 400;
+	letter-spacing: -.02em;
+	}
+}
+
+@media screen and (max-width:300px) {
+	 #prod-exp1 {
+	  width:280px;
+  }
+}
+
+
+/* "404" page */
+
+
+#404 {
+	padding:20% 0;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:200px;
+	font-family:'Encode Sans' sans-serif;
+	text-align:left;
+}
+
+h1.not-found-title {
+    line-height:28px;
+  	margin-bottom:14px;
+}
+
+h2.not-found {
+	font-family:'Encode Sans' sans-serif;
+  	font-size:22px;
+  	font-weight:32px;
+  	color:#535353;
+	text-align:left;
+  	padding-left:0;
+    line-height:0;
+  	padding-bottom:70px;
+      
+}
+
+
+/* "Home (Index)" Page */
+
+
+#flare-section-left{
+	margin: 0 auto;
+}
+
+.flare-info-block {
+	display: block;
+	padding: 13% 5% 15% 40%; /* 13% 0 15% 52.5%*/
+	text-align: left;
+	max-width: 870px;
+	margin-left: 5%;
+}
+
+	p.flare-info {
+		margin-bottom:15px;
+	font-size:20px;
+	line-height:29px;
+	margin-top:12px;
+}
+
+@media screen and (max-width:1600px) {
+  .flare-info-block {
+   padding: 20% 8% 8% 12.5%; 
+   max-width:100%;
+  }
+}
+
+@media screen and (max-width:1280px) {
+ .flare-info-block {
+   padding:10%; 
+   max-width:100%;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:1279px) {
+  .flare-info-block {
+   padding:25% 8%; 
+   max-width:100%;
+   margin: auto auto;
+   text-align: center;
+  }
+}
+
+@media screen and (max-width:768px) {
+	.flare-info-block {
+	display: block;
+	margin: auto auto;
+	text-align: center;
+	max-width: 640px;
+	padding: 7% 4px 5% 4px;
+	letter-spacing: -.02em;
+	vertical-align: middle;
+}
+	
+		p.flare-info {
+		margin-bottom:30px;
+	font-size:20px;
+	line-height:29px;
+	margin-top:12px;
+	}
+}
+
+.flare1-hero-container {
+  width:100%;
+  height:466px;
+  display:block;
+  background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/flare-control-cream-two-thirds.jpg?v=1613787413');
+  background-size:cover;
+  background-position:60%;
+  /*padding-top:115px;*/
+
+  @include respond($medium){
+  background-position:39%;
+  }  
+    
+  @include respond (768px) {
+  height:300px;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:340px;
+    padding-top:40px;
+  }
+
+  /*@include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-hero-mobile1.jpg?v=1612839610');
+    background-image-repeat:no-repeat;
+  }*/
+}
+
+.flare2-hero-container {
+  width:100%;
+  height:466px;
+  display:block;
+  background-color:#F9F4EB;
+
+  @include respond($medium){
+  background-position:39%;
+  }
+  
+  @include respond (768px) {
+  height:300px;
+  }
+
+  @include respond(660px){
+    background-position:35%;
+  }
+
+  @include respond(650px){
+    height:340px;
+    padding-top:40px;
+  }
+
+  /*@include respond($small){
+    background-image:url('https://cdn.shopify.com/s/files/1/0524/5622/7007/files/about-skin-hero-mobile1.jpg?v=1612839610');
+    background-image-repeat:no-repeat;
+  }*/
+}
+
+/* Start "Why Exederm" homepage section */
+
+.whyexederm-hero-container {
+	width: 100%;
+	min-height: 300px;
+	display: block;
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/as-bg-3.png?v=1612826729");
+	background-size: cover;
+}
+
+.white-button{
+  display: inline-block;
+  padding: 8px 10px;
+  margin: 0;
+  line-height: 1.42;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 200px;
+	background-color: #fff;
+	border: 2px solid #3e9a76;
+	color: #3e9a76;
+}
+
+/*#exederm-product-line img {
+	 max-width: 100%;
+  height: auto;
+}*/
+
+#exederm-product-line img {
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto !important;
+    display: block;
+}
+
+#exederm-product-line img {
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto !important;
+	display: block;
+	float: right;
+}
+
+@media screen and (min-width:1600px) {
+	#exederm-product-line img {
+	max-width:700px;
+	float: right;
+ }
+}
+
+@media screen and (max-width:769px) {
+	#exederm-product-line img {
+	float: none;
+ }
+}
+
+#we-product-bullets {
+height: 360px;
+display: block;
+background-color: #F9F4EB;
+}
+
+@media screen and (min-width:640px) and (max-width:769px){
+		#bullets-1 {
+		display: none;
+	}
+	#bullets-2 {
+		display: block;
+	}
+	#we-product-bullets {
+height: auto;
+	}
+}
+
+@media screen and (min-width:770px) {
+	#bullets-1 {
+		display: block;
+	}
+	#bullets-2 {
+		display: none;
+	}
+}
+
+@media screen and (min-width:750px) and (max-width:770px) {
+#we-product-bullets {
+	padding-left: 4.5rem;
+ }
+}
+
+@media screen and (min-width:720px) and (max-width:749px) {
+#we-product-bullets {
+	padding-left: 3rem;
+ }
+}
+
+@media screen and (min-width:659px) and (max-width:719px){
+#we-product-bullets {
+	padding-left: 2rem;
+ }
+}
+
+@media screen and (min-width:640px) and (max-width:658px){
+	#we-product-bullets {
+	height: 100%;
+ }
+ #bullets-1 {
+ 	display:block;
+	margin-left:20%;
+ }
+}
+
+
+@media screen and (max-width:639px) {
+		#bullets-1 {
+		display: block;
+	}
+	#bullets-2 {
+		display: none;
+	}	
+}
+
+@media screen and (min-width:575px) and (max-width:639px) {
+			#bullets-1 {
+		display: block;
+		margin-left:18%;
+	}
+}
+
+@media screen and (min-width:500px) and (max-width:574px) {
+			#bullets-1 {
+		display: block;
+		margin-left:15%;
+	}
+}
+
+@media screen and (min-width:440px) and (max-width:499px) {
+			#bullets-1 {
+		display: block;
+		margin-left:13%;
+	}
+}
+
+@media screen and (min-width:360px) and (max-width:430px) {
+			#bullets-1 {
+		display: block;
+		margin-left:5%;
+		min-width:300px;
+	}
+}
+
+.white-button:hover, .white-button:active {
+	background-color: #3e9a76;
+	color: #fff;
+	transition: .2s ease 0s;
+}
+
+.whyexederm-block {
+	margin: 75px auto;
+	max-width:850px;
+	padding:20px;
+}
+
+h2.why-exederm {
+	color: #535353;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 32px;
+	display: block;
+}
+
+/*end- "Why exederm" homepage section*/
+
+/* "Shop All Products" section*/
+
+.shop-all-products {
+	text-align: center;
+    margin: 0 auto 75px auto;
+}
+
+/* "Find My Solution" page */
+
+/*.fms-wrap {
+	max-width: 100%;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.fms-container {
+	width: 100%;
+	display: block;
+	max-width:1330px;
+	}
+
+.fms-content {
+	position: relative;
+	max-width: 100%;
+	padding: 35px;
+	width:550px;
+	background-color: #e5f1f8;
+	margin: auto auto;
+	
+}
+
+.fms {
+	padding-bottom:20px;
+}
+
+#fms-one {
+background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/fms-cta.png?v=1613982506");
+	max-width:100%;
+	height:auto;
+	min-height:500px;
+	display: block;
+	background-size: cover;
+		padding-top:100px;
+}*/
+
+
+.fms-wrap {
+	max-width: 100%;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.fms-content {
+	position: relative;
+	max-width: 100%;
+	padding: 40px 80px 35px 50px;
+	width:500px;
+	height:300px;
+	background-color: #e5f1f8;
+	margin: auto auto;
+}
+
+.fms {
+	padding-bottom:20px;
+}
+	
+#fms-images {
+  background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/fms-elbow.jpg?v=161390"), url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/fms-flarecream.png?v=1613903263");
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  padding: 150px;
+  height:550px;
+}
+
+@media screen and (min-width:481px) and (max-width:769px){
+	#fms-images {
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/left-elbow-image-3.jpg?v=1614127367"), url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/right-fc-cream-3.jpg?v=1614127824");
+	height:600px;
+	padding:150px 50px;
+	}
+	
+.fms-content {
+	position: relative;
+	max-width: 100%;
+	padding: 35px 10px 15px 10px;
+	width:455px;
+	height:250px;
+	background-color: #e5f1f8;
+	margin: auto auto;
+	text-align:center;
+	}
+
+.fms {
+  padding-bottom:0;
+  }
+
+}
+	
+	@media screen and (max-width:480px) {
+#fms-images {
+	background-image: url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/left-elbow-image-3.jpg?v=1614127367"), url("https://cdn.shopify.com/s/files/1/0524/5622/7007/files/right-fc-cream-3.jpg?v=1614127824");
+	height:730px;
+	padding:200px 15px;
+    }
+      
+.fms  {
+	padding-bottom:0;
+}   
+		
+.fms-content {
+	position: relative;
+	max-width: 100%;
+	padding: 35px 15px 15px 15px;
+	width:360px;
+	height:280px;
+	background-color: #e5f1f8;
+	margin: auto auto;
+	text-align:center;
+	}		
+}
+
+/* Start "NEA" homepage section */
+
+.nea-hero-container {
+	width: 100%;
+	min-height: 300px;
+	display: block;
+}
+
+.fa-star {
+	color:#FEBD12;
+	font-size:30px!important;
+	line-height:40px;
+}
+
+.nea-block {
+	margin: 60px auto;
+	max-width: 990px;
+	padding: 20px;
+}
+
+.nea {
+	font-size: 16px;
+	line-height: 32px!important;
+}
+
+@media screen and (min-width:769px){
+	.nea {
+		display:block;
+	}
+	.nea2 {
+		display:none;
+	}
+}
+
+@media screen and (max-width:768px){
+	.nea {
+		display:none;
+	}
+	.nea2 {
+		display:block;
+	}
+}
+
+.nea2 {
+	font-size: 16px;
+	line-height: 24px!important;
+}
+
+/* End "NEA homepage section" */
+
+/* retailers slideshow headline at bottom */
+.retailers {
+text-align:center;
+}
+
+@media screen and (max-width:500px) {
+  h2.retailer-slider-headline {
+  font-size:22px;
+  }
+}
+
+/* -- End "Home" Page*/
+
+/* "Collections List" template page */
+
+#collection-list-grid {
+	padding-left:0!important;
+}
+
+
+/*Children & Babies page and Adults*/
+
+#abc-hero {
+	max-width: 1400px;
+	margin: auto auto;
+}
+
+.abc, h2.abc, .abc h2 {
+	padding-left:0;
+}
+
+.shopify-policy__container {
+  max-width: 100% !important;
+  padding: 0 !important;
+  }
+.shopify-policy__title {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

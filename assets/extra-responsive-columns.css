@@ -1,0 +1,234 @@
+/*Extra responsive columns used in some of the custom page layouts*/
+
+/*start - Used on "Why Exederm" home page section */
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col-we {
+	display: block;
+	float:left;
+	margin: 0;
+}
+.col-we:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+.span_2_of_2-we {
+	width: 100%;
+}
+.span_1_of_2-we {
+	width: 50%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 769 PIXELS */
+
+@media only screen and (max-width: 769px) {
+	.col-we { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+@media only screen and (max-width: 769px) {
+	.span_2_of_2-we, .span_1_of_2-we { width: 100%; }
+}
+
+
+/*end - Used on "Why Exederm" home page section */
+
+/* ----  full width 1/3 +2/3 on desktop but 1/2 + 1/2 on screen sizes 768 px and below with no gutter
+/* 2-column layout with full column max width with no gutter - go full width at 768px ---- */
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0;
+	margin: 0;
+}
+
+/*  COLUMN SETUP  */
+.col-768-max {
+	display: block;
+	float:left;
+	margin: .25% 0 0 0;
+}
+.col-768-max:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO WITH 1/3 + 2/3 LAYOUT */
+.span_2_of_3-768-max {
+	width: 60%;
+}
+.span_1_of_3-768-max {
+	width: 40%;
+}
+
+/*  GRID OF TWO  */
+.span_2_of_2-768-max {
+	width: 50%;
+}
+.span_1_of_2-768-max {
+	width: 50%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 768 PIXELS */
+
+@media only screen and (max-width: 768px) {
+	.col-768-max { 
+		margin: 0;
+ }
+  .span_1_of_3-768-max, .span_1_of_2-768-max {
+	margin-top:1%;
+ }
+}
+
+@media only screen and (max-width: 768px) {
+	.span_2_of_2-768-max, .span_1_of_2-768-max { width: 100%; }
+	.span_2_of_3-768-max, .span_1_of_3-768-max { width: 100%; }
+	
+}
+
+
+/*2-column layout with max width of 560px*/
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col-768 {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 2%;
+}
+.col-768:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+.span_2_of_2-768 {
+	width: 100%;
+  	max-width:560px;
+}
+.span_1_of_2-768 {
+	width: 49%;
+  	max-width:560px;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 768 PIXELS */
+
+@media only screen and (max-width: 768px) {
+	.col-768 { 
+		margin: 1% 0 2% 0%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.span_2_of_2-768, .span_1_of_2-768 { 
+      width: 100%; 
+      max-width:730px; }
+}
+
+
+/*  SECTIONS - and going full-width at 480px  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col-480 {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col-480:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+.span_2_of_2-480 {
+	width: 100%;
+}
+.span_1_of_2-480 {
+	width: 49.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col-468 { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.span_2_of_2-480, .span_1_of_2-480 { width: 100%; }
+}
+
+/* ----------------- */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+#full-row {
+	text-align:center;
+}
+
+/*  COLUMN SETUP  */
+.col-full {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col-full:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  BLOCK - PARTY OF ONE  */
+.span_1_of_1-full {
+	width: 100%;
+}
+
+/*  STAY FULL WIDTH ALL THE TIME */
+
+@media only screen and (max-width: 100%) {
+	.col-full { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+@media only screen and (max-width: 100%) {
+	.span_1_of_1-full { width: 100%; }
+}
+

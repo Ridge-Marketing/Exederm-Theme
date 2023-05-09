@@ -1,0 +1,129 @@
+{% if page_title == 'Adults - See all exederm products for adults' %}
+
+  <div class="adults-hero-container">
+    <div id="abc-hero" class="wrapper">
+      <h1>skin care</h1>
+      <h2>for adults</h2>
+    </div>
+  </div>
+
+{% else %}
+
+  <div class="babies-hero-container">
+    <div id="abc-hero" class="wrapper">
+      <h1>skin care</h1>
+      <h2>for babies and children</h2>
+    </div>
+  </div>
+
+{% endif %}
+
+{% include 'breadcrumb' %}
+
+<div class="wrapper main-content basic-page collections-page" role="main">
+  <div class="grid-uniform">
+    <div class="grid__item large--one-whole">
+
+      {{ page.content }}
+
+      <div class="hSpacer twenty-five"></div>
+
+      {% if page_title == 'Adults - See all exederm products for adults' %}
+
+        <div class="collection-name">
+          <span>Eczema Care Products for Adults</span>
+        </div>
+
+      {% else %}
+
+        <div class="collection-name">
+          <span>Eczema Care Products for Children and Babies</span>
+        </div>
+
+
+      {% endif %}
+
+
+      <div class="hSpacer forty"></div>
+
+    </div>
+    <div class="wrapper main-content basic-page collections-page" role="main">
+
+      {% comment %}
+      Use class grid-uniform to have evenly sized columns clear
+      each other properly at each breakpoint.
+      {% endcomment %}
+      <div class="grid-uniform">
+
+        {% if page_title == 'Adults - See all exederm products for adults' %}
+
+          {% for product in collections.adults.products %}
+            {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+            {% include 'product-grid-item' %}
+
+          {% endfor %}
+
+        {% else %}
+
+          {% for product in collections.babies-and-children.products %}
+
+            {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+            {% include 'product-grid-item' %}
+
+          {% endfor %}
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper main-content basic-page collections-page" role="main">
+
+  <hr style="margin-bottom:40px;">
+
+  <div class="grid-uniform">
+    <div class="grid__item one-whole">
+      {% assign pg_content = page.metafields.pg_content %}
+      {{ pg_content['para_1'] }}
+    </div>
+  </div>
+  <div class="hSpacer twenty-five"></div>
+  <div class="grid-uniform">
+    <div class="grid__item large--one-half">
+      <h4>ALL Exederm baby products contain:</h4>
+      <div class="grid-uniform">
+        <div class="grid__item large--one-half" style="padding-left:0;">
+          <ul class="check-list first" style="margin-right:10px;">
+            <li>No Fragrance</li>
+            <li>No Parabens</li>
+            <li>No Lanolin</li>
+            <li>No Propylene Glycol</li>
+          </ul>
+        </div>
+        <div class="grid__item large--one-half" style="padding-left:0;">
+          <ul class="check-list last" style="margin-right:0px;">
+            <li>No Color or Dyes</li>
+            <li>NO (SLS) SODIUM LAURETH SULFATE</li>
+            <li>NO (CAPB) COCAMIDOPROPYL BETAINE</li>
+            <li>No Phthalates</li>
+          </ul>
+          <div class="clearfix"></div>
+          <div class="hSpacer twenty-five"></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item large--one-half">
+      <hr style="margin-bottom:20px;">
+      <div class="hSpacer twenty-five"></div>
+      <div class="grid-uniform">
+        <div class="grid__item one-sixth small--hide" style="padding-left:0;">
+          <img src="https://cdn.shopify.com/s/files/1/1211/7332/files/nea-badge.jpg?11679574105445620494" alt="The badge for the National Eczema Association" />
+        </div>
+        <div class="grid__item five-sixths small--one-whole small-no-left">
+          <b>The National Eczema Association</b>
+          has honored Exederm children's skin care range with its coveted '<b>Seal of Acceptance</b>' award.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "irritants-pages-test",
+      "settings": {
+        "color": "redredred",
+        "image": "heheheheheh"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

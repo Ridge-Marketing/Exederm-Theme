@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-pages-content",
+      "settings": {
+        "featured_collection": "adults",
+        "heading": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

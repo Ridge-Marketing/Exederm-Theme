@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main": {
+      "type": "products-main-content",
+      "blocks": {
+        "b795a9f3-312b-4258-bac6-2d87a09477c5": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Image_1.png?v=1626193456",
+            "card-text": "Eczema Care for Babies and Children",
+            "link": "shopify:\/\/pages\/products-babies"
+          }
+        },
+        "ec28779e-88c4-410e-81dc-617b728261b2": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Image_2.png?v=1626193559",
+            "card-text": "Eczema Care for Adults",
+            "link": "shopify:\/\/pages\/products-adults"
+          }
+        }
+      },
+      "block_order": [
+        "b795a9f3-312b-4258-bac6-2d87a09477c5",
+        "ec28779e-88c4-410e-81dc-617b728261b2"
+      ],
+      "settings": {
+        "hero-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/products_page_main_hero.png?v=1626801795",
+        "philosophy-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/products_page_philosophy_hero.png?v=1626801826"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

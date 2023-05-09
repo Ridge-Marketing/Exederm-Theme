@@ -1,0 +1,48 @@
+<div class="xl:tw-grid xl:tw-grid-cols-2 tw-pt-3">
+  <div class="tw-w-full">
+    <img
+      class="tw-w-full tw-h-full tw-object-cover"
+      src='https://cdn.shopify.com/s/files/1/0561/8571/6895/t/5/assets/Exederm_FlareControl_Both_0783.png?v=66807114201825936291621348605'
+      alt="exederm product lineup" />
+  </div>
+
+  <div class="tw-bg-tan">
+    <div class="tw-py-6 xl:tw-py-12 2xl:tw-flex 2xl:tw-py-5 2xl:tw-h-full tw-px-8 md:tw-pl-10 md:tw-pr-1 xl:tw-pl-16">
+      <ul class="tw-text-24px/44px 2xl:tw-self-center tw-font-normal tw-font-encode-sans tw-m-0 md:tw-flex md:tw-flex-wrap">
+        {% for block in section.blocks %}
+          <li class="tw-checks md:tw-w-1/2 xl:tw-w-full">
+            <strong class="tw-text-24px/36px">No
+            </strong>
+            {{ block.settings.content }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "List CTA Section",
+    "max_blocks": 10,
+    "settings": [],
+    "blocks": [
+      {
+        "type": "list",
+        "name": "List Item",
+        "settings": [
+          {
+            "id": "content",
+            "type": "text",
+            "label": "List Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "List CTA",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

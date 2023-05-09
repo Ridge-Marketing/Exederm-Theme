@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  /* purgecss start ignore */
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    @apply tw-font-encode-sans tw-font-medium tw-mb-3;
+  }
+
+  h1 {
+    @apply tw-text-32px/40px;
+  }
+
+  h2 {
+    @apply tw-text-26px/33px;
+  }
+
+  h3 {
+    @apply tw-text-22px/28px;
+  }
+
+  h4 {
+    @apply tw-text-20px/25px;
+  }
+
+  body {
+    @apply tw-font-open-sans tw-font-normal;
+  }
+
+  .intro {
+    @apply tw-text-18px/24px;
+  }
+
+  p {
+    @apply tw-text-16px/24px;
+  }
+
+  .list-item {
+    @apply tw-font-encode-sans tw-text-18px/36px;
+  }
+
+  .hero--title {
+    @apply tw-font-encode-sans tw-font-medium tw-text-36px/42px;
+  }
+  @screen md {
+    .hero--title {
+      @apply tw-text-45px/56px;
+    }
+  }
+
+  .hero--body {
+    @apply tw-font-open-sans tw-font-normal tw-text-20px/29px;
+  }
+
+  .quote {
+    @apply tw-font-encode-sans tw-font-light tw-text-28px/34px;
+  }
+
+  .swiper-container .swiper-button-next::after, .swiper-container .swiper-button-prev::after {
+    @apply tw-text-white;
+  }
+  .swiper-container .swiper-pagination {
+    @apply tw-relative tw-text-left;
+  }
+  .swiper-container .swiper-pagination .swiper-pagination-bullet {
+    @apply tw-mr-2 tw-border-2 tw-opacity-100 tw-border-green tw-bg-transparent;
+  }
+  .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+    @apply tw-bg-green;
+  }
+
+  ul, ol {
+    margin: 0 0 15px 40px;
+    padding: 0;
+  }
+
+  ul {
+    @apply tw-list-disc;
+  }
+
+  ol {
+    @apply tw-list-decimal;
+  }
+
+  /* purgecss end ignore */
+}

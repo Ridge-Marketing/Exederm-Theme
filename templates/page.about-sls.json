@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main": {
+      "type": "skin-and-irritants-content",
+      "settings": {
+        "img_class": "sls-hero",
+        "color_class": "tw-text-matterhorn"
+      }
+    },
+    "collection": {
+      "type": "product-slider",
+      "settings": {
+        "heading": "Other Top Rated Products",
+        "margins": "tw-mt-14"
+      }
+    },
+    "slider": {
+      "type": "logo-slider",
+      "settings": {
+      }
+    },
+    "return": {
+      "type": "return-to",
+      "settings": {
+        "link": "\/pages\/about-irritants",
+        "text": "Return to About Irritants"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collection",
+    "slider",
+    "return"
+  ]
+}

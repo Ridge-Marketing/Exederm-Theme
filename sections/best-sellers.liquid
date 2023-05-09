@@ -1,0 +1,35 @@
+<div class="tw-text-22px/28px tw-max-w-1336px tw-mx-5 xl:tw-mx-10 2xl:tw-mx-auto tw-mb-8 tw-font-semibold tw-text-center 
+tw-border-b tw-leading-em tw-mt-14 md:tw-mt-4 xl:tw-mt-14">
+  <span class="tw-px-3 tw-bg-white">{{collections[section.settings.feature_collection].title}}</span>
+</div> 
+
+<div class="tw-mt-16 tw-max-w-1336px tw-block tw-my-0 tw-mx-auto tw-py-0 
+sm:tw-grid sm:tw-grid-cols-2 sm:tw-justify-items-center
+lg:tw-grid-cols-4 tw-px-5"> 
+
+        {% for product in collections[section.settings.feature_collection].products limit: 4 %}
+          {% include 'product-card' %}
+        {% endfor %}
+    
+      </div>
+      <div class="tw-text-center tw-mb-20 tw-mx-auto tw-mt-12"><a href="/pages/products" class="primary__button tw-text-center tw-py-3 tw-w-44">Shop All Products</a>
+      </div>
+
+{% schema %}
+  {
+    "name": "Product Card Section",
+    "settings": [
+    {
+      "type": "collection",
+      "id": "feature_collection",
+      "label": "Featured collection"
+   }
+    ],
+    "presets": [
+      {
+        "name": "Product Cards",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

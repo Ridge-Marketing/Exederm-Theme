@@ -1,0 +1,83 @@
+<div class="tw-h-52 tw-relative tw-pt-1px tw-bg-cover {{section.settings.img_class}}" style="background-image:url('{{pages[page.handle].metafields.bg_image.hero}}')">
+    <div class="tw-container tw-px-5 tw-mx-auto lg:tw-px-10 2xl:tw-pl-0 2xl:tw-pr-0 xl:tw-max-w-screen-xl">
+        <div style="max-width: fit-content;" class="tw-bg-white tw-opacity-80 lg:tw-opacity-100 lg:tw-bg-transparent lg:tw-w-auto tw-mt-14">
+            <h2 class="tw-text-32px/40px lg:tw-text-45px/56px {{section.settings.color_class}} tw-pt-5 tw-pb-6 tw-px-4 lg:tw-pl-0">
+                {{page.title}}
+            </h2>
+        </div>
+    </div>
+    </div>
+
+    <div class="tw-bg-tan tw-mb-6 lg:tw-mb-8 tw-py-9 lg:tw-pb-14">
+        <div class="tw-container tw-px-5 tw-mx-auto lg:tw-px-10 2xl:tw-pl-0 2xl:tw-pr-0 xl:tw-max-w-screen-xl">
+                <h2 class="tw-text-matterhorn tw-text-26px/33px tw-pb-7 tw-pr-2 lg:tw-pr-8 2xl:tw-pr-0">{{pages[page.handle].metafields.text.subhero-heading}} </h2>
+                <p class="tw-text-black tw-text-18px/24px lg:tw-text-20px/25px tw-font-encode-sans tw-font-medium md:tw-pr-5 2xl:tw-pr-0">
+                    {{pages[page.handle].metafields.text.subhero-paragraph}}
+                </p>
+        </div>
+    </div>
+    {% if section.settings.content_type_class == "skin-blocks" %}
+    <div class="tw-mb-12">
+        <div class="tw-container tw-px-5 md:tw-pr-12 lg:tw-pr-5 lg:tw-pl-10 2xl:tw-pl-0 xl:tw-max-w-screen-xl tw-mx-auto lg:tw-grid lg:tw-grid-cols-2">
+            {% for field in pages[page.handle].metafields.content_sections %} 
+            <div class="tw-pb-8 {{section.settings.content_type_class}}">
+                {{field | last}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% else %} 
+        <div class="tw-my-9">
+            <div class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 2xl:tw-px-0 xl:tw-max-w-screen-xl irritants-block">
+                <div class="lg:tw-grid lg:tw-grid-cols-2 lg:tw-mb-6 lg:tw-gap-x-8 xl:tw-gap-x-16">
+                    <div class="content-left">
+                        {{pages[page.handle].metafields.content_sections.content-left}}
+                    </div>
+                <div>
+                    <div class="tw-bg-aliceblue tw-px-5 tw-py-8 tw-pb-2 md:tw-py-10 tw-text-left tw-mb-6 card">
+                        {{pages[page.handle].metafields.content_sections.content-right}}
+                    </div>
+                </div>
+                </div>
+                <div class="content-below">
+                    {{pages[page.handle].metafields.content_sections.content-below}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if page.title == "Parabensz" %} 
+    <div class="tw-container tw-mx-auto xl:tw-max-w-screen-xl tw-px-5 lg:tw-pl-10 2xl:tw-pl-0 tw-mb-9">
+        <a class="tw-text-green tw-font-bold tw-text-16px/22px tw-font-open-sans tw-underline" href="/products/eczema-flare-control-cream">Exederm flare control cream</a><span class="tw-font-open-sans tw-text-16px/22px tw-font-bold tw-text-matterhorn"> is the only hydrocortisone cream available in the US without parabens</span>
+    </div>
+    {% endif %}
+
+    {% schema %}
+  {
+    "name": "Skin/Irritants Content",
+    "settings": [
+    {
+        "id": "img_class",
+        "type": "text",
+        "label": "Image Class"
+    },
+    {
+        "id": "color_class",
+        "type": "text",
+        "label": "Color Class"
+    },
+    {
+        "id": "content_type_class",
+        "type": "text",
+        "label": "Content Type"
+    }   
+    ],
+    "presets": [
+      {
+        "name": "Skin and Irritants Content",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

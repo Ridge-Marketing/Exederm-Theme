@@ -1,0 +1,85 @@
+{% assign image = section.settings.hero-img %}
+{% assign title = page.title %}
+{% assign description = section.settings.hero-text %}
+{% assign selector = 'white' %}
+{% assign class = 'irritants-hero' %}
+<!-- screen size at which background box is removed from hero text -->
+{% assign size = 'md' %}
+{% include 'skin-and-irritants-main-hero' %}
+
+<div class="tw-bg-tan">
+  <p class="tw-font-encode-sans tw-font-medium tw-text-26px/33px tw-text-matterhorn tw-pt-10 xl:tw-pt-11 tw-pb-12 md:tw-pb-11 tw-px-5 md:tw-pl-10 md:tw-pr-10
+                                            xl:tw-max-w-1336px xl:tw-mx-auto 2xl:tw-pl-0">{{ section.settings.posthero-text }}</p>
+</div>
+
+<p class="tw-text-center tw-text-22px/28px tw-text-matterhorn tw-mt-10 tw-font-encode-sans tw-font-medium tw-pl-5 tw-pr-9 md:tw-px-10 xl:tw-px-56 2xl:tw-px-0 xl:tw-max-w-1336px xl:tw-mx-auto tw-mb-11">
+  {{ section.settings.card-heading }}
+</p>
+
+<div class="tw-mx-5 md:tw-mx-auto xl:tw-grid xl:tw-grid-cols-2 xl:tw-grid-cols-3 2xl:tw-gap-x-8 tw-max-w-screen-xl tw-mb-20">
+  {% for block in section.blocks %}
+    <div class="tw-mb-9 md:tw-mb-14">
+      {% assign image = block.settings.card-img %}
+      {% assign link = block.settings.link %}
+      {% assign text = block.settings.card-text %}
+      {% assign small = true %}
+      {% include 'skin-and-irritant-card' %}
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "About Irritants Section",
+    "settings": [
+      {
+        "id": "hero-text",
+        "type": "text",
+        "label": "Hero Text",
+        "default": "This is the hero text"
+      }, {
+        "id": "hero-img",
+        "type": "url",
+        "label": "Hero Image"
+      }, {
+        "id": "posthero-text",
+        "type": "text",
+        "label": "Post Hero Textbox",
+        "default": "This is the Post Hero textbox"
+      }, {
+        "id": "card-heading",
+        "type": "text",
+        "label": "Card Heading",
+        "default": "This is the card heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "id": "card-img",
+            "type": "url",
+            "label": "Card Image URL"
+          }, {
+            "id": "card-text",
+            "type": "text",
+            "label": "Card Text"
+          }, {
+            "id": "link",
+            "type": "url",
+            "label": "Link URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "About Irritants",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,59 @@
+{% if product.metafields.tabs.features_benefits != blank %} 
+{% assign container_height= "tw-min-h-180px" %}
+{% assign has_features_tab = true %}
+{% assign display = true %}
+{% else %} 
+{% assign container_height= "tw-min-h-120px" %}
+{% assign has_features_tab = false %}
+{% assign display = false %}
+{% endif %}
+<!-- TABS FOR DEVICES 1280px WIDTH AND ABOVE  -->
+  
+<div class="tw-hidden tw-min-h-256px tw-bg-aliceblue xl:tw-block tabs">
+  <div class="tw-px-5 md:tw-px-10 2xl:tw-px-0 tw-container xl:tw-max-w-1336px tw-mx-auto tw-pt-9 tw-font-encode-sans">
+    {% if display == true %} 
+    <button class="tabselect-btn tw-font-medium tw-text-22px/28px tw-pr-4 tabs-border tw-mr-4" value="#tab-1__desktop">Features & Benefits</button>
+    {% endif %}
+    <button class="tabselect-btn tw-font-medium tw-text-22px/28px tw-pr-4 tabs-border tw-mr-4" value="#tab-2__desktop">Our Ingredients</button>
+    <button class="tabselect-btn tw-font-medium tw-text-22px/28px" value="#tab-3__desktop">Why Exederm</button>
+    {% if display == true %} 
+    <div id="tab-1__desktop">
+      {{product.metafields.tabs.features_benefits}}
+    </div>
+    {% endif %}
+    <div id="tab-2__desktop">
+      {{product.metafields.tabs.our_ingredients}}
+    </div>
+    <div id="tab-3__desktop">
+      {{product.metafields.tabs.why_exederm}}
+    </div>
+  </div>
+</div>
+
+<!-- TABS FOR DEVICES UP TO 1280px WIDTH  -->
+
+<div class="{{container_height}} tabs xl:tw-hidden">
+  
+  {% if has_features_tab == true %}
+    <div class="tab-wrapper tw-bg-aliceblue tw-min-h-60px tw-relative"> 
+      <button class="tabselect-btn tw-font-medium tw-text-22px/28px tw-pl-5 md:tw-pl-10 tw-pt-4" data-tab="tab1" value="#tab-1__mobile">Features & Benefits</button>
+      <div id="tab-1__mobile">
+        {{product.metafields.tabs.features_benefits}}
+      </div>
+    </div> 
+    {% endif %}
+
+    <div class='tab-wrapper tw-bg-aliceblue tw-min-h-60px tw-relative'>
+      <button class="tabselect-btn tw-font-medium tw-text-22px/28px tw-pl-5 md:tw-pl-10 tw-pt-4" data-tab="tab2" value="#tab-2__mobile">Our Ingredients</button>
+      <div id="tab-2__mobile">
+          {{product.metafields.tabs.our_ingredients}}
+      </div>      
+    </div>
+
+    <div class='tab-wrapper tw-bg-aliceblue tw-min-h-60px tw-relative'>
+      <button class="tabselect-btn tw-font-medium tw-text-22px/28px tw-pl-5 md:tw-pl-10 tw-pt-4" data-tab="tab3" value="#tab-3__mobile">Why Exederm</button>
+      <div id="tab-3__mobile">
+          {{product.metafields.tabs.why_exederm}}
+      </div>
+    </div>
+  </div>

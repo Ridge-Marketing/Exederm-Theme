@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "acct-confirm-content",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,233 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="kiT8g3axdU1-CT-LemF5yUPAK2DgyB28byufYmpvlhA" />
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {% assign metadata = page.metafields.metadata %}
+  {{ metadata['content'] }}
+
+  <!-- Swiper Slideshow CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.2/swiper-bundle.min.css">
+
+<link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" type="image/x-icon" />
+
+  <!-- Title and description ================================================== -->
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+
+  <!-- CSS ================================================== -->
+
+  {{ 'exederm.scss.css' | asset_url | stylesheet_tag }}
+ 
+  {{ 'extra-responsive-columns.css' | asset_url | stylesheet_tag }}  
+  {{ 'compiled.css' | asset_url | stylesheet_tag }}
+  <!--link rel="stylesheet" href="//cdn.shopify.com/s/files/1/0524/5622/7007/t/2/assets/exederm-2021.css?v=13778068531991572653" rel="stylesheet" type="text/css" media="all" /-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Encode+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+  
+  <!-- Font-Awesome ================================================== -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+  {% include 'oldIE-js' %}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  {{ 'cycle2.js' | asset_url | script_tag }}
+  {{ 'headertest.js' | asset_url | script_tag }}
+
+
+  <!-- Yotpo Reviews code ================================================== -->
+  <script type="text/javascript">
+  (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/84vETyMnV6due8syDls57GkA0wIZn4kWJWH1Lntg/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+  </script>
+
+  <!-- Font-Awesome ================================================== -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<script src="https://kit.fontawesome.com/e167f88cf7.js" crossorigin="anonymous"></script>
+
+  <!-- Quick Announcement Bar ================================================== -->
+<script type="text/javascript" src="https://s3.amazonaws.com/lastsecondcoupon/js/quickannouncementbar.js?shop=exederm.myshopify.com"></script>
+
+<!--[if lt IE 9]>
+<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+  {% render 'minmaxify-head' %}
+</head>
+
+{% comment %}
+  Add the page template as a class for easy page or template specific styling.
+{% endcomment %}
+
+
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+
+  {% include 'site-drawers.liquid' %}
+  <div id="translate-wrapper__test" class="tw-transition-transform tw-duration-500">
+
+    {% include 'site-header.liquid' %}
+      <div id="PageContainer"> 
+             {{ content_for_layout }}
+      </div>
+    {% include 'site-footer.liquid' %}
+
+  </div>
+
+  
+  
+  <!-- Fancy Box ================================================== -->
+
+  <!-- Add fancyBox -->
+  {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+  {{ 'jquery.fancybox.pack.js' | asset_url | script_tag }}
+
+  <!-- Optionally add helpers - button, thumbnail and/or media -->
+  {{ 'jquery.fancybox-media.js' | asset_url | script_tag }}
+  {{ 'fastclick.min.js' | asset_url | script_tag }}
+  {{ 'timber.js' | asset_url | script_tag }}
+  {{ 'product.js' | asset_url | script_tag }}
+
+  {% comment %}
+  Template-specific js
+  {% endcomment %}
+  <script>
+    {% if resetPassword %}
+    $(function() {
+      timber.resetPasswordSuccess();
+    });
+    {% endif %}
+  </script>
+
+  {% comment %}
+  Ajaxify your cart with this plugin.
+  Documentation:
+  - http://shopify.com/timber#ajax-cart
+  {% endcomment %}
+
+  {{ 'handlebars.min.js' | asset_url | script_tag }}
+  {% include 'ajax-cart-template' %}
+  {{ 'ajax-cart.js' | asset_url | script_tag }}
+
+  <script>
+    jQuery(function($) {
+      ajaxCart.init({
+        formSelector: '#AddToCartForm',
+        cartContainer: '#CartContainer',
+        addToCartSelector: '#AddToCart',
+        cartCountSelector: '#CartCount span',
+        cartCostSelector: '.CartCost',
+        moneyFormat: {{ shop.money_format | json }}
+      });
+      });
+
+      jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+        // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+        timber.RightDrawer.open();
+      });
+  </script>
+
+<script>
+
+  $('.openCart').click(function(e){
+      ajaxCart.load();
+  $('body').toggleClass("iscartpopup");
+      e.preventDefault();
+  });
+  $('.close-cart').click(function(e){
+     $('body').toggleClass("iscartpopup");
+  });
+  $('.addProdToCart').click(function(){
+  ajaxCart.load();
+  toggleCartDrawer(1);
+  });
+  
+  </script>
+
+  <script>
+    (function($) {
+
+      var allPanels = $('#accordion > div').hide();
+
+      $('#accordion > h3').click(function() {
+        var curAccord = $(this).find('button').attr('id');
+        console.log(curAccord);
+        $('[aria-labelledby=' + curAccord + ']').slideToggle();
+        //$(this).parent().next().slideToggle();
+        $(this).find('i').toggleClass('fa-chevron-right fa-chevron-down')
+      });
+
+      //   $('#accordion > a').click(function(e)
+      // {
+      //     // Special stuff to do when this link is clicked...
+
+      //     // Cancel the default action
+      //     e.preventDefault();
+      // });
+
+    })(jQuery);
+
+  </script>
+
+  <script type="text/javascript">
+    var $= jQuery.noConflict();
+    $(document).ready(function () {
+      $('.fancybox').fancybox({
+        helpers: {
+          media: {}
+        }
+      });
+    });
+  </script>
+  <script>
+    var SkipToConfig =
+        {
+          "settings": {
+            "skipTo": {
+              "headings"     : "h1, h2"
+            }
+          }
+        };
+  </script>
+  <script type="text/javascript" src="https://paypal.github.io/skipto/downloads/js/SkipTo.min.js"></script>
+  <script type="text/javascript">
+    var _userway_config = {
+      /* uncomment the following line to override default position*/
+      /* position: '3', */
+      /* uncomment the following line to override default size (values: small, large)*/
+      /* size: 'small', */
+      /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
+      /* language: 'en-US', */
+      /* uncomment the following line to override color set via widget (e.g., #053f67)*/
+      /* color: '#053f67', */
+      /* uncomment the following line to override type set via widget(1=person, 2=chair, 3=eye)*/
+      /* type: '2', */
+      /* uncomment the following line to override support on mobile devices*/
+      /* mobile: true, */
+      account: '7e8NidryQw'
+    };
+  </script>
+  <script type="text/javascript" src="https://cdn.userway.org/widget.js"></script>
+</body>
+</html>

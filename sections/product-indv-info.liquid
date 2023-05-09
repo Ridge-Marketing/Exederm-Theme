@@ -1,0 +1,140 @@
+<div class="tw-px-5 md:tw-px-10 2xl:tw-px-0 tw-container tw-mx-auto xl:tw-max-w-1336px">
+  <div class="xl:tw-grid xl:tw-grid-cols-2 tw-pb-12">
+
+    <div class="">
+      <div class="tw-text-center tw-mb-3 md:tw-mb-0 tw-h-400px tw-max-h-400px">
+        {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+        <img
+          src="{{ featured_image | img_url: 'large' }}"
+          alt="{{ featured_image.alt | escape }}"
+          class='tw-mx-auto tw-h-full tw-object-contain'
+          id="featuredProductImg">
+      </div>
+
+      {% if product.images.size > 1 %}
+        <div id="Thumbnails" class="tw-h-24 tw-mx-auto tw-flex tw-justify-center">
+          {% for image in product.images %}
+            <div class="tw-mr-2 tw-border tw-border-gray-97 tw-border-solid tw-max-w-80px tw-max-h-24">
+              <a href="{{ image.src | img_url: 'large' }}" class="thumbnail-options">
+                <img
+                  class="tw-p-1 tw-h-full tw-w-full tw-object-contain"
+                  src="{{ image.src | img_url: 'compact'}}"
+                  alt="{{image.alt | escape}}" />
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="">
+      {% if section.settings.title_override != blank %}
+        <h1 itemprop="name" class="tw-mt-10 tw-text-32px/40px tw-text-matterhorn md:tw-text-45px/56px tw-font-medium">{{ section.settings.title_override }}</h1>
+      {% else %}
+        <h1 itemprop="name" class="tw-mt-10 tw-text-32px/40px tw-text-matterhorn md:tw-text-45px/56px tw-font-medium">{{ product.title }}</h1>
+      {% endif %}
+
+      <div class="yotpo bottomLine" data-product-id="{{ product.id }}">
+        {%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+        {%- assign time_now = 'now' | date: '%s' %}
+        {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+        {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+        {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.bottomline_update_time | date: '%s' %}
+        {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+        {%- if yotpo_live_time and diff_seconds_from_live < 86400 and yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
+          {%- assign yotpo_bottomline_obsolete = false %}
+        {%- else %}
+          {%- assign yotpo_bottomline_obsolete = true %}
+        {%- endif %}
+        {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+          {{ product.metafields.yotpo.bottomline }}
+        {%- endif %}
+      </div>
+
+      <p class="tw-text-16px/24px tw-text-black tw-font-normal tw-mb-7">{{ product.description }}</p>
+
+      {% form 'product', product %}
+        <select
+          id="variant_selector"
+          name="id"
+          class="tw-block tw-mb-6 tw-w-28 tw-pl-3 tw-py-1 tw-border-2 tw-border-solid tw-border-gainsboro {% if product.variants.size < 2 %} tw-hidden {% endif %}">
+          {% for variant in product.variants %}
+            <option
+              value="{{ variant.id }}"
+              data-price="{{ variant.price | money }}"
+              {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
+              {{ variant.title }}
+            </option>
+          {% endfor %}
+        </select>
+
+        <p id="prod__price" class="tw-font-encode-sans tw-font-medium tw-text-26px/33px tw-text-matterhorn tw-mb-6">{{ product.price | money }}
+        </p>
+
+        <p class="tw-pb-1 tw-tet-14px/20px tw-text-black">Quantity</p>
+        <div class="ajaxcart__qty tw-mb-8">
+          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text">
+            <span class="icon icon-minus" aria-hidden="true"></span>
+            <span class="fallback-text" aria-label="decrease quantity">&minus;</span>
+          </button>
+          <input
+            type="text"
+            name="quantity"
+            class="ajaxcart__qty-num"
+            min="1"
+            value="1">
+          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text">
+            <span class="icon icon-plus" aria-hidden="true"></span>
+            <span class="fallback-text" aria-label="increase quantity">+</span>
+          </button>
+        </div>
+
+        <input
+          class="primary__button tw-w-48 tw-py-3 tw-rounded-none"
+          type="submit"
+          value="Add to cart">
+
+        <div class="tw-w-full tw-max-w-screen-md tw-my-1/100 tw-block lg:tw-inline lg:tw-pl-8">
+          <a class="tw-mt-4 tw-text-16px/22px tw-inline-block tw-underline tw-text-green hover:tw-text-hover-green" href="/pages/bullseye-store-locator-page">
+            <strong>Find In Stores</strong>
+          </a>
+        </div>
+      {% endform %}
+
+      <div class="tw-mt-4 lg:tw-mt-8">
+        <p class="tw-font-semibold tw-text-16px/22px tw-font-open-sans tw-text-black">Buy ANY 3 - Save 20% with code SAVE20  |<span class="tw-block md:tw-inline-block">FREE US Shipping on orders over $50</span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% include 'product-tabs.liquid' %}
+
+<script>
+  $("#variant_selector").on("change", function() {
+    let price = $(this).find('option:selected').data('price');
+    console.log(price);
+    $("#prod__price").text(price);
+  })
+</script>
+
+{% schema %}
+  {
+    "name": "Product Info Section",
+    "settings": [
+      {
+        "id": "title_override",
+        "type": "text",
+        "label": "Title Override"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Info",
+        "category": "Products page"
+      }
+    ]
+  }
+{% endschema %}

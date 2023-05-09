@@ -1,0 +1,82 @@
+<section class="{{section.settings.margins}}">
+    <div class="tw-text-22px/28px {% if section.settings.width_1336px %} xl:tw-max-w-1336px {% else %} xl:tw-max-w-screen-xl {% endif %} tw-mx-5 md:tw-mx-10 2xl:tw-mx-auto tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
+      <span class="tw-px-3 tw-bg-white">&nbsp;{{section.settings.heading}}&nbsp;<span>
+    </div> 
+      
+      <div class="tw-mt-16 tw-mb-8 {% if section.settings.width_1336px %} xl:tw-max-w-1336px {% else %} xl:tw-max-w-screen-xl {% endif %} tw-block tw-my-0 tw-mx-auto tw-py-0 
+      sm:tw-grid sm:tw-grid-cols-2 sm:tw-justify-items-center
+      lg:tw-grid-cols-4 tw-px-10 2xl:tw-px-0
+      swiper-container swiper-container--{{ section.id }}"> 
+      
+        {% for product in collections.all.products limit:4 %}
+          {% include 'product-card' %}
+        {% endfor %}
+    
+      </div>
+</section>
+
+<script src="https://unpkg.com/swiper@6.8.2/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper@6.8.2/swiper-bundle.min.js"></script>
+
+<script>
+    const swiper = new Swiper('.swiper-container--{{ section.id }}', {
+        spaceBetween: 30,
+        speed: 2500,
+        loop: true, 
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1024: {
+            slidesPerView: 4,
+            slidesPerGroup: 4
+          }
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: true,
+        },
+        fadeEffect: {
+            crossFade: false,
+        },
+        navigation: {
+          nextEl: ".button-next",
+          prevEl: ".button-prev",
+        },
+      });
+  </script>
+
+{% schema %}
+  {
+    "name": "Featured Collection",
+    "settings": [
+    {
+      "type": "collection",
+      "id": "feature_collection",
+      "label": "Featured collection"
+   },
+   {
+       "type": "text",
+       "id": "heading",
+       "label": "Product list title"
+   },
+   {
+       "type": "text",
+       "id": "margins",
+       "label": "Margin Class"
+   },
+   {
+     "id": "width_1336px",
+     "type": "checkbox",
+     "label": "1336px width?"
+   }
+    ],
+    "presets": [
+      {
+        "name": "Featured Collection",
+        "category": "Product page"
+      }
+    ]
+  }
+{% endschema %}

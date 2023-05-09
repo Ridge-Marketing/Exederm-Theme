@@ -1,0 +1,79 @@
+<section class="tw-my-9">
+  <div class="tw-container tw-mx-auto tw-px-5 md:tw-px-10 xl:tw-max-w-screen-xl">
+    <h1 class="tw-text-32px/40px lg:tw-text-45px/56px tw-text-matterhorn tw-pb-5">Get a Coupon</h1>
+    <div class="md:tw-grid tw-grid-cols-2 tw-mb-20">
+      {% for block in section.blocks %}
+        <div class="tw-max-w-lg tw-text-center tw-mb-12 md:tw-mb-0">
+          <img
+            class="tw-w-full tw-object-cover"
+            src="{{block.settings.coupon_img | img_url: 'master' }}"
+            alt="Exederm Product coupon" />
+
+          <a
+            target="_blank"
+            class="tw-mt-4 tw-w-48 tw-text-center primary__button tw-py-3"
+            href="{{block.settings.coupon_link}}">Download Coupon</a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="tw-text-center">
+      <p class="h3 tw-pb-2">You can use your Exederm Flare Control Cream coupon at over 40,000 stores nationwide including these retailers.</p>
+      <p class="tw-text-16px/24px tw-text-black tw-pb-10">Find us on the First Aid aisle near the Neosporin & Band Aid items.</p>
+    </div>
+
+    <div class="tw-hidden lg:tw-block">
+      <img
+        class="tw-w-full tw-object-cover"
+        src="{{section.settings.retailers_img | img_url: 'master' }}"
+        alt="List of retailers that carry Exederm products" />
+    </div>
+    <div class="lg:tw-hidden">
+      <img
+        class="tw-w-full tw-object-cover"
+        src="{{section.settings.retailers_mobile | img_url: 'master' }}"
+        alt="List of retailers that carry Exederm products" />
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Coupons Section",
+    "settings": [
+      {
+        "id": "retailers_img",
+        "type": "image_picker",
+        "label": "Retailers Image"
+      }, {
+        "id": "retailers_mobile",
+        "type": "image_picker",
+        "label": "Retailers Image Mobile"
+      }
+    ],
+    "max_blocks": 2,
+    "blocks": [
+      {
+        "type": "coupon",
+        "name": "Coupon",
+        "settings": [
+          {
+            "id": "coupon_link",
+            "type": "url",
+            "label": "Coupon PDF"
+          }, {
+            "id": "coupon_img",
+            "type": "image_picker",
+            "label": "Coupon Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Coupons",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

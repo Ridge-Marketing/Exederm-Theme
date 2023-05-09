@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "request-sample-content",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

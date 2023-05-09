@@ -1,0 +1,61 @@
+<p class='tw-container tw-mx-auto xl:tw-max-w-1336px 2xl:tw-px-0 tw-text-22px/28px tw-font-encode-sans tw-font-medium tw-text-matterhorn tw-text-center tw-px-8 md:tw-px-10 xl:tw-px-52 tw-mb-10 2xl:tw-mb-16'>
+  {{ section.settings.card-heading }}
+</p>
+
+<div class="tw-mx-5 md:tw-mx-auto xl:tw-grid xl:tw-grid-cols-3 2xl:tw-gap-x-8 tw-max-w-screen-xl tw-mb-14">
+  {% for block in section.blocks %}
+    <div class="tw-mb-9 md:tw-mb-14">
+      {% assign image = block.settings.card-img %}
+      {% assign link = block.settings.link %}
+      {% assign text = block.settings.card-text %}
+      {% assign desc = block.settings.card-desc %}
+      {% assign small = true %}
+      {% include 'skin-and-irritant-card' %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Skin Conditions Section",
+    "settings": [
+      {
+        "id": "card-heading",
+        "type": "text",
+        "label": "Card Heading",
+        "default": "This is the card heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "id": "card-img",
+            "type": "url",
+            "label": "Card Image URL"
+          }, {
+            "id": "card-text",
+            "type": "text",
+            "label": "Card Text"
+          }, {
+            "id": "card-desc",
+            "type": "text",
+            "label": "Card Description"
+          }, {
+            "id": "link",
+            "type": "url",
+            "label": "Link URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "About Skin Cards",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

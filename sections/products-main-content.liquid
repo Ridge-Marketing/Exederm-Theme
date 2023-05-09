@@ -1,0 +1,88 @@
+{% assign image = section.settings.hero-img %}
+{% assign title = 'Products' %}
+{% assign description = "Avoiding irritants and eczema triggers is common sense. It's a philosophy that we've applied across our entire product range." %}
+{% assign selector = 'black' %}
+{% assign class = 'products-page-hero' %}
+<!-- screen size at which background box is removed from hero text -->
+{% assign size = 'md' %} 
+{% include 'skin-and-irritants-main-hero' %}
+
+<section class="tw-my-11">
+    <div class="tw-container tw-px-5 tw-mx-auto xl:tw-max-w-1336px md:tw-px-10 2xl:tw-px-0">
+        <div class="xl:tw-grid xl:tw-grid-cols-2 xl:tw-max-w-screen-xl xl:tw-mx-auto">
+            {% for block in section.blocks %}
+            <div class="tw-mb-7 md:tw-mb-11">
+              {% assign image = block.settings.card-img %}
+              {% assign link = block.settings.link %}
+              {% assign text = block.settings.card-text %}
+              {% include 'skin-and-irritant-card' %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="lg:tw-grid lg:tw-grid-cols-2 tw-mt-11 md:tw-mt-16">
+        <div class="tw-w-full">
+            <img class="tw-w-full tw-h-full" src="{{ section.settings.philosophy-img }}" alt="group of exederm products" />
+        </div>
+    
+        <div class="tw-bg-tan">
+          <div class="tw-py-6 xl:tw-py-12 tw-px-8 md:tw-pl-10 md:tw-pr-1 lg:tw-pt-14 lg:tw-pb-16 xl:tw-pl-16 2xl:tw-pt-24 ">
+              <h3 class="tw-text-matterhon tw-font-semibold tw-text-26px/33px tw-pb-3">Our philosophy is simple:</h3>
+
+            <ul class="tw-text-18px/24px 2xl:tw-text-24px/44px tw-font-normal tw-font-open-sans tw-text-matterhorn tw-m-0">
+                <li class="tw-checks tw-py-3 2xl:tw-pt-0">Avoid irritants that trigger eczema</li>
+                <li class="tw-checks tw-py-3 2xl:tw-pt-0">Always use the mildest ingredients possible</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Products Main",
+    "settings": [
+    {
+        "id": "hero-img",
+        "type": "url",
+        "label": "Hero Image"
+    },
+    {
+      "id": "philosophy-img",
+      "type": "url",
+      "label": "Section Image"
+  }
+    ],
+    "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+      {
+        "id": "card-img",
+        "type": "url",
+        "label": "Card Image URL"
+      },
+      {
+          "id": "card-text",
+          "type": "text",
+          "label": "Card Text"
+      },
+      {
+          "id": "link",
+          "type": "url",
+          "label": "Link URL"
+      }
+      ]
+    }
+    ],
+    "presets": [
+      {
+        "name": "Product Main",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

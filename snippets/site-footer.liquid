@@ -1,0 +1,86 @@
+<!-- begin site-footer -->
+{% assign nav_items = "About Skin & Irritants,FAQ,Request a Sample,Contact Us,For Medical Professionals,Find a Retailer,Return Policy" | split: ',' %}
+{% assign nav_items__links = "/pages/about-skin-irritants,/pages/faqs,/pages/request-sample,/pages/contact-us,/pages/medical-professionals,/pages/bullseye-store-locator-page,/policies/refund-policy" | split: ',' %}
+
+<footer class="tw-bg-footer-gray">
+  <div class="tw-container tw-mx-auto xl:tw-max-w-1336px tw-px-5 md:tw-px-10 2xl:tw-px-0">
+
+    <a href="/" class="tw-w-52 tw-block tw-mx-auto tw-pt-9 md:tw-hidden">
+      {% include 'exederm-logo.liquid' %}
+    </a>
+
+    <div class="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-pt-9">
+      <a href="/" class="tw-w-52 tw-block tw-mx-auto md:tw-ml-0 tw-py-9 md:tw-p-0 tw-hidden md:tw-inline">
+        {% include "exederm-logo.liquid" %}
+      </a>
+
+      <div>
+        <p class="tw-font-bold tw-text-14px/20px tw-font-encode-sans tw-text-matterhorn tw-mb-4">Products</p>
+        <ul class="tw-ml-0 tw-list-none xl:tw-flex xl:tw-flex-wrap">
+          {% for link in linklists.footer_products.links %}
+            <li class="tw-pb-3 xl:list-cols-two">
+              <a class="tw-font-open-sans tw-text-12px/20px" href="{{link.url}}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class='tw-pl-4 xl:tw-pl-8'>
+        <ul class="tw-ml-0 tw-list-none xl:tw-flex xl:tw-flex-wrap">
+          {% for element in nav_items %}
+            <li class="tw-mb-4 tw-pb-1 xl:list-cols-two">
+              <a class="tw-font-bold tw-text-14px/20px tw-font-encode-sans tw-text-matterhorn" href="{{nav_items__links[forloop.index0]}}">{{ element }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="tw-border-b tw-border-matterhorn tw-opacity-20 tw-leading-em tw-mb-7"></div>
+
+    <p class="tw-text-12px/16px tw-font-open-sans tw-text-matterhorn tw-pb-10">
+      The products and the claims made about specific products on or through this site have not been evaluated by the United 
+      States Food and Drug Administration and are not approved to diagnose, treat, cure or prevent disease. The information 
+                                  provided on this site is for informational purposes only and is not intended as a substitute for advice from your 
+                                  physician or other health care professional or any information contained on or in any product label or packaging. 
+                                  You should not use the information on this site for diagnosis or treatment of any health problem or for prescription of 
+                                  any medication or other treatment. Individual results may vary. *For more information about NEA Seal of Acceptance please 
+                                  see disclaimers.
+    </p>
+
+    <div class="md:tw-flex md:tw-justify-between lg:tw-justify-start">
+      <div>
+        <p class="tw-font-normal tw-text-12px/13px tw-text-matterhorn tw-pb-1">Copyright 2023 Bentlin Products LLC. All rights reserved.</p>
+        <div class="footer-policies tw-pb-6">
+          <a href="/policies/privacy-policy">Privacy Policy</a>
+          <span>|</span>
+          <a href="/policies/terms-of-service">Terms & Conditions</a>
+          <span>|</span>
+          <a href="/pages/disclaimers">Disclaimers</a>
+        </div>
+      </div>
+
+
+      <div class="tw-pb-3 md:tw-self-center lg:tw-pl-6">
+        <a
+          aria-label="View Exederm on Facebook"
+          class="tw-inline-block"
+          href="https://facebook.com/exederm"
+          target="_blank">
+          <i class="fab fa-facebook-square tw-text-green fa-2x"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- site-footer -->
+
+<script>
+  let page = $('#PageContainer');
+  let pageHeight = page.height();
+  let winHeight = $(window).height();
+  console.log(winHeight);
+  if (pageHeight < winHeight / 2 && winHeight >= 900) {
+    $('footer').addClass('tw-w-full tw-fixed tw-bottom-0 tw-left-0');
+  }
+</script>

@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "find-solution",
+      "settings": {
+      }
+    },
+    "seller": {
+      "type": "best-sellers",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "seller"
+  ]
+}

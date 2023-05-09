@@ -1,0 +1,843 @@
+{
+  "current": {
+    "color_primary": "#747474",
+    "color_secondary": "#bbbbbb",
+    "color_borders": "#ffffff",
+    "color_body_bg": "#ffffff",
+    "color_body_text": "#333333",
+    "color_footer_bg": "#f6f5f4",
+    "color_footer_text": "#535353",
+    "color_footer_social_link": "#bbbbbb",
+    "logo_use_image": false,
+    "favicon_enable": false,
+    "footer_social_enable": true,
+    "footer_newsletter_enable": true,
+    "cart_notes_enable": true,
+    "ajax_cart_method": "drawer",
+    "social_instagram_link": "",
+    "social_facebook_link": "",
+    "checkout_accent_color": "#3e9a76",
+    "checkout_button_color": "#3e9a76",
+    "social_twitter_link": "",
+    "sections": {
+      "best-sellers-collection": {
+        "type": "best-sellers-collection",
+        "settings": {
+        }
+      },
+      "1619653211d0d675e3": {
+        "type": "home-slider",
+        "settings": {
+          "bg_image": "shopify:\/\/shop_images\/Home-Hero-Background_2x_017d7afd-cf09-45dc-871f-4e5b249046bc.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/Home-Hero-Background-Mobile_2x_b6e9008a-83c7-4d12-9960-d1417c9347ea.jpg",
+          "eyebrow": "Our philosophy is simple..",
+          "heading": "Avoid irritants that trigger eczema",
+          "button_text": "Shop Now",
+          "button_link": "\/pages\/products\/"
+        }
+      },
+      "16214350288b8b2503": {
+        "type": "control-cream",
+        "blocks": {
+          "279488f9-2a99-4612-a90d-86e089efffcc": {
+            "type": "list",
+            "settings": {
+              "content": "Helps heal eczema flare-ups"
+            }
+          },
+          "6037affe-08a9-468a-b828-4c1884d8da8c": {
+            "type": "list",
+            "settings": {
+              "content": "Fast, soothing relief of itchy, red skin"
+            }
+          }
+        },
+        "block_order": [
+          "279488f9-2a99-4612-a90d-86e089efffcc",
+          "6037affe-08a9-468a-b828-4c1884d8da8c"
+        ],
+        "settings": {
+          "eyebrow": "Flare Control Cream",
+          "text-box": "The maximum strength over-the-counter eczema flare up control cream is rated 5 out of 5 by the National Eczema Association.",
+          "btn-text": "Learn More",
+          "btn-link": "\/products\/eczema-flare-control-cream"
+        }
+      },
+      "1621951656a6130875": {
+        "type": "find-solution",
+        "settings": {
+          "eyebrow2": "Find My Solution",
+          "text-box2": "Let us help you find the right products for the care and wellbeing of your skin.",
+          "btn2-text": "See Products",
+          "btn2-link": "shopify:\/\/pages\/products"
+        }
+      },
+      "top-rated": {
+        "type": "top-rated",
+        "settings": {
+          "feature_collection": "top-rated-products",
+          "heading": "Top Rated Products"
+        }
+      },
+      "NEA-award": {
+        "type": "NEA-award",
+        "settings": {
+        }
+      },
+      "skin-and-irritants": {
+        "type": "skin-and-irritants",
+        "blocks": {
+          "00306a19-0ce4-4275-b3ec-73ce1038484f": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/about-skin-elbow.png?v=1612641300",
+              "card-text": "About Skin",
+              "link": "https:\/\/exederm-staging.myshopify.com\/pages\/about-skin"
+            }
+          },
+          "91b27cdb-6438-46c9-824e-ff36bae3873c": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/about-irritants-blue.png?v=1612641300",
+              "card-text": "About Irritants",
+              "link": "https:\/\/exederm-staging.myshopify.com\/pages\/about-irritants"
+            }
+          }
+        },
+        "block_order": [
+          "00306a19-0ce4-4275-b3ec-73ce1038484f",
+          "91b27cdb-6438-46c9-824e-ff36bae3873c"
+        ],
+        "settings": {
+          "heading": "About Skin & Irritants"
+        }
+      },
+      "irritants-main": {
+        "type": "irritants-main",
+        "blocks": {
+          "06b31802-2bdf-4100-85a8-0991db007133": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/fragrance.png?v=1612841829",
+              "card-text": "Fragrance",
+              "link": "\/pages\/fragrance"
+            }
+          },
+          "162dc532-9ddc-48c6-8202-84588825009c": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/colors-and-dyes.png?v=1612841830",
+              "card-text": "Color & Dyes",
+              "link": "\/pages\/color-dyes"
+            }
+          },
+          "e4a2db41-1ccf-450a-b377-108fe0e294ea": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/parabens.png?v=1612841830",
+              "card-text": "Parabens",
+              "link": "\/pages\/parabens"
+            }
+          },
+          "4253ab28-245a-4213-a531-ae58743281c6": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/formaldehyde.png?v=1612841830",
+              "card-text": "Formaldehyde",
+              "link": "\/pages\/formaldehyde"
+            }
+          },
+          "b143301b-0b31-4a83-a46a-81518509416a": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/sodium-laureth-sulfate.png?v=1612841830",
+              "card-text": "Sodium Laureth Sulfate",
+              "link": "\/pages\/sls-or-sles"
+            }
+          },
+          "e3562abd-2b6b-40e8-9181-20e63e6c83f8": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/lanolin.png?v=1612841830",
+              "card-text": "Lanolin",
+              "link": "\/pages\/lanolin"
+            }
+          },
+          "4fd452ab-fa78-4823-90eb-d52dedcb5fde": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/botanicals.png?v=1612841830",
+              "card-text": "Botanicals",
+              "link": "\/pages\/herbs-botanicals"
+            }
+          },
+          "a24bf271-89f5-4e6c-ad72-f3c5bd996dbe": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/pthalates.png?v=1612841830",
+              "card-text": "Phthalates",
+              "link": "\/pages\/phthalates"
+            }
+          },
+          "196e455b-dfc4-40e0-baca-9d8423755b80": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/cocamidopropyl-betaine.png?v=1612841830",
+              "card-text": "Cocamidopropyl Betaine",
+              "link": "\/pages\/cocamidopropyl-betaine"
+            }
+          }
+        },
+        "block_order": [
+          "06b31802-2bdf-4100-85a8-0991db007133",
+          "162dc532-9ddc-48c6-8202-84588825009c",
+          "e4a2db41-1ccf-450a-b377-108fe0e294ea",
+          "4253ab28-245a-4213-a531-ae58743281c6",
+          "b143301b-0b31-4a83-a46a-81518509416a",
+          "e3562abd-2b6b-40e8-9181-20e63e6c83f8",
+          "4fd452ab-fa78-4823-90eb-d52dedcb5fde",
+          "a24bf271-89f5-4e6c-ad72-f3c5bd996dbe",
+          "196e455b-dfc4-40e0-baca-9d8423755b80"
+        ],
+        "settings": {
+          "hero-text": "We are all different, and what may be adequate            for most people can cause irritation, contact dermatitis or an allergic reaction in others with more sensitive skin.",
+          "hero-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/about-irritants-hero.jpg?v=1612843855",
+          "posthero-text": "Firstly, it's important to state that most cosmetics and other skin care products are perfectly adequate for the normal person.       However, if you've got eczema, dermatitis, or dry sensitive skin that may not be good enough.",
+          "card-heading": "Even if your existing product claims to be \"Hypoallergenic\" or \"Sensitive\" it's worth checking the label to see if it contains any common irritants:"
+        }
+      },
+      "about-skin-hero": {
+        "type": "about-skin-hero",
+        "settings": {
+          "hero-text": "Skin is a remarkable and complicated organ that we all take for granted. Sometimes, things can go wrong. There are hundreds of different types of skin conditions, your dermatologist is always the best source of expert information.",
+          "hero-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/about-skin-hero.jpg?v=1612671895",
+          "posthero-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/what-is-eczema-med.jpg?v=16127505840",
+          "posthero-head": "What is Eczema & Dermatitis?",
+          "posthero-text": "eczema and dermatitis are interchangeable words derived from old Greek and Latin they both basically mean the same thing: inflammation of the skin,  It's uncomfortable and irritating, but it's not life-threatening and it's not contagious. There is no miracle cure but it can be very effectively managed and often avoided. Eczema & Dermatitis affects about one in every five people at some time in their lives."
+        }
+      },
+      "skin-quote-section": {
+        "type": "skin-quote-section",
+        "settings": {
+          "quote_head": "<p>Eczema & Dermatitis affects about <strong>one in every five people<\/strong> at some time in their lives.<\/p>",
+          "quote_subhead": "There are two main types of either Eczema or Dermatitis:",
+          "quote_para": "<p><strong>Atopic: <\/strong>This describes a chronic itchy skin condition very common in children and often associated with allergy problems such as hay fever or asthma.<br\/><br\/><strong>Contact: <\/strong>This describes a skin condition provoked by contact with an irritant substance such as detergent, soap or even nickel. It can affect all age groups. It is the most common form of adult dermatitis or eczema.<br\/><br\/><\/p>"
+        }
+      },
+      "skin-card-section": {
+        "type": "skin-card-section",
+        "blocks": {
+          "5c761f20-1c93-4859-af62-a5c23ab30743": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/atopic-eczema-boximg.png?v=1612737660",
+              "card-text": "Atopic Eczema",
+              "card-desc": "Atopic eczema or dermatitis is a chronic, itchy skin condition that is a very common symptom of conditions such as childhood eczema but may occur at any age. Learn more about this skin condition, triggers and tips for relief.",
+              "link": "shopify:\/\/pages\/atopic-eczema"
+            }
+          },
+          "6bf780e7-7961-40df-8c40-9562457de062": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/contact-dermatitis-boximg.png?v=1612737661",
+              "card-text": "Contact Dermatitis",
+              "card-desc": "Contact dermatitis is a skin condition associated with environmental triggers or irritants (normally something that has touched against the skin). It tends to be short term in nature and the good news is that it can normally be easily managed or prevented.",
+              "link": "\/pages\/contact-dermatitis"
+            }
+          },
+          "8d64a3af-a074-49cb-9997-703d69647416": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/seborrheic-dermatitis-boximg.png?v=1612737661",
+              "card-text": "Seborrheic Dermatitis",
+              "card-desc": "Seborrheic dermatitis is a common skin disorder that mainly affects the scalp, causing scaly, itchy, red skin and stubborn dandruff. Learn more about this skin condition, triggers and tips for relief.",
+              "link": "\/pages\/seborrheic-dermatitis"
+            }
+          },
+          "893b397d-9230-4992-9e39-f2baa234a32b": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/hand-dermatitis-boximg.png?v=1612737661",
+              "card-text": "Hand Dermatitis",
+              "card-desc": "Any type of eczema or dermatitis that develops on the hands can be classified as hand dermatitis. Often hand dermatitis often has unique causes, most frequently environmental or job-related.",
+              "link": "\/pages\/hand-dermatitis"
+            }
+          },
+          "8227458d-8bb3-4661-a7f8-38756273c4c6": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/childrens-skin-boximg.png?v=1612737661",
+              "card-text": "Children's Skin",
+              "card-desc": "Eczema is a common, non-contagious skin condition that affects people of all ages, including babies and children. Learn more about this skin condition in infants and children.",
+              "link": "\/pages\/childrens-skin"
+            }
+          },
+          "1eec0058-cb36-49eb-8a3b-21197f5770f7": {
+            "type": "card",
+            "settings": {
+              "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/adult-skin-boximg.png?v=1612737660",
+              "card-text": "Adult Skin",
+              "card-desc": "Atopic eczema or dermatitis affects 15-20% of children but only 3% of adults. Learn more about this skin condition, triggers and tips for relief.",
+              "link": "\/pages\/adult-skin"
+            }
+          }
+        },
+        "block_order": [
+          "5c761f20-1c93-4859-af62-a5c23ab30743",
+          "6bf780e7-7961-40df-8c40-9562457de062",
+          "8d64a3af-a074-49cb-9997-703d69647416",
+          "893b397d-9230-4992-9e39-f2baa234a32b",
+          "8227458d-8bb3-4661-a7f8-38756273c4c6",
+          "1eec0058-cb36-49eb-8a3b-21197f5770f7"
+        ],
+        "settings": {
+          "card-heading": "On this site we focus mainly on dry, sensitive and reactive or allergic skin conditions where exederm ultra sensitive products can be of most help. Click below to get straight to the information most relevant for you:"
+        }
+      },
+      "recommended-products": {
+        "type": "recommended-products",
+        "settings": {
+          "feature_collection": "recommended-products",
+          "heading": "Recommended Products"
+        }
+      },
+      "faqs": {
+        "type": "faqs",
+        "blocks": {
+          "1acbf2ed-9015-48e3-aabf-a54709352cd0": {
+            "type": "question",
+            "settings": {
+              "question-head": "I've tried everything. How do I know if exederm will work for me?",
+              "question-text": "<p>Exederm is a logical choice. It's possible that many of the products you may have tried in the past could contain ingredients that may irritate. Check the label. Exederm is formulated to avoid these irritants, giving you the best chance for success. If exederm isn’t right for you simply return for a refund.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "8d2e4514-e0b9-44ba-90eb-bcecf4c97f33": {
+            "type": "question",
+            "settings": {
+              "question-head": "Can eczema be cured?",
+              "question-text": "<p>Unfortunately, there is no cure for eczema regardless of what you may read on some internet site. Fortunately, eczema is controllable with continued daily use of products such as exederm.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "74ee30dc-68a6-4477-9b4b-93ff33eb7d53": {
+            "type": "question",
+            "settings": {
+              "question-head": "Are exederm products safe for children?",
+              "question-text": "<p>Exederm flare control cream is recommended for children over the age of 2, you should seek your doctor's advice for younger children.<\/p><p><br\/>All other exederm products including wash, intensive moisturizer, lotion, shampoo, conditioner and oil are suitable for children of all ages.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "f8344df4-f3df-4ea2-a7f5-99e85d041918": {
+            "type": "question",
+            "settings": {
+              "question-head": "Are exederm products safe for all ethnicities?",
+              "question-text": "<p>Yes, all skin types and nationalities have had success with exederm.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "c7b54745-b7c7-4c19-9a19-d3bb06ace1a7": {
+            "type": "question",
+            "settings": {
+              "question-head": "Can I use exederm on my body as well as my face?",
+              "question-text": "<p>Yes, you can use exederm products on either face or body. But do keep away from eyes.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "c32d6080-70a8-41df-9939-6d31f32fbc07": {
+            "type": "question",
+            "settings": {
+              "question-head": "Will exederm work with other products?",
+              "question-text": "<p>Exederm cleansing wash and exederm intense moisture cream can be used as part of your everyday skin care routine and may be used with other products. If your doctor has prescribed a medication remember to always follow the instructions. We recommend that you also take the time for read the instructions on exederm flare control cream.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "22846bd1-bb06-4741-85b5-acb73e11a19e": {
+            "type": "question",
+            "settings": {
+              "question-head": "Why and when should I use the exederm flare control cream?",
+              "question-text": "<p>Exederm flare control cream is for temporary relief of itching associated with skin irritation such as eczema or contact dermatitis for soaps, detergents or cosmetics.<\/p><p><br\/>You should apply not more than 3 to 4 times daily.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "cbacf8a0-353e-49a5-af9a-0cbf7155d53c": {
+            "type": "question",
+            "settings": {
+              "question-head": "Can I use exederm flare control cream every day?",
+              "question-text": "<p>As with all hydrocortisone creams, we do not recommend using the product every day. Instead it should be used to control eczema flare-ups.<br\/><br\/>If conditions worsens or if symptoms persist for more than 7 days or clear up and occur again within a few days, stop use of this product and do not begin use of any other hydrocortisone product unless directed to do so by your doctor.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "e3cf0f28-e0d7-4952-9bff-558d514809d2": {
+            "type": "question",
+            "settings": {
+              "question-head": "Can I wear make up over exederm products?",
+              "question-text": "<p>Yes, you can still wear makeup...but always check the label for common irritants and look for products that are non-comedogenic.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "0156a628-61cf-4fe8-a308-fa926d39e14e": {
+            "type": "question",
+            "settings": {
+              "question-head": "Will exederm help with acne?",
+              "question-text": "<p>The exederm range is designed to treat dry skin conditions such as eczema rather than as a treatment for acne. However, we have formulated our range to be non-comedogenic (non-pore clogging).<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "ba9283df-09c1-465e-9a1a-f4254e6accd7": {
+            "type": "question",
+            "settings": {
+              "question-head": "Will exederm clog my pores?",
+              "question-text": "<p>No. Exederm products are formulated to be non-comedogenic (non-pore-clogging).<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "b9d4ccad-4080-4082-bc20-d91f5f1859c0": {
+            "type": "question",
+            "settings": {
+              "question-head": "How can I test for an allergic reaction?",
+              "question-text": "<p>Apply a small amount of the product to the nape (back) of your neck, or to the underside of your neck at the jawline. If no redness or irritation appears, you will probably not have an allergic reaction. If redness persists, discontinue using the product. If redness continues after you have stopped using the product, consult a doctor.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "20b14575-4be4-40b7-8498-f6e57ef64644": {
+            "type": "question",
+            "settings": {
+              "question-head": "Are exederm products FDA approved?",
+              "question-text": "<p>All of our products are manufactured in the USA to highest quality standards. exederm flare control cream is available without a prescription, and meets the all of the requirements of an FDA “Monograph” product.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "12a1a6cc-7124-4074-9fbd-0eec1349c8d7": {
+            "type": "question",
+            "settings": {
+              "question-head": "Are exederm products tested on animals?",
+              "question-text": "<p>No, exederm products are most definitely not tested on animals.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "7170a64b-0409-4470-9d4e-85aa9f18d15a": {
+            "type": "question",
+            "settings": {
+              "question-head": "Are exederm products gluten free?",
+              "question-text": "<p>Yes, exederm products are gluten free.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "350c517a-f705-4763-b305-240c1c169be0": {
+            "type": "question",
+            "settings": {
+              "question-head": "Are there other ways to place my order?",
+              "question-text": "<p>Yes. If you prefer, call us with your credit card information at <strong>(888) 445-1610<\/strong> (M - F 9AM-5PM EST). or you can send it via U.S. mail to:<\/p><p><br\/>Exederm<\/p><p>P.O. Box 183<\/p><p>Basking Ridge<\/p><p>NJ 07920<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "66cbd391-eb5d-45a2-bea2-7ec9f1c3990e": {
+            "type": "question",
+            "settings": {
+              "question-head": "Do you charge sales tax ?",
+              "question-text": "<p>Yes, we are required to collect tax in New Jersey.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "c1f52354-7d6a-4aa8-a885-adf63f997c65": {
+            "type": "question",
+            "settings": {
+              "question-head": "What's the deal on shipping and handling costs?",
+              "question-text": "<p>We ship via the US postal service using express mail. All orders are dispatched within 24 hours of receipt (mon-fri) and can take up to 10 days to reach their destination.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "8e1ecb2f-75ea-4e44-863f-31b87e30848c": {
+            "type": "question",
+            "settings": {
+              "question-head": "What about international orders?",
+              "question-text": "<p>There is a flat rate charge of $30 for international orders - Please allow up to 2 weeks for delivery. For orders to Canada, standard US mail rates apply.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "b53ecdc7-deb9-4dad-a5b5-2a2d01e1bb88": {
+            "type": "question",
+            "settings": {
+              "question-head": "Is the site secure?",
+              "question-text": "<p>www. exederm.com is committed to protecting your security and privacy. For information regarding security and privacy, please review the privacy policy page.<\/p><p><br\/>We Secure Sockets Layer (SSL), an advanced security protocol that protects your credit card information and ensures secure online ordering. SSL Internet connections are encrypted, and thus protect all credit card ordering information, including your name, address and credit card number, so no one can read it in transit. We use secure technology, privacy protection controls, and restrictions on employee access, to safeguard your personal information.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "98e4cad7-6aff-47fc-984e-29a70297a239": {
+            "type": "question",
+            "settings": {
+              "question-head": "What does exederm actually contain?",
+              "question-text": "<p>We’re glad you asked. We have worked with a number of experts to identify a list of ingredients that avoid common irritants and are gentle on the skin. You will find the list below along with a short description. Please contact us if you would like more details or wish to clarify anything.<\/p>",
+              "select": true,
+              "html_input": "<li>\n<strong>Capric Triglyceride<\/strong> - Also called fractionated coconut oil. It is a highly refined emollient (moisturizer) that helps improve spreading of skin care formulations<\/li>\n<li>\n<strong>Caprylyl Glycol<\/strong> - This is emollient base that holds the formulation's preservative system<\/li>\n<li>\n<strong>Ceteareth-20<\/strong> - This is a surfactant (cleansing agent) and also acts as a solubilizing agent<\/li>\n<li>\n<strong>Citric Acid<\/strong> - Citric acid is commonly known as lemon juice, it is used to adjust the Ph balance of the formulation<\/li>\n<li>\n<strong>Decyl Glucoside<\/strong> - An extract from coconut oil, palm kernel oil and glucose. It has mild foaming properties<\/li>\n<li>\n<strong>Disodium Cocoglucoside Sulfosuccinate<\/strong> - A natural biodegradable surfactant (cleansing agent) derived from plants<\/li>\n<li>\n<strong>Disodium Cocoamphodiacete<\/strong> - A gentle surfactant (cleansing agent) often used in baby care formulations<\/li>\n<li>\n<strong>Glycerin<\/strong> - An effective natural moisturizer that can attract moisture from the environment. Commonly used in skin creams, lotions, and skin cleansers. Helps condition the skin<\/li>\n<li>\n<strong>Glyceryl Stearate<\/strong> - Derived from natural stearic acid and glycerin. A popular emulsifier and emollient used in cosmetic preparations such as creams and lotions, providing stability as well as excellent texture.<\/li>\n<li>\n<strong>Hydrocortisone<\/strong> - Hydrocortisone is considered by most doctors as the \"gold standard\" for the 1st line treatment of eczema. It is a corticosteroid that is used topically on the skin. It is a synthetic version of the naturally-occurring cortisol or hydrocortisone produced by the adrenal gland. Corticosteroids have anti-inflammatory effects to reduce itching and redness.<\/li>\n<li>\n<strong>Palmitic Acid<\/strong> - Palmitic Acid is one of the most common saturated fatty acids found. It is a major component of the oil from palm trees (palm oil and palm kernel oil). It is often found as an additive in dairy products.<\/li>\n<li>\n<strong>Petroleum<\/strong> - Highly purified, pharmaceutical grade of white petroleum jelly<\/li>\n<li>\n<strong>Phenoxyethanol<\/strong> - A mild liquid preservative with anti-microbial properties, it is paraben-free and formaldehyde-free<\/li>\n<li>\n<strong>Sodium Benzoate<\/strong> - Commonly used preservative often used in food and soft drinks <\/li>\n<li>\n<strong>Sodium Chloride<\/strong> - Common salt, it is used to help balance the formulation<\/li>\n<li>\n<strong>Stearic Acid<\/strong> - A long chain fatty acid that helps to harden plant derived oils, often used in the food industry<\/li>\n<li>\n<strong>Tetrasodium EDTA<\/strong> - A water softening chelating agent that reacts with salts found in hard water and makes them water-soluble<\/li>\n<li>\n<strong>Xanthan Gum<\/strong> - A corn based stabilizer that keeps cosmetic ingredients from separating and helps maintain a consistent texture<\/li>"
+            }
+          }
+        },
+        "block_order": [
+          "1acbf2ed-9015-48e3-aabf-a54709352cd0",
+          "8d2e4514-e0b9-44ba-90eb-bcecf4c97f33",
+          "74ee30dc-68a6-4477-9b4b-93ff33eb7d53",
+          "f8344df4-f3df-4ea2-a7f5-99e85d041918",
+          "c7b54745-b7c7-4c19-9a19-d3bb06ace1a7",
+          "c32d6080-70a8-41df-9939-6d31f32fbc07",
+          "22846bd1-bb06-4741-85b5-acb73e11a19e",
+          "cbacf8a0-353e-49a5-af9a-0cbf7155d53c",
+          "e3cf0f28-e0d7-4952-9bff-558d514809d2",
+          "0156a628-61cf-4fe8-a308-fa926d39e14e",
+          "ba9283df-09c1-465e-9a1a-f4254e6accd7",
+          "b9d4ccad-4080-4082-bc20-d91f5f1859c0",
+          "20b14575-4be4-40b7-8498-f6e57ef64644",
+          "12a1a6cc-7124-4074-9fbd-0eec1349c8d7",
+          "7170a64b-0409-4470-9d4e-85aa9f18d15a",
+          "350c517a-f705-4763-b305-240c1c169be0",
+          "66cbd391-eb5d-45a2-bea2-7ec9f1c3990e",
+          "c1f52354-7d6a-4aa8-a885-adf63f997c65",
+          "8e1ecb2f-75ea-4e44-863f-31b87e30848c",
+          "b53ecdc7-deb9-4dad-a5b5-2a2d01e1bb88",
+          "98e4cad7-6aff-47fc-984e-29a70297a239"
+        ],
+        "settings": {
+        }
+      },
+      "faq-content": {
+        "type": "faq-content",
+        "blocks": {
+          "81605ac0-95b5-44e2-858a-f06ba677d263": {
+            "type": "about",
+            "settings": {
+              "question-head": "I've tried everything. How do I know if exederm will work for me?",
+              "question-text": "<p>Exederm is a logical choice. It's possible that many of the products you may have tried in the past could contain ingredients that may irritate. Check the label. Exederm is formulated to avoid these irritants, giving you the best chance for success. If exederm isn’t right for you simply return for a refund.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "fedb00bc-d7e3-4c73-9c15-4e1bb4c9e3ee": {
+            "type": "about",
+            "settings": {
+              "question-head": "Can eczema be cured?",
+              "question-text": "<p>Unfortunately, there is no cure for eczema regardless of what you may read on some internet site. Fortunately, eczema is controllable with continued daily use of products such as exederm.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "519e9e79-77e4-41ab-8183-bf89c493aa60": {
+            "type": "about",
+            "settings": {
+              "question-head": "Are exederm products safe for children?",
+              "question-text": "<p>Exederm flare control cream is recommended for children over the age of 2, you should seek your doctor's advice for younger children.<br\/><br\/>All other exederm products including wash, intensive moisturizer, lotion, shampoo, conditioner and oil are suitable for children of all ages.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "552c0637-dbbd-4fef-ae8f-6e80fe1a8eb3": {
+            "type": "about",
+            "settings": {
+              "question-head": "Are exederm products safe for all ethnicities?",
+              "question-text": "<p>Yes, all skin types and nationalities have had success with exederm.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "9943a37d-8848-449e-ad55-a829b07b1ac2": {
+            "type": "about",
+            "settings": {
+              "question-head": "Can I use exederm on my body as well as my face?",
+              "question-text": "<p>Yes, you can use exederm products on either face or body. But do keep away from eyes.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "902a0a1f-a5c8-437c-a632-9e1e5c30e2f7": {
+            "type": "about",
+            "settings": {
+              "question-head": "Will exederm work with other products?",
+              "question-text": "<p>Exederm cleansing wash and exederm intense moisture cream can be used as part of your everyday skin care routine and may be used with other products. If your doctor has prescribed a medication remember to always follow the instructions. We recommend that you also take the time for read the instructions on exederm flare control cream.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "a1c9f2fe-abf1-4db4-aeb6-e0fd834f82da": {
+            "type": "about",
+            "settings": {
+              "question-head": "Why and when should I use the exederm flare control cream?",
+              "question-text": "<p>Exederm flare control cream is for temporary relief of itching associated with skin irritation such as eczema or contact dermatitis for soaps, detergents or cosmetics.<br\/><br\/>You should apply not more than 3 to 4 times daily.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "c7be3367-faab-4d1a-b765-67cc3ad871bc": {
+            "type": "about",
+            "settings": {
+              "question-head": "Can I use exederm flare control cream every day?",
+              "question-text": "<p>As with all hydrocortisone creams, we do not recommend using the product every day. Instead it should be used to control eczema flare-ups.<br\/><br\/>If conditions worsens or if symptoms persist for more than 7 days or clear up and occur again within a few days, stop use of this product and do not begin use of any other hydrocortisone product unless directed to do so by your doctor.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "4d6b3c3c-e7a0-42df-aee3-9e661ccf2fc0": {
+            "type": "about",
+            "settings": {
+              "question-head": "Can I wear make up over exederm products?",
+              "question-text": "<p>Yes, you can still wear makeup...but always check the label for common irritants and look for products that are non-comedogenic.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "bdcd6567-9938-45ef-9332-ab4ecf9d40c0": {
+            "type": "about",
+            "settings": {
+              "question-head": "Will exederm help with acne?",
+              "question-text": "<p>The exederm range is designed to treat dry skin conditions such as eczema rather than as a treatment for acne. However, we have formulated our range to be non-comedogenic (non-pore clogging).<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "1fccf013-f184-4a92-a5c5-a2bd2b7b80b6": {
+            "type": "about",
+            "settings": {
+              "question-head": "Will exederm clog my pores?",
+              "question-text": "<p>No. Exederm products are formulated to be non-comedogenic (non-pore-clogging).<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "3ebf485c-1983-4e92-af5a-adacfc5bcb32": {
+            "type": "about",
+            "settings": {
+              "question-head": "How can I test for an allergic reaction?",
+              "question-text": "<p>Apply a small amount of the product to the nape (back) of your neck, or to the underside of your neck at the jawline. If no redness or irritation appears, you will probably not have an allergic reaction. If redness persists, discontinue using the product. If redness continues after you have stopped using the product, consult a doctor.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "8d130f9d-5694-4ad5-87d4-b7cd74c02124": {
+            "type": "about",
+            "settings": {
+              "question-head": "Are exederm products FDA approved?",
+              "question-text": "<p>All of our products are manufactured in the USA to highest quality standards. Exederm flare control cream is available without a prescription, and meets the all of the requirements of an FDA “Monograph” product.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "b522926f-bf2f-488d-b2f8-8436aa3577db": {
+            "type": "about",
+            "settings": {
+              "question-head": "Are exederm products tested on animals?",
+              "question-text": "<p>No, exederm products are most definitely not tested on animals.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "49a78115-9a1d-4d70-8e44-1a9495fc8f56": {
+            "type": "about",
+            "settings": {
+              "question-head": "Are exederm products gluten free?",
+              "question-text": "<p>Yes, exederm products are gluten free.<\/p>",
+              "select": false,
+              "html_input": ""
+            }
+          },
+          "324856ae-00d6-406b-a549-4e074d5b25bd": {
+            "type": "about",
+            "settings": {
+              "question-head": "What does exederm actually contain?",
+              "question-text": "<p>We’re glad you asked. We have worked with a number of experts to identify a list of ingredients that avoid common irritants and are gentle on the skin. You will find the list below along with a short description. Please contact us if you would like more details or wish to clarify anything.<\/p>",
+              "select": true,
+              "html_input": "<li>\n<strong>Capric Triglyceride<\/strong> - Also called fractionated coconut oil. It is a highly refined emollient (moisturizer) that helps improve spreading of skin care formulations<\/li>\n<li>\n<strong>Caprylyl Glycol<\/strong> - This is emollient base that holds the formulation's preservative system<\/li>\n<li>\n<strong>Ceteareth-20<\/strong> - This is a surfactant (cleansing agent) and also acts as a solubilizing agent<\/li>\n<li>\n<strong>Citric Acid<\/strong> - Citric acid is commonly known as lemon juice, it is used to adjust the Ph balance of the formulation<\/li>\n<li>\n<strong>Decyl Glucoside<\/strong> - An extract from coconut oil, palm kernel oil and glucose. It has mild foaming properties<\/li>\n<li>\n<strong>Disodium Cocoglucoside Sulfosuccinate<\/strong> - A natural biodegradable surfactant (cleansing agent) derived from plants<\/li>\n<li>\n<strong>Disodium Cocoamphodiacete<\/strong> - A gentle surfactant (cleansing agent) often used in baby care formulations<\/li>\n<li>\n<strong>Glycerin<\/strong> - An effective natural moisturizer that can attract moisture from the environment. Commonly used in skin creams, lotions, and skin cleansers. Helps condition the skin<\/li>\n<li>\n<strong>Glyceryl Stearate<\/strong> - Derived from natural stearic acid and glycerin. A popular emulsifier and emollient used in cosmetic preparations such as creams and lotions, providing stability as well as excellent texture.<\/li>\n<li>\n<strong>Hydrocortisone<\/strong> - Hydrocortisone is considered by most doctors as the \"gold standard\" for the 1st line treatment of eczema. It is a corticosteroid that is used topically on the skin. It is a synthetic version of the naturally-occurring cortisol or hydrocortisone produced by the adrenal gland. Corticosteroids have anti-inflammatory effects to reduce itching and redness.<\/li>\n<li>\n<strong>Palmitic Acid<\/strong> - Palmitic Acid is one of the most common saturated fatty acids found. It is a major component of the oil from palm trees (palm oil and palm kernel oil). It is often found as an additive in dairy products.<\/li>\n<li>\n<strong>Petroleum<\/strong> - Highly purified, pharmaceutical grade of white petroleum jelly<\/li>\n<li>\n<strong>Phenoxyethanol<\/strong> - A mild liquid preservative with anti-microbial properties, it is paraben-free and formaldehyde-free<\/li>\n<li>\n<strong>Sodium Benzoate<\/strong> - Commonly used preservative often used in food and soft drinks <\/li>\n<li>\n<strong>Sodium Chloride<\/strong> - Common salt, it is used to help balance the formulation<\/li>\n<li>\n<strong>Stearic Acid<\/strong> - A long chain fatty acid that helps to harden plant derived oils, often used in the food industry<\/li>\n<li>\n<strong>Tetrasodium EDTA<\/strong> - A water softening chelating agent that reacts with salts found in hard water and makes them water-soluble<\/li>\n<li>\n<strong>Xanthan Gum<\/strong> - A corn based stabilizer that keeps cosmetic ingredients from separating and helps maintain a consistent texture<\/li>"
+            }
+          }
+        },
+        "block_order": [
+          "81605ac0-95b5-44e2-858a-f06ba677d263",
+          "fedb00bc-d7e3-4c73-9c15-4e1bb4c9e3ee",
+          "519e9e79-77e4-41ab-8183-bf89c493aa60",
+          "552c0637-dbbd-4fef-ae8f-6e80fe1a8eb3",
+          "9943a37d-8848-449e-ad55-a829b07b1ac2",
+          "902a0a1f-a5c8-437c-a632-9e1e5c30e2f7",
+          "a1c9f2fe-abf1-4db4-aeb6-e0fd834f82da",
+          "c7be3367-faab-4d1a-b765-67cc3ad871bc",
+          "4d6b3c3c-e7a0-42df-aee3-9e661ccf2fc0",
+          "bdcd6567-9938-45ef-9332-ab4ecf9d40c0",
+          "1fccf013-f184-4a92-a5c5-a2bd2b7b80b6",
+          "3ebf485c-1983-4e92-af5a-adacfc5bcb32",
+          "8d130f9d-5694-4ad5-87d4-b7cd74c02124",
+          "b522926f-bf2f-488d-b2f8-8436aa3577db",
+          "49a78115-9a1d-4d70-8e44-1a9495fc8f56",
+          "324856ae-00d6-406b-a549-4e074d5b25bd"
+        ],
+        "settings": {
+        }
+      },
+      "coupons": {
+        "type": "coupons",
+        "blocks": {
+          "5c92a2d9-9313-4b9d-85bf-3427a4803a62": {
+            "type": "coupon",
+            "settings": {
+              "coupon_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Download-Coupon-50cents.pdf?v=1682692459",
+              "coupon_img": "shopify:\/\/shop_images\/Coupon-50cents.webp"
+            }
+          },
+          "11a60853-b81d-48db-88d7-4809124921d2": {
+            "type": "coupon",
+            "settings": {
+              "coupon_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Download-Coupon-1dollar.pdf?v=1682692460",
+              "coupon_img": "shopify:\/\/shop_images\/Coupon-1dollar.webp"
+            }
+          }
+        },
+        "block_order": [
+          "5c92a2d9-9313-4b9d-85bf-3427a4803a62",
+          "11a60853-b81d-48db-88d7-4809124921d2"
+        ],
+        "settings": {
+          "retailers_img": "shopify:\/\/shop_images\/Retail_Logos-Desktop.jpg",
+          "retailers_mobile": "shopify:\/\/shop_images\/Retail_Logos-Mobile.jpg"
+        }
+      },
+      "991e3ed3-79a4-4fba-8f8f-4bf76a24035b": {
+        "type": "logo-slider",
+        "settings": {
+        }
+      },
+      "98068051-56ab-4d8c-997c-8055251d430c": {
+        "type": "product-slider",
+        "settings": {
+          "heading": "Other Top Rated Products",
+          "margins": "tw-mt-14",
+          "use_button": true,
+          "button_text": "Shop All Products",
+          "button_link": "shopify:\/\/pages\/products"
+        }
+      },
+      "4a2243be-4037-47aa-b58f-3616d8cf7746": {
+        "type": "list-cta",
+        "blocks": {
+          "ea726a95-44d5-4634-9d83-b1d9707c516c": {
+            "type": "list",
+            "settings": {
+              "content": "Fragrance"
+            }
+          },
+          "2bb230e6-fa83-4562-b4fa-25e98524c35c": {
+            "type": "list",
+            "settings": {
+              "content": "Parabens"
+            }
+          },
+          "f4ba3464-df8e-4c0f-a7be-6c611c2c6b80": {
+            "type": "list",
+            "settings": {
+              "content": "Lanolin"
+            }
+          },
+          "095b4c45-dc37-4c88-b0e3-d63f36393e18": {
+            "type": "list",
+            "settings": {
+              "content": "Propylene Glycol"
+            }
+          },
+          "54f7d27a-cf90-483d-b5be-f733a0409d0d": {
+            "type": "list",
+            "settings": {
+              "content": "Color Or Dyes"
+            }
+          },
+          "e9dee175-a8e1-4ba2-a871-3e52c80afed0": {
+            "type": "list",
+            "settings": {
+              "content": "(SLS) Sodium Laureth Sulfate"
+            }
+          },
+          "78250a8d-7987-48fc-a79e-76c472cea1bd": {
+            "type": "list",
+            "settings": {
+              "content": "(CAPB) Cocamidopropyl Betaine"
+            }
+          },
+          "24f51c70-2c1b-4365-bc86-bb97c44e69f5": {
+            "type": "list",
+            "settings": {
+              "content": "Phthalates"
+            }
+          }
+        },
+        "block_order": [
+          "ea726a95-44d5-4634-9d83-b1d9707c516c",
+          "2bb230e6-fa83-4562-b4fa-25e98524c35c",
+          "f4ba3464-df8e-4c0f-a7be-6c611c2c6b80",
+          "095b4c45-dc37-4c88-b0e3-d63f36393e18",
+          "54f7d27a-cf90-483d-b5be-f733a0409d0d",
+          "e9dee175-a8e1-4ba2-a871-3e52c80afed0",
+          "78250a8d-7987-48fc-a79e-76c472cea1bd",
+          "24f51c70-2c1b-4365-bc86-bb97c44e69f5"
+        ],
+        "settings": {
+        }
+      },
+      "fdcd5458-13ce-4f96-8702-9d9db4169877": {
+        "type": "why-exederm",
+        "settings": {
+          "subheading": "Exederm is a proven, simple and sensible approach for anyone with eczema, dermatitis and dry or sensitive skin. <br class=\"tw-hidden xl:tw-block\"> With Exederm it’s possible to gently cleanse, to deeply moisturize and get smoother and healthier skin – without using unnecessary chemicals.",
+          "award_text": "The National Eczema Association has honored each and every product in the Exederm range with its coveted 'Seal of Acceptance' award."
+        }
+      },
+      "52f4a7bb-bfc1-4c6f-aa2f-93ea9a48241f": {
+        "type": "popup",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1619653211d0d675e3",
+      "52f4a7bb-bfc1-4c6f-aa2f-93ea9a48241f",
+      "fdcd5458-13ce-4f96-8702-9d9db4169877",
+      "1621951656a6130875",
+      "16214350288b8b2503",
+      "4a2243be-4037-47aa-b58f-3616d8cf7746",
+      "98068051-56ab-4d8c-997c-8055251d430c",
+      "991e3ed3-79a4-4fba-8f8f-4bf76a24035b"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#fff",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_instagram_link": ""
+    }
+  }
+}

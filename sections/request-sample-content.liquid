@@ -1,0 +1,168 @@
+<!-- /templates/page.liquid -->
+<section class="tw-my-9 xl:tw-mb-16">
+  <div class="tw-px-5 md:tw-px-10 xl:tw-px-32 2xl:tw-px-0 tw-container tw-mx-auto xl:tw-max-w-1336px">
+    <h1 class="tw-text-32px/40px lg:tw-text-45px/56px tw-pb-3 xl:tw-pb-9 tw-text-matterhorn tw-text-left">{{ page.title }}</h1>
+    <div class="xl:tw-grid xl:tw-grid-cols-4/6">
+      <div class="tw-text-matterhorn xl:tw-mr-12 tw-mb-16 xl:tw-m-0">
+        <h3 class="tw-text-22px/28px tw-pb-4">Thank you for your interest in Exederm products.</h3>
+        <h3 class="tw-text-black tw-text-18px/24px tw-pb-9">You can sign up for a free sample by completing the sample request form.</h3>
+
+        <ul class="tw-ml-0 tw-text-black tw-text-16px/24px tw-font-semibold tw-font-open-sans">
+          <li class="checkmark tw-pl-8 tw-pb-5 md:tw-pb-8">Due to overwhelming demand, your name and information will be placed on a waiting list to receive your free sample.</li>
+          <li class="checkmark tw-pl-8 tw-pb-5 md:tw-pb-8">The offer is restricted to US addresses and is limited to one per family.</li>
+          <li class="checkmark tw-pl-8 tw-pb-5 md:tw-pb-8 tw-pt-1">Please expect 1-2 months for your sample to arrive.</li>
+          <li class="checkmark tw-pl-8 tw-pb-5 md:tw-pb-8 tw-pt-1">Samples of Exederm Flare Control Cream only.</li>
+        </ul>
+        <img src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/request-a-sample.jpg?v=1682429387" class="tw-w-full tw-h-auto object-cover tw-max-w-md tw-mx-auto xl:tw-ml-0" />
+      </div>
+
+      <div class="tw-bg-aliceblue tw-px-10 tw-py-8">
+        <h2 class="tw-text-26px/33px tw-text-matterhorn tw-pb-8">Exederm Sample Request Form</h2>
+        {% form 'contact' %}
+
+          {% if form.posted_successfully? %}
+            <p class="tw-mb-7 tw-text-white tw-bg-green tw-p-5">
+              {{ 'contact.form.post_success' | t }}
+            </p>
+          {% endif %}
+
+          {% if form.errors %}
+            <p class="tw-mb-7 tw-text-white tw-bg-red-500 tw-p-5">{{ form.errors | default_errors }}</p>
+          {% endif %}
+
+          <div class="tw-hidden">
+            <input
+              type="text"
+              id="ContactFormPage"
+              name="contact[Sent From Page]"
+              value="{{page.title}}"
+              required>
+          </div>
+
+          <div class="md:tw-flex md:tw-justify-between">
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormFirstName">{{ 'contact.form.firstname' | t }}*</label><br>
+              <input
+                class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+                type="text"
+                id="ContactFormFirstName"
+                name="contact[First Name]"
+                required>
+            </div>
+
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormLastName">{{ 'contact.form.lastname' | t }}*</label><br>
+              <input
+                class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+                type="text"
+                id="ContactFormLastName"
+                name="contact[Last Name]"
+                required>
+            </div>
+          </div>
+
+          <div class="tw-pb-4">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormAddress1">{{ 'contact.form.address1' | t }}*</label><br>
+            <input
+              class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+              type="text"
+              id="ContactFormAddress1"
+              name="contact[Address Line 1]"
+              required>
+          </div>
+
+          <div class="tw-pb-4">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormAddress2">{{ 'contact.form.address2' | t }}</label><br>
+            <input
+              class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+              type="text"
+              id="ContactFormAddress2"
+              name="contact[Address Line 2]">
+          </div>
+
+          <div class="md:tw-flex md:tw-justify-between">
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormCity">{{ 'contact.form.city' | t }}*</label><br>
+              <input
+                class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+                type="text"
+                id="ContactFormCitys"
+                name="contact[City]"
+                required>
+            </div>
+
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormState">{{ 'contact.form.state' | t }}*</label><br>
+              <input
+                class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+                type="text"
+                id="ContactFormState"
+                name="contact[State]"
+                required>
+            </div>
+          </div>
+
+          <div class="tw-pb-4 md:tw-w-48%">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormZipCode">{{ 'contact.form.zip' | t }}*</label><br>
+            <input
+              class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+              type="text"
+              id="ContactFormZipCode"
+              name="contact[Zip Code]"
+              required>
+          </div>
+
+          <div class="tw-pb-4">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormCountry">{{ 'contact.form.country' | t }}*</label><br>
+            <input
+              class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+              type="text"
+              id="ContactFormCountry"
+              name="contact[Country]"
+              required>
+          </div>
+
+          <div class="tw-pb-4">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormEmail">{{ 'contact.form.email' | t }}*</label><br>
+            <input
+              class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full"
+              type="email"
+              id="ContactFormEmail"
+              name="contact[email]"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required>
+          </div>
+
+          <div class="tw-pb-6">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormMessage">Please tell us in a few words your Eczema story and why you would like a sample of Exederm Flare Control Cream.*</label><br>
+            <textarea
+              class="tw-pl-2 tw-border-2 tw-h-32 tw-border-solid tw-border-gainsboro tw-rounded tw-text-16px/24px tw-py-1 tw-w-full"
+              type="text"
+              id="ContactFormMessage"
+              name="contact[Why I'd like a sample]"
+              cols="30"
+              rows="10"
+              required></textarea>
+          </div>
+
+          <div class="tw-pb-4">
+            <input
+              type="checkbox"
+              id="ContactFormSignUp"
+              name="contact[Newsletter Sign Up]"
+              value="Sign Me Up!">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="ContactFormSignUp">
+              Please send me info about Exederm updates and products via email</label>
+          </div>
+
+          <p class="tw-text-14px/20px tw-font-open-sans tw-text-black tw-pb-8">By submitting your information in this form, you agree that such information will be governed by our Privacy Policy.</p>
+
+          <button
+            class="primary__button tw-w-48 tw-py-3"
+            type="submit"
+            value={{ 'contact.form.send' | t}}>Send</button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<section class="tw-relative tw-mt-12 tw-h-690px xl:tw-h-552px tw-max-w-1336px tw-mx-auto">
+
+  <div class="tw-w-340px tw-h-250px sm:tw-h-80 sm:tw-w-438px lg:tw-w-525px lg:tw-h-96">
+    <img
+      src={{ 'image-left.png' | asset_img_url: '526x' }}
+      alt="applying cream"
+      class="tw-h-full tw-w-full" />
+  </div>
+
+  <div class="tw-bg-tan tw-z-10 tw-centered-card tw-w-376px sm:tw-w-456px lg:tw-w-552px">
+    <div class="tw-pt-5 tw-pb-8 tw-px-5 tw-text-center lg:tw-text-left lg:tw-pt-10 lg:tw-pb-12 lg:tw-pl-16">
+      <h2 class="tw-text-32px/40px tw-text-matterhorn tw-pb-7">{{ section.settings.eyebrow2 }}</h2>
+      <p class="tw-text-18px/24px md:tw-text-20px/29px tw-font-open-sans 
+              tw-text-matterhorn tw-pb-9 md:tw-pb-6 lg:tw-pb-8">{{ section.settings.text-box2 }}</p>
+      <a href="{{section.settings.btn2-link}}" class="tw-py-3 tw-text-center tw-w-48 primary__button">
+        {{ section.settings.btn2-text }}</a>
+    </div>
+  </div>
+
+  <div class="tw-w-264px tw-h-300px md:tw-w-72 md:tw-h-80 lg:tw-w-400px lg:tw-h-438px tw-absolute 
+        tw-bottom-0 md:tw-bottom-12 xl:tw-bottom-0 xl:tw-top-24 tw-right-0">
+    <img
+      src={{ 'image-right.png' | asset_img_url: '395x' }}
+      alt="exederm product"
+      class="tw-h-full tw-w-full" />
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Centered Card with Images",
+    "settings": [
+      {
+        "id": "eyebrow2",
+        "type": "text",
+        "label": "Heading",
+        "default": "Title here"
+      }, {
+        "id": "text-box2",
+        "type": "text",
+        "label": "Description",
+        "default": "Content here"
+      }, {
+        "id": "btn2-text",
+        "type": "text",
+        "label": "Button text",
+        "default": "Click Here"
+      }, {
+        "id": "btn2-link",
+        "type": "url",
+        "label": "Button URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Find Solution",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "main": {
+      "type": "skin-and-irritants",
+      "blocks": {
+        "33ab443b-d4a9-4390-a96c-0ac93ba9c81a": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/about-skin-elbow.png?v=1612641300",
+            "card-text": "About Skin",
+            "link": "https:\/\/exederm-staging.myshopify.com\/pages\/about-skin"
+          }
+        },
+        "43d2520b-ae9d-4b0c-aeb6-8340e1fc9da5": {
+          "type": "card",
+          "settings": {
+            "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/about-irritants-blue.png?v=1612641300",
+            "card-text": "About Irritants",
+            "link": "https:\/\/exederm-staging.myshopify.com\/pages\/about-irritants"
+          }
+        }
+      },
+      "block_order": [
+        "33ab443b-d4a9-4390-a96c-0ac93ba9c81a",
+        "43d2520b-ae9d-4b0c-aeb6-8340e1fc9da5"
+      ],
+      "settings": {
+        "heading": "About Skin & Irritants"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

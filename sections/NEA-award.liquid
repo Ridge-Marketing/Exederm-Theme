@@ -1,0 +1,48 @@
+<section class="xl:tw-mt-4 lg:tw-flex">
+  <div class="lg:tw-w-1/2">
+    <div class="tw-relative tw-h-full">
+      {% if product.metafields.NEA_award.img != blank %}
+        <img
+          class="tw-w-full tw-h-full tw-object-cover lazyload"
+          src={{product.metafields.NEA_award.img}}
+          data-src="{{ img_url }}"
+          data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          alt="Flare Control Cream application image">
+      {% else %}
+        <img
+          class="tw-w-full tw-h-full tw-object-cover lazyload"
+          src="{{ 'Exederm_FlareControl_Both_0783.png' | asset_img_url: 'master' }}"
+          data-src="{{ img_url }}"
+          data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          alt="Flare Control Cream application image">
+      {% endif %}
+    </div>
+  </div>
+  <div class="lg:tw-w-1/2">
+    <div class="tw-px-4 tw-py-9 tw-flex tw-flex-col tw-justify-center tw-h-full tw-items-center tw-bg-tan tw-text-center">
+      <div class="tw-inline-block tw-mx-auto tw-mb-4 md:tw-mb-8 tw-w-24">
+        <img src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/award-badge.png?v=1626799267" alt="The badge of the National Eczema Association">
+      </div>
+      <p style="max-width:500px; font-weight:400;" class="h3">
+        Awarded the coveted National Eczema Association 'Seal of Acceptance'.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "NEA Award Section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "NEA Award",
+        "category": "Products page"
+      }
+    ]
+  }
+{% endschema %}

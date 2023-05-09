@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "main": {
+      "type": "skin-and-irritants-content",
+      "settings": {
+        "img_class": "adult-skin-hero",
+        "color_class": "tw-text-matterhorn",
+        "content_type_class": "skin-blocks"
+      }
+    },
+    "recommended": {
+      "type": "product-slider",
+      "settings": {
+        "heading": "Recommended Products",
+        "margins": ""
+      }
+    },
+    "slider": {
+      "type": "logo-slider",
+      "settings": {
+      }
+    },
+    "return": {
+      "type": "return-to",
+      "settings": {
+        "link": "shopify:\/\/pages\/about-skin",
+        "text": "Return to About Skin",
+        "width_1336px": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommended",
+    "slider",
+    "return"
+  ]
+}

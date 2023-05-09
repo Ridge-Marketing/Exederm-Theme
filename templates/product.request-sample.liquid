@@ -1,0 +1,316 @@
+<!-- /templates/product.request-sample.liquid -->
+<!--product-template-2021-->
+{% comment %}
+
+  Rich snippets (itemscope, itemtype, etc.) for products are a theme requirement,
+  and allow search engines to easily understand what the content is.
+
+  For more information on these Scheme.org tags, visit:
+    - http://schema.org/docs/gs.html
+
+{% endcomment %}
+
+<div itemscope itemtype="http://schema.org/Product">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  {% comment %}
+    Get first variant, or deep linked one
+  {% endcomment %}
+  {% assign current_variant = product.selected_or_first_available_variant %}
+
+  {% include 'breadcrumb' %}
+
+  <!--main class="wrapper main-content basic-page"-->
+  <main id="topsection" class="wrapper main-content">
+
+  <div class="grid product-single">
+    <div class="grid__item large--one-third text-center">
+      <div class="product-single__photos" id="ProductPhoto">
+        {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+        <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+      </div>
+
+      {% comment %}
+        Create thumbnails if we have more than one product image
+      {% endcomment %}
+      {% if product.images.size > 1 %}
+        <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+
+          {% for image in product.images %}
+            <li class="grid__item one-quarter">
+              <a href="{{ image.src | img_url: 'large' }}" class="product-single__thumbnail">
+                <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+              </a>
+            </li>
+          {% endfor %}
+
+        </ul>
+      {% endif %}
+    </div>
+  
+    <div id="prod-desc-price" class="grid__item large--two-thirds">
+
+      <h1 itemprop="name" class="product-title">{{ product.title }}</h1>
+
+            <div class="product-description rte" itemprop="description">
+              {% assign prod_desc = product.metafields.prod_desc %}
+              {{ prod_desc['topmost_desc_1'] }}
+              <div class="clearfix"></div>
+              <div class="grid__item large--one-whole" style="padding:0;">
+                {{ prod_desc['topmost_desc_2'] }}
+
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+        {% comment %}
+          ID addToCartForm is a selector for the ajax cart plugin
+        {% endcomment %}
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical white">
+
+          {% comment %}
+            Add product variants as a dropdown.
+              - By default, each variant (or combination of variants) will display as its own <option>
+              - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
+
+            You can leverage jQuery to add a callback on page load and each time the select element changes:
+              - Include option_selection.js (as seen at the bottom of this file)
+              - This allows you to use JavaScript anytime the variant dropdown changes
+              - This also separates out your variant options (ie. size, color, etc.) to separate select elements
+
+            For more information on products with multiple options, visit:
+              - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
+          {% endcomment %}
+          <select name="id" id="productSelect" class="product-single__variants">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+
+                {% comment %}
+                  Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                {% endcomment %}
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+              {% else %}
+                <option disabled="disabled">
+                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+          <span id="ProductPrice" class="h2" itemprop="price">
+            {{ current_variant.price | money }}
+          </span>
+
+          {% if product.compare_at_price_max > product.price %}
+            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+            <p id="ComparePrice">
+              {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+            </p>
+          {% endif %}
+			<br>
+          <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+<br>
+            <div id="buy-button" class="section group">
+				<div class="col-768 span_1_of_2-768">
+					   <button type="submit" name="add" id="AddToCart" class="btn">
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+					</div>
+				<div class="col-768 span_1_of_2-768">
+                  <!--a class="stores" href="/pages/find-a-retailer"><strong>Find In Stores</strong></a-->
+				</div>
+			</div>
+            
+        </form>
+            
+            <div>
+               {{ prod_desc['offertext'] }}
+            </div>
+      </div>
+              </div>
+                <!--coupons block-->
+                <!--div class="grid__item large--one-half spec-offers">
+                {% comment %}{{ prod_desc['spec_offer_1'] }}{% endcomment %}
+                <img src="https://cdn.shopify.com/s/files/1/1211/7332/files/EXE-004_Product_Baby-Eczema-Cream_v2_03.jpg?2370815446884674845" alt="Special Offer: Buy ANY 3 - Save 20% (enter code 'SAVE20' at checkout'"/>
+                <br />
+                {% comment %}{{ prod_desc['spec_offer_2'] }}{% endcomment %}
+                <img src="https://cdn.shopify.com/s/files/1/1211/7332/files/EXE-004_Product_Baby-Eczema-Cream_v2_06.jpg?2370815446884674845" alt="FREE shipping on orders over $50 (USA only)"/>
+              </div-->
+
+        {% comment %}{{ product.description }}{% endcomment %}
+      </div>
+              
+    </div>
+    </div> 
+        
+      <div class="clearfix"></div>
+      </main>
+    <div id="full-row" class="pt">
+     <div class="product-tabs">
+    <!--custom Metafields tabs - add metafields in the Metafields app for each product-->
+    {% render "custom-tabs" %}
+  </div>  
+    </div>
+      <div class="clearfix"></div>
+      
+    <div id="award-section"class="section group">
+	<div class="col-768-max span_1_of_2-768-max">
+      {{ prod_desc['award1'] }}
+	</div>
+	<div class="col-768-max span_2_of_2-768-max">
+	{{ prod_desc['award2'] }}
+	</div>
+</div>
+    
+    <!--div class="hSpacer forty"></div-->
+    <div class="wrapper" style="max-width:1270px">
+    <div class="grid__item large--two-thirds">
+       
+        {{ prod_desc['extended_description'] }}    
+      </div>
+    </div>
+    
+
+    <div class="wrapper main-content">
+    <div class="clearfix"></div>
+
+    <!--div class="hSpacer forty"></div-->
+
+    <!--div class="prod-desc-extended">
+    <div class="grid__item large--one-half">
+      <h2>Why exederm?</h2>
+      <hr>
+      {{ prod_desc['why_exederm'] }}
+      <div class="clearfix"></div>
+      <div class="hSpacer twenty-five"></div>
+      <ul class="check-list first">
+        <li>No Fragrance</li>
+        <li>No Color or Dyes</li>
+        <li>No Parabens</li>      
+      </ul>
+      <ul class="check-list last">
+          <li>No SLS or SLES</li>
+          <li>No Propylene Glycol</li>
+          <li>No Cocamidopropyl</li>
+      </ul>
+    <div class="clearfix"></div>
+      <div class="hSpacer forty"></div>
+    </div>
+    <div class="grid__item large--one-half">
+      <h2>Our Ingredients</h2>
+      <hr>
+      {{ prod_desc['our_ingredients'] }}
+      {% comment %}<a class="fancybox" href="{{ prod_desc['compare'] }}"><button class="button-products-page">Compare Ingredients</button></a>{% endcomment %}
+      
+      <div class="hSpacer twenty-five"></div>
+      <hr>
+      <div class="hSpacer forty"></div>
+      <div class="grid">
+            <div class="grid__item one-sixth small--hide" style="padding-left:0;">
+      <img src="https://cdn.shopify.com/s/files/1/1211/7332/files/nea-badge.jpg?11679574105445620494" alt="The badge of the National Eczema Association"/>
+    </div>
+    <div class="grid__item five-sixths small--one-whole small-no-left">
+      Awarded the coveted National Eczema Association <b>'Seal of Acceptance'</b> with <b>5/5 score</b> from the expert review panel
+    </div>
+      </div>
+      <div class="hSpacer forty"></div>
+
+    </div>
+  </div-->
+
+    <div class="clearfix"></div>
+   
+         <div class="grid__item large--whole">
+      
+   <div class="collection-name"><span>&nbsp;Other Top Rated Products&nbsp;<span></div> 
+
+   <div class="hSpacer twenty-five"></div>
+   
+   <!--section for recommended products collection-->
+    {% section 'other-top-rated-products' %}
+           
+      </div>
+      
+       <div class="clearfix"></div>
+
+    <div class="grid__item large--whole">
+         
+    <div class="clearfix"></div>
+
+    <!--div class="hSpacer forty"></div-->
+
+    <div class="grid__item large--whole">
+
+      
+      <!--div class="collection-name"><span>&nbsp;You May Also Like&nbsp;</span></div-->
+
+      <div class="hSpacer twenty-five"></div>
+
+    </div>
+    <div class="wrapper main-content">
+
+      {% assign handleized = page_title | handleize %}
+
+      {% assign page_collection = handleized | prepend: 'similar-to-' %}
+
+    {% for product in collections[page_collection].products limit: 4 %}
+    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+      {% include 'product-grid-item' %} 
+
+    {% endfor %}
+  </div>
+
+  </div>
+
+  </div>
+
+</div>
+
+{% comment %}
+  To take advantage of a callback on the select dropdown, add option_selection.js
+  and customize the JS in timber.productPage as needed.
+
+  Currently, timber.productPage does the following:
+    - Hides your <select> tag from above
+    - Breaks out the product variants into separate product options, if more than one exists
+    - Generates a <select> tag for each product option
+    - Enables/disables elements based on variant availability
+
+  Callback notes:
+    - Keep the callback available to the global scope (window.selectCallback) so that advanced
+      addons can override it.
+      * E.g. multiple currencies http://docs.shopify.com/manual/configuration/store-customization/currencies-and-translations/currencies/how-to-toggle-between-two-currencies
+{% endcomment %}
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+<script>
+  var selectCallback = function(variant, selector) {
+    timber.productPage({
+      money_format: "{{ shop.money_format }}",
+      variant: variant,
+      selector: selector
+    });
+  };
+
+  jQuery(function($) {
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallback,
+      enableHistoryState: true
+    });
+
+    // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+    {% endif %}
+
+    // Hide selectors if we only have 1 variant and its title contains 'Default'.
+    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      $('.selector-wrapper').hide();
+    {% endif %}
+  });
+</script>
