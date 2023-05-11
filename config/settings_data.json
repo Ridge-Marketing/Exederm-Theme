@@ -695,15 +695,13 @@
           "5c92a2d9-9313-4b9d-85bf-3427a4803a62": {
             "type": "coupon",
             "settings": {
-              "coupon_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Download-Coupon-50cents.pdf?v=1682692459",
-              "coupon_img": "shopify:\/\/shop_images\/Coupon-50cents.webp"
+              "coupon_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Download-Coupon-50cents.pdf?v=1682692459"
             }
           },
           "11a60853-b81d-48db-88d7-4809124921d2": {
             "type": "coupon",
             "settings": {
-              "coupon_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Download-Coupon-1dollar.pdf?v=1682692460",
-              "coupon_img": "shopify:\/\/shop_images\/Coupon-1dollar.webp"
+              "coupon_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0561\/8571\/6895\/files\/Download-Coupon-1dollar.pdf?v=1682692460"
             }
           }
         },
