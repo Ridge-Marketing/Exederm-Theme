@@ -617,7 +617,7 @@
             "type": "about",
             "settings": {
               "question-head": "Will exederm clog my pores?",
-              "question-text": "<p>No. Exederm products are formulated to be non-comedogenic (non-pore-clogging).<\/p>",
+              "question-text": "<p>No. exederm products are formulated to be non-comedogenic (non-pore-clogging).<\/p>",
               "select": false,
               "html_input": ""
             }
