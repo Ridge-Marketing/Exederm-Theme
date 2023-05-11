@@ -4,7 +4,7 @@
     "main": {
       "type": "product-indv-info",
       "settings": {
-        "title_override": ""
+        "title_override": "{{ product.metafields.custom.title_override.value }}"
       }
     },
     "award": {
