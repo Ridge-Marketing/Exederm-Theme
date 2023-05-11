@@ -527,7 +527,7 @@
             "type": "about",
             "settings": {
               "question-head": "I've tried everything. How do I know if exederm will work for me?",
-              "question-text": "<p>Exederm is a logical choice. It's possible that many of the products you may have tried in the past could contain ingredients that may irritate. Check the label. Exederm is formulated to avoid these irritants, giving you the best chance for success. If exederm isn’t right for you simply return for a refund.<\/p>",
+              "question-text": "<p>exederm is a logical choice. It's possible that many of the products you may have tried in the past could contain ingredients that may irritate. Check the label. exederm is formulated to avoid these irritants, giving you the best chance for success. If exederm isn’t right for you simply return for a refund.<\/p>",
               "select": false,
               "html_input": ""
             }
@@ -545,7 +545,7 @@
             "type": "about",
             "settings": {
               "question-head": "Are exederm products safe for children?",
-              "question-text": "<p>Exederm flare control cream is recommended for children over the age of 2, you should seek your doctor's advice for younger children.<br\/><br\/>All other exederm products including wash, intensive moisturizer, lotion, shampoo, conditioner and oil are suitable for children of all ages.<\/p>",
+              "question-text": "<p>exederm flare control cream is recommended for children over the age of 2, you should seek your doctor's advice for younger children.<br\/><br\/>All other exederm products including wash, intensive moisturizer, lotion, shampoo, conditioner and oil are suitable for children of all ages.<\/p>",
               "select": false,
               "html_input": ""
             }
