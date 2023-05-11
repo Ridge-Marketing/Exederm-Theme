@@ -572,7 +572,7 @@
             "type": "about",
             "settings": {
               "question-head": "Will exederm work with other products?",
-              "question-text": "<p>Exederm cleansing wash and exederm intense moisture cream can be used as part of your everyday skin care routine and may be used with other products. If your doctor has prescribed a medication remember to always follow the instructions. We recommend that you also take the time for read the instructions on exederm flare control cream.<\/p>",
+              "question-text": "<p>exederm cleansing wash and exederm intense moisture cream can be used as part of your everyday skin care routine and may be used with other products. If your doctor has prescribed a medication remember to always follow the instructions. We recommend that you also take the time for read the instructions on exederm flare control cream.<\/p>",
               "select": false,
               "html_input": ""
             }
@@ -581,7 +581,7 @@
             "type": "about",
             "settings": {
               "question-head": "Why and when should I use the exederm flare control cream?",
-              "question-text": "<p>Exederm flare control cream is for temporary relief of itching associated with skin irritation such as eczema or contact dermatitis for soaps, detergents or cosmetics.<br\/><br\/>You should apply not more than 3 to 4 times daily.<\/p>",
+              "question-text": "<p>exederm flare control cream is for temporary relief of itching associated with skin irritation such as eczema or contact dermatitis for soaps, detergents or cosmetics.<br\/><br\/>You should apply not more than 3 to 4 times daily.<\/p>",
               "select": false,
               "html_input": ""
             }
