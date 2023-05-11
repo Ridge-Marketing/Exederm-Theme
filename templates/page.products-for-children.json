@@ -3,7 +3,7 @@
     "main": {
       "type": "product-pages-content",
       "settings": {
-        "featured_collection": "babies"
+        "featured_collection": "babies-and-children"
       }
     }
   },
