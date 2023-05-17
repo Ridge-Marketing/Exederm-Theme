@@ -1,22 +1,3 @@
 <!-- /templates/page.liquid -->
 
-{% include 'breadcrumb' %}
-
-<main class="wrapper main-content basic-page" role="main">
-<div id="cta-boxes" class="grid">
-
-  <div class="grid__item one-whole">
-
-    <h1>{{ page.title }}</h1>
-
-    {% comment %}
-      Regular page content goes here.
-    {% endcomment %}
-    <div class="rte">
-      {{ page.content }}
-    </div>
-
-  </div>
-
-</div>
-</main>
+{% section "retailer-content.liquid" %}
