@@ -807,6 +807,13 @@
         "type": "popup",
         "settings": {
         }
+      },
+      "retailer-content": {
+        "type": "retailer-content",
+        "settings": {
+          "retailers_img": "shopify:\/\/shop_images\/Retail_Logos-Desktop.jpg",
+          "retailers_mobile": "shopify:\/\/shop_images\/Retail_Logos-Mobile.jpg"
+        }
       }
     },
     "content_for_index": [
