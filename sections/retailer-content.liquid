@@ -1,0 +1,46 @@
+<section class="tw-my-20">
+  <div class="tw-container tw-mx-auto tw-px-5 md:tw-px-10 xl:tw-max-w-screen-xl">
+    <h1 class="tw-text-32px/40px lg:tw-text-45px/56px tw-text-matterhorn tw-pb-5">Find A Retailer</h1>
+    <div class="tw-text-left">
+      <p class="h3 tw-pb-1">You can find exederm products at over 40,000 stores nationwide including these retailers.</p>
+      <p class="tw-text-16px/24px tw-text-black tw-pb-10">Find us on the First Aid aisle near the Neosporin & Band Aid items.</p>
+    </div>
+
+    <div class="tw-hidden lg:tw-block">
+      <img
+        class="tw-w-full tw-object-cover"
+        src="{{section.settings.retailers_img | img_url: 'master' }}"
+        alt="List of retailers that carry Exederm products" />
+    </div>
+    <div class="lg:tw-hidden">
+      <img
+        class="tw-w-full tw-object-cover"
+        src="{{section.settings.retailers_mobile | img_url: 'master' }}"
+        alt="List of retailers that carry Exederm products" />
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Retailer Section",
+    "settings": [
+      {
+        "id": "retailers_img",
+        "type": "image_picker",
+        "label": "Retailers Image"
+      }, {
+        "id": "retailers_mobile",
+        "type": "image_picker",
+        "label": "Retailers Image Mobile"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Retailer",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
