@@ -22,10 +22,10 @@
     </div>
     {% endif %}
     <div id="tab-2__desktop">
-      {{product.metafields.tabs.our_ingredients}}
+      {{ product.metafields.custom.our_ingredients | metafield_tag }}
     </div>
     <div id="tab-3__desktop">
-      {{product.metafields.tabs.why_exederm}}
+      {{ product.metafields.custom.why_exederm | metafield_tag }}
     </div>
   </div>
 </div>
@@ -46,14 +46,14 @@
     <div class='tab-wrapper tw-bg-aliceblue tw-min-h-60px tw-relative'>
       <button class="tabselect-btn tw-font-medium tw-text-22px/28px tw-pl-5 md:tw-pl-10 tw-pt-4" data-tab="tab2" value="#tab-2__mobile">Our Ingredients</button>
       <div id="tab-2__mobile">
-          {{product.metafields.tabs.our_ingredients}}
+        {{ product.metafields.custom.our_ingredients | metafield_tag }}
       </div>      
     </div>
 
     <div class='tab-wrapper tw-bg-aliceblue tw-min-h-60px tw-relative'>
       <button class="tabselect-btn tw-font-medium tw-text-22px/28px tw-pl-5 md:tw-pl-10 tw-pt-4" data-tab="tab3" value="#tab-3__mobile">Why exederm</button>
       <div id="tab-3__mobile">
-          {{product.metafields.tabs.why_exederm}}
+        {{ product.metafields.custom.why_exederm | metafield_tag }}
       </div>
     </div>
   </div>
