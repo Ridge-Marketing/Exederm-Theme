@@ -16,7 +16,7 @@
           "settings": {
             "card-img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0524\/5622\/7007\/files\/about-irritants-blue.png?v=1612641300",
             "card-text": "About Irritants",
-            "link": "https:\/\/exederm-staging.myshopify.com\/pages\/about-irritants"
+            "link": "shopify:\/\/pages\/about-irritants"
           }
         }
       },
