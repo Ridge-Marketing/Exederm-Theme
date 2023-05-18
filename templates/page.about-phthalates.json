@@ -4,14 +4,18 @@
       "type": "skin-and-irritants-content",
       "settings": {
         "img_class": "phthalates-hero",
-        "color_class": "tw-text-matterhorn lg:tw-text-white"
+        "color_class": "tw-text-matterhorn lg:tw-text-white",
+        "content_type_class": ""
       }
     },
     "collection": {
       "type": "product-slider",
       "settings": {
         "heading": "Other Top Rated Products",
-        "margins": "tw-mt-14"
+        "margins": "tw-mt-14",
+        "use_button": false,
+        "button_text": "",
+        "button_link": ""
       }
     },
     "slider": {
@@ -22,8 +26,9 @@
     "return": {
       "type": "return-to",
       "settings": {
-        "link": "\/pages\/about-irritants",
-        "text": "Return to About Irritants"
+        "link": "shopify:\/\/pages\/about-irritants",
+        "text": "Return to About Irritants",
+        "width_1336px": false
       }
     }
   },
