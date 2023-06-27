@@ -89,10 +89,19 @@
           </button>
         </div>
 
-        <input
+        {% if product.available %}
+          <input
+            class="primary__button tw-w-48 tw-py-3 tw-rounded-none"
+            type="submit"
+            value="Add to cart">
+        {% else %}
+          <input
           class="primary__button tw-w-48 tw-py-3 tw-rounded-none"
           type="submit"
-          value="Add to cart">
+          value="Out of Stock"
+          disabled
+          >
+        {% endif %}
 
         <div class="tw-w-full tw-max-w-screen-md tw-my-1/100 tw-block lg:tw-inline lg:tw-pl-8">
           <a class="tw-mt-4 tw-text-16px/22px tw-inline-block tw-underline tw-text-green hover:tw-text-hover-green" href="/pages/bullseye-store-locator-page">
