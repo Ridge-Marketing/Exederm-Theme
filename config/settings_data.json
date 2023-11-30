@@ -825,7 +825,15 @@
       "4a2243be-4037-47aa-b58f-3616d8cf7746",
       "98068051-56ab-4d8c-997c-8055251d430c",
       "991e3ed3-79a4-4fba-8f8f-4bf76a24035b"
-    ]
+    ],
+    "blocks": {
+      "3acfba32-89f3-4377-ae20-cbb9abc48475": {
+        "type": "shopify:\/\/apps\/order-limits-minmaxify\/blocks\/app-embed-block\/3acfba32-89f3-4377-ae20-cbb9abc48475",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
