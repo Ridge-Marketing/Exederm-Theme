@@ -803,6 +803,8 @@
         "type": "why-exederm",
         "settings": {
           "subheading": "exederm is a proven, simple and sensible approach for anyone with eczema, dermatitis and dry or sensitive skin. <br class=\"tw-hidden xl:tw-block\"> With exederm it’s possible to gently cleanse, to deeply moisturize and get smoother and healthier skin — without using unnecessary chemicals.",
+          "video_url": "https://cdn.shopify.com/videos/c/o/v/8fe1c52d527e4c73ac20adc9b5aa1b55.mp4",
+          "video_thumbnail": "shopify://shop_images/exederm-video-scene-A_1.jpg",
           "award_text": "The National Eczema Association has honored each and every product in the exederm range with its coveted 'Seal of Acceptance' award."
         }
       },

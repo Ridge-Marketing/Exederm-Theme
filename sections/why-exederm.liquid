@@ -1,21 +1,30 @@
+<style>
+  @media screen and (min-width:1024px){
+    .maxWidth432{
+      max-width:432px;
+    }
+    .maxWidth665{
+      max-width:665px
+    }
+  }
+</style>
 <div class="tw-bg-cover tw-w-full tw-py-10 ">
   <div class="tw-py-10 tw-px-6 lg:tw-px-10 2xl:tw-px-0 tw-container tw-mx-auto xl:tw-max-w-1336px">
-    <div class="lg:tw-grid lg:tw-grid-cols-2 tw-gap-16 tw-items-center">
+    <div class="lg:tw-flex tw-gap-16 tw-items-center tw-justify-center">
 
-      <div class="tw-text-left">
+      <div class="tw-text-left maxWidth432 " style="">
         <h2 class="tw-text-32px/40px tw-text-matterhorn tw-font-medium" style="color:#535353">
           Why exederm?
         </h2>
-        <p class="tw-mt-3 tw-text-20px/25px tw-text-black">
+        <p class="tw-my-6 tw-text-20px/25px tw-text-black">
           {{ section.settings.subheading }}
         </p>
 
         {% if section.settings.video_url != blank %}
-          <button data-fancybox data-src="{{ section.settings.video_url }}" class="videoModalButton tw-mt-6 tw-bg-green hover:tw-bg-hover-green tw-text-white tw-font-semibold tw-px-6 tw-py-3 tw-text-base tw-inline-flex tw-items-center tw-gap-2">
+          <button data-fancybox data-src="{{ section.settings.video_url }}" style="filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));" class="videoModalButton tw-mt-6 tw-bg-green hover:tw-bg-hover-green tw-text-white tw-font-semibold tw-px-6 tw-py-3 tw-text-base tw-inline-flex tw-items-center tw-gap-2">
             Watch Video
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="8" r="7.5" stroke="currentColor"/>
-              <path d="M6.5 5.5L11 8L6.5 10.5V5.5Z" fill="currentColor"/>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.75 0C12.0312 0 15.5 3.46875 15.5 7.75C15.5 12.0312 12.0312 15.5 7.75 15.5C3.46875 15.5 0 12.0312 0 7.75C0 3.46875 3.46875 0 7.75 0ZM11.3438 8.5C11.875 8.21875 11.875 7.5 11.3438 7.1875L5.84375 3.84375C5.34375 3.59375 4.75 3.9375 4.75 4.5V11C4.75 11.5938 5.34375 11.9375 5.84375 11.6562L11.3438 8.5Z" fill="white"/>
             </svg>
           </button>
         {% endif %}
@@ -25,35 +34,37 @@
         {% if section.settings.video_thumbnail != blank and section.settings.video_url != blank %}
           <div data-fancybox data-src="{{ section.settings.video_url }}" class="videoModalButton tw-relative tw-cursor-pointer">
             <img
-              src="{{ section.settings.video_thumbnail | img_url: 'large' }}"
+              src="{{ section.settings.video_thumbnail | image_url: width: 3000 }}"
+              width="665px"
               alt="Video thumbnail"
-              class="tw-w-full tw-h-auto">
+              style=""
+              class="tw-w-full tw-h-auto maxWidth665">
 
-            <!-- Play Button Overlay -->
-            <svg class="tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2" style="max-width:150px;" aria-hidden="true" width="102" height="102" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g filter="url(#filter0_d_2020_496)">
-                <path d="M65.375 48.75C67.5 50 67.5 52.875 65.375 54L43.375 66.625C41.375 67.75 39 66.375 39 64V38C39 35.75 41.375 34.375 43.375 35.375L65.375 48.75ZM82 51C82 68.125 68.125 82 51 82C33.875 82 20 68.125 20 51C20 33.875 33.875 20 51 20C68.125 20 82 33.875 82 51ZM26 51C26 64.875 37.125 76 51 76C64.75 76 76 64.875 76 51C76 37.25 64.75 26 51 26C37.125 26 26 37.25 26 51Z" fill="white" fill-opacity="0.5" shape-rendering="crispEdges"/>
+            <svg class="tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2" style="max-width:150px;" aria-hidden="true"  width="133" height="133" viewBox="0 0 133 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_2034_220)">
+              <path d="M88.0625 63.125C91.25 65 91.25 69.3125 88.0625 71L55.0625 89.9375C52.0625 91.625 48.5 89.5625 48.5 86V47C48.5 43.625 52.0625 41.5625 55.0625 43.0625L88.0625 63.125ZM113 66.5C113 92.1875 92.1875 113 66.5 113C40.8125 113 20 92.1875 20 66.5C20 40.8125 40.8125 20 66.5 20C92.1875 20 113 40.8125 113 66.5ZM29 66.5C29 87.3125 45.6875 104 66.5 104C87.125 104 104 87.3125 104 66.5C104 45.875 87.125 29 66.5 29C45.6875 29 29 45.875 29 66.5Z" fill="white" fill-opacity="0.5" shape-rendering="crispEdges"/>
               </g>
               <defs>
-                <filter id="filter0_d_2020_496" x="0" y="0" width="102" height="102" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                  <feOffset/>
-                  <feGaussianBlur stdDeviation="10"/>
-                  <feComposite in2="hardAlpha" operator="out"/>
-                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
-                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2020_496"/>
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2020_496" result="shape"/>
-                </filter>
+              <filter id="filter0_d_2034_220" x="0" y="0" width="133" height="133" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset/>
+              <feGaussianBlur stdDeviation="10"/>
+              <feComposite in2="hardAlpha" operator="out"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2034_220"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2034_220" result="shape"/>
+              </filter>
               </defs>
             </svg>
+
           </div>
         {% elsif section.settings.video_thumbnail != blank %}
           <img
             src="{{ section.settings.video_thumbnail | image_url: width: 3000 }}"
             alt="Video thumbnail"
-            style="max-width:665px"
-            class="tw-w-full tw-h-auto">
+            style=""
+            class="tw-w-full tw-h-auto maxWidth665">
         {% endif %}
       </div>
 
