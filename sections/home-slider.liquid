@@ -1,0 +1,83 @@
+<section class="py-0">
+  <!-- Slider main container -->
+  <div class="swiper-container--{{ section.id }} tw-relative">
+    <!-- Additional required wrapper -->
+    <div class="">
+      <!-- Slides -->
+      <div style="height: auto" class="2xl:tw-py-20 swiper-slide tw-relative tw-w-full tw-overflow-hidden tw-flex-col tw-flex">
+        <img
+          class="tw-hidden lg:tw-block tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-object-cover lazyload"
+          src="{{ section.settings.bg_image | img_url: 'master' }}"
+          data-src="{{ img_url }}"
+          data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+          data-aspectratio="{{ section.settings.bg_image.aspect_ratio }}"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          alt="{{ section.settings.bg_image.alt | escape }}">
+        <img
+          class="lg:tw-hidden tw-w-full tw-h-full tw-object-cover lazyload"
+          src="{{ section.settings.mobile_image | img_url: 'master' }}"
+          data-src="{{ img_url }}"
+          data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+          data-aspectratio="{{ section.settings.bg_image.aspect_ratio }}"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          alt="{{ section.settings.bg_image.alt | escape }}">
+
+        <div style="background-color: #f6f6f6;" class="2xl:tw-container 2xl:tw-mx-auto tw-text-center lg:tw-text-left">
+          <div class="tw-relative tw-bg-cover tw-bg-no-repeat tw-max-w-xs lg:tw-py-8 lg:tw-px-4 tw-my-0 tw-max-w-343px tw-mx-auto md:tw-my-0 lg:tw-ml-7/12 md:tw-max-w-sm lg:tw-max-w-xl xl:tw-px-8 xl:tw-pt-20">
+            {% if section.settings.eyebrow %}
+              <p class="tw-font-encode-sans tw-font-medium tw-text-22px/28px md:tw-text-26px/33px">{{ section.settings.eyebrow }}</p>
+            {% endif %}
+            <p class="tw-font-medium hero--title 2xl:tw-text-50px/54px tw-mb-8">{{ section.settings.heading }}</p>
+            <a class="btn btn--large btn--primary tw-inline-block tw-mb-8" href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+            <div class="swiper-pagination tw-hidden tw-relative"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Home Slider",
+    "settings": [
+      {
+        "id": "bg_image",
+        "type": "image_picker",
+        "label": "Background Image"
+      },
+      {
+        "id": "mobile_image",
+        "type": "image_picker",
+        "label": "Mobile Image"
+      },
+      {
+        "id": "eyebrow",
+        "type": "textarea",
+        "label": "Eyebrow"
+      },
+      {
+        "id": "heading",
+        "type": "textarea",
+        "label": "Heading"
+      }, {
+        "id": "button_text",
+        "type": "text",
+        "label": "Button text"
+      }, {
+        "id": "button_link",
+        "type": "url",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Home Slider",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

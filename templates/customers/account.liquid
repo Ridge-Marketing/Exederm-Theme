@@ -1,0 +1,120 @@
+<!-- /templates/customers/account.liquid -->
+{% comment %}
+
+  For all available customer liquid tags:
+    - http://docs.shopify.com/themes/liquid-variables/customer
+
+{% endcomment %}
+
+<section class="tw-py-9">
+  <div class="tw-container tw-mx-auto tw-px-5 md:tw-px-10 xl:tw-px-16 2xl:tw-px-0 xl:tw-max-w-screen-xl">
+    <div class="tw-flex tw-justify-between md:tw-justify-start tw-items-center tw-pb-8 xl:tw-pb-12">
+      <h1 class="tw-text-32px/40px lg:tw-text-45px/56px tw-text-matterhorn tw-mb-0 md:tw-mr-10">{{ 'customer.account.title' | t}}</h1>
+      <a href="/account/logout" class="tw-text-center secondary__button tw-py-3 tw-w-24 tw-mr-4" 
+      id="customer_logout_link" data-uw-styling-context="true">Log Out</a>
+    </div>
+
+    <div class="lg:tw-grid" style="grid-template-columns: 60% 30%; gap: 10%">
+
+      <div class="lg:tw-order-1">
+        <h3 class="tw-text-matterhorn tw-text-22px/28px tw-font-encode-sans tw-font-medium tw-mb-5 xl:tw-mb-9 yello">Order History</h3>
+        {% if customer.orders_count == 0 %}
+        <p class="tw-text-black">You have not purchased any products. <a href="/pages/products" class="tw-underline tw-text-green hover:tw-text-hover-green tw-text-14px/20px">Find products now.</a></p>
+        {% else %}
+
+        {% for order in customer.orders %} 
+        <div class="tw-mb-8">
+        <h5 class="tw-mb-5 xl:tw-mb-9 tw-font-bold tw-text-18px/24px">{{order.created_at | date: "%B %-d, %Y" }}</h5>
+        {% for item in order.line_items %} 
+          <div class="tw-flex tw-mb-2">
+              <div style="width: 100px">
+                  <img class="tw-mb-4 tw-mx-auto" src={{item.image | img_url}} alt={{item.title}} />
+              </div>
+  
+              <div class="tw-pl-12 tw-flex-grow tw-text-green tw-text-20px/25px tw-font-encode-sans tw-font-medium">
+                  <a href={{item.url}}>{{item.title}}</a>
+              </div>
+          </div>
+  
+          <div class="tw-flex tw-justify-between tw-items-center tw-pb-3 tw-text-matterhorn">
+              <p class="tw-text-14px/20px">Total</p>
+              <p class="tw-text-20px/25px tw-font-encode-sans tw-text-right tw-font-medium">{{item.original_price | money}}</p>
+          </div>
+          <hr style="background-color: #E0E0E0" class="tw-mb-12" />
+          {% endfor %}
+          <div class="tw-flex tw-justify-between tw-items-center tw-pb-8 tw-text-matterhorn">
+            <p class="tw-font-encode-sans tw-font-bold tw-text-18px/24px">Order Total</p>
+            <p class="tw-text-20px/25px tw-font-encode-sans tw-text-right tw-font-medium">{{order.subtotal_price | money}}</p>
+        </div>
+        <hr style="background-color: #979797; height: 2px;" />
+        </div>
+{% endfor %} 
+{% endif %}
+      </div>
+
+      <div class="lg:tw-order-2">
+        <h3 class="tw-text-matterhorn tw-text-22px/28px tw-font-encode-sans tw-font-medium tw-mb-5 xl:tw-mb-9">{{ 'customer.account.details' | t}}</h3>
+    
+        <p class="tw-text-black tw-font-bold tw-font-open-sans tw-text-16px/24px tw-pb-3">Personal Information</p>
+            
+        <div class="tw-text-16px/14px tw-text-black tw-font-open-sans tw-pb-5">
+          {% if customer.default_address %}
+            <p class="tw-pb-1">{{ customer.default_address.name }}</p>
+            <p class="tw-pb-1">{{ customer.default_address.address1 }}</p>
+      
+            {% if customer.default_address.address2 != blank %}
+              <p class="tw-pb-1">{{ customer.default_address.address2 }}</p>
+            {% endif %}
+      
+            <p class="tw-pb-1">{{ customer.default_address.city }} </p>
+            <p class="tw-pb-1">{{ customer.default_address.province_code }} </p>
+            <p class="tw-pb-1">{{ customer.default_address.zip }} </p>
+            <p>{{ customer.default_address.country }} </p>
+          {% endif %}
+        </div>
+    
+        <div class="tw-pb-8"><a href="/account/addresses" class="tw-underline tw-text-green hover:tw-text-hover-green tw-text-14px/20px">Edit Information</a></div>
+    
+        <hr class="tw-bg-gainsboro tw-mb-8">
+    
+        <h3 class="tw-text-matterhorn tw-text-22px/28px tw-font-encode-sans tw-font-medium tw-mb-5">{{ 'customer.reset_password.title' | t }}</h3>
+        <p class="tw-text-black tw-font-bold tw-font-open-sans tw-text-16px/24px tw-pb-6">{{ 'customer.recover_password.subtext' | t }}</p>
+    
+        {% form 'recover_customer_password', id: "recovery_form" %} 
+        {{ form_errors | default_errors }}
+      
+        <div class="email tw-pb-8">
+          <label class="tw-font-open-sans tw-text-black tw-text-16px/24px" for="recoveryEmail">{{ 'customer.recover_password.email' | t }}</label>
+          <br>
+          <input id="recoveryEmail" value="{{customer.email}}" class="tw-pl-2 tw-h-10 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="email" name="email">
+        </div>
+      
+        <div class="submit tw-text-center tw-pb-6">
+          <button class="primary__button tw-w-48 sm:tw-w-full tw-py-3 tw-mb-8 tw-text-16px/22px tw-uppercase" type="submit">{{ 'customer.reset_password.submit' | t }}</button>
+        </div>  
+    
+        {% endform %}  
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function() {
+    var REDIRECT_PATH = '/pages/confirmations';
+
+    var selector = '#recovery_form, form[action$="/account/recover"][method="post"]',
+        $form = document.querySelectorAll(selector)[0];
+
+    if ($form) {
+      $redirect = document.createElement('input');
+      $redirect.setAttribute('name', 'return_to');
+      $redirect.setAttribute('type', 'hidden');
+      $redirect.value = REDIRECT_PATH;
+      $form.appendChild($redirect);
+    }
+  })();
+</script>
+

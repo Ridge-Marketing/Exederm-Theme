@@ -1,0 +1,74 @@
+<section class="tw-p-0 tw-m-0">
+  <div class="lg:tw-grid lg:tw-grid-cols-4/6 tw-mt-4">
+    <div class="tw-bg-lightblue tw-w-full tw-text-center lg:tw-text-left">
+      <div class="tw-py-11 md:tw-py-12 tw-px-5 md:tw-px-10 lg:tw-pt-18 xl:tw-pt-32 2xl:tw-pl-contain">
+        <h2 class="tw-text-32px/40px tw-font-medium tw-font-encode-sans tw-pb-6">{{ section.settings.eyebrow }}</h2>
+        <ul class="tw-text-18px/24px md:tw-text-20px/29px 2xl:tw-self-center tw-font-normal tw-font-encode-sans tw-m-0 tw-mb-5">
+          {% for block in section.blocks %}
+            <li class="tw-checks tw-w-full tw-py-3 md:tw-max-w-sm lg:tw-max-w-none tw-mx-auto tw-text-left">
+              {{ block.settings.content }}</li>
+          {% endfor %}
+        </ul>
+        <a href="{{section.settings.btn-link}}" class="tw-w-48 tw-text-center primary__button tw-py-3">
+          {{ section.settings.btn-text }}
+        </a>
+      </div>
+    </div>
+
+    <div class="tw-m-0 tw-w-full tw-block tw-h-264px md:tw-h-80 lg:tw-h-466px">
+      <img
+        src={{ 'flare-home-bg.png' | asset_img_url: 'master' }}
+        alt="flare home"
+        style="object-position: 27%"
+        class="tw-h-full tw-w-full tw-object-cover" />
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Two Column Section",
+    "settings": [
+      {
+        "id": "eyebrow",
+        "type": "text",
+        "label": "Heading",
+        "default": "Title here"
+      }, {
+        "id": "text-box",
+        "type": "text",
+        "label": "Description",
+        "default": "Content here"
+      }, {
+        "id": "btn-text",
+        "type": "text",
+        "label": "Button text",
+        "default": "Click Here"
+      }, {
+        "id": "btn-link",
+        "type": "url",
+        "label": "Button URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "list",
+        "name": "List Item",
+        "settings": [
+          {
+            "id": "content",
+            "type": "text",
+            "label": "List Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Control Cream",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

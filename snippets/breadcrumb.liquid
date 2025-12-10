@@ -1,0 +1,91 @@
+<!-- /snippets/breadcrumb.liquid -->
+{% comment %}
+  Documentation - http://docs.shopify.com/support/your-website/navigation/creating-a-breadcrumb-navigation
+{% endcomment %}
+{% unless template == 'index' or template == 'cart' %}
+
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <div class="wrapper-no-adjust">
+    <ol class="breadcrumb-list">
+      <li>
+  		<a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+      </li>
+
+ {% assign pg_type = template %}
+
+ {% if pg_type == "product"%}
+
+    {% assign bread = product.metafields.bread %}
+
+  {%else%}
+
+    {% assign bread = page.metafields.bread %}
+
+    {% endif %}
+
+
+    {%if bread['crumbs'] %}
+
+      {{ bread['crumbs'] }}
+
+    {%else %}
+
+              {% if template contains 'product' %}
+
+                {% if collection %}
+                  <span aria-hidden="true">&rsaquo;</span>
+                  {% if collection.handle %}
+      				<li>
+                    {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+                    {{ collection.title | link_to: url }}
+      				</li>
+                  {% endif %}
+                {% endif %}
+      			<li>
+                <span aria-hidden="true">&rsaquo;</span>
+                <span>{{ product.title }}</span>
+      			</li>
+
+              {% elsif template contains 'collection' and collection.handle %}
+
+                <span aria-hidden="true">&rsaquo;</span>
+                {% if current_tags %}
+     			 <li>
+                  {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+                  {{ collection.title | link_to: url }}
+      			</li>
+      			<li>
+                  <span aria-hidden="true">&rsaquo;</span>
+                  <span>{{ current_tags | join: " + " }}</span>
+      			</li>
+                {% else %}
+      				<li>
+                  <span>{{ collection.title }}</span>
+     				 </li>
+                {% endif %}
+
+
+              {% elsif template contains 'page' %}
+
+      			<li>
+               <span aria-hidden="true">&rsaquo;</span>
+               <span>{{ page.title }}</span>
+      			</li>
+
+              {% else %}
+
+      			<li>
+               <span aria-hidden="true">&rsaquo;</span>
+               <span>{{ page_title }}</span>
+      </li>
+
+              {% endif %}
+
+    {% endif %}
+    </ol>
+</div>
+</nav>
+
+
+{% endunless %}

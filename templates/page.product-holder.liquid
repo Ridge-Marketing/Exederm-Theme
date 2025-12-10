@@ -1,0 +1,147 @@
+<!-- /templates/product.liquid -->
+<!--product-template-2021-->
+
+{% comment %}
+
+  Rich snippets (itemscope, itemtype, etc.) for products are a theme requirement,
+  and allow search engines to easily understand what the content is.
+
+  For more information on these Scheme.org tags, visit:
+    - http://schema.org/docs/gs.html
+
+{% endcomment %}
+
+<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+<meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+{% include 'breadcrumb' %}
+
+<section class="tw-my-9">
+  <div class="tw-px-5 md:tw-px-10 2xl:tw-px-0 tw-container tw-mx-auto xl:tw-max-w-1336px">
+    <div class="xl:tw-grid xl:tw-grid-cols-2 tw-pb-12">
+
+      <div class="">
+        <div class="tw-text-center tw-mb-3 md:tw-mb-0 tw-h-400px tw-max-h-400px">
+          {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+          <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" class='tw-mx-auto tw-h-full tw-object-contain' id="featuredProductImg">
+        </div>
+
+          {% if product.images.size > 1 %}
+        <div id="Thumbnails" class="tw-h-24 tw-mx-auto tw-flex tw-justify-center"> 
+          {% for image in product.images %}
+        <div class="tw-mr-2 tw-border tw-border-gray-97 tw-border-solid tw-max-w-80px tw-max-h-24">
+          <a href="{{ image.src | img_url: 'large' }}" class="thumbnail-options">
+            <img class="tw-p-1 tw-h-full tw-w-full tw-object-contain" src="{{ image.src | img_url: 'compact'}}" alt="{{image.alt | escape}}"/>
+          </a>
+        </div>
+          {% endfor %} 
+        </div>
+          {% endif %}
+      </div>
+
+      <div class="">
+
+        <h1 itemprop="name" class="tw-mt-10 tw-text-32px/40px tw-text-matterhorn md:tw-text-45px/56px tw-font-medium">{{ product.title }}</h1>
+
+        <h6 class="tw-text-yellow-300 tw-mb-5">reviews go here</h6>
+
+        <p class="tw-text-16px/24px tw-text-black tw-font-normal tw-mb-7">{{product.description}}</p>
+
+      {% form 'product', product %} 
+        <select name="id" class="tw-block tw-mb-6 tw-w-28 tw-pl-3 tw-py-1 tw-border-2 tw-border-solid tw-border-gainsboro {% if product.variants.size < 2 %} tw-hidden {% endif %}">
+          {% for variant in product.variants %} 
+          <option data-price="{{ variant.price | money }}" 
+          {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}>
+          {{ variant.title }} 
+        </option> 
+        {% endfor %} 
+        </select>
+
+        <p id="prod__price" class="tw-font-encode-sans tw-font-medium tw-text-26px/33px tw-text-matterhorn tw-mb-6">{{product.price | money }} </p>
+
+        <p class="tw-pb-1 tw-tet-14px/20px tw-text-black">Quantity</p>
+        <div class="ajaxcart__qty tw-mb-8">
+          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text">
+            <span class="icon icon-minus" aria-hidden="true"></span>
+            <span class="fallback-text" aria-label="decrease quantity">&minus;</span>
+          </button>
+          <input type="text" name="quantity" class="ajaxcart__qty-num" min="1" value="1">
+          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text">
+            <span class="icon icon-plus" aria-hidden="true"></span>
+            <span class="fallback-text" aria-label="increase quantity">+</span>
+          </button>
+        </div>
+
+        <input class="primary__button tw-w-48 tw-py-3 tw-rounded-none" type="submit" value="Add to cart">
+
+        <div class="tw-w-full tw-max-w-screen-md tw-my-1/100 tw-block lg:tw-inline lg:tw-pl-8">
+          <a class="tw-mt-4 tw-text-16px/22px tw-inline-block tw-underline tw-text-green hover:tw-text-hover-green" href="/pages/bullseye-store-locator-page"><strong>Find In Stores</strong></a>
+        </div>
+      {% endform %} 
+
+      <div class="tw-mt-4 lg:tw-mt-8">
+        <p class="tw-font-semibold tw-text-16px/22px tw-font-open-sans tw-text-black">Buy ANY 3 - Save 20% with code SAVE20  |<span class="tw-block md:tw-inline-block">FREE US Shipping on orders over $50</span></p>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  {% include 'product-tabs.liquid' %} 
+  {% section 'nea-award.liquid' %} 
+
+  <div class="tw-mt-14">
+    {% section 'top-rated.liquid' %}
+  </div>
+
+  <div class="main-content tw-container tw-mx-auto tw-px-5 md:tw-px-10 2xl:tw-px-0 xl:tw-max-w-1336px">
+    <div class="clearfix"></div>
+   
+   <!--section for recommended products collection-->
+           
+      
+       <div class="clearfix"></div>
+
+    <div class="grid__item large--whole tw-mb-14">
+         
+
+   <div class="yotpo yotpo-main-widget clearfix"
+          data-product-id="{{ product.id }}"
+          data-name="{{ product.title | escape }}"
+          data-url="{{ shop.url }}{{ product.url }}"
+          data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+          data-description="{{ product.description | escape }}">
+      </div>
+    </div>
+
+    <section class="tw-mb-14">
+      <div class="tw-container tw-px-5 md:tw-px-10 2xl:tw-px-0 tw-mx-auto xl:tw-max-w-1336px">
+          <div class="tw-text-22px/28px tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
+              <span class="tw-px-3 tw-bg-white">You May Also Like&nbsp;<span>
+          </div> 
+  
+          {% assign prod_handles= product.metafields.product_handles.recommended | split: ',' %} 
+          <div class="tw-mt-16 xl:tw-max-w-1336px tw-block tw-py-0 
+          sm:tw-grid sm:tw-grid-cols-2 sm:tw-justify-items-center
+          lg:tw-grid-cols-4"> 
+              {% for handle in prod_handles %}
+              {% assign product= all_products[handle] %} 
+              {% include 'product-card' %}
+              {% endfor %}  
+        </div>
+      </div>
+  </section>
+
+  </div>
+
+</section>
+
+<script>
+  const pricetag= $("#prod__price");
+  $("select").on('change', function() {
+    let variantPrice= $('select option:selected').data("price");
+    pricetag.text(variantPrice);
+  })
+</script>
+

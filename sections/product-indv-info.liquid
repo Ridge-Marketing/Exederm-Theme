@@ -1,0 +1,242 @@
+<div class="tw-px-5 md:tw-px-10 2xl:tw-px-0 tw-container tw-mx-auto xl:tw-max-w-1336px">
+  <div class="xl:tw-grid xl:tw-grid-cols-2 tw-pb-12">
+
+    <div class="">
+      <div data-fancyBox data-src="" class="fbContainerThumb videoModalButton tw-text-center tw-mb-3 md:tw-mb-0 tw-h-400px tw-max-h-400px tw-relative">
+        {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+          <svg id="featuredProductImg--Play" style="display:none;max-width:150px;justify-self:center;" class="tw-absolute tw-flex tw-items-center tw-justify-center tw-w-full tw-h-full" aria-hidden="true" width="102" height="102" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_2020_496)">
+            <path d="M65.375 48.75C67.5 50 67.5 52.875 65.375 54L43.375 66.625C41.375 67.75 39 66.375 39 64V38C39 35.75 41.375 34.375 43.375 35.375L65.375 48.75ZM82 51C82 68.125 68.125 82 51 82C33.875 82 20 68.125 20 51C20 33.875 33.875 20 51 20C68.125 20 82 33.875 82 51ZM26 51C26 64.875 37.125 76 51 76C64.75 76 76 64.875 76 51C76 37.25 64.75 26 51 26C37.125 26 26 37.25 26 51Z" fill="white" fill-opacity="0.5" shape-rendering="crispEdges"/>
+            </g>
+            <defs>
+            <filter id="filter0_d_2020_496" x="0" y="0" width="102" height="102" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset/>
+            <feGaussianBlur stdDeviation="10"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2020_496"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2020_496" result="shape"/>
+            </filter>
+            </defs>
+          </svg>
+        <img
+          src="{{ featured_image | img_url: 'large' }}"
+          alt="{{ featured_image.alt | escape }}"
+          class='tw-mx-auto tw-h-full tw-w-full tw-object-contain'
+          style="max-width:460px;"
+          id="featuredProductImg">
+      </div>
+
+      <button id="fbExtraButton" data-Fancybox data-src="" style="display:none" class="videoModalButton tw-text-center tw-mb-6 tw-font-bold tw-text-green tw-underline tw-text-base tw-w-full">Click to Watch Video</button>
+
+
+      {{ 'fancybox.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'fancybox.umd.js' | asset_url }}" async></script>
+      <script defer> 
+        document.addEventListener( 'DOMContentLoaded',  () => {
+          const videos = [...document.querySelectorAll('video')]
+          if (Fancybox){ 
+            Fancybox.bind("[data-fancybox]", {
+             on: {
+                close: (e, fancyboxRef) => {
+                  videos.forEach(video => {
+                    video.pause()
+                  })
+                },
+              },
+            }); 
+          } 
+        }, false)
+      </script>
+      <style>
+        .videoModal video{
+          height:100%;
+          width:100%;
+        }
+      </style>
+      
+      {% if product.images.size > 1 %}
+        <div id="Thumbnails" class="tw-h-24 tw-mx-auto tw-flex tw-justify-center">
+          {% for image in product.images %}
+            <div class="tw-mr-2 tw-border tw-border-gray-97 tw-border-solid tw-max-w-80px tw-max-h-24">
+              <a href="{{ image.src | img_url: 'large' }}" class="thumbnail-options">
+                <img
+                  class="tw-p-1 tw-h-full tw-w-full tw-object-contain"
+                  src="{{ image.src | img_url: 'compact'}}"
+                  alt="{{image.alt | escape}}" />
+              </a>
+            </div>
+          {% endfor %}
+
+
+          {% for media in product.media %}
+            {% if media.media_type == 'video' or media.media_type == 'external_video' %}
+       
+              <div id="mediaModel-{{ media.id }}" class="tw-hidden tw-aspect-video tw-w-3/4 tw-p-0 videoModal tw-bg-transparent" style="aspect-ratio:16/9; padding:0; background:transparent; max-width:1920px;">
+                {% if media.media_type == 'video' %}
+                  <video controls poster="{{ media.preview_image | image_url: width: 3000 }}">
+                    {% for source in media.sources %}
+                      <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                    {% endfor %}
+                  </video>
+                {% elsif media.media_type == 'external_video' %}
+                  {{ media | media_tag }}
+                {% endif %}
+              </div>
+
+              <div class="tw-relative tw-mr-2 tw-border tw-border-gray-97 tw-border-solid tw-max-w-80px tw-max-h-24">
+                {% comment %}  href="/cdn/shop/{{ media.sources[0].url }}" {% endcomment %}
+                <button data-target="{{ media.preview_image | image_url: width: 3000 }}" data-fancybox data-src="#mediaModel-{{ media.id }}" class="tw-w-full tw-h-full videoModalButton thumbnail-options">  
+                  <svg class="tw-absolute tw-flex tw-items-center tw-justify-center tw-w-full tw-h-full" aria-hidden="true" width="102" height="102" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g filter="url(#filter0_d_2020_496)">
+                      <path d="M65.375 48.75C67.5 50 67.5 52.875 65.375 54L43.375 66.625C41.375 67.75 39 66.375 39 64V38C39 35.75 41.375 34.375 43.375 35.375L65.375 48.75ZM82 51C82 68.125 68.125 82 51 82C33.875 82 20 68.125 20 51C20 33.875 33.875 20 51 20C68.125 20 82 33.875 82 51ZM26 51C26 64.875 37.125 76 51 76C64.75 76 76 64.875 76 51C76 37.25 64.75 26 51 26C37.125 26 26 37.25 26 51Z" fill="white" fill-opacity="0.5" shape-rendering="crispEdges"/>
+                      </g>
+                      <defs>
+                      <filter id="filter0_d_2020_496" x="0" y="0" width="102" height="102" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                      <feOffset/>
+                      <feGaussianBlur stdDeviation="10"/>
+                      <feComposite in2="hardAlpha" operator="out"/>
+                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2020_496"/>
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2020_496" result="shape"/>
+                      </filter>
+                      </defs>
+                    </svg>
+
+                    <img
+                        class="tw-p-1 tw-h-full tw-w-full tw-object-cover"
+                        src="{{ media.preview_image | image_url: width: 3000 }}"
+                        alt="{{ media.alt }}" />
+                    </button>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="">
+      {% if section.settings.title_override != blank %}
+        <h1 itemprop="name" class="tw-mt-10 tw-text-32px/40px tw-text-matterhorn md:tw-text-45px/56px tw-font-medium">{{ section.settings.title_override }}</h1>
+      {% else %}
+        <h1 itemprop="name" class="tw-mt-10 tw-text-32px/40px tw-text-matterhorn md:tw-text-45px/56px tw-font-medium">{{ product.title }}</h1>
+      {% endif %}
+
+      <div class="yotpo bottomLine" data-product-id="{{ product.id }}">
+        {%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+        {%- assign time_now = 'now' | date: '%s' %}
+        {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+        {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+        {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.bottomline_update_time | date: '%s' %}
+        {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+        {%- if yotpo_live_time and diff_seconds_from_live < 86400 and yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
+          {%- assign yotpo_bottomline_obsolete = false %}
+        {%- else %}
+          {%- assign yotpo_bottomline_obsolete = true %}
+        {%- endif %}
+        {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+          {{ product.metafields.yotpo.bottomline }}
+        {%- endif %}
+      </div>
+
+      <p class="tw-text-16px/24px tw-text-black tw-font-normal tw-mb-7">{{ product.description }}</p>
+
+      {% form 'product', product %}
+        <select
+          id="variant_selector"
+          name="id"
+          class="tw-block tw-mb-6 tw-w-28 tw-pl-3 tw-py-1 tw-border-2 tw-border-solid tw-border-gainsboro {% if product.variants.size < 2 %} tw-hidden {% endif %}">
+          {% for variant in product.variants %}
+            <option
+              value="{{ variant.id }}"
+              data-price="{{ variant.price | money }}"
+              {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
+              {{ variant.title }}
+            </option>
+          {% endfor %}
+        </select>
+
+        <p id="prod__price" class="tw-font-encode-sans tw-font-medium tw-text-26px/33px tw-text-matterhorn tw-mb-6">{{ product.price | money }}
+        </p>
+
+        <p class="tw-pb-1 tw-tet-14px/20px tw-text-black">Quantity</p>
+        <div class="ajaxcart__qty tw-mb-8">
+          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text">
+            <span class="icon icon-minus" aria-hidden="true"></span>
+            <span class="fallback-text" aria-label="decrease quantity">&minus;</span>
+          </button>
+          <input
+            type="text"
+            name="quantity"
+            class="ajaxcart__qty-num"
+            min="1"
+            value="1">
+          <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text">
+            <span class="icon icon-plus" aria-hidden="true"></span>
+            <span class="fallback-text" aria-label="increase quantity">+</span>
+          </button>
+        </div>
+
+        {% if product.available %}
+          <input
+            class="primary__button tw-w-48 tw-py-3 tw-rounded-none"
+            type="submit"
+            value="Add to cart">
+        {% else %}
+          <input
+          class="tw-w-48 tw-py-3 tw-rounded-none"
+          type="submit"
+          value="Out of Stock"
+          disabled
+          >
+        {% endif %}
+
+        <div class="tw-w-full tw-max-w-screen-md tw-my-1/100 tw-block lg:tw-inline lg:tw-pl-8">
+          <a class="tw-mt-4 tw-text-16px/22px tw-inline-block tw-underline tw-text-green hover:tw-text-hover-green" href="/pages/bullseye-store-locator-page">
+            <strong>Find In Stores</strong>
+          </a>
+        </div>
+      {% endform %}
+
+      <div class="tw-mt-4 lg:tw-mt-8">
+        <p class="tw-font-semibold tw-text-16px/22px tw-font-open-sans tw-text-black">Buy ANY 3 - Save 20% with code SAVE20  |<span class="tw-block md:tw-inline-block">FREE US Shipping on orders over $50</span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% include 'product-tabs.liquid' %}
+
+<script>
+  $("#variant_selector").on("change", function() {
+    let price = $(this).find('option:selected').data('price');
+    console.log(price);
+    $("#prod__price").text(price);
+  })
+</script>
+
+{% schema %}
+  {
+    "name": "Product Info Section",
+    "settings": [
+      {
+        "id": "title_override",
+        "type": "text",
+        "label": "Title Override"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Info",
+        "category": "Products page"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,86 @@
+<!-- /templates/customers/login.liquid -->
+
+
+<section class="tw-py-9">
+  <div class="tw-container tw-mx-auto sm:tw-max-w-screen-sm tw-px-5 md:tw-px-0">
+    
+    <div id="loginForm">
+      <h1 class="tw-text-matterhorn tw-text-32px/40px lg:tw-text-45px/56px tw-text-center tw-pb-6">{{ 'customer.login.title' | t }}</h1>  
+
+      <div class="tw-bg-aliceblue tw-py-10 tw-px-9">
+        {% form "customer_login" %} 
+        {% if form.errors %}
+                    <div class="tw-mb-7 tw-text-white tw-bg-red-600 tw-p-4">
+                        <!-- {{ form.errors | default_errors }} -->
+                        Incorrect Email or password.
+                    </div>
+                {% endif %}
+  
+        <div class="email tw-pb-4">
+          <label class="tw-font-open-sans tw-text-black tw-text-16px/24px" for="loginEmail">{{ 'customer.login.email' | t }}</label>
+          <br>
+          <input id="loginEmail" class="tw-pl-2 tw-h-10 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="email" name="customer[email]" required>
+        </div>
+  
+        <div class="password tw-pb-9">
+          <label class="tw-font-open-sans tw-text-black tw-text-16px/24px" for="password">{{ 'customer.login.password' | t }}</label>
+          <br>
+          <input class="tw-pl-2 tw-h-10 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="password" name="customer[password]" required>
+        </div>
+  
+        <div class="submit tw-text-center tw-pb-8">
+          <button class="primary__button tw-w-48 sm:tw-w-full tw-py-3 tw-uppercase" type="submit">{{ 'customer.login.sign_in' | t }}</button>
+        </div>
+  
+        <div class="tw-text-center">
+          <a href="/account/register" class="tw-block tw-pb-4 md:tw-pb-7 tw-underline tw-text-green hover:tw-text-hover-green tw-text-16px/22px tw-font-bold tw-font-open-sans">{{ 'layout.customer.create_account' | t }}</a>
+          {% if form.password_needed %} 
+          <a href="#recover" id="forgot_password" class="tw-underline tw-text-green hover:tw-text-hover-green tw-text-16px/22px tw-font-bold tw-font-open-sans">{{ 'customer.login.forgot_password' | t }}</a>
+          {% endif %}
+  
+        </div>
+        {% endform %} 
+      </div>   
+    </div>
+
+    <div class="tw-hidden" id="recoveryForm">
+      <h1 class="tw-text-matterhorn tw-text-45px/56px tw-text-center tw-pb-4">{{ 'customer.recover_password.title' | t }}</h1>  
+      <p class="tw-text-20px/25px tw-text-matterhorn tw-text-center tw-font-encode-sans tw-font-medium tw-pb-6">{{ 'customer.recover_password.subtext' | t }}</p>
+    
+      <div class="tw-bg-aliceblue tw-py-10 tw-px-9">
+        {% form 'recover_customer_password' %} 
+        {{ form_errors | default_errors }}
+      
+        <div class="email tw-pb-8">
+          <label class="tw-font-open-sans tw-text-black tw-text-16px/24px" for="recoveryEmail">{{ 'customer.recover_password.email' | t }}</label>
+          <br>
+          <input id="recoveryEmail" class="tw-h-10 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="email" name="email">
+        </div>
+      
+        <div class="submit tw-text-center">
+          <button class="primary__button tw-w-48 sm:tw-w-full tw-py-3 tw-mb-8 tw-text-16px/22px tw-uppercase" type="submit">{{ 'customer.recover_password.submit' | t }}</button>
+          <button type="button" id="cancel_recovery" class="tw-block tw-mx-auto tw-underline tw-text-green hover:tw-text-hover-green tw-text-16px/22px tw-font-bold tw-font-open-sans">
+            {{ 'customer.recover_password.cancel' | t }}
+          </button>
+        </div>  
+        {% endform %}     
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  $(document).ready(function() {
+    const loginForm= $("#loginForm");
+    const recoveryForm= $("#recoveryForm"); 
+    $("#forgot_password").on("click", function() {
+      loginForm.hide();
+      recoveryForm.show();
+    });
+    $("#cancel_recovery").on("click", function() {
+      recoveryForm.hide();
+      loginForm.show();
+    });
+  })
+</script>

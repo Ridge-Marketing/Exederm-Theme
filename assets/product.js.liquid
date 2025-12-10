@@ -1,0 +1,75 @@
+let $thumbImages        = $('#Thumbnails').find('a.thumbnail-options, button.thumbnail-options');
+let $productImage       = $('#featuredProductImg');
+let $containerThumb     = $('.fbContainerThumb');
+let $fsExtraButton      = $('#fbExtraButton');
+let $productPlayButton  = $('#featuredProductImg--Play');
+
+if ($thumbImages.length) {
+    $thumbImages.on('click', function(e) {
+        let newImage 
+        if (!this.dataset.target) {
+            e.preventDefault();
+            newImage = $(this).attr('href');
+            $productPlayButton.css('display', 'none')
+            $containerThumb.attr('data-src','');
+            $containerThumb.removeAttr('data-fancyBox','');
+            $fsExtraButton.attr('data-src','');
+            $fsExtraButton.css('display', 'none');
+        } else {
+            newImage = $(this).data('target');
+            $containerThumb.attr('data-fancyBox', '');
+            $containerThumb.attr('data-src', $(this).attr('data-src'));
+            $fsExtraButton.css('display', 'block');
+            $fsExtraButton.attr('data-src', $(this).attr('data-src'));
+            $productPlayButton.css('display', 'flex')
+        }
+        switchImage(newImage, null, $productImage);
+    })
+}
+function switchImage(src, imgObject, el) {
+    let $el = $(el);
+    $el.attr('src', src);
+}
+
+$(document).ready(function() {
+    $('div.tabs').each(function() {
+        let active, content, links= $(this).find('.tabselect-btn');
+            active = links.first().addClass('activeTab');
+            active.closest('.tab-wrapper').removeClass('tw-bg-aliceblue').addClass('tw-bg-mediumblue');
+            content = $(active.val());
+            links.not(':first').each(function() {
+                $($(this).val()).hide();
+              });
+        $(this).find('.tabselect-btn').click(function(e) {
+            if (active) {
+                active.removeClass('activeTab');
+                active.closest('.tab-wrapper').removeClass('tw-bg-mediumblue').addClass('tw-bg-aliceblue');
+                content.hide();
+            }
+            active = $(this);
+            active.closest('.tab-wrapper').removeClass('tw-bg-aliceblue').addClass('tw-bg-mediumblue');
+            content = $($(this).attr('value'));
+            active.addClass('activeTab');
+            content.show();
+            return false;
+        });
+    });
+});
+
+function triggerFancyboxVideoPlay(id){
+    const videoModal =  document.querySelector(`${id}`)   
+     if (videoModal) {
+        const video = videoModal.querySelector('video')
+        video.play()
+    }
+}
+
+document.addEventListener( 'DOMContentLoaded',  () => {
+    const videoModalButtons = [...document.querySelectorAll('.videoModalButton')]
+
+    videoModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            triggerFancyboxVideoPlay(button.dataset.src)
+        }, false)
+    })
+}, false)

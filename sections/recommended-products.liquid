@@ -1,0 +1,39 @@
+<section class="tw-mb-14">
+    <div class="tw-container tw-px-5 lg:tw-px-10 2xl:tw-px-0 tw-mx-auto xl:tw-max-w-screen-xl">
+        <div class="tw-text-22px/28px tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
+            <span class="tw-px-3 tw-bg-white">&nbsp;{{section.settings.heading}}&nbsp;<span>
+        </div> 
+
+        <div class="tw-mt-16 tw-max-w-screen-xl tw-block tw-py-0 
+        sm:tw-grid sm:tw-grid-cols-2 sm:tw-justify-items-center
+        lg:tw-grid-cols-4"> 
+            {% for product in collections[section.settings.feature_collection].products limit: 4 %}
+            {% include 'product-card' %}
+            {% endfor %}  
+      </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Recommened Section",
+    "settings": [
+    {
+      "type": "collection",
+      "id": "feature_collection",
+      "label": "Featured collection"
+   },
+   {
+       "type": "text",
+       "id": "heading",
+       "label": "Product list title"
+   }
+    ],
+    "presets": [
+      {
+        "name": "Recommended Products",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

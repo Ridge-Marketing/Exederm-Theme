@@ -1,0 +1,293 @@
+<!-- /templates/customers/addressess.liquid -->
+{% comment %}
+
+  Template note:
+    - There are instances of inline JS below. Best practices advise separating this
+      into an external JS file
+    - There are separate 'add new' and 'edit' address forms
+
+{% endcomment %}
+
+<section class="tw-py-9">
+  <div class="tw-container tw-mx-auto tw-px-5 md:tw-px-10 xl:tw-px-16 2xl:tw-px-0 xl:tw-max-w-screen-xl">
+    <div class="md:tw-flex md:tw-justify-start md:tw-items-center tw-pb-9 xl:tw-pb-12">
+      <h1 class="tw-pb-4 md:tw-pb-0 tw-text-32px/40px lg:tw-text-45px/56px tw-text-matterhorn tw-mb-0 md:tw-mr-10">{{ 'customer.account.title' | t}}</h1>
+      <a href="/account/" class="tw-text-14px/20px tw-text-green tw-underline hover:tw-text-hover-green" 
+      >{{ 'customer.account.return' | t }}</a>
+    </div>
+
+    <h3 class="tw-text-22px/28px tw-text-matterhorn tw-font-encode-sans tw-pb-7">Personal Information</h3>
+
+    <div class="md:tw-pb-14">
+      {%- for address in customer.addresses -%} 
+        {% if forloop.first == true %} 
+        <div class="tw-text-16px/24px tw-text-black tw-font-open-sans tw-pb-10 md:tw-pb-0 md:tw-inline-block md:tw-pr-12 xl:tw-pr-14 md:tw-border-r md:tw-border-solid md:tw-border-gainsboro">
+      {% elsif forloop.last == true  %} 
+      <div class="tw-text-16px/24px tw-text-black tw-font-open-sans tw-pb-10 md:tw-pb-0 md:tw-inline-block md:tw-px-12 md:tw-px-14">
+      {% else %} 
+      <div class="tw-text-16px/24px tw-text-black tw-font-open-sans tw-pb-10 md:tw-pb-0 md:tw-inline-block md:tw-px-12 md:tw-px-14 md:tw-border-r md:tw-border-solid md:tw-border-gainsboro">
+      {% endif %}
+
+        <strong class="tw-pb-4 tw-block">{{address.name}}{% if address == customer.default_address %}<br class="lg:tw-hidden">  (Default) {% endif %}</strong>
+  
+        <p class="tw-pb-1">{{address.address1}}</p>
+        <p class="tw-pb-1">{{address.city}}</p>
+        <p class="tw-pb-1">{{address.province_code}}</p>
+        <p class="tw-pb-1">{{address.zip}}</p>
+        <p class="tw-pb-5">{{address.country}}</p>
+
+        <button
+            class="editBtn tw-underline tw-text-green hover:tw-text-hover-green tw-text-14px/20px"
+            type="button"
+            id="EditFormButton_{{ address.id }}"
+            aria-label="{{ 'customer.addresses.edit_address' | t }} {{ forloop.index }}"
+            aria-controls="EditAddress_{{ address.id }}"
+            aria-expanded="false"
+            data-address-id="{{ address.id }}"
+          >
+            {{ 'customer.addresses.edit' | t }}
+          </button>
+          <form class="address-delete-form tw-inline-block"
+                method="post"
+                action="/account/addresses/{{ address.id }}">
+              <input type="hidden" name="_method" value="delete">
+              <button 
+              class="tw-ml-4 tw-underline tw-text-green hover:tw-text-hover-green tw-text-14px/20px" 
+              type="submit">{{ 'customer.addresses.delete' | t }}</button>
+          </form>
+      </div>
+      {%- endfor -%}
+
+      {%- for address in customer.addresses -%} 
+      <div id="EditAddress_{{address.id}}" class="editForm tw-hidden tw-my-8">
+        <div class="tw-bg-aliceblue tw-px-10 tw-py-8">
+          <h3 class="tw-text-22px/28px tw-text-matterhorn tw-pb-5">{{'customer.addresses.edit_address' | t }}</h3>
+          {%- form 'customer_address', address -%} 
+
+          <div class="md:tw-flex md:tw-justify-between">
+            <div class="tw-pb-4 md:tw-w-48%">         
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}*</label>
+              <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressFirstName_{{ form.id }}" name="address[first_name]" value="{{ form.first_name }}">
+            </div>
+    
+            <div class="tw-pb-4 md:tw-w-48%">         
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}*</label>
+              <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressLastName_{{ form.id }}" name="address[last_name]" value="{{ form.last_name }}">
+            </div>
+          </div>
+  
+          <div class="tw-pb-4">          
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressCompany_{{ form.id }}">{{ 'customer.addresses.company' | t }}</label>
+            <input class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressCompany_{{ form.id }}" name="address[company]" value="{{ form.company }}">
+          </div>
+  
+          <div class="tw-pb-4">          
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}*</label>
+            <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}">
+          </div>
+  
+          <div class="tw-pb-4">          
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressAddress2_{{ form.id }}">{{ 'customer.addresses.address2' | t }}</label>
+            <input class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}">
+          </div>
+  
+          <div class="md:tw-flex md:tw-justify-between">
+            <div class="tw-pb-4 md:tw-w-48%">          
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}*</label>
+              <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressCity_{{ form.id }}" name="address[city]" value="{{ form.city }}">
+            </div>
+  
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressCountry_{{ form.id }}">{{ 'customer.addresses.country' | t }}*</label>
+              <div>
+                <select required style="background-color: #EFEFEF;" class="editFormCountry tw-w-full tw-p-1 tw-border tw-border-solid tw-border-gray-97"
+                  id="AddressCountry_{{ form.id }}"
+                  name="address[country]"
+                  data-default="{{ form.country }}"
+                  autocomplete="country"
+                >
+                <option selected="true" class="tw-hidden"></option>
+                  {{ all_country_option_tags }}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="tw-pb-4" id="AddressProvinceContainer_{{ form.id }}">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressProvince_{{ form.id }}">{{ 'customer.addresses.province' | t }}*</label>
+            <div class="select">
+              <select required style="background-color: #EFEFEF;" class="editFormProvince tw-w-full tw-p-1 tw-border tw-border-solid tw-border-gray-97"
+                id="AddressProvince_{{ form.id }}"
+                name="address[province]"
+                data-default="{{ form.province }}"
+              >
+              </select>
+            </div>
+          </div>
+
+          <div class="md:tw-flex md:tw-justify-between">
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}*</label>
+              <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}">
+            </div>
+
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}*</label>
+              <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="tel" id="AddressPhone_{{ form.id }}" name="address[phone]" value="{{ form.phone }}">
+            </div>
+          </div>
+
+          <div class="tw-pb-6">
+            {{ form.set_as_default_checkbox }}
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="address_default_address_{{ form.id}}">{{ 'customer.addresses.set_default' | t }}</label>
+          </div>
+
+          <div>
+            <button class="primary__button tw-py-3 tw-w-48 tw-mb-4">{{ 'customer.addresses.update' | t }}</button>
+            <button class="cancelBtn tw-block tw-underline tw-text-green hover:tw-text-hover-green" data-address-id="{{ address.id }}" type="reset">{{ 'customer.addresses.cancel' | t }}</button>
+          </div>
+
+          {%- endform -%} 
+        </div>
+
+      </div>
+      {%- endfor -%} 
+      </div>
+
+    <button class="addBtn primary__button tw-w-48 tw-py-3" type="button" aria-expanded="false" aria-controls="AddAddress">Add A New Address</button>
+    <div id="AddAddress" class="tw-mt-7">
+      <div class="tw-bg-aliceblue tw-px-10 tw-py-8">
+
+        <h3 class="tw-text-22px/28px tw-text-matterhorn tw-pb-5">Add Address</h3>
+
+        {% form 'customer_address', customer.new_address %} 
+
+        <div class="md:tw-flex md:tw-justify-between">
+          <div class="tw-pb-4 md:tw-w-48%">         
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}*</label>
+            <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressFirstNameNew" name="address[first_name]" value="{{ form.first_name }}">
+          </div>
+  
+          <div class="tw-pb-4 md:tw-w-48%">         
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}*</label>
+            <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressLastNameNew" name="address[last_name]" value="{{ form.last_name }}">
+          </div>
+        </div>
+
+        <div class="tw-pb-4">          
+          <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}</label>
+          <input class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressCompanyNew" name="address[company]" value="{{ form.company }}">
+        </div>
+
+        <div class="tw-pb-4">          
+          <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}*</label>
+          <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressAddress1New" name="address[address1]" value="{{ form.address1 }}">
+        </div>
+
+        <div class="tw-pb-4">          
+          <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}</label>
+          <input class="tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressAddress2New" name="address[address2]" value="{{ form.address2 }}">
+        </div>
+
+        <div class="md:tw-flex md:tw-justify-between">
+          <div class="tw-pb-4 md:tw-w-48%">          
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressCityNew">{{ 'customer.addresses.city' | t }}*</label>
+            <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressCityNew" name="address[city]" value="{{ form.city }}">
+          </div>
+
+          <div class="tw-pb-4 md:tw-w-48%">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressCountryNew">{{ 'customer.addresses.country' | t }}*</label>
+            <div>
+              <select required style="background-color: #EFEFEF;" class="tw-w-full tw-p-1 tw-border tw-border-solid tw-border-gray-97"
+                id="AddressCountryNew"
+                name="address[country]"
+                data-default="{{ form.country }}"
+                autocomplete="country"
+              >
+              <option selected="true" class="tw-hidden"></option>
+                {{ all_country_option_tags }}
+              </select>
+            </div>
+          </div>
+        </div>
+
+          <div class="tw-pb-4" id="AddressProvinceContainerNew">
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}*</label>
+            <div class="select">
+              <select required style="background-color: #EFEFEF;" class="tw-w-full tw-p-1 tw-border tw-border-solid tw-border-gray-97"
+                id="AddressProvinceNew"
+                name="address[province]"
+                data-default="{{ form.province }}"
+              >
+              </select>
+            </div>
+          </div>
+
+          <div class="md:tw-flex md:tw-justify-between">
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressZipNew">{{ 'customer.addresses.zip' | t }}*</label>
+              <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="text" id="AddressZipNew" name="address[zip]" value="{{ form.zip }}">
+            </div>
+
+            <div class="tw-pb-4 md:tw-w-48%">
+              <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}*</label>
+              <input required class=" tw-pl-2 tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded-sm tw-text-16px/24px tw-py-1 tw-w-full" type="tel" id="AddressPhoneNew" name="address[phone]" value="{{ form.phone }}">
+            </div>
+          </div>
+
+          <div class="tw-pb-6">
+            {{ form.set_as_default_checkbox }}
+            <label class="tw-text-black tw-16px/24px tw-font-open-sans" for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label>
+          </div>
+
+          <div>
+            <button class="primary__button tw-py-3 tw-w-48 tw-mb-4">{{ 'customer.addresses.add' | t }}</button>
+            <button class="cancelBtn tw-block tw-underline tw-text-green hover:tw-text-hover-green" type="reset">{{ 'customer.addresses.cancel' | t }}</button>
+          </div>
+        {% endform %} 
+      </div>
+    </div>
+      
+    </div>
+    </section>
+
+    <script>
+      let AddFormProvinceSelect= $("#AddressProvinceNew");
+      let AddFormCountrySelect= $("#AddressCountryNew");
+      let EditFormProvinceSelect= $(".editFormProvince");
+      let EditFormCountrySelect= $(".editFormCountry");
+
+      AddFormCountrySelect.change(function(event) {
+        let arr= $(this).find('option:selected').data('provinces');
+        AddFormProvinceSelect.empty();
+        for (let i = 0; i < arr.length; i++) {
+          AddFormProvinceSelect.append($('<option />').text(arr[i][0]));
+          }
+        })
+      EditFormCountrySelect.change(function(event) {
+        let arr= $(this).find('option:selected').data('provinces');
+        EditFormProvinceSelect.empty();
+        for (let i = 0; i < arr.length; i++) {
+          EditFormProvinceSelect.append($('<option />').text(arr[i][0]));
+          }
+        })
+      
+
+        $(".editBtn").on("click", function() {
+          const addressID= $(this).data('address-id');
+          $('#AddAddress').hide();
+          $(".editForm").each(function() {
+            $(this).hide();
+          })
+          $(`#EditAddress_${addressID}`).show();
+        })
+        $(".cancelBtn").on("click", function() {
+          const addressID= $(this).data('address-id');
+          (!addressID ? $('#AddAddress').hide() : $(`#EditAddress_${addressID}`).hide());
+        })
+        $(".addBtn").on("click", function() {
+          $('#AddAddress').show();
+        })
+    </script>
+
+    

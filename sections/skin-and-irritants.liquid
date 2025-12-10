@@ -1,0 +1,59 @@
+<div style="min-height:500px;" class="tw-px-5 tw-mt-6 md:tw-mt-11 tw-mb-14">
+  <h1 class="tw-text-32px/40px md:tw-text-45px/56px tw-text-center tw-text-matterhorn tw-mb-12 md:tw-mb-16
+                 xl:tw-mx-auto xl:tw-max-w-screen-xl">{{ section.settings.heading }}</h1>
+
+  <div class="xl:tw-grid xl:tw-grid-cols-2 xl:tw-max-w-screen-xl xl:tw-mx-auto">
+    {% for block in section.blocks %}
+      <div class="tw-mb-7 md:tw-mb-11">
+        {% assign image = block.settings.card-img %}
+        {% assign link = block.settings.link %}
+        {% assign text = block.settings.card-text %}
+        {% assign small = false %}
+        {% include 'skin-and-irritant-card' %}
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Skin & Irritants Section",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Page Heading",
+        "default": "Title here"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "id": "card-img",
+            "type": "url",
+            "label": "Card Image URL"
+          }, {
+            "id": "card-text",
+            "type": "text",
+            "label": "Card Text"
+          }, {
+            "id": "link",
+            "type": "url",
+            "label": "Link URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin & Irritants",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

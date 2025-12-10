@@ -1,0 +1,44 @@
+<div class="tw-h-438px tw-w-11/12 tw-max-w-300px tw-shadow-0-2-9-19 hover:tw-shadow-0-2-12-40 tw-mb-6 tw-mx-auto">
+  <div class="tw-w-40 tw-h-60 tw-pt-6 tw-mx-auto">
+    <a href={{product.url}}>
+      <img
+        class="tw-mx-auto tw-h-full"
+        src={{product.featured_image.src | img_url: 'large'}}
+        alt='{{product.title}} image' />
+    </a>
+  </div>
+  <div class="tw-text-center">
+    <a href={{product.url}} class="tw-text-20px/25px tw-font-medium tw-text-green tw-block tw-mb-2 tw-mt-3 tw-px-1">{{ product.title }}</a>
+    <span class="tw-text-18px/24px tw-font-semibold">{{ product.price | money }}</span>
+
+    <div class="tw-text-center tw-py-3">
+      <div
+        class="yotpo bottomLine"
+        style="display:inline-block; margin-bottom:0px"
+        data-product-id="{{ product.id }}"></div>
+    </div>
+
+
+    {% if product.available == true %}
+      <form
+        action="/cart/add"
+        method="post"
+        id="AddToCartForm">
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.variants.first.id }}" />
+        <div>
+          <button
+            id="AddToCart"
+            type="submit"
+            name="add"
+            class="addProdToCart tw-text-green hover:tw-text-hover-green tw-text-16px/22px tw-font-bold tw-underline">Add to cart</button>
+        </div>
+      </form>
+
+    {% else %}
+      <p style="color: #BBBBBB" class="tw-text-16px/22px tw-font-bold tw-underline">Sold Out</p>
+    {% endif %}
+  </div>
+</div>

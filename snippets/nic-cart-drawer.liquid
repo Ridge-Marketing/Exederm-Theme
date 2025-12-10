@@ -1,0 +1,45 @@
+  <!-- DRAWER FOR CART -->
+  <div id="cartDrawer__test" class="tw-h-full tw-w-300px tw-fixed tw-z-10 tw-top-0 tw-right-0 tw-bg-footer-gray tw-overflow-x-hidden tw-pt-6 tw-transform tw-translate-x-300px tw-transition-transform tw-duration-500">
+    <a class="tw-absolute tw-top-5 tw-right-5 tw-block tw-text-green" href="javascript:void(0)" onclick="toggleCartDrawer(0)">
+        <span class="far fa-times fa-2x" aria-hidden="true"></span>
+    </a>
+  
+    <div class="tw-pt-9 tw-px-4">
+        {% if cart.item_count < 0 %}
+        <p class="tw-text-14px/34px tw-text-black tw-font-open-sans tw-font-bold">Your cart is currently empty.</p>
+        {% else %} 
+        <form action="/cart" method="post">
+        <div class="tw-py-5">
+            
+            {% for item in cart.items %} 
+            <p class="tw-text-black tw-font-bold tw-text-14px/34px tw-pb-2">{{item.title}}</p>
+            <div class="tw-flex tw-justify-between tw-items-center tw-pb-4">
+                <input class="tw-bg-white" type="number" name="updates[]" id="{{ item.id }}" value="{{ item.quantity }}" min="0">
+                <p class="tw-text-14px/34px tw-text-black">{{item.final_line_price | money}}</p>
+            </div>
+            {% unless forloop.last %}
+            <hr class="tw-mb-3" style="background-color: #E0E0E0"/>
+            {% endunless %}
+            {% endfor %}
+        </div>
+
+        <div class="tw-pb-6">
+            <label class="tw-text-14px/34px tw-text-matterhorn tw-font-open-sans tw-font-normal" for="CartNote">Special Instructions for Seller</label><br>
+            <textarea 
+                class="tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded tw-text-16px/24px tw-py-1 tw-w-full"  
+                type="text"
+                id="CartNote" 
+                name="note"
+                rows="4">{{cart.note}}</textarea> 
+        </div>
+        <p class="tw-flex tw-justify-between tw-text-14px/34px tw-text-black tw-font-bold">
+        <span>Subtotal</span><span>{{cart.items_subtotal_price | money}}</span></p>
+
+        <i class="tw-pt-5 tw-text-14px/34px tw-text-matterhorn">Shipping & taxes calculated at checkout</i>
+        <div class="tw-text-center tw-pt-6">
+            <button type="submit" name="checkout" value="Checkout" class="primary__button tw-w-48 tw-py-3">Checkout</button>
+        </div>
+        </form>
+        {% endif %} 
+    </div>
+  </div>

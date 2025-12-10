@@ -1,0 +1,65 @@
+{% assign image = section.settings.hero-img %}
+{% assign title = page.title %}
+{% assign description = section.settings.hero-text %}
+{% assign selector = 'black' %}
+{% assign class = 'skin-hero' %}
+<!-- screen size at which background box is removed from hero text -->
+{% assign size = 'lg' %} 
+{% include 'skin-and-irritants-main-hero' %}
+
+<div class="tw-mt-4 lg:tw-grid lg:tw-grid-cols-2">
+    <div class="tw-h-80 lg:tw-h-auto tw-max-h-376px">
+        <img class="tw-h-full tw-w-full tw-object-cover" src="{{section.settings.posthero-img}}" alt="eczema example image" />
+    </div>
+
+    <div class="tw-bg-tan">
+        <div class="tw-py-9 tw-px-8 lg:tw-py-14 md:tw-px-10 xl:tw-pt-20 xl:tw-pl-14 xl:tw-pr-32 2xl:tw-pr-contain">
+            <h2 class="tw-text-26px/33px tw-text-matterhorn tw-pb-4 lg:tw-pb-7">{{section.settings.posthero-head}}</h2>
+            <p class="tw-text-16px/24px tw-font-open-sans tw-text-black">
+            {{section.settings.posthero-text}}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Skin Hero Section",
+    "settings": [
+    {
+        "id": "hero-text",
+        "type": "text",
+        "label": "Hero Text",
+        "default": "This is the hero text"
+    },
+    {
+        "id": "hero-img",
+        "type": "url",
+        "label": "Hero Image"
+    },
+    {
+        "id": "posthero-img",
+        "type": "url",
+        "label": "Post Hero Image"
+    },
+    {
+        "id": "posthero-head",
+        "type": "text",
+        "label": "Post Hero Heading",
+        "default": "This is the Post Hero heading"
+    },
+    {
+        "id": "posthero-text",
+        "type": "text",
+        "label": "Post Hero Textbox",
+        "default": "This is the Post Hero textbox"
+    }
+    ],
+    "presets": [
+      {
+        "name": "Skin Hero",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

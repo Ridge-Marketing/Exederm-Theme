@@ -1,0 +1,127 @@
+<!-- /templates/collection.liquid -->
+<!--start-page content-->
+
+<div class="babies-hero-container">
+  <div class="wrapper">
+    <h1>skin care</h1>
+    <h2>for babies and children</h2>
+  </div>
+</div>
+<div class="babies-hero-container">
+  <div class="wrapper">
+    <h2>Atopic eczema or dermatitis is a chronic, itchy skin condition that is a very common symptom of conditions such as childhood eczema but may occur at any age.</h2>
+    <h3>Atopic dermatitis usually occurs in people who have other allergic problems such as asthma and hay fever. Often these conditions run within families with a parent, child or sibling also affected.
+</h3>
+  </div>
+</div>
+
+{% include 'breadcrumb' %}
+
+<main class="wrapper main-content basic-page" role="main">
+<div class="grid-uniform">
+  <div class="grid__item large--one-whole">
+
+	{% assign about_skin = page.metafields.about_skin %}
+  {{ about_skin['para_1'] }}
+
+  {%if about_skin['box'] %}
+			<div class="about-skin-box-indv">
+				<div class="grid-uniform">
+					<div class="grid__item large--two-thirds">
+						<div class="box-interior">
+		   {{ about_skin['box'] }}
+					 </div>
+				 </div>
+		 <div class="grid__item large--one-third about-img" style="text-align:right;">
+		   {{ about_skin['img'] }}
+		 </div>
+		 </div>
+		 </div>
+ {%endif%}
+ {{ about_skin['para_2'] }}
+
+  </div>
+</div>
+</main>
+
+<!--end-page content-->
+
+
+
+{% comment %}
+
+  For more information on collection tags:
+    - http://docs.shopify.com/themes/liquid-variables/collection
+
+{% endcomment %}
+
+{% include 'breadcrumb' %}
+
+{% comment %}
+  Use .grid--rev so that the collection tags appear below the products on mobile - this is commented out on this template.
+{% endcomment %}
+<div class="rte">
+    <div class="grid__item large--one-whole">
+  
+{{ collection.description }}
+  </div>
+</div>
+    {% comment %}
+      Use class grid-uniform to have evenly sized columns clear
+      each other properly at each breakpoint.
+    {% endcomment %}
+
+
+   <div class="rte" style="margin:0 auto; max-width:1330px; display:block;">
+     <div align="center" class="grid__item large--one-whole">
+     
+        <div class="hSpacer twenty-five"></div>
+
+    <div class="collection-name">&nbsp;Recommended Products&nbsp;</div>
+     
+     <div class="hSpacer twenty-five"></div>
+     </div>  
+ 
+</div>
+
+
+    <div class="grid-uniform" style="max-width:1290px; margin:0 auto!important;">
+      
+      {% comment %}
+        Loop through our products in the current collection.
+        See the snippet 'product-grid-item' for the layout.
+      {% endcomment %}
+      {% for product in collection.products %}
+
+        {% include 'product-grid-item' %}
+
+      {% else %}
+
+        {% if collection.handle == 'all' and current_tags == '' %}
+
+          {% comment %}
+            Add default products to help with onboarding for collections/all only
+          {% endcomment %}
+          {% unless emptyState %}
+            {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+            {% assign emptyState = true %}
+          {% endunless %}
+          {% include 'onboarding-empty-collection' %}
+
+        {% else %}
+
+          {% comment %}
+            If collection exists but is empty, display message
+          {% endcomment %}
+          <div class="grid__item">
+            <p>{{ 'collections.general.no_matches' | t }}</p>
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+
+                                           

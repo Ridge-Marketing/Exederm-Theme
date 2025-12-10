@@ -1,0 +1,94 @@
+<!-- /templates/page.liquid -->
+<!--"Products" Page - 2021-->
+
+{% include 'breadcrumb' %}
+
+<style>
+  
+  /*Second image section with image and bullets*/
+  @media screen and (min-width:961px) and (max-width:1201px) {
+	#as1,.large--one-half {
+	width: 50%;
+	padding:0; 
+    } 
+  }
+  
+</style>
+
+<div class="products-hero-container basic-page" style="background-color:#e3e3e3;">
+  <div class="as-wrap-products">
+        <h1>{{ page.title }}</h1>
+    <h3 class="about-skin-subtitle">Avoiding irritants and eczema triggers is common sense. It’s a philosophy that we've applied across our entire product range.</h3>
+  </div>
+</div>
+<br>
+
+<main class="wrapper main-content basic-page" role="main">
+<div class="grid">
+
+  <div class="grid__item one-whole">
+    {% comment %}
+      Top hero section is above and the secondary hero section is below the two boxes.
+    {% endcomment %}
+    <div class="rte">
+      {{ page.content }}
+    </div>
+
+  </div>
+    <div class="rte">
+      <div id="cta-boxes" class="grid-uniform">
+        <div class="grid__item large--one-half">	
+           <a class="cta-box-link" href="/pages/childrens-skin">
+             <div class="box-half">
+               <div class="cta-image18"></div>
+				<div>
+				<h2 class="cta-title">Eczema Care for Babies and Children</h2>
+				<i class="fa fa-chevron-right" style="color: #3e9a76; float:right; margin:34px 26px 0 26px;"></i>
+				</div>
+			  </div>
+          </a>
+		</div>
+		<div class="grid__item large--one-half">
+		  <a class="cta-box-link" href="/pages/adult-skin">
+			<div class="box-half">
+			  <div class="cta-image19"></div>
+			    <div>
+				<h2 class="cta-title">Eczema Care for Adults</h2>
+				<i class="fa fa-chevron-right" style="color: #3e9a76; float:right; margin:34px 26px 0 26px;"></i>
+              </div>
+            </div>
+          </a>
+		</div>
+		</div>
+    </div>
+</div>
+</main>
+<div class="hSpacer sixty"></div>
+<!--second-hero-section-->
+<div class="products-bottom-hero-container basic-page" style="background-color:#F9F4EB;">
+ <div id="aboutskin-hero2" class="grid-uniform">
+   <div class="as-wrap2">
+        <div id="products-bg" class="grid__item large--one-half">
+
+</div>
+           <div id="as1" class="grid__item large--one-half">
+             <div id="prod-exp1">
+               <div class="as-bg2-prod">
+               <span class="as-exp-subhead1">
+               Our Philosophy is Simple
+               </span>
+               <br>
+                <span class="prodtxt">
+                <img class="check" src="https://cdn.shopify.com/s/files/1/0524/5622/7007/files/checkmark.png?v=1613607256" alt="checkmark"/>&nbsp; Avoid irritants that trigger eczema
+                 </span>
+                 <br>
+                 <span class="prodtxt">
+                  <img class="check" src="https://cdn.shopify.com/s/files/1/0524/5622/7007/files/checkmark.png?v=1613607256" alt="checkmark"/>&nbsp;   Always use the mildest ingredients possible
+                 </span>
+               </div>
+             </div>
+     </div>
+</div>
+  </div>
+</div>
+<div class="hSpacer sixty"></div>

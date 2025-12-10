@@ -1,0 +1,114 @@
+{% if section.settings.text != 'None' %}
+<div class="tw-mt-7 tw-w-full tw-px-2 md:tw-px-9 xl:tw-px-72 tw-mb-16 tw-text-center tw-hidden">
+<div class="tw-mb-10">
+    <img class="tw-mx-auto" src="https://cdn.shopify.com/s/files/1/1211/7332/files/nea-badge.jpg?11679574105445620494" alt="The badge of the National Eczema Association">
+</div>
+<p class="tw-text-16px/24px tw-font-normal tw-font-open-sans tw-text-black">
+    {{ section.settings.text}}
+</p>
+<br>
+{% comment %}
+<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;<i class="fa fa-star"></i>&nbsp;
+{% endcomment %}
+<br>
+
+<a href="/pages/faqs" class="tw-text-green hover:tw-text-hover-green tw-font-open-sans tw-text-16px/22px tw-font-bold tw-underline">Learn More</a>
+
+</div>
+{% endif %}
+
+<div class="clearfix"></div>   
+<meta name="google-site-verification" content="kiT8g3axdU1-CT-LemF5yUPAK2DgyB28byufYmpvlhA" />
+
+
+<div class="tw-mt-16 tw-max-w-1336px tw-w-full tw-px-5 tw-text-center tw-mx-auto">
+    <h2 class="tw-text-22px/28px tw-font-medium tw-font-encode-sans">Available at These Fine Retailers:</h2>
+
+    <div class="tw-flex tw-justify-center tw-mt-4">
+
+      <!-- Scroll button for swiper -->
+      <div class="button-prev--logo tw-mx-6 tw-self-center">
+        <img class="tw-w-72 lg:tw-w-48 xl:tw-w-32" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-retailer-left.svg?v=1682691853" alt="View previous item in slider">
+      </div>
+      
+      <!-- Slideshow of retailers -->
+      <div class="swiper-container swiper-container--{{ section.id }} tw-flex-grow-0">
+        
+        <div class="swiper-wrapper">
+
+          <!-- Loop through CMS content for slides -->
+          {% for retailer in shop.metaobjects.retail_slider.values %}
+            {% for logo in retailer.retailer_logos.value %}
+              <div class="swiper-slide tw-flex tw-items-center tw-justify-center">
+                <img src="{{ logo | image_url }}" />
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      
+      </div>
+
+      <!-- Scroll button for swiper -->
+        <div class="button-next--logo tw-mx-6 tw-self-center">
+          <img class="tw-w-72 lg:tw-w-48 xl:tw-w-32" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-retailer-right.svg?v=1682691853" alt="View next item in slider">
+        </div>
+    </div>
+</div>
+
+    <br>
+    <br>
+</div>
+
+<script src="https://unpkg.com/swiper@6.8.2/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper@6.8.2/swiper-bundle.min.js"></script>
+
+<script>
+    const swiper = new Swiper('.swiper-container--{{ section.id }}', {
+        spaceBetween: 30,
+        speed: 2500,
+        loop: true, 
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+            slidesPerGroup: 3
+          },
+          1280: {
+            slidesPerView: 4,
+            slidesPerGroup: 4
+          },
+          1536: {
+            slidesPerView: 5,
+            slidesPerGroup: 5
+          }
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: true,
+        },
+        fadeEffect: {
+            crossFade: false,
+        },
+        navigation: {
+          nextEl: ".button-next--logo",
+          prevEl: ".button-prev--logo",
+        },
+      });
+  </script>
+
+
+{% schema %}
+  {
+    "name": "Logo Slider Section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Logo Slider",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

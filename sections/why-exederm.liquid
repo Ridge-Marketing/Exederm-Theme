@@ -1,0 +1,138 @@
+<div class="tw-bg-cover tw-w-full tw-py-10 ">
+  <div class="tw-py-10 tw-px-6 lg:tw-px-10 2xl:tw-px-0 tw-container tw-mx-auto xl:tw-max-w-1336px">
+    <div class="lg:tw-grid lg:tw-grid-cols-2 tw-gap-16 tw-items-center">
+
+      <div class="tw-text-left">
+        <h2 class="tw-text-32px/40px tw-text-matterhorn tw-font-medium" style="color:#535353">
+          Why exederm?
+        </h2>
+        <p class="tw-mt-3 tw-text-20px/25px tw-text-black">
+          {{ section.settings.subheading }}
+        </p>
+
+        {% if section.settings.video_url != blank %}
+          <button data-fancybox data-src="{{ section.settings.video_url }}" class="videoModalButton tw-mt-6 tw-bg-green hover:tw-bg-hover-green tw-text-white tw-font-semibold tw-px-6 tw-py-3 tw-text-base tw-inline-flex tw-items-center tw-gap-2">
+            Watch Video
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="7.5" stroke="currentColor"/>
+              <path d="M6.5 5.5L11 8L6.5 10.5V5.5Z" fill="currentColor"/>
+            </svg>
+          </button>
+        {% endif %}
+      </div>
+
+      <div class="tw-mt-8 lg:tw-mt-0">
+        {% if section.settings.video_thumbnail != blank and section.settings.video_url != blank %}
+          <div data-fancybox data-src="{{ section.settings.video_url }}" class="videoModalButton tw-relative tw-cursor-pointer">
+            <img
+              src="{{ section.settings.video_thumbnail | img_url: 'large' }}"
+              alt="Video thumbnail"
+              class="tw-w-full tw-h-auto">
+
+            <!-- Play Button Overlay -->
+            <svg class="tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2" style="max-width:150px;" aria-hidden="true" width="102" height="102" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_2020_496)">
+                <path d="M65.375 48.75C67.5 50 67.5 52.875 65.375 54L43.375 66.625C41.375 67.75 39 66.375 39 64V38C39 35.75 41.375 34.375 43.375 35.375L65.375 48.75ZM82 51C82 68.125 68.125 82 51 82C33.875 82 20 68.125 20 51C20 33.875 33.875 20 51 20C68.125 20 82 33.875 82 51ZM26 51C26 64.875 37.125 76 51 76C64.75 76 76 64.875 76 51C76 37.25 64.75 26 51 26C37.125 26 26 37.25 26 51Z" fill="white" fill-opacity="0.5" shape-rendering="crispEdges"/>
+              </g>
+              <defs>
+                <filter id="filter0_d_2020_496" x="0" y="0" width="102" height="102" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                  <feOffset/>
+                  <feGaussianBlur stdDeviation="10"/>
+                  <feComposite in2="hardAlpha" operator="out"/>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2020_496"/>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2020_496" result="shape"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        {% elsif section.settings.video_thumbnail != blank %}
+          <img
+            src="{{ section.settings.video_thumbnail | image_url: width: 3000 }}"
+            alt="Video thumbnail"
+            style="max-width:665px"
+            class="tw-w-full tw-h-auto">
+        {% endif %}
+      </div>
+
+    </div>
+
+  </div>
+
+    {% if section.settings.award_text != blank %}
+      <div class="tw-mt-12 lg:tw-flex tw-flex-row tw-justify-center tw-items-center tw-text-center lg:tw-text-left tw-mx-auto tw-gap-x-16" style="max-width:900px;">
+        <div class="tw-inline-block tw-mx-auto tw-w-24">
+          <img
+            class="tw-w-full"
+            src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/award-badge.png?v=1626799267"
+            alt="The badge of the National Eczema Association">
+        </div>
+        <p style="font-weight:400;" class="tw-flex-1 tw-text-22px/28px tw-font-encode-sans tw-font-medium tw-mt-8 lg:tw-mt-0">
+          {{ section.settings.award_text }}
+        </p>
+      </div>
+    {% endif %}
+
+  <!-- Fancybox Integration -->
+  {{ 'fancybox.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'fancybox.umd.js' | asset_url }}" async></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const videos = [...document.querySelectorAll('video')]
+      if (Fancybox){
+        Fancybox.bind("[data-fancybox]", {
+          on: {
+            close: (e, fancyboxRef) => {
+              videos.forEach(video => {
+                video.pause()
+              })
+            },
+          },
+        });
+      }
+    }, false)
+  </script>
+  <style>
+    .videoModal video{
+      height:100%;
+      width:100%;
+    }
+  </style>
+</div>
+
+{% schema %}
+  {
+    "name": "Why Exederm Section",
+    "settings": [
+      {
+        "id": "subheading",
+        "type": "text",
+        "label": "Subheading"
+      },
+      {
+        "id": "video_url",
+        "type": "text",
+        "label": "Video URL",
+        "info": "Enter a video URL (YouTube, Vimeo, or direct video file)"
+      },
+      {
+        "id": "video_thumbnail",
+        "type": "image_picker",
+        "label": "Video Thumbnail Image"
+      },
+      {
+        "id": "award_text",
+        "type": "text",
+        "label": "Award Text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Why Exederm",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

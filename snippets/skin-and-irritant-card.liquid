@@ -1,0 +1,32 @@
+{% if small == true %}
+  {% assign size = 'tw-max-w-580px xl:tw-max-w-sm 2xl:tw-max-w-580px' %}
+{% else %}
+  {% assign size = 'tw-max-w-580px' %}
+{% endif %}
+<div class="tw-shadow-0-3-6-16 tw-mx-auto {{size}}">
+    <a class="tw-w-full tw-h-full tw-block" href={{link}}>
+    <div>
+      <img src={{image}} alt="{{text}} image" />
+    </div>
+
+    {% if desc %}
+    <div class="tw-py-3 md:tw-py-7 tw-pl-4 md:tw-pl-6 tw-bg-aliceblue tw-text-green tw-group hover:tw-text-white hover:tw-bg-green xl:tw-h-52">
+      <h2 class="tw-flex tw-justify-between tw-items-center tw-text-22px/28px">
+        {{text}}
+        <i class="far fa-chevron-right tw-text-green group-hover:tw-text-white tw-mx-4" ></i>
+    </h2>
+      <p class="tw-text-14px/20px tw-font-open-sans tw-text-black group-hover:tw-text-white tw-pt-4 tw-pb-1 tw-pr-5">
+        {{desc}}
+      </p>
+
+      {% else %} 
+      <div class="tw-py-3 md:tw-py-7 tw-pl-4 md:tw-pl-6 tw-text-green tw-group hover:tw-text-white hover:tw-bg-green tw-bg-aliceblue">
+        <h2 class="tw-flex tw-justify-between tw-items-center tw-text-22px/28px">
+          {{text}}
+          <i class="far fa-chevron-right tw-text-green group-hover:tw-text-white tw-mx-4" ></i>
+      </h2>
+    {% endif %}
+
+    </div>
+    </a>
+  </div>

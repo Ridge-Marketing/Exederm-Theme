@@ -1,0 +1,39 @@
+<section class="tw-my-5">
+    <div class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 2xl:tw-px-0 {% if section.settings.width_1336px %}xl:tw-max-w-1336px {% else %} xl:tw-max-w-screen-xl {%- endif -%}">
+        <a 
+        href="{{section.settings.link}}"
+        class="tw-text-green tw-font-bold tw-text-16px/22px tw-font-open-sans tw-underline hover:tw-text-hover-green">
+        <i class="far fa-chevron-left tw-text-green group-hover:tw-text-white tw-mx-4" ></i>
+        {{section.settings.text}}
+        </a>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Return to Page",
+    "settings": [
+    {
+      "id": "link",
+      "type": "url",
+      "label": "Return Link"
+  },
+  {
+      "id": "text",
+      "type": "text",
+      "label": "Return Text"
+  },
+  {
+    "id": "width_1336px",
+    "type": "checkbox",
+    "label": "1336px width?"
+  }
+    ],
+    "presets": [
+      {
+        "name": "Return to",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

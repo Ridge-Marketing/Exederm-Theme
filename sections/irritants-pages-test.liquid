@@ -1,0 +1,26 @@
+<h1>{{section.settings.color}}</h1>
+<h6>{{section.settings.image}}</h6>
+
+{% schema %}
+  {
+    "name": "Irritants Sections",
+    "settings": [
+    {
+      "id": "color",
+      "type": "text",
+      "label": "Color Class"
+    },
+    {
+      "id": "image",
+      "type": "text",
+      "label": "Image Class"
+    }
+    ],
+    "presets": [
+      {
+        "name": "Irritants",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

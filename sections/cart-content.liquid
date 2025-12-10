@@ -1,0 +1,153 @@
+<!-- CART PAGE FOR SCREEN SIZES 1280PX AND ABOVE -->
+<section class="tw-py-6 tw-hidden xl:tw-block">
+    <div class="tw-container tw-mx-auto tw-max-w-1336px tw-px-16 2xl:tw-px-0">
+        <h1 class="tw-text-32px/40px tw-text-matterhorn tw-pb-12">Shopping Cart</h1>
+
+        <!-- FORM SUBMISSION METHODS FROM DAWN TEMPLATE, SHOPIFY DOCS -->
+
+        <form action="{{ routes.cart_url }}" method="post">
+        {% for item in cart.items %} 
+        <div class="tw-flex tw-justify-between">
+            <div>
+                <div class="tw-flex">
+                    <img class="tw-mb-4 tw-mx-auto" src={{item.image | img_url}} alt={{item.title}} />
+                    <div class="tw-pl-9 tw-pt-4 tw-text-green tw-text-20px/25px tw-font-encode-sans tw-font-medium">
+                        <a href={{item.url}}>{{item.title}}</a>
+                    </div>
+                </div>
+                <a 
+                class="tw-inline-block tw-w-full tw-text-green hover:tw-text-hover-green tw-underline tw-text-14px/20px"
+                href="{{ item.url_to_remove }}">Remove</a>
+            </div>
+
+            <div class="tw-flex">
+                <div class="tw-mr-44">
+                    <p class="tw-text-14px/20px tw-text-matterhorn tw-pb-9">Price</p>
+                    <p class="tw-text-20px/25px tw-font-encode-sans tw-text-right tw-font-medium">{{item.original_price | money}}</p>
+                </div>
+                <div class="tw-mr-44">
+                    <p class="tw-text-14px/20px tw-text-matterhorn tw-pb-9">Quantity</p>
+                    <div class="ajaxcart__qty">
+                        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}">
+                          <span class="icon icon-minus" aria-hidden="true"></span>
+                          <span class="fallback-text" aria-label="decrease quantity">&minus;</span>
+                          <span class="visually-hidden">{{ 'cart.general.reduce_quantity' | t }}</span>
+                        </button>
+                        <input type="text" name="updates[]" class="ajaxcart__qty-num" value="{{ item.quantity }}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+                        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}">
+                          <span class="icon icon-plus" aria-hidden="true"></span>
+                          <span class="fallback-text" aria-label="increase quantity">+</span>
+                          <span class="visually-hidden">{{ 'cart.general.increase_quantity' | t }}</span>
+                        </button>
+                      </div>
+                </div>
+                <div>
+                    <p class="tw-text-14px/20px tw-text-matterhorn tw-pb-9">Total</p>
+                    <p class="tw-text-20px/25px tw-font-semibold tw-font-encode-sans tw-text-right">{{item.final_line_price | money}}</p>
+                </div>
+            </div>
+        </div>
+        {% unless forloop.last %}
+        <hr style="color: #E0E0E0" class="tw-my-10" />
+        {% endunless %}
+        {% endfor %}
+
+        <div class="tw-pb-8 tw-pt-10">
+            <label class="tw-text-14px/34px tw-text-matterhorn tw-font-open-sans tw-font-normal" for="CartNote">Special Instructions for Seller</label><br>
+            <textarea 
+                class="tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded tw-text-16px/24px tw-py-1 tw-w-full"  
+                type="text"
+                id="CartNote" 
+                name="note"
+                rows="4">{{cart.note}}</textarea> 
+        </div>
+        <p class="tw-flex tw-pb-2 tw-justify-end tw-text-14px/20px tw-text-matterhorn tw-font-bold">
+            <span class="tw-mr-32">Subtotal</span><span class="tw-text-20px/25px tw-font-encode-sans">{{cart.items_subtotal_price | money}}</span></p>
+
+        <i class="tw-pb-5 tw-flex tw-flex-row-reverse tw-text-14px/34px tw-text-matterhorn">Shipping & taxes calculated at checkout</i>
+
+        <input type="submit" value="Update cart" class="tw-text-right tw-ml-auto tw-block tw-bg-white tw-text-green hover:tw-text-hover-green tw-underline tw-text-14px/20px tw-font-open-sans">
+
+        <div class="tw-text-right tw-py-9">
+            <a href="/pages/products" class="secondary__button tw-w-48 tw-py-3 tw-text-center">Continue Shopping</a>
+            <button type="submit" name="checkout" value="Checkout" class="primary__button tw-w-48 tw-ml-5 tw-py-3">Checkout</button>
+        </div>
+    </form>
+    </div>
+</section>
+
+
+<!-- CART PAGE FOR SCREENS BELOW 1280PX -->
+<section class="tw-py-6 xl:tw-hidden">
+    <div class="tw-container tw-mx-auto tw-px-5 md:tw-px-10">
+        <h1 class="tw-text-32px/40px tw-text-matterhorn tw-pb-12">Shopping Cart</h1>
+
+        <form action="{{ routes.cart_url }}" method="post">
+        {% for item in cart.items %} 
+        <div>
+            <div class="tw-flex tw-mb-8">
+                <div style="width: 100px">
+                    <img class="tw-mb-4 tw-mx-auto" src={{item.image | img_url}} alt={{item.title}} />
+                    <a 
+                    class="tw-inline-block tw-text-center tw-w-full tw-text-green hover:tw-text-hover-green tw-underline tw-text-14px/20px"
+                    href="{{ item.url_to_remove }}">Remove</a>
+                </div>
+    
+                <div class="tw-pl-10 tw-flex-grow tw-text-green tw-text-20px/25px tw-font-encode-sans tw-font-medium">
+                    <a href={{item.url}}>{{item.title}}</a>
+                </div>
+            </div>
+
+            <div class="tw-flex tw-justify-between tw-pb-3 tw-text-matterhorn">
+                <p class="tw-text-14px/20px">Price</p>
+                <p class="tw-text-20px/25px tw-font-encode-sans tw-text-right tw-font-medium">{{item.original_price | money}}</p>
+            </div>
+            <div class="tw-flex tw-justify-between tw-pb-3 tw-items-center">
+                <p class="tw-text-14px/20px tw-text-matterhorn">Quantity</p>
+                <div class="ajaxcart__qty">
+                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text" data-id="{{key}}" data-qty="{{itemMinus}}" data-line="{{line}}">
+                      <span class="icon icon-minus" aria-hidden="true"></span>
+                      <span class="fallback-text" aria-label="decrease quantity">&minus;</span>
+                      <span class="visually-hidden">{{ 'cart.general.reduce_quantity' | t }}</span>
+                    </button>
+                    <input type="text" name="updates[]" class="ajaxcart__qty-num" value="{{ item.quantity }}" min="0" data-id="{{key}}" data-line="{{line}}" aria-label="quantity" pattern="[0-9]*">
+                    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text" data-id="{{key}}" data-line="{{line}}" data-qty="{{itemAdd}}">
+                      <span class="icon icon-plus" aria-hidden="true"></span>
+                      <span class="fallback-text" aria-label="increase quantity">+</span>
+                      <span class="visually-hidden">{{ 'cart.general.increase_quantity' | t }}</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="tw-flex tw-justify-between tw-pb-10 tw-text-matterhorn">
+                <p class="tw-text-14px/20px">Total</p>
+                <p class="tw-text-20px/25px tw-font-semibold tw-font-encode-sans tw-text-right">{{item.final_line_price | money}}</p>
+            </div>
+            {% unless forloop.last %}
+            <hr style="color: #E0E0E0" class="tw-mb-10" />
+            {% endunless %}
+        </div>
+        {% endfor %}
+
+        <div class="tw-pb-8">
+            <label class="tw-text-14px/34px tw-text-matterhorn tw-font-open-sans tw-font-normal" for="CartNote">Special Instructions for Seller</label><br>
+            <textarea 
+                class="tw-border-2 tw-border-solid tw-border-gainsboro tw-rounded tw-text-16px/24px tw-py-1 tw-w-full"  
+                type="text"
+                id="CartNote" 
+                name="note"
+                rows="4">{{cart.note}}</textarea> 
+        </div>
+        <p class="tw-flex tw-pb-2 tw-justify-between tw-text-14px/20px tw-text-matterhorn tw-font-bold">
+            <span>Subtotal</span><span class="tw-text-20px/25px tw-font-encode-sans">{{cart.items_subtotal_price | money}}</span></p>
+
+        <i class="tw-pb-5 tw-flex tw-flex-row-reverse tw-text-14px/34px tw-text-matterhorn">Shipping & taxes calculated at checkout</i>
+
+        <input type="submit" value="Update cart" class="tw-text-right tw-ml-auto tw-block tw-bg-white tw-text-green hover:tw-text-hover-green tw-underline tw-text-14px/20px tw-font-open-sans">
+
+        <div class="tw-text-center tw-py-8">
+            <a href="/pages/products" class="secondary__button tw-w-full tw-py-3">Continue Shopping</a>
+            <button type="submit" name="checkout" value="Checkout" class="primary__button tw-w-full tw-mt-5 tw-py-3">Checkout</button>
+        </div>
+    </form>
+    </div>
+</section>

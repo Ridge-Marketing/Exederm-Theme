@@ -1,0 +1,231 @@
+<!-- /snippets/product-grid-item-021121-backup.liquid -->
+<!-- this is a backup of product-grid-item.liquid -->
+<style> 
+  #product-form, #product-grid {
+    text-align: center;
+}
+#product-grid-box {
+	max-width: 300px;
+	border: 1px solid #eee;
+	height: 400px;
+	margin: 0 10px;
+	padding: 2%;
+    box-shadow: 0px 2px 9px rgba(0,0,0,0.19);
+}
+  
+  .grid__image img {
+	display: block;
+	margin: 0 auto;
+	width: auto;
+}
+  .yotpo .standalone-bottomline.star-clickable, .yotpo .standalone-bottomline .star-clickable {
+	cursor: pointer;
+	display: flex;
+	margin-left: 20px;
+}
+  .yotpo .text-m {
+	font-size: 13px;
+	margin-left: 40px;
+    font-weight:400;
+}
+/*	.prod-name, a {
+	font-size: 20px;
+  	line-height:25px;
+	padding: 0 0 12px 0;
+}*/
+  	.prod-price {
+  	font-size:18px;
+  	line-height:26px;
+  	font-weight:600;
+    display: block;
+	margin-top: 10px; 
+}
+	.yotpo {
+    padding-top:8px;
+	margin-bottom: -10px;
+}  
+	.grid__image {
+	display: block;
+	margin: 4px 0;
+}  
+	.sold-out {
+	color: #bbb;
+	display: block;
+	padding: 12px 0;
+    text-decoration;underline!important;
+}
+   .btn, .add-to-cart-link, #add, input,
+textarea,
+button,
+select { 
+    display:inline-block;
+    padding: 8px 10px;
+    margin:0
+    line-height:1.42
+    font-size: 15px;
+    color: #3e9a76!important;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+   
+	text-decoration: underline;
+ 	border: 0px solid white;
+    background-color:#fff!important;
+	max-width: 100%;
+	border-radius: 0;
+      color: #3e9a76;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;   
+     
+}
+  
+  .btn a:hover, .add-to-cart-link a:hover, #add a:hover, inputa:hover,
+textarea,
+button a:hover,
+select a:hover
+a:hover, a:focus {
+	color: #64c19c;
+}
+
+ /*.text-link, .btn,  #add, input {
+  
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-decoration:underline!important;
+  font-weight:700!important;
+} */
+
+     
+</style>
+{% comment %}
+
+  This snippet is used to showcase each product during the loop,
+  'for product in collection.products' in collection.liquid.
+
+  A liquid variable (grid_item_width) is set just before the this
+  snippet is included to change the size of the container.
+  Once the variable is set on a page, all future instances of this
+  snippet will use that width. Overwrite the variable to adjust this.
+
+  Example
+    - assign grid_item_width = 'large--one-quarter medium--one-half'
+
+{% endcomment %}
+
+{% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div id="product-grid-box" class="grid__item {{ grid_item_width }}" style="margin-bottom:20px;">
+
+  {% comment %}
+    Link to your product with the 'within: collection' filter for the link to be aware of the collection.
+    This allows you to create collection-based navigation on the product page.
+
+    Results of using 'within: collection':
+    - Instead of a URL with /products/product-handle
+      you would get /collections/collection-handle/products/product-handle
+
+    For more info on navigation within a collection
+      - http://docs.shopify.com/support/your-store/collections/how-to-navigate-within-a-collection
+
+  {% endcomment %}
+  <a href="{{ product.url | within: collection }}" class="grid__image">
+    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" style="max-height:180px;">
+  </a>
+
+  <p id="product-grid" class="h6" style="text-align:center;">
+   <a class="prod-name" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      {% comment %}
+      You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+      if your variants have different prices.
+    {% endcomment %}
+    <br>
+      <span class="prod-price">
+        {% if on_sale %}
+      {% if product.price_varies %}
+        {% assign sale_price = product.price | money %}    
+        {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+    </span>
+      {% else %}
+        <strong>{{ 'products.product.on_sale' | t }}</strong>
+        {{ product.price | money }}
+      {% endif %}
+    {% else %}
+      {% if product.price_varies %}
+        {% assign price = product.price | money %}
+        {{ 'products.general.from_text_html' | t: price: price }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+     
+      <div class="yotpo bottomLine"
+        data-appkey="XuSzc9ZFpFwg9u9hrqvF5gG6qBhWn5uXzKiMTSs7"
+        data-domain="{{ shop.permanent_domain | escape }}"
+        data-product-id="{{ product.id }}"
+        data-product-models="{{ product.id }}"
+        data-name="{{ product.title | escape }}"
+        data-url="{{ shop.url }}{{ product.url }}"
+        data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+        data-description="{{ product.description | escape }}"
+        data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}"
+        style="text-align:center;">
+      </div>
+    
+    <br>
+  <form action="/cart/add" method="post" id="product-form" class="quickAdd" enctype="multipart/form-data">
+			{% assign hide_default_title = false %}
+		    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+		        {% assign hide_default_title = true %}
+		    {% endif %}
+			<div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}" style="display:none;">
+		       <select id="product-select" name="id" class="hidden">
+		       {% for variant in product.variants %}
+		         <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+		       {% endfor %}
+		       </select>
+		    </div>
+          
+            {% if product.available%}
+            <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" id="add" class="btn add-to-cart" />
+            {% else %}
+            <input type="submit" value="{{ 'products.product.sold_out' | t }}" id="add" class="btn add-to-cart disabled" disabled="disabled" style="color:#bbbbbb!important; opacity: 0.5;">
+			{% endif %}
+      		</form> 
+  
+    {% endif %}
+  {% comment %}
+    {% if sold_out %}
+      <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+    {% endif %}
+  {% endcomment %}
+    {% if on_sale %}
+      <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+      <br><s>{{ product.compare_at_price | money }}</s>
+    {% endif %}
+  </p>
+  
+
+
+</div>

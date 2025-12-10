@@ -1,0 +1,98 @@
+<section class="tw-py-12">
+    <div class="tw-container tw-px-5 md:tw-px-10 xl:tw-px-14 2xl:tw-p-0 tw-mx-auto xl:tw-max-w-screen-xl tw-font-medium tw-font-encode-sans questions">
+      <h1 class="tw-m-0 tw-text-32px/40px lg:tw-text-45px/56px tw-text-matterhorn tw-text-left tw-pb-14">{{page.title}}</h1>
+      {% for block in section.blocks %} 
+      <div class="tw-py-4">
+        <button style="outline: none;" class="tw-flex tw-w-full tw-justify-between tw-items-center tab_btn tw-text-18px/24px md:tw-text-22px/28px tw-text-green tw-text-left" value="#{{block.id}}">
+          {{block.settings.question-head}}
+          <span class="far fa-plus" aria-label="expand question"></span>
+          <span class="far fa-minus tw-hidden" aria-label="close question"></span>
+        </button>
+        <div id="{{block.id}}" class="tw-hidden faq__answers">
+            {{block.settings.question-text}}
+
+            {% if block.settings.select == true %} 
+            <ul class="tw-mb-0 tw-ml-5 tw-text-black tw-font-open-sans tw-text-14px/20px tw-pt-6 tw-pr-4 md:tw-pr-7">
+              {{block.settings.html_input}}
+            </ul>
+            {% endif %}
+        </div>
+      </div>
+      {% unless forloop.last %}
+      <hr class=" tw-border-t tw-border-t-solid tw-border-gainsboro">
+      {% endunless %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <script>
+    $(document).ready(function() {
+      let active, content;
+      $('div.questions').find('button').click(function() { 
+        if ($(this).hasClass('tw-pb-3')) {
+          active.removeClass('tw-pb-3');
+          active.find('.fa-minus').hide();
+          active.find('.fa-plus').show();
+          content.hide();
+          active= undefined;
+          return false;
+        } else {
+          if (active) {
+            active.removeClass('tw-pb-3');
+            active.find('.fa-plus').show();
+            active.find('.fa-minus').hide();
+            content.hide();
+          }
+          active= $(this);
+          content = $($(this).attr('value'));
+          active.addClass('tw-pb-3');
+          active.find('.fa-plus').hide();
+          active.find('.fa-minus').show();
+          content.show();
+          return false;
+        }
+      });
+    });
+  </script>
+
+{% schema %}
+  {
+    "name": "FAQ Questions",
+    "settings": [],
+    "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+      {
+        "id": "question-head",
+        "type": "text",
+        "label": "Question Heading"
+      },
+      {
+          "id": "question-text",
+          "type": "richtext",
+          "label": "Question Answer"
+      },
+      {
+        "type": "checkbox",
+        "id": "select",
+        "default": false,
+        "label": "Include custom HTML"
+    },
+    {
+        "type": "html",
+        "id": "html_input",
+        "label": "Custom HTML"
+    }
+      ]
+    }
+    ],
+    "presets": [
+      {
+        "name": "FAQ Section",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

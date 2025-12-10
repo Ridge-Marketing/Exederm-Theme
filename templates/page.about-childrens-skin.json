@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "skin-and-irritants-content",
+      "settings": {
+        "img_class": "children-skin-hero",
+        "color_class": "tw-text-matterhorn lg:tw-text-white",
+        "content_type_class": "skin-blocks"
+      }
+    },
+    "recommended": {
+      "type": "product-slider",
+      "settings": {
+        "heading": "Recommended Products",
+        "margins": ""
+      }
+    },
+    "slider": {
+      "type": "logo-slider",
+      "settings": {}
+    },
+    "return": {
+      "type": "return-to",
+      "settings": {
+        "link": "shopify://pages/about-skin",
+        "text": "Return to About Skin",
+        "width_1336px": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommended",
+    "slider",
+    "return"
+  ]
+}

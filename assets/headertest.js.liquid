@@ -1,0 +1,34 @@
+function toggleNavDrawer(num) {
+    // num = 1 when drawer is closed, num = 0 when drawer is open 
+    if (num > 0) {
+    $("#navDrawer__test").css('transform', 'translateX(0)').addClass('tw-shadow-0-0-7-33');
+} else {
+    $("#navDrawer__test").css('transform', 'translateX(-18.75rem)').removeClass('tw-shadow-0-0-7-33');
+    }  
+}
+
+function toggleCartDrawer(num) {
+    // num = 1 when drawer is closed, num = 0 when drawer is open 
+    if (num > 0) {
+    $("#CartDrawer").css('transform', 'translateX(0)').addClass('tw-shadow-0-0-7-33');
+} else {
+    $("#CartDrawer").css('transform', 'translateX(18.75rem)').removeClass('tw-shadow-0-0-7-33');
+    }  
+}
+
+$(document).ready(function() {
+    $('.nav__dropdown__test').click(function() {
+        let myvar= $(this).attr('value');
+        if ($(myvar).is(':visible')) {
+            $(myvar).hide();
+            $(this).removeClass('tw-text-white tw-bg-green').addClass('tw-text-black');
+            $(this).find('.fa-minus').hide();
+            $(this).find('.fa-plus').show();
+        } else {
+            $(myvar).show();
+            $(this).removeClass('tw-text-black').addClass('tw-text-white tw-bg-green');
+            $(this).find('.fa-plus').hide();
+            $(this).find('.fa-minus').show();
+        }
+    })
+})

@@ -1,0 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "section.tw-my-9",
+  "sections": {
+    "main": {
+      "type": "product-indv-info",
+      "settings": {
+        "title_override": "{{ product.metafields.custom.title_override.value }}"
+      }
+    },
+    "award": {
+      "type": "nea-award",
+      "settings": {}
+    },
+    "collection": {
+      "type": "product-slider",
+      "settings": {
+        "heading": "Other Top Rated Products",
+        "margins": "tw-mt-14",
+        "use_button": false,
+        "button_text": "",
+        "button_link": ""
+      }
+    },
+    "reviews": {
+      "type": "product-indv-reviews",
+      "settings": {}
+    },
+    "slider": {
+      "type": "logo-slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "award",
+    "collection",
+    "reviews",
+    "slider"
+  ]
+}

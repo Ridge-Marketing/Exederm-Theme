@@ -1,0 +1,129 @@
+<dialog id="rnt-popup" class="tw-fixed tw-hidden tw-flex-col tw-items-center tw-justify-center tw-w-full tw-h-full tw-max-w-full tw-max-h-full tw-m-0 tw-top-0 tw-left-0 tw-z-50 tw-bg-transparent">
+  <div class="popUp-click tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-60"></div>
+  <div style="max-width:680px; border-top: 22px;" class="tw-relative tw-w-full tw-text-right">
+    <button class="tw-cursor-pointer popUp-click tw-ml-auto tw-text-white tw-relative tw-py-4" aria-label="close popup">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="tw-w-6 tw-h-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <span class="tw-absolute tw-h-0 tw-w-0 tw--left-full tw-invisible tw-overflow-hidden">Close</span>
+    </button>
+  </div>
+  <div style="max-width: 680px; border-top: 22px;" class="tw-relative tw-w-full tw-mx-6 tw-bg-white tw-border-rnt-grey-blue tw-text-center tw-py-10 tw-px-6">
+    <div class="tw-mx-auto">
+      <p style="max-width: 500px;" class="tw-hidden md:tw-block tw-text-26px/33px tw-text-matterhorn tw-mx-auto tw-font-bold">NOW AVAILABLE in the First Aid aisle of your local Walmart store</p>
+      <div class="tw-block md:tw-grid tw-grid-cols-2 md:tw-pt-5">
+        <div>
+          <div class="tw-px-8">
+            <img class="tw-h-full tw-w-full tw-object-cover" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/Walmart_popup.png?v=1683647475" />
+          </div>
+          <ul id="popup-list" class="tw-text-left tw-flex tw-flex-col-reverse md:tw-block tw-mt-4 md:tw-mt-12 tw-mr-10">
+            <li class="popup-list-item tw-mt-4 md:tw-mt-0">Available nationwide at over 4,000 Walmart stores.</li>
+            <li class="popup-list-item md:tw-mt-4">Look for us in the FIrst Aid aisle beside the pharmacy.</li>
+          </ul>
+        </div>
+        <div>
+          <img class="tw-px-10 md:tw-px-0" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/popup-product-image.jpg?v=1683651708" />
+        </div>
+      </div>
+      <a href="/pages/coupons" class="tw-w-48 tw-text-center secondary__button tw-py-3">Get Coupon</a>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  #rnt-popup ul {
+    list-style: none;
+  }
+  #rnt-popup li::before {
+    content: "\25AA"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #3E9A76; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+</style>
+
+
+<script>
+  (function() {
+    const showPopUp = () => {
+      const rntPopUp = document.getElementById('rnt-popup');
+      const closeButtons = document.querySelectorAll('.popUp-click');
+
+// localStorage.clear();
+      if (localStorage.getItem('popUp') && (parseInt(localStorage.getItem('popUp')) > 0)) {
+        if (rntPopUp) {
+          if (typeof HTMLDialogElement === 'function') {
+            rntPopUp.close();
+          }
+          rntPopUp.style.display = "none";
+          rntPopUp.style.visibility = "hidden";
+        }
+      } else {
+        if (rntPopUp) {
+          if (typeof HTMLDialogElement === 'function') {
+            rntPopUp.showModal();
+          }
+          rntPopUp.open = true;
+          rntPopUp.style.display = "flex";
+          rntPopUp.style.visibility = "visible";
+        }
+      }
+      if (closeButtons) {
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", function() {
+            if (typeof HTMLDialogElement === 'function') {
+              rntPopUp.close();
+            }
+            rntPopUp.style.display = "none";
+            rntPopUp.style.visibility = "hidden";
+            localStorage.setItem('popUp', 1);
+          }, false);
+
+          button.addEventListener("keydown", function() {
+            if (typeof HTMLDialogElement === 'function') {
+              rntPopUp.close();
+            }
+            rntPopUp.style.display = "none";
+            rntPopUp.style.visibility = "hidden";
+            localStorage.setItem('popUp', 1);
+          }, false);
+        })
+        window.addEventListener('keydown', function(e) {
+          if (e.key == "Escape" && rntPopUp.style.display !== "none") {
+            if (typeof HTMLDialogElement === 'function') {
+              rntPopUp.close();
+            }
+            rntPopUp.style.display = "none";
+            rntPopUp.style.visibility = "hidden";
+            localStorage.setItem('popUp', 1);
+          }
+        }, false);
+      }
+    }
+    setTimeout(showPopUp, 5000);
+  })()
+</script>
+
+{% schema %}
+  {
+    "name": "Popup Section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Popup Section",
+        "category": "Home page"
+      }
+    ]
+  }
+{% endschema %}

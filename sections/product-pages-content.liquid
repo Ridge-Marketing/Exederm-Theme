@@ -1,0 +1,34 @@
+<!-- /templates/page.products.liquid -->
+
+<section class="tw-my-9">
+    <div class="tw-container tw-mx-auto xl:tw-max-w-1336px tw-px-5 md:tw-px-10 2xl:tw-px-0">
+        <h1 class="tw-text-32px/40px lg:tw-text-45px/56px tw-text-matterhorn">{{page.title}}</h1>
+
+        <div class="tw-mt-16 tw-max-w-screen-xl tw-block tw-py-0 
+        sm:tw-grid sm:tw-grid-cols-2 sm:tw-justify-items-center
+        lg:tw-grid-cols-3 xl:tw-grid-cols-4"> 
+        {% for product in collections[section.settings.featured_collection].products %}
+            {% include 'product-card.liquid' %}
+            {% endfor %}  
+      </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Adult and Child Products",
+    "settings": [
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Featured collection"
+   }
+    ],
+    "presets": [
+      {
+        "name": "Products",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
