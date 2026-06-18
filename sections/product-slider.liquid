@@ -1,14 +1,27 @@
 <section class="{{section.settings.margins}}">
     <div class="tw-text-22px/28px xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
-      <span class="tw-px-3 tw-bg-white">&nbsp;{{section.settings.heading}}&nbsp;<span>
+      <span class="tw-px-3 tw-bg-white">&nbsp;{{section.settings.heading}}&nbsp;</span>
     </div> 
       
     <div class="tw-flex tw-justify-center tw-mt-4 tw-max-w-1336px tw-mx-auto">
 
+      {% assign available_count = 0 %}
+      {% for product in collections.all.products %}
+        {% if product.available %}
+          {% assign available_count = available_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+
       <!-- Scroll button for swiper -->
-      <div class="button-prev--product tw-mx-6 tw-self-center">
-        <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-left.svg?v=1682691853" alt="View previous item in slider">
-      </div>
+      {% if available_count > 4 %}
+        <div class="button-prev--product tw-mx-6 tw-self-center">
+          <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-left.svg?v=1682691853" alt="View previous item in slider"/>
+        </div>
+      {% else %}
+        <div class="button-prev--product tw-mx-6 tw-self-center lg:tw-hidden">
+          <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-left.svg?v=1682691853" alt="View previous item in slider"/>
+        </div>
+      {% endif %}
       
       <!-- Slideshow of products -->
       <div style="padding-top: 1rem;" class="swiper-container swiper-container--products tw-flex-grow-0 tw-w-full xl:tw-max-w-1336px tw-mt-4 tw-pt-4">
@@ -17,18 +30,22 @@
 
           <!-- Loop through Products for slides -->
           {% for product in collections.all.products %}
-            <div class="swiper-slide tw-flex tw-items-center tw-justify-center">
               {% include 'product-card' %}
-            </div>
           {% endfor %}
         </div>
       
       </div>
 
       <!-- Scroll button for swiper -->
+      {% if available_count > 4 %}
         <div class="button-next--product tw-mx-6 tw-self-center">
-          <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-right.svg?v=1682691853" alt="View next item in slider">
+          <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-right.svg?v=1682691853" alt="View next item in slider"/>
         </div>
+      {% else %}
+        <div class="button-next--product tw-mx-6 tw-self-center lg:tw-hidden">
+          <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-right.svg?v=1682691853" alt="View next item in slider"/>
+        </div>
+      {% endif %}
     </div>
     {% if section.settings.use_button  %}
     <div class="tw-mt-8 tw-text-center">
