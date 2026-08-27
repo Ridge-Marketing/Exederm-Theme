@@ -1,0 +1,21 @@
+{% comment %}
+  Lander NEA award — reuses snippets/nea-award-block.liquid, scoped to the product
+  referenced by the page's `custom.hydrocortisone_lander` metaobject (so the award
+  image / product metafields resolve on a page template).
+{% endcomment %}
+
+{% assign product = page.metafields.custom.hydrocortisone_lander.value.product.value %}
+{% include 'nea-award-block' %}
+
+{% schema %}
+  {
+    "name": "Lander: NEA Award",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Lander: NEA Award",
+        "category": "Hydrocortisone Lander"
+      }
+    ]
+  }
+{% endschema %}

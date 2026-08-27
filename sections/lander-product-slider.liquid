@@ -1,0 +1,146 @@
+{% comment %}
+  Product-picker version of sections/product-slider.liquid. Same Swiper design,
+  but the products are chosen individually via section blocks (product picker)
+  instead of pulling a whole collection.
+{% endcomment %}
+
+<section id="{{ section.settings.anchor_id | default: 'more-products' }}" class="{{ section.settings.margins }}" style="scroll-margin-top: 100px;">
+  {% if section.settings.heading != blank %}
+    <div class="tw-text-22px/28px xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
+      <span class="tw-px-3 tw-bg-white">&nbsp;{{ section.settings.heading }}&nbsp;</span>
+    </div>
+  {% endif %}
+
+  <div class="tw-flex tw-justify-center tw-mt-4 tw-max-w-1336px tw-mx-auto">
+
+    {% comment %} Count available picked products to decide whether arrows show on desktop. {% endcomment %}
+    {% assign available_count = 0 %}
+    {% for block in section.blocks %}
+      {% assign picked = all_products[block.settings.product] %}
+      {% if picked.available %}
+        {% assign available_count = available_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- Scroll button for swiper -->
+    <div class="button-prev--products-{{ section.id }} tw-mx-6 tw-self-center {% if available_count <= 4 %}lg:tw-hidden{% endif %}">
+      <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-left.svg?v=1682691853" alt="View previous item in slider"/>
+    </div>
+
+    <!-- Slideshow of products -->
+    <div style="padding-top: 1rem;" class="swiper-container swiper-container--products-{{ section.id }} tw-flex-grow-0 tw-w-full xl:tw-max-w-1336px tw-mt-4 tw-pt-4">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% assign product = all_products[block.settings.product] %}
+          {% if product != blank %}
+            {% include 'product-card' %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Scroll button for swiper -->
+    <div class="button-next--products-{{ section.id }} tw-mx-6 tw-self-center {% if available_count <= 4 %}lg:tw-hidden{% endif %}">
+      <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-right.svg?v=1682691853" alt="View next item in slider"/>
+    </div>
+  </div>
+
+  {% if section.settings.use_button %}
+    <div class="tw-mt-8 tw-text-center">
+      <a href="{{ section.settings.button_link }}" class="tw-w-48 tw-text-center primary__button tw-py-3">{{ section.settings.button_text }}</a>
+    </div>
+  {% endif %}
+</section>
+
+<script src="https://unpkg.com/swiper@6.8.2/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper@6.8.2/swiper-bundle.min.js"></script>
+
+<script>
+  new Swiper('.swiper-container--products-{{ section.id }}', {
+    spaceBetween: 5,
+    speed: 1500,
+    loop: false,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 1,
+      },
+      1024: {
+        slidesPerView: 4,
+        slidesPerGroup: 1
+      }
+    },
+    fadeEffect: {
+      crossFade: false,
+    },
+    navigation: {
+      nextEl: ".button-next--products-{{ section.id }}",
+      prevEl: ".button-prev--products-{{ section.id }}",
+    },
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Product Slider (Picker)",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Product list title",
+        "default": "More Eczema Products"
+      },
+      {
+        "type": "text",
+        "id": "anchor_id",
+        "label": "Anchor ID (for sticky nav links)",
+        "default": "more-products"
+      },
+      {
+        "type": "text",
+        "id": "margins",
+        "label": "Margin Class"
+      },
+      {
+        "id": "use_button",
+        "type": "checkbox",
+        "label": "Use Button"
+      },
+      {
+        "id": "button_text",
+        "type": "text",
+        "label": "Button text"
+      },
+      {
+        "id": "button_link",
+        "type": "url",
+        "label": "Button link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Slider (Picker)",
+        "category": "Product page",
+        "blocks": [
+          { "type": "product" },
+          { "type": "product" },
+          { "type": "product" },
+          { "type": "product" }
+        ]
+      }
+    ]
+  }
+{% endschema %}

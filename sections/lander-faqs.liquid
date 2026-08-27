@@ -1,0 +1,127 @@
+{% comment %}
+  FAQ accordion — Figma node 2095-1213.
+  Green heading + white rounded, drop-shadowed cards with a green +/- toggle.
+  Built on <details>/<summary> so it works without JS and stays accessible.
+  Styling is scoped CSS (the theme's compiled Tailwind is purged/prebuilt, so new
+  utility combos can't be relied on). Each Q&A is an editable block.
+{% endcomment %}
+
+<section id="{{ section.settings.anchor_id | default: 'faqs' }}" class="lfaq lfaq--{{ section.id }}">
+  {% if section.settings.heading != blank %}
+    <h2 class="lfaq__heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="lfaq__list">
+    {% for block in section.blocks %}
+      <details class="lfaq__item" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
+        <summary class="lfaq__summary">
+          <span class="lfaq__q">{{ block.settings.question }}</span>
+          <span class="lfaq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="lfaq__answer rte">{{ block.settings.answer }}</div>
+      </details>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .lfaq--{{ section.id }} {
+    max-width: 1336px;
+    margin: 48px auto;
+    padding: 0 20px;
+    scroll-margin-top: 100px;
+  }
+  .lfaq--{{ section.id }} .lfaq__heading {
+    font-family: 'Encode Sans', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 28px;
+    color: #3e9a76;
+    margin: 0 0 24px;
+  }
+  .lfaq--{{ section.id }} .lfaq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .lfaq--{{ section.id }} .lfaq__item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4.5px rgba(0, 0, 0, 0.19);
+    padding: 22px 18px 24px;
+  }
+  .lfaq--{{ section.id }} .lfaq__summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .lfaq--{{ section.id }} .lfaq__summary::-webkit-details-marker { display: none; }
+  .lfaq--{{ section.id }} .lfaq__q {
+    font-family: 'Encode Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000;
+  }
+  .lfaq--{{ section.id }} .lfaq__icon {
+    flex-shrink: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    color: #3e9a76;
+  }
+  .lfaq--{{ section.id }} .lfaq__icon::after { content: "+"; }
+  .lfaq--{{ section.id }} .lfaq__item[open] .lfaq__icon::after { content: "\2212"; } /* minus */
+  .lfaq--{{ section.id }} .lfaq__answer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    margin-top: 16px;
+  }
+  .lfaq--{{ section.id }} .lfaq__answer p { margin: 0 0 10px; }
+  @media (min-width: 768px) {
+    .lfaq--{{ section.id }} { margin: 64px auto; }
+    .lfaq--{{ section.id }} .lfaq__q { font-size: 25px; line-height: 32px; }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "FAQ Accordion",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Frequently Asked Questions"
+      },
+      {
+        "type": "text",
+        "id": "anchor_id",
+        "label": "Anchor ID (for sticky nav links)",
+        "default": "faqs"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "Question",
+        "settings": [
+          { "type": "text", "id": "question", "label": "Question" },
+          { "type": "richtext", "id": "answer", "label": "Answer" },
+          { "type": "checkbox", "id": "open_by_default", "label": "Open by default", "default": false }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ Accordion",
+        "category": "Hydrocortisone Lander"
+      }
+    ]
+  }
+{% endschema %}

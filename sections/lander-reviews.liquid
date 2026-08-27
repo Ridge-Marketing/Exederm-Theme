@@ -1,0 +1,34 @@
+{% comment %}
+  Lander reviews — the same Yotpo main widget used on the product page
+  (sections/product-indv-reviews.liquid), scoped to the product referenced by the
+  page's `custom.hydrocortisone_lander` metaobject. Anchored with id="reviews".
+{% endcomment %}
+
+{% assign product = page.metafields.custom.hydrocortisone_lander.value.product.value %}
+
+{% if product %}
+  <div id="reviews" class="main-content tw-container tw-mx-auto tw-px-5 md:tw-px-10 2xl:tw-px-0 xl:tw-max-w-1336px" style="scroll-margin-top: 100px;">
+    <div class="grid__item large--whole tw-mb-14">
+      <div class="yotpo yotpo-main-widget"
+        data-product-id="{{ product.id }}"
+        data-name="{{ product.title | escape }}"
+        data-url="{{ shop.url }}{{ product.url }}"
+        data-image-url="{{ product.featured_image | product_img_url: 'large' | replace: '?', '%3F' | replace: '&','%26' }}"
+        data-description="{{ product.description | escape }}">
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Lander: Reviews",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Lander: Reviews",
+        "category": "Hydrocortisone Lander"
+      }
+    ]
+  }
+{% endschema %}

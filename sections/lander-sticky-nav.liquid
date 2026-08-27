@@ -1,0 +1,229 @@
+{% comment %}
+  Sticky sub-nav + content rows — Figma node 2127-1000 ("Tabs").
+
+  - The sticky bar auto-builds a pill link for every block (both "content" and
+    "nav_link" types), in order, using each block's nav_label + anchor_id.
+  - "content" blocks additionally render a text / image / checklist row anchored
+    by their anchor_id (Our Ingredients, About Hydrocortisone, Why exederm).
+  - "nav_link" blocks are link-only — they point at OTHER sections further down
+    the page (e.g. #more-products, #reviews, #faqs).
+  - A small IntersectionObserver highlights the pill for the section in view.
+
+  Styling is scoped CSS: the theme's compiled Tailwind is purged/prebuilt, so new
+  responsive utility combos can't be relied on.
+{% endcomment %}
+
+<div class="ltabs ltabs--{{ section.id }}">
+
+  <nav class="ltabs__nav" aria-label="Section navigation">
+    <div class="ltabs__nav-inner">
+      {% for block in section.blocks %}
+        {% if block.settings.anchor_id != blank and block.settings.nav_label != blank %}
+          <a href="#{{ block.settings.anchor_id }}" data-target="{{ block.settings.anchor_id }}" class="ltabs__link" {{ block.shopify_attributes }}>{{ block.settings.nav_label }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+
+  <div class="ltabs__body">
+    {% for block in section.blocks %}
+      {% if block.type == 'content' %}
+        <div id="{{ block.settings.anchor_id }}" class="ltabs__row{% if block.settings.image_position == 'left' %} ltabs__row--img-left{% endif %}{% if block.settings.image == blank %} ltabs__row--no-img{% endif %}" {{ block.shopify_attributes }}>
+          <div class="ltabs__text">
+            {% if block.settings.eyebrow != blank %}<p class="ltabs__eyebrow">{{ block.settings.eyebrow }}</p>{% endif %}
+            {% if block.settings.heading != blank %}<h2 class="ltabs__title">{{ block.settings.heading }}</h2>{% endif %}
+            <div class="ltabs__rte rte">{{ block.settings.body }}</div>
+
+            {% if block.settings.checklist != blank or block.settings.checklist_2 != blank %}
+              <div class="ltabs__checks">
+                {% if block.settings.checklist != blank %}<div class="ltabs__check-col">{{ block.settings.checklist }}</div>{% endif %}
+                {% if block.settings.checklist_2 != blank %}<div class="ltabs__check-col">{{ block.settings.checklist_2 }}</div>{% endif %}
+              </div>
+            {% endif %}
+          </div>
+
+          {% if block.settings.image != blank %}
+            <div class="ltabs__media">
+              <img
+                src="{{ block.settings.image | image_url: width: 616 }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}">
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .ltabs--{{ section.id }} .ltabs__nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: #f4fafc;
+    padding: 16px 0;
+  }
+  .ltabs--{{ section.id }} .ltabs__nav-inner {
+    max-width: 1336px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    gap: 14px;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .ltabs--{{ section.id }} .ltabs__link {
+    white-space: nowrap;
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.19);
+    padding: 12px 20px;
+    font-family: 'Encode Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #3e9a76;
+    text-decoration: none;
+  }
+  .ltabs--{{ section.id }} .ltabs__link.is-active { border-color: #3e9a76; }
+
+  .ltabs--{{ section.id }} .ltabs__body {
+    max-width: 1336px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .ltabs--{{ section.id }} .ltabs__row {
+    padding: 40px 0;
+    scroll-margin-top: 100px;
+  }
+  .ltabs--{{ section.id }} .ltabs__eyebrow {
+    font-family: 'Encode Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #3e9a76;
+    margin: 0 0 16px;
+  }
+  .ltabs--{{ section.id }} .ltabs__title {
+    font-family: 'Encode Sans', sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 33px;
+    color: #000;
+    margin: 0 0 16px;
+  }
+  .ltabs--{{ section.id }} .ltabs__rte,
+  .ltabs--{{ section.id }} .ltabs__check-col {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+  }
+  .ltabs--{{ section.id }} .ltabs__rte p { margin: 0 0 10px; }
+  .ltabs--{{ section.id }} .ltabs__checks { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px 48px; }
+  .ltabs--{{ section.id }} .ltabs__checks ul { list-style: none; margin: 0; padding: 0; }
+  .ltabs--{{ section.id }} .ltabs__checks li { position: relative; padding-left: 30px; margin-bottom: 10px; }
+  .ltabs--{{ section.id }} .ltabs__checks li::before {
+    content: "\f00c"; /* fa-check */
+    font-family: FontAwesome;
+    position: absolute; left: 0; top: 1px;
+    color: #3e9a76;
+  }
+  .ltabs--{{ section.id }} .ltabs__media { margin-top: 24px; }
+  .ltabs--{{ section.id }} .ltabs__media img { width: 100%; height: auto; border-radius: 10px; object-fit: cover; }
+
+  @media (min-width: 768px) {
+    .ltabs--{{ section.id }} .ltabs__nav-inner { justify-content: center; }
+    .ltabs--{{ section.id }} .ltabs__link { font-size: 18px; line-height: 24px; }
+    .ltabs--{{ section.id }} .ltabs__body { padding: 0 40px; }
+  }
+  @media (min-width: 1024px) {
+    .ltabs--{{ section.id }} .ltabs__row { display: flex; gap: 40px; align-items: flex-start; padding: 64px 0; }
+    .ltabs--{{ section.id }} .ltabs__row--img-left { flex-direction: row-reverse; }
+    .ltabs--{{ section.id }} .ltabs__row--no-img { display: block; }
+    .ltabs--{{ section.id }} .ltabs__text { flex: 0 0 66%; max-width: 66%; }
+    .ltabs--{{ section.id }} .ltabs__row--no-img .ltabs__text { max-width: 100%; }
+    .ltabs--{{ section.id }} .ltabs__media { flex: 0 0 30%; margin-top: 0; }
+    .ltabs--{{ section.id }} .ltabs__title { font-size: 30px; line-height: 38px; }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.querySelector('.ltabs--{{ section.id }}');
+    if (!root) return;
+    var links = [].slice.call(root.querySelectorAll('.ltabs__link'));
+    if (!('IntersectionObserver' in window) || !links.length) return;
+
+    function linkFor(id) { return root.querySelector('.ltabs__link[data-target="' + id + '"]'); }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var link = linkFor(entry.target.id);
+        if (!link) return;
+        links.forEach(function (l) { l.classList.remove('is-active'); });
+        link.classList.add('is-active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    // Observe every target a nav pill points at (in-section rows + external sections).
+    links.forEach(function (link) {
+      var target = document.getElementById(link.getAttribute('data-target'));
+      if (target) observer.observe(target);
+    });
+  })();
+</script>
+
+{% schema %}
+  {
+    "name": "Sticky Nav + Content",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "content",
+        "name": "Content section",
+        "settings": [
+          { "type": "text", "id": "nav_label", "label": "Nav label" },
+          { "type": "text", "id": "anchor_id", "label": "Anchor ID", "info": "Unique, lowercase, no spaces. The nav pill scrolls here." },
+          { "type": "text", "id": "eyebrow", "label": "Eyebrow (green label)" },
+          { "type": "text", "id": "heading", "label": "Heading" },
+          { "type": "richtext", "id": "body", "label": "Body" },
+          { "type": "header", "content": "Checklist (bullet lists = green checks)" },
+          { "type": "richtext", "id": "checklist", "label": "Checklist column 1" },
+          { "type": "richtext", "id": "checklist_2", "label": "Checklist column 2 (optional)" },
+          { "type": "header", "content": "Image" },
+          { "type": "image_picker", "id": "image", "label": "Image" },
+          {
+            "type": "select",
+            "id": "image_position",
+            "label": "Image position",
+            "options": [
+              { "value": "right", "label": "Right" },
+              { "value": "left", "label": "Left" }
+            ],
+            "default": "right"
+          }
+        ]
+      },
+      {
+        "type": "nav_link",
+        "name": "Nav link (jump to)",
+        "settings": [
+          { "type": "text", "id": "nav_label", "label": "Nav label" },
+          { "type": "text", "id": "anchor_id", "label": "Target anchor ID", "info": "The anchor ID of a section elsewhere on the page (e.g. more-products, reviews, faqs)." }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Sticky Nav + Content",
+        "category": "Hydrocortisone Lander"
+      }
+    ]
+  }
+{% endschema %}
