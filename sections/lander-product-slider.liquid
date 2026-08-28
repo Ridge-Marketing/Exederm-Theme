@@ -4,14 +4,14 @@
   instead of pulling a whole collection.
 {% endcomment %}
 
-<section id="{{ section.settings.anchor_id | default: 'more-products' }}" class="{{ section.settings.margins }}" style="scroll-margin-top: 100px;">
+<section id="{{ section.settings.anchor_id | default: 'more-products' }}" class="{{ section.settings.margins }} lproductSlider--{{ section.id }} " style="scroll-margin-top: 300px;">
   {% if section.settings.heading != blank %}
     <div class="tw-text-22px/28px xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
       <span class="tw-px-3 tw-bg-white">&nbsp;{{ section.settings.heading }}&nbsp;</span>
     </div>
   {% endif %}
 
-  <div class="tw-flex tw-justify-center tw-mt-4 tw-max-w-1336px tw-mx-auto">
+  <div class="tw-flex tw-justify-center tw-mt-4 md:tw-px-10 tw-max-w-1336px tw-mx-auto">
 
     {% comment %} Count available picked products to decide whether arrows show on desktop. {% endcomment %}
     {% assign available_count = 0 %}
@@ -79,6 +79,14 @@
     },
   });
 </script>
+
+<style>
+  @media screen and (min-width:1024px){
+    .lproductSlider--{{ section.id }}{
+      margin-bottom:150px;
+    }
+  }
+</style>
 
 {% schema %}
   {

@@ -15,6 +15,7 @@
 
 <div class="ltabs ltabs--{{ section.id }}">
 
+  <div class="ltabs__sentinel" aria-hidden="true"></div>
   <nav class="ltabs__nav" aria-label="Section navigation">
     <div class="ltabs__nav-inner">
       {% for block in section.blocks %}
@@ -61,15 +62,24 @@
 <style>
   .ltabs--{{ section.id }} .ltabs__nav {
     position: sticky;
-    top: 0;
+    top: 84px;
     z-index: 30;
     background: #f4fafc;
     padding: 16px 0;
   }
+  /* Pinned page-wide (toggled by JS) so the nav escapes its section wrapper
+     and keeps sticking through the sections below. */
+  .ltabs--{{ section.id }} .ltabs__nav.is-fixed {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    z-index: 40;
+  }
   .ltabs--{{ section.id }} .ltabs__nav-inner {
     max-width: 1336px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 40px 16px;
     display: flex;
     gap: 14px;
     justify-content: flex-start;
@@ -98,7 +108,11 @@
   }
   .ltabs--{{ section.id }} .ltabs__row {
     padding: 40px 0;
-    scroll-margin-top: 100px;
+    scroll-margin-top: 300px;
+    border-bottom: #F4FAFC 5px solid;
+  }
+  .ltabs--{{ section.id }} .ltabs__row:last-of-type {
+    border-bottom:0px;
   }
   .ltabs--{{ section.id }} .ltabs__eyebrow {
     font-family: 'Encode Sans', sans-serif;
@@ -134,7 +148,7 @@
     color: #3e9a76;
   }
   .ltabs--{{ section.id }} .ltabs__media { margin-top: 24px; }
-  .ltabs--{{ section.id }} .ltabs__media img { width: 100%; height: auto; border-radius: 10px; object-fit: cover; }
+  .ltabs--{{ section.id }} .ltabs__media img { width: 100%; height: auto; border-radius: 0px; object-fit: cover; }
 
   @media (min-width: 768px) {
     .ltabs--{{ section.id }} .ltabs__nav-inner { justify-content: center; }
@@ -142,7 +156,14 @@
     .ltabs--{{ section.id }} .ltabs__body { padding: 0 40px; }
   }
   @media (min-width: 1024px) {
-    .ltabs--{{ section.id }} .ltabs__row { display: flex; gap: 40px; align-items: flex-start; padding: 64px 0; }
+    .ltabs--{{ section.id }} .ltabs__row { 
+      display: flex; 
+      gap: 40px; 
+      align-items: flex-start; 
+      padding: 80px 0; 
+      max-width:1176px;
+      margin:auto;
+    }
     .ltabs--{{ section.id }} .ltabs__row--img-left { flex-direction: row-reverse; }
     .ltabs--{{ section.id }} .ltabs__row--no-img { display: block; }
     .ltabs--{{ section.id }} .ltabs__text { flex: 0 0 66%; max-width: 66%; }
@@ -153,7 +174,7 @@
 </style>
 
 <script>
-  (function () {
+  function stickyNav() {
     var root = document.querySelector('.ltabs--{{ section.id }}');
     if (!root) return;
     var links = [].slice.call(root.querySelectorAll('.ltabs__link'));
@@ -176,7 +197,59 @@
       var target = document.getElementById(link.getAttribute('data-target'));
       if (target) observer.observe(target);
     });
-  })();
+
+    // --- Keep the nav pinned across the WHOLE page ---------------------------
+    // position:sticky only sticks within this section's Shopify wrapper, so the
+    // nav releases once its section ends. Once it reaches the top we swap it to
+    // position:fixed (matching the CSS `top`) so it carries through the sections
+    // below. A sentinel marks its resting spot; a spacer preserves layout while
+    // the nav is out of flow.
+    var nav = root.querySelector('.ltabs__nav');
+    var sentinel = root.querySelector('.ltabs__sentinel');
+    if (nav && sentinel) {
+      var PIN_TOP = 84; // must match .ltabs__nav `top`
+      var spacer = document.createElement('div');
+      spacer.style.display = 'none';
+      nav.parentNode.insertBefore(spacer, nav);
+
+      function setPinned(on) {
+        if (on === nav.classList.contains('is-fixed')) return;
+        if (on) {
+          spacer.style.height = nav.offsetHeight + 'px';
+          spacer.style.display = 'block';
+          nav.classList.add('is-fixed');
+        } else {
+          nav.classList.remove('is-fixed');
+          spacer.style.display = 'none';
+        }
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          setPinned(sentinel.getBoundingClientRect().top <= PIN_TOP);
+          ticking = false;
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', function () {
+        if (nav.classList.contains('is-fixed')) spacer.style.height = nav.offsetHeight + 'px';
+        onScroll();
+      });
+      onScroll();
+    }
+  }
+  // Wait until the whole document is parsed so the sections BELOW this one
+  // (#more-products, #reviews, #faqs) exist before we query them.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', stickyNav);
+  } else {
+    stickyNav();
+  }
+  // Re-run when this section is (re)loaded in the theme editor.
+  document.addEventListener('shopify:section:load', function () { stickyNav(); });
 </script>
 
 {% schema %}

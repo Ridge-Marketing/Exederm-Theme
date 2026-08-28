@@ -1,7 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product_info": {
       "type": "lander-product-info",
+      "settings": {
+        "title_override": ""
+      }
+    },
+    "nea_award": {
+      "type": "lander-nea-award",
       "settings": {}
     },
     "sticky_nav": {
@@ -14,7 +29,10 @@
             "anchor_id": "our-ingredients",
             "eyebrow": "Our Ingredients",
             "heading": "exederm Eczema Flare Control Cream Ingredients",
-            "body": "<p><strong>Active Ingredient:</strong> Hydrocortisone acetate USP 1%</p><p><strong>Inactive Ingredients:</strong> (base) caprylic/capric triglyceride, caprylyl glycol, ceteareth-20, anthemis nobilis, citric acid, glycerin, glyceryl stearate, palmitic acid, petrolatum, phenoxyethanol, stearic acid, purified water</p>"
+            "body": "<p><strong>Active Ingredient:</strong> Hydrocortisone acetate USP 1%</p><p><strong>Inactive Ingredients:</strong> (base) caprylic/capric triglyceride, caprylyl glycol, ceteareth-20, anthemis nobilis, citric acid, glycerin, glyceryl stearate, palmitic acid, petrolatum, phenoxyethanol, stearic acid, purified water</p>",
+            "checklist": "",
+            "checklist_2": "",
+            "image_position": "right"
           }
         },
         "about": {
@@ -26,6 +44,8 @@
             "heading": "Why Hydrocortisone Cream is an Effective Eczema Treatment",
             "body": "<p>Daily moisturizers help hydrate skin, but active eczema flare-ups may require targeted relief. exederm Flare Control Cream contains hydrocortisone acetate USP 1%, making it the maximum-strength hydrocortisone cream available without a prescription, for targeted relief from eczema flares.</p><p>Hydrocortisone is a topical corticosteroid that calms the skin's inflammatory immune response, helping reduce inflammation associated with eczema. When applied to eczema-affected skin, hydrocortisone helps relieve redness, irritation, and itching.</p><p>exederm Flare Control Cream was the first hydrocortisone cream to receive the coveted National Eczema Association Seal of Acceptance, recognizing products suitable for people with eczema or sensitive skin.</p><p><strong>exederm Flare Control Cream provides:</strong></p>",
             "checklist": "<ul><li>1% hydrocortisone for targeted eczema flare relief</li><li>Relief from itching and irritation associated with eczema</li><li>Maximum-strength hydrocortisone available without a prescription</li></ul>",
+            "checklist_2": "",
+            "image": "shopify://shop_images/About.webp",
             "image_position": "right"
           }
         },
@@ -39,37 +59,84 @@
             "body": "<p>The 'base' cream or ointment to which the active ingredient is added can vary widely from brand to brand. Too often, other brands' bases contain potential irritants such as paraben preservatives or unnecessary botanical additives.</p><p>Most drugstore products are formulated for the average person with a skin rash from insect bites, stings or poison ivy. These products have been designed to treat a one-off problem for someone who does not have overly sensitive skin.</p><p>We believe that people with eczema, dermatitis and sensitive skin are different. Eczema-prone skin can be especially sensitive to potential irritants and allergens. That's why exederm Hydrocortisone Cream for Eczema Flare Control is formulated without parabens or cocamidopropyl betaine (CAPB), ingredients that can cause allergic contact dermatitis in people who are sensitive to them.</p><p>Putting a \"Gold Standard\" active ingredient into anything less than a \"Gold Standard\" base simply doesn't make sense.</p><p><strong>exederm Hydrocortisone Cream for Eczema Flare Control contains:</strong></p>",
             "checklist": "<ul><li><strong>No</strong> Fragrance</li><li><strong>No</strong> Color or Dyes</li><li><strong>No</strong> Parabens</li><li><strong>No</strong> Sls or Sles</li></ul>",
             "checklist_2": "<ul><li><strong>No</strong> Propylene Glycol</li><li><strong>No</strong> Cocamidopropyl Betaine (CAPB)</li><li><strong>No</strong> Lanolin</li></ul>",
+            "image": "shopify://shop_images/Product.webp",
             "image_position": "right"
           }
         },
         "link_products": {
           "type": "nav_link",
-          "settings": { "nav_label": "More Eczema Products", "anchor_id": "more-products" }
+          "settings": {
+            "nav_label": "More Eczema Products",
+            "anchor_id": "more-products"
+          }
         },
         "link_reviews": {
           "type": "nav_link",
-          "settings": { "nav_label": "Reviews", "anchor_id": "reviews" }
+          "settings": {
+            "nav_label": "Reviews",
+            "anchor_id": "reviews"
+          }
         },
         "link_faqs": {
           "type": "nav_link",
-          "settings": { "nav_label": "FAQs", "anchor_id": "faqs" }
+          "settings": {
+            "nav_label": "FAQs",
+            "anchor_id": "faqs"
+          }
         }
       },
-      "block_order": ["ingredients", "about", "why", "link_products", "link_reviews", "link_faqs"]
+      "block_order": [
+        "ingredients",
+        "about",
+        "why",
+        "link_products",
+        "link_reviews",
+        "link_faqs"
+      ],
+      "settings": {}
     },
     "product_slider": {
       "type": "lander-product-slider",
-      "settings": {
-        "heading": "More Eczema Products",
-        "anchor_id": "more-products"
-      },
       "blocks": {
-        "p1": { "type": "product", "settings": {} },
-        "p2": { "type": "product", "settings": {} },
-        "p3": { "type": "product", "settings": {} },
-        "p4": { "type": "product", "settings": {} }
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": "flare-control-cream"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": "eczema-lotion"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": "baby-eczema-wash"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": "eczema-conditioner"
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4"]
+      "block_order": [
+        "p1",
+        "p2",
+        "p4",
+        "p3"
+      ],
+      "settings": {
+        "heading": "More Eczema Care Products",
+        "anchor_id": "more-products",
+        "margins": "",
+        "use_button": false,
+        "button_text": "",
+        "button_link": ""
+      }
     },
     "reviews": {
       "type": "lander-reviews",
@@ -77,10 +144,6 @@
     },
     "faqs": {
       "type": "lander-faqs",
-      "settings": {
-        "heading": "Frequently Asked Questions",
-        "anchor_id": "faqs"
-      },
       "blocks": {
         "q1": {
           "type": "faq",
@@ -90,18 +153,68 @@
             "open_by_default": true
           }
         },
-        "q2": { "type": "faq", "settings": { "question": "Can eczema be cured?" } },
-        "q3": { "type": "faq", "settings": { "question": "What is hydrocortisone cream used for?" } },
-        "q4": { "type": "faq", "settings": { "question": "Is hydrocortisone good for eczema?" } },
-        "q5": { "type": "faq", "settings": { "question": "Is hydrocortisone a steroid?" } },
-        "q6": { "type": "faq", "settings": { "question": "Can you buy hydrocortisone cream over the counter?" } },
-        "q7": { "type": "faq", "settings": { "question": "Is 1% hydrocortisone safe to use daily?" } }
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "Can eczema be cured?",
+            "answer": "<p>There is currently no cure for eczema, but it can often be effectively managed. Regular moisturizing, avoiding known triggers, and treating flare-ups when they occur can help reduce symptoms and keep skin clearer and more comfortable.</p><p>When eczema flares, exederm Hydrocortisone Cream for Eczema Flare Control provides targeted relief from itching and irritation with maximum-strength 1% hydrocortisone available without a prescription.</p>",
+            "open_by_default": false
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "What is hydrocortisone cream used for?",
+            "answer": "<p>Hydrocortisone cream is a topical corticosteroid used to temporarily relieve redness, itching, inflammation, and irritation associated with skin conditions such as eczema. The National Eczema Association identifies topical hydrocortisone as a common over-the-counter eczema treatment that helps reduce irritation, itching, and inflammation.</p><p>exederm Hydrocortisone Cream for Eczema Flare Control combines 1% hydrocortisone with a formula free from parabens and cocamidopropyl betaine (CAPB).</p>",
+            "open_by_default": false
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "Is hydrocortisone good for eczema?",
+            "answer": "<p>Yes. Topical hydrocortisone is a common over-the-counter treatment for eczema flare-ups. As a corticosteroid, it helps calm the skin's inflammatory immune response, reducing inflammation and helping relieve the itching, redness, and irritation associated with eczema. exederm Hydrocortisone Cream for Eczema Flare Control contains hydrocortisone acetate USP 1% for targeted eczema flare relief.</p>",
+            "open_by_default": false
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "Is hydrocortisone a steroid?",
+            "answer": "<p>Hydrocortisone is a corticosteroid, a type of medication that helps reduce inflammation by calming the body's inflammatory immune response. Corticosteroids are different from anabolic steroids used to increase muscle mass. Topical hydrocortisone is applied directly to affected skin and is commonly used to treat inflammatory skin conditions such as eczema. exederm Hydrocortisone Cream for Eczema Flare Control contains 1% hydrocortisone, the maximum strength available without a prescription.</p>",
+            "open_by_default": false
+          }
+        },
+        "q6": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you buy hydrocortisone cream over the counter?",
+            "answer": "<p>Yes. Hydrocortisone cream is available over the counter in strengths up to 1%. exederm Hydrocortisone Cream for Eczema Flare Control contains hydrocortisone acetate USP 1%, the maximum-strength hydrocortisone available without a prescription.</p>",
+            "open_by_default": false
+          }
+        },
+        "q7": {
+          "type": "faq",
+          "settings": {
+            "question": "Is 1% hydrocortisone safe to use daily?",
+            "answer": "<p>Always use 1% hydrocortisone as directed, and don't use it longer than recommended. Adults and children 2 years and older can apply exederm Hydrocortisone Cream for Eczema Flare Control to affected areas 3 to 4 times daily, as directed on the product label.</p><p>Stop use and consult a healthcare provider if your condition worsens, symptoms persist for more than 7 days, or clear up and return within a few days. Children under 2 years of age should not use exederm Flare Control Cream unless directed by a doctor.</p>",
+            "open_by_default": false
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"]
-    },
-    "nea_award": {
-      "type": "lander-nea-award",
-      "settings": {}
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "anchor_id": "faqs"
+      }
     },
     "logo_slider": {
       "type": "logo-slider",
@@ -110,11 +223,11 @@
   },
   "order": [
     "product_info",
+    "nea_award",
     "sticky_nav",
     "product_slider",
     "reviews",
     "faqs",
-    "nea_award",
     "logo_slider"
   ]
 }

@@ -6,7 +6,9 @@
   utility combos can't be relied on). Each Q&A is an editable block.
 {% endcomment %}
 
-<section id="{{ section.settings.anchor_id | default: 'faqs' }}" class="lfaq lfaq--{{ section.id }}">
+<section id="{{ section.settings.anchor_id | default: 'faqs' }}" class="lfaq lfaq--{{ section.id }} tw-container">
+  <hr/>
+
   {% if section.settings.heading != blank %}
     <h2 class="lfaq__heading">{{ section.settings.heading }}</h2>
   {% endif %}
@@ -25,19 +27,26 @@
 </section>
 
 <style>
-  .lfaq--{{ section.id }} {
-    max-width: 1336px;
-    margin: 48px auto;
-    padding: 0 20px;
-    scroll-margin-top: 100px;
+  .lfaq--{{ section.id }} hr {
+    border-top:#F4FAFC 5px solid;
+    margin-bottom:80px;
   }
-  .lfaq--{{ section.id }} .lfaq__heading {
+  .lfaq--{{ section.id }} {
+    {% comment %} max-width: 1336px; {% endcomment %}
+    {% comment %} margin: 48px auto; {% endcomment %}
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-top:80px;
+    scroll-margin-top: 300px;
+  }
+  .lfaq--{{ section.id }} .lfaq__heading, 
+  .lfaq--{{ section.id }} h2 {
     font-family: 'Encode Sans', sans-serif;
     font-weight: 500;
     font-size: 22px;
     line-height: 28px;
     color: #3e9a76;
-    margin: 0 0 24px;
+    margin-bottom: 24px !important;
   }
   .lfaq--{{ section.id }} .lfaq__list {
     display: flex;
@@ -84,8 +93,12 @@
   }
   .lfaq--{{ section.id }} .lfaq__answer p { margin: 0 0 10px; }
   @media (min-width: 768px) {
-    .lfaq--{{ section.id }} { margin: 64px auto; }
+    {% comment %} .lfaq--{{ section.id }} { margin: 64px auto; } {% endcomment %}
+    .lfaq--{{ section.id }} {
+      margin-bottom:120px;
+    }
     .lfaq--{{ section.id }} .lfaq__q { font-size: 25px; line-height: 32px; }
+
   }
 </style>
 

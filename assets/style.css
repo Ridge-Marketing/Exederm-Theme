@@ -333,7 +333,7 @@
     @apply tw-pb-4;
   }
   .primary__button {
-    @apply tw-bg-green tw-border tw-inline-block tw-border-solid tw-border-transparent tw-text-white tw-shadow-0-2-2-25 tw-font-bold tw-font-open-sans tw-text-16px/22px;
+    @apply tw-bg-green tw-border tw-inline-block tw-border-solid tw-border-transparent tw-text-white tw-shadow-0-2-2-25 tw-font-bold tw-font-open-sans tw-text-16px/22px tw-rounded-[10px];
   }
   .primary__button:hover {
     background-color: #267B59;

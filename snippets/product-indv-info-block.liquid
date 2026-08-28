@@ -183,12 +183,12 @@
 
         {% if product.available %}
           <input
-            class="primary__button tw-w-48 tw-py-3 tw-rounded-none"
+            class="primary__button tw-w-48 tw-py-3"
             type="submit"
             value="Add to cart">
         {% else %}
           <input
-          class="tw-w-48 tw-py-3 tw-rounded-none"
+          class="tw-w-48 tw-py-3 "
           type="submit"
           value="Out of Stock"
           disabled
@@ -211,7 +211,10 @@
 
   </div>
 </div>
-{% include 'product-tabs' %}
+{% comment %} Product tabs only belong on the product template, not when this block is reused on a page (e.g. the Hydrocortisone Lander). {% endcomment %}
+{% if template.name == 'product' %}
+  {% include 'product-tabs' %}
+{% endif %}
 
 <script>
   $("#variant_selector").on("change", function() {

@@ -7,17 +7,63 @@
 {% assign product = page.metafields.custom.hydrocortisone_lander.value.product.value %}
 
 {% if product %}
-  <div id="reviews" class="main-content tw-container tw-mx-auto tw-px-5 md:tw-px-10 2xl:tw-px-0 xl:tw-max-w-1336px" style="scroll-margin-top: 100px;">
-    <div class="grid__item large--whole tw-mb-14">
-      <div class="yotpo yotpo-main-widget"
+  <div id="reviews" class="lreviews--{{ section.id }} main-content tw-container tw-mx-auto tw-px-5 md:tw-px-10 2xl:tw-px-0 xl:tw-max-w-1336px" style="scroll-margin-top: 300px;">
+
+  <div class="lreviews__head xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7">
+      <span class="lreviews__title tw-text-22px/28px tw-font-semibold tw-bg-white">Reviews</span>
+      <button
+        type="button"
+        class="lreviews__cta primary__button tw-w-48 tw-py-3"
+        onclick="var b = document.getElementById('yotpo-main-widget-btn'); if (b) { b.click(); }">Write A Review</button>
+  </div>
+
+    <div class="">
+      {% comment %} <div class="yotpo yotpo-main-widget"
         data-product-id="{{ product.id }}"
         data-name="{{ product.title | escape }}"
         data-url="{{ shop.url }}{{ product.url }}"
         data-image-url="{{ product.featured_image | product_img_url: 'large' | replace: '?', '%3F' | replace: '&','%26' }}"
         data-description="{{ product.description | escape }}">
-      </div>
+      </div> {% endcomment %}
+      <div class="yotpo-widget-instance" data-yotpo-instance-id="1033053" data-yotpo-product-id="{{product.id}}" data-yotpo-name="{{ product.title | escape }}" data-yotpo-url="{{ shop.url }}{{ product.url }}" data-yotpo-image-url="{{ product.featured_image | product_img_url: "large" | prepend: "https:" | replace: '?', '%3F' | replace: '&','%26'}}" data-yotpo-price="{{ product.price | divided_by: 100.00 }}" data-yotpo-currency="{{ shop.currency }}" data-yotpo-description="{{ product.description | escape }}"></div>
     </div>
   </div>
+
+<style>
+  .lreviews--{{ section.id }} .yotpo-reviews-pagination-container{
+      margin-bottom:0;
+  }
+  .lreviews--{{ section.id }} .yotpo-head{
+      display:none!important;
+  }
+  .lreviews--{{ section.id }} .yotpo-base-layout{
+      width:100%!important;
+  }
+  .lreviews--{{ section.id }} .yotpo-layout-header-wrapper{
+     justify-content:start !important;
+  }
+  .lreviews--{{ section.id }} #yotpo-main-widget-btn{
+      display:none!important;
+  }
+  /* "Reviews ———— [Write A Review]" heading: gray rule runs through the
+     vertical center of both the label and the button (button's own solid
+     green knocks the line out behind it). Button sits at the far right. */
+  .lreviews--{{ section.id }} .lreviews__head{
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     gap:16px;
+     background:linear-gradient(#e5e7eb,#e5e7eb) left center / 100% 1px no-repeat;
+  }
+  .lreviews--{{ section.id }} .lreviews__title{
+     padding-right:12px;
+  }
+  .lreviews--{{ section.id }} .lreviews__cta{
+     flex-shrink:0;
+  }
+</style>
+
+
 {% endif %}
 
 {% schema %}
