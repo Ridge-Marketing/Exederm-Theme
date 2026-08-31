@@ -46,6 +46,7 @@
             "checklist": "<ul><li>1% hydrocortisone for targeted eczema flare relief</li><li>Relief from itching and irritation associated with eczema</li><li>Maximum-strength hydrocortisone available without a prescription</li></ul>",
             "checklist_2": "",
             "image": "shopify://shop_images/About.webp",
+            "mobile_image": "shopify://shop_images/gettyimages_1155442137_1_2x_53f406a4-1589-454e-ab7d-8052475d6c13.webp",
             "image_position": "right"
           }
         },
@@ -60,6 +61,7 @@
             "checklist": "<ul><li><strong>No</strong> Fragrance</li><li><strong>No</strong> Color or Dyes</li><li><strong>No</strong> Parabens</li><li><strong>No</strong> Sls or Sles</li></ul>",
             "checklist_2": "<ul><li><strong>No</strong> Propylene Glycol</li><li><strong>No</strong> Cocamidopropyl Betaine (CAPB)</li><li><strong>No</strong> Lanolin</li></ul>",
             "image": "shopify://shop_images/Product.webp",
+            "mobile_image": "shopify://shop_images/exederm_flarecontrol_2oz_0234_1_2x_46e94635-5c42-4101-bdf5-a206f8dd79a6.webp",
             "image_position": "right"
           }
         },
@@ -121,13 +123,41 @@
           "settings": {
             "product": "eczema-conditioner"
           }
+        },
+        "product_FeWrfb": {
+          "type": "product",
+          "settings": {
+            "product": "eczema-shampoo"
+          }
+        },
+        "product_yN8Fjm": {
+          "type": "product",
+          "settings": {
+            "product": "eczema-wash"
+          }
+        },
+        "product_G8Vfrn": {
+          "type": "product",
+          "settings": {
+            "product": "intensive-moisturizer"
+          }
+        },
+        "product_zGb36k": {
+          "type": "product",
+          "settings": {
+            "product": "baby-eczema-cream"
+          }
         }
       },
       "block_order": [
         "p1",
         "p2",
         "p4",
-        "p3"
+        "p3",
+        "product_FeWrfb",
+        "product_yN8Fjm",
+        "product_G8Vfrn",
+        "product_zGb36k"
       ],
       "settings": {
         "heading": "More Eczema Care Products",

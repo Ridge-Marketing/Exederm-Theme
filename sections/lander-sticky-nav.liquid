@@ -29,7 +29,9 @@
   <div class="ltabs__body">
     {% for block in section.blocks %}
       {% if block.type == 'content' %}
-        <div id="{{ block.settings.anchor_id }}" class="ltabs__row{% if block.settings.image_position == 'left' %} ltabs__row--img-left{% endif %}{% if block.settings.image == blank %} ltabs__row--no-img{% endif %}" {{ block.shopify_attributes }}>
+        {% comment %} Desktop image, falling back to the mobile image if only that is set. {% endcomment %}
+        {% assign row_image = block.settings.image | default: block.settings.mobile_image %}
+        <div id="{{ block.settings.anchor_id }}" class="ltabs__row{% if block.settings.image_position == 'left' %} ltabs__row--img-left{% endif %}{% if row_image == blank %} ltabs__row--no-img{% endif %}" {{ block.shopify_attributes }}>
           <div class="ltabs__text">
             {% if block.settings.eyebrow != blank %}<p class="ltabs__eyebrow">{{ block.settings.eyebrow }}</p>{% endif %}
             {% if block.settings.heading != blank %}<h2 class="ltabs__title">{{ block.settings.heading }}</h2>{% endif %}
@@ -43,14 +45,19 @@
             {% endif %}
           </div>
 
-          {% if block.settings.image != blank %}
+          {% if row_image != blank %}
             <div class="ltabs__media">
-              <img
-                src="{{ block.settings.image | image_url: width: 616 }}"
-                alt="{{ block.settings.image.alt | escape }}"
-                loading="lazy"
-                width="{{ block.settings.image.width }}"
-                height="{{ block.settings.image.height }}">
+              <picture>
+                {% if block.settings.mobile_image != blank %}
+                  <source media="(max-width: 1024px)" srcset="{{ block.settings.mobile_image | image_url: width: 800 }}">
+                {% endif %}
+                <img
+                  src="{{ row_image | image_url: width: 616 }}"
+                  alt="{{ row_image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ row_image.width }}"
+                  height="{{ row_image.height }}">
+              </picture>
             </div>
           {% endif %}
         </div>
@@ -113,6 +120,7 @@
   }
   .ltabs--{{ section.id }} .ltabs__row:last-of-type {
     border-bottom:0px;
+    padding-bottom:150px;
   }
   .ltabs--{{ section.id }} .ltabs__eyebrow {
     font-family: 'Encode Sans', sans-serif;
@@ -122,13 +130,13 @@
     color: #3e9a76;
     margin: 0 0 16px;
   }
-  .ltabs--{{ section.id }} .ltabs__title {
+  html .ltabs--{{ section.id }} .ltabs__title {
     font-family: 'Encode Sans', sans-serif;
     font-weight: 400;
     font-size: 26px;
     line-height: 33px;
     color: #000;
-    margin: 0 0 16px;
+    margin: 0 10px 16px 0 !important;
   }
   .ltabs--{{ section.id }} .ltabs__rte,
   .ltabs--{{ section.id }} .ltabs__check-col {
@@ -151,7 +159,11 @@
   .ltabs--{{ section.id }} .ltabs__media img { width: 100%; height: auto; border-radius: 0px; object-fit: cover; }
 
   @media (min-width: 768px) {
-    .ltabs--{{ section.id }} .ltabs__nav-inner { justify-content: center; }
+    /* `safe center` keeps the pills centered when they fit, but falls back to
+       start-alignment when they overflow so the FIRST pill stays reachable by
+       scrolling (plain `center` clips it off the left with no way to scroll to
+       it). Browsers without `safe` ignore this and keep the base flex-start. */
+    .ltabs--{{ section.id }} .ltabs__nav-inner { justify-content: safe center; }
     .ltabs--{{ section.id }} .ltabs__link { font-size: 18px; line-height: 24px; }
     .ltabs--{{ section.id }} .ltabs__body { padding: 0 40px; }
   }
@@ -182,6 +194,17 @@
 
     function linkFor(id) { return root.querySelector('.ltabs__link[data-target="' + id + '"]'); }
 
+    // On mobile the pills overflow and scroll horizontally — keep the active
+    // pill centered in view. No-ops on desktop where the row isn't scrollable.
+    var navInner = root.querySelector('.ltabs__nav-inner');
+    function scrollActiveIntoView(link) {
+      if (!navInner || navInner.scrollWidth <= navInner.clientWidth) return;
+      var cRect = navInner.getBoundingClientRect();
+      var lRect = link.getBoundingClientRect();
+      var delta = (lRect.left - cRect.left) - (cRect.width - lRect.width) / 2;
+      navInner.scrollTo({ left: navInner.scrollLeft + delta, behavior: 'smooth' });
+    }
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
@@ -189,6 +212,7 @@
         if (!link) return;
         links.forEach(function (l) { l.classList.remove('is-active'); });
         link.classList.add('is-active');
+        scrollActiveIntoView(link);
       });
     }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
@@ -199,11 +223,6 @@
     });
 
     // --- Keep the nav pinned across the WHOLE page ---------------------------
-    // position:sticky only sticks within this section's Shopify wrapper, so the
-    // nav releases once its section ends. Once it reaches the top we swap it to
-    // position:fixed (matching the CSS `top`) so it carries through the sections
-    // below. A sentinel marks its resting spot; a spacer preserves layout while
-    // the nav is out of flow.
     var nav = root.querySelector('.ltabs__nav');
     var sentinel = root.querySelector('.ltabs__sentinel');
     if (nav && sentinel) {
@@ -271,6 +290,7 @@
           { "type": "richtext", "id": "checklist_2", "label": "Checklist column 2 (optional)" },
           { "type": "header", "content": "Image" },
           { "type": "image_picker", "id": "image", "label": "Image" },
+          { "type": "image_picker", "id": "mobile_image", "label": "Mobile image (optional)", "info": "Shown below 768px. Falls back to the image above if empty." },
           {
             "type": "select",
             "id": "image_position",

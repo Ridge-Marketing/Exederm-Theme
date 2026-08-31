@@ -119,7 +119,7 @@
 
     </div>
 
-    <div class="">
+    <div class="product-indv-info-block">
       {% if section.settings.title_override != blank %}
         <h1 itemprop="name" class="tw-mt-10 tw-text-32px/40px tw-text-matterhorn md:tw-text-45px/56px tw-font-medium">{{ section.settings.title_override }}</h1>
       {% else %}
@@ -143,7 +143,7 @@
         {%- endif %}
       </div>
 
-      <p class="tw-text-16px/24px tw-text-black tw-font-normal tw-mb-7">{{ product.description }}</p>
+      <div class="tw-text-16px/24px tw-text-black tw-font-normal tw-mb-7">{{ product.description }}</div>
 
       {% form 'product', product %}
         <select
@@ -160,7 +160,7 @@
           {% endfor %}
         </select>
 
-        <p id="prod__price" class="tw-font-encode-sans tw-font-medium tw-text-26px/33px tw-text-matterhorn tw-mb-6">{{ product.price | money }}
+        <p id="prod__price" class="tw-font-encode-sans tw-font-medium tw-text-26px/33px tw-text-matterhorn tw-mb-6 tw-mt-10">{{ product.price | money }}
         </p>
 
         <p class="tw-pb-1 tw-tet-14px/20px tw-text-black">Quantity</p>
@@ -223,3 +223,13 @@
     $("#prod__price").text(price);
   })
 </script>
+<style>
+  .product-indv-info-block ul {
+    margin-left:1rem;
+  }
+  .product-indv-info-block ul li {
+    margin-bottom:0.5rem;
+    font-size:1.125rem;
+    color:#535353;
+  }
+</style>

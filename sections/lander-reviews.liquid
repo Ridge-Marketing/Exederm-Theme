@@ -7,7 +7,7 @@
 {% assign product = page.metafields.custom.hydrocortisone_lander.value.product.value %}
 
 {% if product %}
-  <div id="reviews" class="lreviews--{{ section.id }} main-content tw-container tw-mx-auto tw-px-5 md:tw-px-10 2xl:tw-px-0 xl:tw-max-w-1336px" style="scroll-margin-top: 300px;">
+  <div id="reviews" class="lreviews--{{ section.id }} main-content tw-container tw-mx-auto tw-px-5 xl:tw-max-w-1336px" style="scroll-margin-top: 300px;">
 
   <div class="lreviews__head xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7">
       <span class="lreviews__title tw-text-22px/28px tw-font-semibold tw-bg-white">Reviews</span>
@@ -60,6 +60,17 @@
   }
   .lreviews--{{ section.id }} .lreviews__cta{
      flex-shrink:0;
+     position:relative;
+  }
+  .lreviews--{{ section.id }} .lreviews__cta:before {
+    content:'';
+    background:white;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:-1
   }
 </style>
 

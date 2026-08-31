@@ -17,14 +17,16 @@
     {% assign available_count = 0 %}
     {% for block in section.blocks %}
       {% assign picked = all_products[block.settings.product] %}
-      {% if picked.available %}
+      {% if picked != blank %}
         {% assign available_count = available_count | plus: 1 %}
       {% endif %}
     {% endfor %}
 
     <!-- Scroll button for swiper -->
-    <div class="button-prev--products-{{ section.id }} tw-mx-6 tw-self-center {% if available_count <= 4 %}lg:tw-hidden{% endif %}">
-      <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-left.svg?v=1682691853" alt="View previous item in slider"/>
+    <div class="button-prev--products-{{ section.id }} tw-mx-6 tw-self-center tw-cursor-pointer {% if available_count <= 4 %}lg:tw-hidden{% endif %}">
+      <svg class="tw-w-8" role="img" aria-label="View previous item in slider" width="23" height="38" viewBox="0 0 23 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.439453 17.7832L17.666 0.439453C18.1348 -0.146484 19.0723 -0.146484 19.6582 0.439453L21.8848 2.7832C22.4707 3.25195 22.4707 4.18945 21.8848 4.77539L8.05664 18.7207L21.8848 32.7832C22.4707 33.3691 22.4707 34.1895 21.8848 34.7754L19.6582 37.1191C19.0723 37.7051 18.1348 37.7051 17.666 37.1191L0.439453 19.7754C-0.146484 19.1895 -0.146484 18.3691 0.439453 17.7832Z" fill="#3E9A76"/>
+      </svg>
     </div>
 
     <!-- Slideshow of products -->
@@ -33,15 +35,17 @@
         {% for block in section.blocks %}
           {% assign product = all_products[block.settings.product] %}
           {% if product != blank %}
-            {% include 'product-card' %}
+            {% include 'lander-product-card' %}
           {% endif %}
         {% endfor %}
       </div>
     </div>
 
     <!-- Scroll button for swiper -->
-    <div class="button-next--products-{{ section.id }} tw-mx-6 tw-self-center {% if available_count <= 4 %}lg:tw-hidden{% endif %}">
-      <img class="tw-w-8" src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/arrow-product-right.svg?v=1682691853" alt="View next item in slider"/>
+    <div class="button-next--products-{{ section.id }} tw-mx-6 tw-self-center tw-cursor-pointer {% if available_count <= 4 %}lg:tw-hidden{% endif %}">
+      <svg class="tw-w-8" style="transform: scaleX(-1);" role="img" aria-label="View next item in slider" width="23" height="38" viewBox="0 0 23 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.439453 17.7832L17.666 0.439453C18.1348 -0.146484 19.0723 -0.146484 19.6582 0.439453L21.8848 2.7832C22.4707 3.25195 22.4707 4.18945 21.8848 4.77539L8.05664 18.7207L21.8848 32.7832C22.4707 33.3691 22.4707 34.1895 21.8848 34.7754L19.6582 37.1191C19.0723 37.7051 18.1348 37.7051 17.666 37.1191L0.439453 19.7754C-0.146484 19.1895 -0.146484 18.3691 0.439453 17.7832Z" fill="#3E9A76"/>
+      </svg>
     </div>
   </div>
 
