@@ -152,7 +152,14 @@
     color: #000;
   }
   .ltabs--{{ section.id }} .ltabs__rte p { margin: 0 0 10px; }
-  .ltabs--{{ section.id }} .ltabs__checks { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px 48px; }
+  .ltabs--{{ section.id }} .ltabs__checks { margin-top: 24px; display: flex; flex-direction:row; gap: 12px 48px; }
+  @media screen and (max-width:540px) {
+    .ltabs--{{ section.id }} .ltabs__checks {
+      flex-wrap:wrap;
+      flex-direction:column;
+      gap:0px;
+    }
+  }
   .ltabs--{{ section.id }} .ltabs__checks ul { list-style: none; margin: 0; padding: 0; }
   .ltabs--{{ section.id }} .ltabs__checks li { position: relative; padding-left: 30px; margin-bottom: 10px; }
   .ltabs--{{ section.id }} .ltabs__checks li::before {

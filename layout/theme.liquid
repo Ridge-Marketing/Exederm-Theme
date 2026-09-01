@@ -28,6 +28,11 @@
   <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
+  {% comment %} Keep the Hydrocortisone Lander out of search results. {% endcomment %}
+  {% if template.suffix == 'hydrocortisone-lander' %}
+  <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+
   <!-- Helpers ================================================== -->
   {% include 'social-meta-tags' %}
   <link rel="canonical" href="{{ canonical_url }}">
