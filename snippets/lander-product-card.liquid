@@ -25,7 +25,15 @@
           data-product-id="{{ product.id }}"></div>
       </div>
 
-      {% if product.available %}
+      {% comment %} `is_current` (set by the slider from the block's "Current product" toggle):
+         this is the product the lander is about, so its button scrolls back to the
+         top of the page (the hero) instead of adding to cart. {% endcomment %}
+      {% if is_current %}
+        <button
+          type="button"
+          class="tw-text-green hover:tw-text-hover-green tw-text-16px/22px tw-font-bold tw-underline"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Add to cart</button>
+      {% elsif product.available %}
         <form
           action="/cart/add"
           method="post"

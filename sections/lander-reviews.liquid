@@ -9,8 +9,11 @@
 {% if product %}
   <div id="reviews" class="lreviews--{{ section.id }} main-content tw-container tw-mx-auto tw-px-5 xl:tw-max-w-1336px" style="scroll-margin-top: 300px;">
 
-  <div class="lreviews__head xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7">
-      <span class="lreviews__title tw-text-22px/28px tw-font-semibold tw-bg-white">Reviews</span>
+  <div class="lreviews__head xl:tw-max-w-1336px xl:tw-mx-auto tw-mb-7">
+      <span class="lreviews__title tw-text-22px/28px tw-font-semibold tw-bg-white tw-relative tw-w-full">
+        <span class="tw-relative tw-bg-white" style="">Reviews</span>
+        <div aria-hidden="true" style="position:absolute; left:0; right:0; top:50%; height:1px; background:#e5e7eb; z-index:0"></div>
+      </span>
       <button
         type="button"
         class="lreviews__cta primary__button tw-w-48 tw-py-3"
@@ -55,6 +58,25 @@
      gap:16px;
      background:linear-gradient(#e5e7eb,#e5e7eb) left center / 100% 1px no-repeat;
   }
+  .lreviews--{{ section.id }} .lreviews__head span span{
+      z-index:1; 
+      padding-right:25px; 
+      text-align: left; 
+      position: relative;
+      display: block; 
+      width: max-content;
+  }
+  @media screen and (max-width:450px) {
+    .lreviews--{{ section.id }} .lreviews__head span span{
+      padding: 25px; 
+      text-align: center; 
+      margin: auto;
+    }
+    .lreviews--{{ section.id }} .lreviews__head{
+      flex-direction:column;
+      background:none;
+    }
+  }
   .lreviews--{{ section.id }} .lreviews__title{
      padding-right:12px;
   }
@@ -66,11 +88,18 @@
     content:'';
     background:white;
     top:0;
-    left:0;
-    width:100%;
+    left:-11%;
+    width:10%;
     height:100%;
     position:absolute;
-    z-index:-1
+    z-index:0
+  }
+  .yotpo-vertical-pagination button{
+    padding-bottom: 5px;
+  }
+  html .lreviews--{{ section.id }} .yotpo-star-distribution {
+    padding: 0;
+    margin: 0;
   }
 </style>
 

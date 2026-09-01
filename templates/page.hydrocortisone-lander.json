@@ -103,49 +103,57 @@
         "p1": {
           "type": "product",
           "settings": {
-            "product": "flare-control-cream"
+            "product": "flare-control-cream",
+            "current_product": true
           }
         },
         "p2": {
           "type": "product",
           "settings": {
-            "product": "eczema-lotion"
+            "product": "eczema-lotion",
+            "current_product": false
           }
         },
         "p4": {
           "type": "product",
           "settings": {
-            "product": "baby-eczema-wash"
+            "product": "baby-eczema-wash",
+            "current_product": false
           }
         },
         "p3": {
           "type": "product",
           "settings": {
-            "product": "eczema-conditioner"
+            "product": "eczema-conditioner",
+            "current_product": false
           }
         },
         "product_FeWrfb": {
           "type": "product",
           "settings": {
-            "product": "eczema-shampoo"
+            "product": "eczema-shampoo",
+            "current_product": false
           }
         },
         "product_yN8Fjm": {
           "type": "product",
           "settings": {
-            "product": "eczema-wash"
+            "product": "eczema-wash",
+            "current_product": false
           }
         },
         "product_G8Vfrn": {
           "type": "product",
           "settings": {
-            "product": "intensive-moisturizer"
+            "product": "intensive-moisturizer",
+            "current_product": false
           }
         },
         "product_zGb36k": {
           "type": "product",
           "settings": {
-            "product": "baby-eczema-cream"
+            "product": "baby-eczema-cream",
+            "current_product": false
           }
         }
       },

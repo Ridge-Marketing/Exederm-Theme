@@ -49,7 +49,7 @@
             <div class="ltabs__media">
               <picture>
                 {% if block.settings.mobile_image != blank %}
-                  <source media="(max-width: 1024px)" srcset="{{ block.settings.mobile_image | image_url: width: 800 }}">
+                  <source media="(max-width: 1023px)" srcset="{{ block.settings.mobile_image | image_url: width: 800 }}">
                 {% endif %}
                 <img
                   src="{{ row_image | image_url: width: 616 }}"
@@ -137,6 +137,12 @@
     line-height: 33px;
     color: #000;
     margin: 0 10px 16px 0 !important;
+  }
+
+  @media screen and (min-width:1024px) {
+    html .ltabs--{{ section.id }} .ltabs__title {
+        text-wrap: balance;
+    }
   }
   .ltabs--{{ section.id }} .ltabs__rte,
   .ltabs--{{ section.id }} .ltabs__check-col {

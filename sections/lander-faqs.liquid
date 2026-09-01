@@ -6,7 +6,7 @@
   utility combos can't be relied on). Each Q&A is an editable block.
 {% endcomment %}
 
-<section id="{{ section.settings.anchor_id | default: 'faqs' }}" class="lfaq lfaq--{{ section.id }} tw-container tw-max-w-1336px">
+<section id="{{ section.settings.anchor_id | default: 'faqs' }}" class="lfaq lfaq--{{ section.id }} tw-container xl:tw-max-w-1336px">
   <hr/>
 
   {% if section.settings.heading != blank %}
@@ -36,7 +36,7 @@
     {% comment %} margin: 48px auto; {% endcomment %}
     margin: 0 auto;
     padding: 0 20px;
-    padding-top:80px;
+    margin-top:80px;
     scroll-margin-top: 300px;
   }
   .lfaq--{{ section.id }} .lfaq__heading, 

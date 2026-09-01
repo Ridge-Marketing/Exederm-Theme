@@ -21,10 +21,12 @@
   <meta name="google-site-verification" content="kiT8g3axdU1-CT-LemF5yUPAK2DgyB28byufYmpvlhA" />
 
 
-  <div class="lslider--{{ section.id }} tw-mt-16 tw-max-w-1336px tw-w-full tw-px-5 tw-text-center tw-mx-auto">
+  {% comment %} tw-px-5 md:tw-px-10 {% endcomment %}
+  <div style="padding:20px;" class="lslider--{{ section.id }} tw-mt-16 tw-container xl:tw-max-w-1336px tw-mx-auto tw-mb-7 tw-w-full tw-text-center tw-mx-auto">
 
-    <div class="tw-text-22px/28px xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-16 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
-        <span class="tw-px-3 tw-bg-white">Available at These Fine Retailers:</span>
+    <div style="position:relative;" class="tw-text-22px/28px tw-mb-16 tw-font-semibold tw-text-center tw-leading-em">
+        <div aria-hidden="true" style="position:absolute; left:0; right:0; top:50%; height:1px; background:#e5e7eb;"></div>
+        <span style="position:relative; line-height:2rem;" class="lslider__title tw-px-3 tw-bg-white tw-inline-block">Available at These Fine Retailers:</span>
     </div>
 
       <div class="tw-flex tw-justify-center tw-mt-4">
@@ -103,6 +105,12 @@
 
 
   <style>
+    /* Keep the heading text within 75% on small screens so it wraps and the
+       centered rule stays visible on both sides; full width from 768px up. */
+    .lslider--{{ section.id }} .lslider__title { max-width: 75%; }
+    @media screen and (min-width:768px){
+      .lslider--{{ section.id }} .lslider__title { max-width: none; }
+    }
     @media screen and (min-width:1024px){
       .lslider--{{ section.id }}{
           margin-bottom:120px;

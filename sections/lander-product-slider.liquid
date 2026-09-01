@@ -6,7 +6,7 @@
 
 <section id="{{ section.settings.anchor_id | default: 'more-products' }}" class="{{ section.settings.margins }} lproductSlider--{{ section.id }} " style="scroll-margin-top: 300px;">
   {% if section.settings.heading != blank %}
-    <div class="tw-text-22px/28px xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
+    <div class="tw-text-22px/28px tw-container xl:tw-max-w-1336px tw-mx-auto tw-px-5 md:tw-px-10 tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
       <span class="tw-px-3 tw-bg-white">&nbsp;{{ section.settings.heading }}&nbsp;</span>
     </div>
   {% endif %}
@@ -35,6 +35,7 @@
         {% for block in section.blocks %}
           {% assign product = all_products[block.settings.product] %}
           {% if product != blank %}
+            {% assign is_current = block.settings.current_product %}
             {% include 'lander-product-card' %}
           {% endif %}
         {% endfor %}
@@ -138,6 +139,13 @@
             "type": "product",
             "id": "product",
             "label": "Product"
+          },
+          {
+            "type": "checkbox",
+            "id": "current_product",
+            "label": "Current product",
+            "info": "When enabled, this card's button scrolls to the top of the page instead of adding to cart.",
+            "default": false
           }
         ]
       }
