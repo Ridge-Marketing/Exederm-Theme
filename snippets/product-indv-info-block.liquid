@@ -143,7 +143,8 @@
         {%- endif %}
       </div>
 
-      <div class="tw-text-16px/24px tw-text-black tw-font-normal tw-mb-7">{{ product.description }}</div>
+      {% comment %} Description Override (set on the lander section); falls back to the product description. {% endcomment %}
+      <div class="tw-text-16px/24px tw-text-black tw-font-normal tw-mb-7">{% if section.settings.description_override != blank %}{{ section.settings.description_override }}{% else %}{{ product.description }}{% endif %}</div>
 
       {% form 'product', product %}
         <select
