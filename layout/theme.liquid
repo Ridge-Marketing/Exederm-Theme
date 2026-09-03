@@ -28,8 +28,8 @@
   <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
-  {% comment %} Keep the Hydrocortisone Lander out of search results. {% endcomment %}
-  {% if template.suffix == 'hydrocortisone-lander' %}
+  {% comment %} Keep the page-based Hydrocortisone Lander out of search results (the product template is indexable). {% endcomment %}
+  {% if template.name == 'page' and template.suffix == 'hydrocortisone-lander' %}
   <meta name="robots" content="noindex, nofollow">
   {% endif %}
 
