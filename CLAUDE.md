@@ -49,6 +49,37 @@ Yotpo (reviews), UserWay + PayPal SkipTo (accessibility), Font Awesome (kit + CD
 Fancybox, Swiper / cycle2 / tiny-slider (sliders), Handlebars, Google Fonts, Modernizr,
 "Quick Announcement Bar". Assume external scripts before removing anything that looks unused.
 
+## Hydrocortisone Lander (product landing page)
+
+A dedicated marketing landing page for the **Flare Control Cream** product, built as a set of
+`sections/lander-*.liquid` sections. It exists in **two forms** that share the same sections:
+
+- `templates/page.hydrocortisone-lander.json` — the original **page** version. Resolves its product
+  from the page's `custom.hydrocortisone_lander` metaobject (`page.metafields...product.value`).
+  Noindexed in `theme.liquid`.
+- `templates/product.hydrocortisone-lander.json` — a **product** template (assign it to the Flare
+  Control Cream product in the admin's *Theme template* dropdown). Uses the current `product` global.
+
+**Product resolution is dual-mode.** `lander-product-info`, `lander-nea-award`, and `lander-reviews`
+each try the page metaobject first and **fall back to the current `product`** when it's absent — so
+the same section works on both templates. Keep that pattern if you add product-scoped lander sections.
+
+The lander sections:
+- `lander-product-info` — hero; includes the shared `snippets/product-indv-info-block.liquid` (the exact
+  product block from the default product template). Has `title_override` / `description_override` settings.
+- `lander-nea-award` — wraps `snippets/nea-award-block.liquid`.
+- `lander-sticky-nav` — anchored nav pinned page-wide via JS (escapes its Shopify section wrapper).
+  Blocks are `content` (renders a section, anchored) or `nav_link` (jump link only).
+- `lander-product-slider` — product-**picker** variant of `sections/product-slider.liquid` (Swiper).
+  Products chosen individually via `product` blocks; `current_product` toggles a scroll-to-top button
+  instead of add-to-cart. Cards render `snippets/lander-product-card.liquid`.
+- `lander-reviews` — Yotpo main widget, anchored `#reviews`.
+- `lander-faqs` — accordion of `faq` blocks.
+
+`snippets/product-indv-info-block.liquid` is **shared** by the default product template and the lander.
+It gates product tabs to the default product page only:
+`template.name == 'product' and template.suffix != 'hydrocortisone-lander'`.
+
 ## Legacy / do-not-touch files
 
 The repo contains many **abandoned backups and experiments**. Do not edit, "clean up", or delete
