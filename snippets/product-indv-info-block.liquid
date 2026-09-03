@@ -212,8 +212,8 @@
 
   </div>
 </div>
-{% comment %} Product tabs only belong on the product template, not when this block is reused on a page (e.g. the Hydrocortisone Lander). {% endcomment %}
-{% if template.name == 'product' %}
+{% comment %} Product tabs only belong on the default product template — not when this block is reused on a page or on the Hydrocortisone Lander product template. {% endcomment %}
+{% if template.name == 'product' and template.suffix != 'hydrocortisone-lander' %}
   {% include 'product-tabs' %}
 {% endif %}
 

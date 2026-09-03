@@ -1,12 +1,15 @@
 {% comment %}
-  Lander hero — resolves the product referenced by the page's
-  `custom.hydrocortisone_lander` metaobject, then renders the exact same product
-  block used on the default product template (snippets/product-indv-info-block).
+  Lander hero — renders the exact same product block used on the default product
+  template (snippets/product-indv-info-block). On a product template it uses the
+  current `product`; on a page template it resolves the product referenced by the
+  page's `custom.hydrocortisone_lander` metaobject.
   `product` and `section` are inherited by the include through shared scope.
 {% endcomment %}
 
-{% assign lander  = page.metafields.custom.hydrocortisone_lander.value %}
-{% assign product = lander.product.value %}
+{% assign lander = page.metafields.custom.hydrocortisone_lander.value %}
+{% if lander.product.value %}
+  {% assign product = lander.product.value %}
+{% endif %}
 
 {% if product %}
   {% include 'product-indv-info-block' %}
