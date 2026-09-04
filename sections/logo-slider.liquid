@@ -45,7 +45,7 @@
             {% for retailer in shop.metaobjects.retail_slider.values %}
               {% for logo in retailer.retailer_logos.value %}
                 <div class="swiper-slide tw-flex tw-items-center tw-justify-center">
-                  <img src="{{ logo | image_url }}" />
+                  <img src="{{ logo | image_url }}" alt="{{ logo.alt | default: 'Retailer logo' | escape }}" />
                 </div>
               {% endfor %}
             {% endfor %}

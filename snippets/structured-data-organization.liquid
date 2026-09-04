@@ -1,0 +1,19 @@
+<!-- /snippets/structured-data-organization.liquid -->
+{% comment %}
+  Organization JSON-LD — emitted sitewide (every page) from layout/theme.liquid.
+  All values come from Shopify objects; the logo is the theme's brand wordmark
+  asset (checkout_logo.png), sized via asset_img_url. Facebook is the only social
+  profile currently linked from the site — add more to "sameAs" only if active.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "{{ shop.url }}/#organization",
+  "name": "exederm",
+  "legalName": "Bentlin Products LLC",
+  "url": "{{ shop.url }}",
+  "logo": "https:{{ 'checkout_logo.png' | asset_img_url: '600x' }}",
+  "sameAs": ["https://facebook.com/exederm"]
+}
+</script>

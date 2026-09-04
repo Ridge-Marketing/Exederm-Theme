@@ -35,6 +35,10 @@
 
   <!-- Helpers ================================================== -->
   {% include 'social-meta-tags' %}
+  {% include 'structured-data-organization' %}
+  {% if template.name == 'index' %}{% include 'structured-data-website' %}{% endif %}
+  {% if template.name == 'product' %}{% include 'structured-data-product' %}{% endif %}
+  {% if template.name == 'product' or template.name == 'collection' or template.name == 'page' %}{% include 'structured-data-breadcrumbs' %}{% endif %}
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   <meta name="theme-color" content="{{ settings.color_primary }}">

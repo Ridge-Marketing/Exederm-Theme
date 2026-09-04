@@ -1,0 +1,181 @@
+{
+  "sections": {
+    "product_info": {
+      "type": "product-indv-info",
+      "settings": {
+        "title_override": "{{ product.metafields.custom.title_override.value }}"
+      }
+    },
+    "award": {
+      "type": "lander-nea-award",
+      "settings": {}
+    },
+    "sticky_nav": {
+      "type": "lander-sticky-nav",
+      "blocks": {
+        "ingredients": {
+          "type": "content",
+          "settings": {
+            "nav_label": "Our Ingredients",
+            "anchor_id": "our-ingredients",
+            "eyebrow": "Our Ingredients",
+            "heading": "{{ product.title }} Ingredients",
+            "body_source": "our_ingredients",
+            "body": "",
+            "checklist": "",
+            "checklist_2": "",
+            "image_position": "right"
+          }
+        },
+        "why": {
+          "type": "content",
+          "settings": {
+            "nav_label": "Why exederm",
+            "anchor_id": "why-exederm",
+            "eyebrow": "Why exederm",
+            "heading": "Formulated With Sensitive Skin in Mind",
+            "body_source": "why_exederm",
+            "body": "",
+            "checklist": "",
+            "checklist_2": "",
+            "image_source": "why_exederm_image",
+            "image": "",
+            "mobile_image": "",
+            "image_position": "right"
+          }
+        },
+        "link_products": {
+          "type": "nav_link",
+          "settings": {
+            "nav_label": "More Eczema Products",
+            "anchor_id": "more-products"
+          }
+        },
+        "link_reviews": {
+          "type": "nav_link",
+          "settings": {
+            "nav_label": "Reviews",
+            "anchor_id": "reviews"
+          }
+        },
+        "link_faqs": {
+          "type": "nav_link",
+          "settings": {
+            "nav_label": "FAQs",
+            "anchor_id": "faqs"
+          }
+        }
+      },
+      "block_order": [
+        "ingredients",
+        "why",
+        "link_products",
+        "link_reviews",
+        "link_faqs"
+      ],
+      "settings": {}
+    },
+    "product_slider": {
+      "type": "product-slider",
+      "settings": {
+        "heading": "More Eczema Care Products",
+        "anchor_id": "more-products",
+        "margins": "tw-mt-14",
+        "use_button": false,
+        "button_text": "",
+        "button_link": ""
+      }
+    },
+    "reviews": {
+      "type": "lander-reviews",
+      "settings": {}
+    },
+    "faqs": {
+      "type": "lander-faqs",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best treatment for eczema?",
+            "answer": "<p>Eczema treatment depends on the type and severity of your symptoms. The American Academy of Dermatology strongly recommends topical corticosteroids to relieve itching and reduce inflammation, along with moisturizers to manage dry skin and reduce flare-ups.</p><p>Over-the-counter hydrocortisone can provide relief during eczema flare-ups, while more persistent or severe eczema may require treatment from a healthcare provider. exederm Hydrocortisone Cream for Eczema Flare Control contains 1% hydrocortisone to help relieve the symptoms of eczema flare-ups and was the first hydrocortisone product to receive the National Eczema Association Seal of Acceptance.</p>",
+            "open_by_default": true
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "Can eczema be cured?",
+            "answer": "<p>There is currently no cure for eczema, but it can often be effectively managed. Regular moisturizing, avoiding known triggers, and treating flare-ups when they occur can help reduce symptoms and keep skin clearer and more comfortable.</p><p>When eczema flares, exederm Hydrocortisone Cream for Eczema Flare Control provides targeted relief from itching and irritation with maximum-strength 1% hydrocortisone available without a prescription.</p>",
+            "open_by_default": false
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "What is hydrocortisone cream used for?",
+            "answer": "<p>Hydrocortisone cream is a topical corticosteroid used to temporarily relieve redness, itching, inflammation, and irritation associated with skin conditions such as eczema. The National Eczema Association identifies topical hydrocortisone as a common over-the-counter eczema treatment that helps reduce irritation, itching, and inflammation.</p><p>exederm Hydrocortisone Cream for Eczema Flare Control combines 1% hydrocortisone with a formula free from parabens and cocamidopropyl betaine (CAPB).</p>",
+            "open_by_default": false
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "Is hydrocortisone good for eczema?",
+            "answer": "<p>Yes. Topical hydrocortisone is a common over-the-counter treatment for eczema flare-ups. As a corticosteroid, it helps calm the skin's inflammatory immune response, reducing inflammation and helping relieve the itching, redness, and irritation associated with eczema. exederm Hydrocortisone Cream for Eczema Flare Control contains hydrocortisone acetate USP 1% for targeted eczema flare relief.</p>",
+            "open_by_default": false
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "Is hydrocortisone a steroid?",
+            "answer": "<p>Hydrocortisone is a corticosteroid, a type of medication that helps reduce inflammation by calming the body's inflammatory immune response. Corticosteroids are different from anabolic steroids used to increase muscle mass. Topical hydrocortisone is applied directly to affected skin and is commonly used to treat inflammatory skin conditions such as eczema. exederm Hydrocortisone Cream for Eczema Flare Control contains 1% hydrocortisone, the maximum strength available without a prescription.</p>",
+            "open_by_default": false
+          }
+        },
+        "q6": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you buy hydrocortisone cream over the counter?",
+            "answer": "<p>Yes. Hydrocortisone cream is available over the counter in strengths up to 1%. exederm Hydrocortisone Cream for Eczema Flare Control contains hydrocortisone acetate USP 1%, the maximum-strength hydrocortisone available without a prescription.</p>",
+            "open_by_default": false
+          }
+        },
+        "q7": {
+          "type": "faq",
+          "settings": {
+            "question": "Is 1% hydrocortisone safe to use daily?",
+            "answer": "<p>Always use 1% hydrocortisone as directed, and don't use it longer than recommended. Adults and children 2 years and older can apply exederm Hydrocortisone Cream for Eczema Flare Control to affected areas 3 to 4 times daily, as directed on the product label.</p><p>Stop use and consult a healthcare provider if your condition worsens, symptoms persist for more than 7 days, or clear up and return within a few days. Children under 2 years of age should not use exederm Flare Control Cream unless directed by a doctor.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "anchor_id": "faqs"
+      }
+    },
+    "logo_slider": {
+      "type": "logo-slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "product_info",
+    "award",
+    "sticky_nav",
+    "product_slider",
+    "reviews",
+    "faqs",
+    "logo_slider"
+  ]
+}

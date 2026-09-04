@@ -102,9 +102,17 @@
     padding-bottom: 5px;
   }
   html .lreviews--{{ section.id }} .yotpo-star-distribution {
-    padding: 0;
+    {% comment %} padding: 0; {% endcomment %}
     margin: 0;
   }
+  @media screen and (max-width:768px) {
+     html .lreviews--{{ section.id }} .yotpo-vertical-border {
+      display:none!important;
+    }
+     html .lreviews--{{ section.id }} .yotpo-star-distribution {
+      border-right:0px!important;
+    }
+  } 
 </style>
 
 

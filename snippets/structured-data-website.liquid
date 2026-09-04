@@ -1,0 +1,15 @@
+<!-- /snippets/structured-data-website.liquid -->
+{% comment %}
+  WebSite JSON-LD — homepage only (gated in layout/theme.liquid on the index
+  template). Establishes the site entity and links to the Organization publisher;
+  required for sitelinks searchbox eligibility.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "exederm",
+  "url": "{{ shop.url }}",
+  "publisher": { "@id": "{{ shop.url }}/#organization" }
+}
+</script>

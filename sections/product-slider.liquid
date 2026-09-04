@@ -1,4 +1,4 @@
-<section class="{{section.settings.margins}}">
+<section class="{{section.settings.margins}}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id }}" style="scroll-margin-top:300px;"{% endif %}>
     <div class="tw-text-22px/28px xl:tw-max-w-1336px tw-mx-5 md:tw-mx-10 xl:tw-mx-auto tw-mb-7 tw-font-semibold tw-text-center tw-border-b tw-leading-em">
       <span class="tw-px-3 tw-bg-white">&nbsp;{{section.settings.heading}}&nbsp;</span>
     </div> 
@@ -95,7 +95,13 @@
           "type": "text",
           "id": "margins",
           "label": "Margin Class"
-      }, 
+      },
+      {
+          "type": "text",
+          "id": "anchor_id",
+          "label": "Anchor ID (for sticky nav links)",
+          "info": "Optional. Set an id (e.g. more-products) so a sticky-nav pill can scroll here."
+      },
       {
         "id": "use_button",
         "type": "checkbox",

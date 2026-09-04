@@ -1,11 +1,15 @@
 <!-- /snippets/social-meta-tags.liquid -->
 {% comment %}
+  Shared fallback description: the page's meta description, then the shop description.
+{% endcomment %}
+{%- assign meta_description = page_description | default: shop.description | strip_html | escape -%}
+{% comment %}
   Open graph tags
 {% endcomment %}
 {% if template == 'index' %}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page_title }}">
-  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:description" content="{{ meta_description }}">
 {% elsif template contains 'product' %}
   <meta property="og:type" content="product">
   <meta property="og:title" content="{{ product.title | strip_html | escape }}">
@@ -27,6 +31,7 @@
 {% else %}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ meta_description }}">
   {% if settings.logo_use_image %}
     <meta property="og:image" content="http:{{ 'logo.png' | asset_url }}">
     <meta property="og:image:secure_url" content="https:{{ 'logo.png' | asset_url }}">
@@ -41,14 +46,10 @@
 {% unless settings.social_twitter_link == blank %}
   <meta name="twitter:site" content="@{{ settings.social_twitter_link | split: 'twitter.com/' | last }}">
 {% endunless %}
-{% if template contains 'article' and article.image %}
-  <meta name="twitter:card" content="summary_large_image">
-{% else %}
-  <meta name="twitter:card" content="summary">
-{% endif %}
+<meta name="twitter:card" content="summary_large_image">
 {% if template == 'index' %}
   <meta name="twitter:title" content="{{ page_title }}">
-  <meta name="twitter:description" content="{{ page_description | escape }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
 {% elsif template contains 'product' %}
   <meta name="twitter:title" content="{{ product.title | strip_html | escape }}">
   <meta name="twitter:description" content="{{ product.description | strip_html | truncate: 200, '' | escape }}">
@@ -61,4 +62,7 @@
   {% if article.image %}
     <meta property="twitter:image" content="https:{{ article | img_url: '1024x1024' }}">
   {% endif %}
+{% else %}
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
 {% endif %}

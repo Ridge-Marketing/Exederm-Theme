@@ -212,8 +212,8 @@
 
   </div>
 </div>
-{% comment %} Product tabs only belong on the default product template — not when this block is reused on a page or on the Hydrocortisone Lander product template. {% endcomment %}
-{% if template.name == 'product' and template.suffix != 'hydrocortisone-lander' %}
+{% comment %} Product tabs only belong on the BARE default product template — not when this block is reused on a page, the Hydrocortisone Lander, or any other custom product template (e.g. eczema-care) whose ingredients/why-exederm content lives in its own sticky-nav sections. {% endcomment %}
+{% if template.name == 'product' and template.suffix == blank %}
   {% include 'product-tabs' %}
 {% endif %}
 

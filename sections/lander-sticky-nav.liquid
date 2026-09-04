@@ -29,13 +29,34 @@
   <div class="ltabs__body">
     {% for block in section.blocks %}
       {% if block.type == 'content' %}
+        {% comment %} Image is normally the image picker; optionally a product metafield image
+          (why_exederm_image) so the same section works on generic product templates. Handles
+          both file_reference (.value.image) and image_reference (.value) metafield types. {% endcomment %}
+        {% assign mf_image = blank %}
+        {% assign mf_image_mobile = blank %}
+        {% if block.settings.image_source == 'why_exederm_image' %}
+          {% assign mf_image = product.metafields.custom.why_exederm_image.value %}
+          {% if mf_image.image %}{% assign mf_image = mf_image.image %}{% endif %}
+          {% assign mf_image_mobile = product.metafields.custom.why_exederm_image_mobile.value %}
+          {% if mf_image_mobile.image %}{% assign mf_image_mobile = mf_image_mobile.image %}{% endif %}
+        {% endif %}
         {% comment %} Desktop image, falling back to the mobile image if only that is set. {% endcomment %}
-        {% assign row_image = block.settings.image | default: block.settings.mobile_image %}
+        {% assign row_image = mf_image | default: mf_image_mobile | default: block.settings.image | default: block.settings.mobile_image %}
         <div id="{{ block.settings.anchor_id }}" class="ltabs__row{% if block.settings.image_position == 'left' %} ltabs__row--img-left{% endif %}{% if row_image == blank %} ltabs__row--no-img{% endif %}" {{ block.shopify_attributes }}>
           <div class="ltabs__text">
             {% if block.settings.eyebrow != blank %}<p class="ltabs__eyebrow">{{ block.settings.eyebrow }}</p>{% endif %}
             {% if block.settings.heading != blank %}<h2 class="ltabs__title">{{ block.settings.heading }}</h2>{% endif %}
-            <div class="ltabs__rte rte">{{ block.settings.body }}</div>
+            {% comment %} Body is normally the manual richtext; optionally sourced from a product
+              metafield so the same section works on generic product templates. {% endcomment %}
+            {% case block.settings.body_source %}
+              {% when 'our_ingredients' %}
+                {% assign row_body = product.metafields.custom.our_ingredients | metafield_tag %}
+              {% when 'why_exederm' %}
+                {% assign row_body = product.metafields.custom.why_exederm | metafield_tag %}
+              {% else %}
+                {% assign row_body = block.settings.body %}
+            {% endcase %}
+            <div class="ltabs__rte rte">{{ row_body }}</div>
 
             {% if block.settings.checklist != blank or block.settings.checklist_2 != blank %}
               <div class="ltabs__checks">
@@ -48,7 +69,9 @@
           {% if row_image != blank %}
             <div class="ltabs__media">
               <picture>
-                {% if block.settings.mobile_image != blank %}
+                {% if mf_image_mobile != blank %}
+                  <source media="(max-width: 1023px)" srcset="{{ mf_image_mobile | image_url: width: 800 }}">
+                {% elsif mf_image == blank and block.settings.mobile_image != blank %}
                   <source media="(max-width: 1023px)" srcset="{{ block.settings.mobile_image | image_url: width: 800 }}">
                 {% endif %}
                 <img
@@ -297,11 +320,34 @@
           { "type": "text", "id": "anchor_id", "label": "Anchor ID", "info": "Unique, lowercase, no spaces. The nav pill scrolls here." },
           { "type": "text", "id": "eyebrow", "label": "Eyebrow (green label)" },
           { "type": "text", "id": "heading", "label": "Heading" },
+          {
+            "type": "select",
+            "id": "body_source",
+            "label": "Body source",
+            "info": "Where the body copy comes from. Use a product metafield on generic product templates; leave Manual on the Hydrocortisone Lander.",
+            "options": [
+              { "value": "manual", "label": "Manual (use Body below)" },
+              { "value": "our_ingredients", "label": "Product metafield: Our Ingredients" },
+              { "value": "why_exederm", "label": "Product metafield: Why Exederm" }
+            ],
+            "default": "manual"
+          },
           { "type": "richtext", "id": "body", "label": "Body" },
           { "type": "header", "content": "Checklist (bullet lists = green checks)" },
           { "type": "richtext", "id": "checklist", "label": "Checklist column 1" },
           { "type": "richtext", "id": "checklist_2", "label": "Checklist column 2 (optional)" },
           { "type": "header", "content": "Image" },
+          {
+            "type": "select",
+            "id": "image_source",
+            "label": "Image source",
+            "info": "Use a product metafield image on generic product templates; leave Manual on the Hydrocortisone Lander.",
+            "options": [
+              { "value": "manual", "label": "Manual (use Image below)" },
+              { "value": "why_exederm_image", "label": "Product metafield: Why Exederm Image" }
+            ],
+            "default": "manual"
+          },
           { "type": "image_picker", "id": "image", "label": "Image" },
           { "type": "image_picker", "id": "mobile_image", "label": "Mobile image (optional)", "info": "Shown below 768px. Falls back to the image above if empty." },
           {

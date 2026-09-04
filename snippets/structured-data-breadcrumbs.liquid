@@ -1,0 +1,23 @@
+<!-- /snippets/structured-data-breadcrumbs.liquid -->
+{% comment %}
+  BreadcrumbList JSON-LD — included from layout/theme.liquid on product, collection
+  and page templates. One conditional branch always resolves because the include is
+  gated to those three template types. All names/URLs come from Shopify objects.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ shop.url }}" },
+    {% if template contains 'product' %}
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "{{ shop.url }}/collections/all" },
+    { "@type": "ListItem", "position": 3, "name": {{ product.title | json }}, "item": "{{ shop.url }}{{ product.url }}" }
+    {% elsif template contains 'collection' %}
+    { "@type": "ListItem", "position": 2, "name": {{ collection.title | json }}, "item": "{{ shop.url }}{{ collection.url }}" }
+    {% elsif template contains 'page' %}
+    { "@type": "ListItem", "position": 2, "name": {{ page.title | json }}, "item": "{{ shop.url }}{{ page.url }}" }
+    {% endif %}
+  ]
+}
+</script>
