@@ -6,6 +6,13 @@
   utility combos can't be relied on). Each Q&A is an editable block.
 {% endcomment %}
 
+{% comment %} FAQs come from either editable blocks (default — e.g. the Hydrocortisone Lander) or a
+  product metafield list of FAQ metaobjects (custom.faqs) on generic product templates. Each FAQ
+  metaobject has `question` (text) and `answer` (multi-line text) field handles. {% endcomment %}
+{% assign faq_entries = product.metafields.custom.faqs.value %}
+{% if section.settings.faq_source == 'metafield' and faq_entries == blank %}
+  {% comment %} Metafield-driven but this product has no FAQs set — render nothing. {% endcomment %}
+{% else %}
 <section id="{{ section.settings.anchor_id | default: 'faqs' }}" class="lfaq lfaq--{{ section.id }} tw-container xl:tw-max-w-1336px">
   <hr/>
 
@@ -14,17 +21,30 @@
   {% endif %}
 
   <div class="lfaq__list">
-    {% for block in section.blocks %}
-      <details class="lfaq__item" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
-        <summary class="lfaq__summary">
-          <span class="lfaq__q">{{ block.settings.question }}</span>
-          <span class="lfaq__icon" aria-hidden="true"></span>
-        </summary>
-        <div class="lfaq__answer rte">{{ block.settings.answer }}</div>
-      </details>
-    {% endfor %}
+    {% if section.settings.faq_source == 'metafield' %}
+      {% for entry in faq_entries %}
+        <details class="lfaq__item" {% if forloop.first %}open{% endif %}>
+          <summary class="lfaq__summary">
+            <span class="lfaq__q">{{ entry.question }}</span>
+            <span class="lfaq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="lfaq__answer rte">{{ entry.answer | newline_to_br }}</div>
+        </details>
+      {% endfor %}
+    {% else %}
+      {% for block in section.blocks %}
+        <details class="lfaq__item" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary class="lfaq__summary">
+            <span class="lfaq__q">{{ block.settings.question }}</span>
+            <span class="lfaq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="lfaq__answer rte">{{ block.settings.answer }}</div>
+        </details>
+      {% endfor %}
+    {% endif %}
   </div>
 </section>
+{% endif %}
 
 <style>
   .lfaq--{{ section.id }} hr {
@@ -106,6 +126,17 @@
   {
     "name": "FAQ Accordion",
     "settings": [
+      {
+        "type": "select",
+        "id": "faq_source",
+        "label": "FAQ source",
+        "info": "Blocks: use the editable questions below (Hydrocortisone Lander). Product metafield: pull each product's custom.faqs (list of FAQ metaobjects).",
+        "options": [
+          { "value": "blocks", "label": "Blocks (editable below)" },
+          { "value": "metafield", "label": "Product metafield: FAQs (custom.faqs)" }
+        ],
+        "default": "blocks"
+      },
       {
         "type": "text",
         "id": "heading",
