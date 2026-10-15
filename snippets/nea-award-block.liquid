@@ -1,7 +1,9 @@
 {% comment %}
   NEA award callout. Markup shared between sections/NEA-award.liquid and the
   Hydrocortisone Lander. Uses the `product` currently in scope.
+  Optional `nea_award_text` (set by the including section) overrides the callout copy.
 {% endcomment %}
+{% assign nea_award_default_text = 'eczema Flare Control Cream with Hydrocortisone holds the coveted National Eczema Association "Seal of Acceptance".' %}
 <section class="xl:tw-mt-4 lg:tw-flex">
   <div class="lg:tw-w-1/2">
     <div class="tw-relative tw-h-full">
@@ -33,7 +35,7 @@
         <img src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/award-badge.png?v=1626799267" alt="The badge of the National Eczema Association">
       </div>
       <p style="max-width:540px; font-weight:500; font-size:25px;" class="h3">
-       eczema Flare Control Cream with Hydrocortisone holds the coveted National Eczema Association "Seal of Acceptance".
+        {{ nea_award_text | default: nea_award_default_text }}
       </p>
     </div>
   </div>

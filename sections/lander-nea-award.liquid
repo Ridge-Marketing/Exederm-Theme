@@ -9,12 +9,21 @@
 {% if lander_product %}
   {% assign product = lander_product %}
 {% endif %}
+{% assign nea_award_text = section.settings.award_text %}
 {% include 'nea-award-block' %}
 
 {% schema %}
   {
     "name": "Lander: NEA Award",
-    "settings": [],
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "award_text",
+        "label": "Award text",
+        "default": "eczema Flare Control Cream with Hydrocortisone holds the coveted National Eczema Association \"Seal of Acceptance\".",
+        "info": "Leave blank to use the default Flare Control Cream copy."
+      }
+    ],
     "presets": [
       {
         "name": "Lander: NEA Award",
