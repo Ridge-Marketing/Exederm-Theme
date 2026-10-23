@@ -1,0 +1,86 @@
+{% comment %}
+  Skin Conditions cards — rounded white cards (image, title + chevron, blurb)
+  centered in rows. Block settings match sections/skin-card-section.liquid.
+{% endcomment %}
+
+<style>
+  .skin-conditions-cards__heading { font-size: 21px; line-height: 30px; max-width: 838px; }
+  .skin-conditions-cards__grid { gap: 39px 18px; }
+  .skin-conditions-cards__card { width: 381px; max-width: 100%; min-height: 400px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); }
+  .skin-conditions-cards__image { height: 194px; }
+  .skin-conditions-cards__chevron { font-size: 30px; }
+  .skin-conditions-cards__body,
+  .skin-conditions-cards__body * { transition: background-color 0.3s ease, color 0.3s ease; }
+</style>
+
+<section class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px tw-pb-12 lg:tw-pb-24">
+  {% if section.settings.card-heading != blank %}
+    <p class="skin-conditions-cards__heading tw-mx-auto tw-mb-10 tw-text-center tw-font-encode-sans tw-font-medium tw-text-green">
+      {{ section.settings.card-heading }}
+    </p>
+  {% endif %}
+
+  <div class="skin-conditions-cards__grid tw-flex tw-flex-wrap tw-justify-center">
+    {% for block in section.blocks %}
+      <a class="skin-conditions-cards__card tw-flex tw-flex-col tw-overflow-hidden tw-bg-white tw-group" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+        {% if block.settings.card-img != blank %}
+          <img class="skin-conditions-cards__image tw-w-full tw-object-cover" src="{{ block.settings.card-img }}" alt="{{ block.settings.card-text | escape }} image" width="381" height="194">
+        {% endif %}
+        <div class="skin-conditions-cards__body tw-flex-grow tw-px-5 tw-pt-5 tw-pb-6 group-hover:tw-bg-green">
+          <h2 class="tw-flex tw-justify-between tw-items-center tw-font-encode-sans tw-font-medium tw-text-22px/28px tw-text-green group-hover:tw-text-white">
+            {{ block.settings.card-text }}
+            <i class="skin-conditions-cards__chevron far fa-angle-right tw-ml-4" aria-hidden="true"></i>
+          </h2>
+          {% if block.settings.card-desc != blank %}
+            <p class="tw-pt-4 tw-font-open-sans tw-text-14px/20px tw-text-black group-hover:tw-text-white">{{ block.settings.card-desc }}</p>
+          {% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Skin Conditions Cards",
+    "settings": [
+      {
+        "id": "card-heading",
+        "type": "text",
+        "label": "Card Heading",
+        "default": "exederm offers products to help relieve symptoms associated with the following skin conditions, formulated without certain additives that can irritate sensitive skin:"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "settings": [
+          {
+            "id": "card-img",
+            "type": "url",
+            "label": "Card Image URL"
+          }, {
+            "id": "card-text",
+            "type": "text",
+            "label": "Card Text"
+          }, {
+            "id": "card-desc",
+            "type": "text",
+            "label": "Card Description"
+          }, {
+            "id": "link",
+            "type": "url",
+            "label": "Link URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin Conditions Cards",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

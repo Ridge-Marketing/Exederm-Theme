@@ -1,0 +1,104 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "skin-conditions-hero",
+      "settings": {
+        "title": "Understanding Skin Conditions",
+        "image": "shopify://shop_images/Skin-Hero.webp",
+        "image_position": "right center"
+      }
+    },
+    "stat": {
+      "type": "skin-conditions-stat",
+      "settings": {
+        "heading": "We know that when your skin is uncomfortable, life is, too.",
+        "body": "<p><strong>Relieving flare-ups starts with understanding the underlying condition and its triggers.</strong></p><p>Eczema and dermatitis are terms often used interchangeably to describe inflammatory skin conditions. These conditions can cause itching and discomfort, but they are not contagious. About 1 in 5 people experience eczema or dermatitis at some point in their lives.</p><p>While chronic eczema has no cure, treatments can help manage symptoms and prevent flare-ups. Some forms of contact dermatitis can also resolve completely with appropriate treatment and avoidance of the triggering substance.</p>",
+        "stat_text": "About <strong>1 in 5 people</strong> experience eczema or dermatitis at some point in their lives."
+      }
+    },
+    "cards": {
+      "type": "skin-conditions-cards",
+      "blocks": {
+        "scalp-eczema": {
+          "type": "card",
+          "settings": {
+            "card-img": "https://cdn.shopify.com/s/files/1/1211/7332/files/scalp-eczema.webp?v=1792772044",
+            "card-text": "Scalp eczema",
+            "card-desc": "Itchy, dry, scaly, or flaking skin on the scalp, with several possible causes including seborrheic dermatitis, atopic dermatitis, and contact dermatitis.",
+            "link": "shopify://pages/seborrheic-dermatitis"
+          }
+        },
+        "seborrheic-dermatitis": {
+          "type": "card",
+          "settings": {
+            "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/seborrheic-dermatitis-boximg.png?v=1614327593",
+            "card-text": "Seborrheic dermatitis",
+            "card-desc": "An inflammatory skin condition causing greasy scales, flaking, and sometimes itching, commonly affecting the scalp, face, and other oily areas; called cradle cap in infants.",
+            "link": "shopify://pages/seborrheic-dermatitis"
+          }
+        },
+        "atopic-eczema": {
+          "type": "card",
+          "settings": {
+            "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/atopic-eczema-boximg.png?v=1614327593",
+            "card-text": "Atopic eczema",
+            "card-desc": "A chronic, itchy form of eczema that often begins in childhood and is associated with a weakened skin barrier and increased allergy risk.",
+            "link": "shopify://pages/atopic-eczema"
+          }
+        },
+        "contact-dermatitis": {
+          "type": "card",
+          "settings": {
+            "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/contact-dermatitis-boximg.png?v=1614327593",
+            "card-text": "Contact dermatitis",
+            "card-desc": "Skin inflammation caused by contact with an irritant or an allergen.",
+            "link": "shopify://pages/contact-dermatitis"
+          }
+        },
+        "baby-kids-eczema": {
+          "type": "card",
+          "settings": {
+            "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/childrens-skin-boximg.png?v=1614327593",
+            "card-text": "Baby & kids eczema",
+            "card-desc": "Eczema affecting infants and children, often causing dry, itchy, inflamed skin.",
+            "link": "shopify://pages/childrens-skin"
+          }
+        }
+      },
+      "block_order": [
+        "scalp-eczema",
+        "seborrheic-dermatitis",
+        "atopic-eczema",
+        "contact-dermatitis",
+        "baby-kids-eczema"
+      ],
+      "settings": {
+        "card-heading": "exederm offers products to help relieve symptoms associated with the following skin conditions, formulated without certain additives that can irritate sensitive skin:"
+      }
+    },
+    "nea": {
+      "type": "skin-conditions-nea-award",
+      "settings": {
+        "image": "shopify://shop_images/product_flare_control.webp",
+        "award_text": "Our full exederm line holds the National Eczema Association Seal of Acceptance.",
+        "button_label": "See The Products",
+        "button_link": "shopify://pages/products"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stat",
+    "cards",
+    "nea"
+  ]
+}

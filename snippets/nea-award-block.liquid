@@ -2,12 +2,23 @@
   NEA award callout. Markup shared between sections/NEA-award.liquid and the
   Hydrocortisone Lander. Uses the `product` currently in scope.
   Optional `nea_award_text` (set by the including section) overrides the callout copy.
+  Optional `nea_award_image_url` / `nea_award_image_alt` / `nea_award_image_width` /
+  `nea_award_image_height` override the product image, and
+  `nea_award_button_label` + `nea_award_button_link` add a button under the copy.
 {% endcomment %}
 {% assign nea_award_default_text = 'eczema Flare Control Cream with Hydrocortisone holds the coveted National Eczema Association "Seal of Acceptance".' %}
 <section class="xl:tw-mt-4 lg:tw-flex">
   <div class="lg:tw-w-1/2">
     <div class="tw-relative tw-h-full">
-      {% if product.metafields.custom.nea_award_image.value != blank %}
+      {% if nea_award_image_url != blank %}
+        <img
+          class="tw-w-full tw-h-full tw-object-cover"
+          src="{{ nea_award_image_url }}"
+          width="{{ nea_award_image_width }}"
+          height="{{ nea_award_image_height }}"
+          alt="{{ nea_award_image_alt | escape }}">
+
+      {% elsif product.metafields.custom.nea_award_image.value != blank %}
         <img
           class="tw-w-full tw-h-full tw-object-cover lazyload"
           src="{{ product.metafields.custom.nea_award_image.value.image | image_url }}"
@@ -37,6 +48,9 @@
       <p style="max-width:540px; font-weight:500; font-size:25px;" class="h3">
         {{ nea_award_text | default: nea_award_default_text }}
       </p>
+      {% if nea_award_button_label != blank and nea_award_button_link != blank %}
+        <a href="{{ nea_award_button_link }}" class="tw-w-48 tw-text-center primary__button tw-py-4 tw-mt-6">{{ nea_award_button_label }}</a>
+      {% endif %}
     </div>
   </div>
 </section>

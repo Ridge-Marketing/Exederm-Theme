@@ -1,0 +1,56 @@
+{% comment %}
+  Skin Conditions NEA award — reuses snippets/nea-award-block.liquid with
+  full-line copy, a product-line image, and a "See The Products" button.
+{% endcomment %}
+{% if section.settings.image != blank %}
+  {% assign nea_award_image_url    = section.settings.image | image_url: width: 1620 %}
+  {% assign nea_award_image_alt    = section.settings.image.alt | default: 'exederm product line' %}
+  {% assign nea_award_image_width  = section.settings.image.width %}
+  {% assign nea_award_image_height = section.settings.image.height %}
+{% else %}
+  {% assign nea_award_image_url    = 'skin-conditions-nea-products.jpg' | asset_url %}
+  {% assign nea_award_image_alt    = 'exederm product line' %}
+  {% assign nea_award_image_width  = 810 %}
+  {% assign nea_award_image_height = 378 %}
+{% endif %}
+{% assign nea_award_text         = section.settings.award_text %}
+{% assign nea_award_button_label = section.settings.button_label %}
+{% assign nea_award_button_link  = section.settings.button_link %}
+{% include 'nea-award-block' %}
+
+{% schema %}
+  {
+    "name": "Skin Conditions NEA Award",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Leave blank to use the default product-line photo."
+      },
+      {
+        "type": "inline_richtext",
+        "id": "award_text",
+        "label": "Award text",
+        "default": "Our full exederm line holds the National Eczema Association Seal of Acceptance."
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "See The Products"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin Conditions NEA Award",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,83 @@
+{% comment %}
+  Skin Conditions hero — full-width photo with a white fade on the left behind
+  the page heading. Falls back to the page title and the bundled hero image.
+{% endcomment %}
+{% assign hero_title = section.settings.title | default: page.title %}
+
+<style>
+  .skin-conditions-hero { height: 260px; }
+  .skin-conditions-hero__fade { background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 0) 100%); }
+  .skin-conditions-hero__title { font-size: 32px; line-height: 40px; }
+  @media (min-width: 768px) {
+    .skin-conditions-hero { height: 429px; }
+    .skin-conditions-hero__fade { background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 21%, rgba(255, 255, 255, 0) 58.6%); }
+    .skin-conditions-hero__title { font-size: 42px; line-height: 54px; }
+  }
+</style>
+
+<section class="skin-conditions-hero tw-relative tw-overflow-hidden">
+  {% if section.settings.image != blank %}
+    <img
+      class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover"
+      style="object-position: {{ section.settings.image_position }};"
+      src="{{ section.settings.image | image_url: width: 2400 }}"
+      srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1600 }} 1600w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
+      sizes="100vw"
+      width="{{ section.settings.image.width }}"
+      height="{{ section.settings.image.height }}"
+      alt="{{ section.settings.image.alt | default: hero_title | escape }}">
+  {% else %}
+    <img
+      class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover"
+      style="object-position: {{ section.settings.image_position }};"
+      src="{{ 'skin-conditions-hero.jpg' | asset_url }}"
+      width="2400"
+      height="644"
+      alt="Woman smiling while jogging outdoors">
+  {% endif %}
+
+  <div class="skin-conditions-hero__fade tw-absolute tw-inset-0"></div>
+
+  <div class="tw-relative tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px tw-h-full tw-flex tw-items-center">
+    <h1 class="skin-conditions-hero__title tw-font-encode-sans tw-font-normal tw-text-matterhorn">{{ hero_title }}</h1>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Skin Conditions Hero",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default": "Understanding Skin Conditions",
+        "info": "Leave blank to use the page title."
+      },
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Hero image",
+        "info": "Leave blank to use the default hero photo."
+      },
+      {
+        "id": "image_position",
+        "type": "select",
+        "label": "Image focal point",
+        "options": [
+          { "value": "left center", "label": "Left" },
+          { "value": "center center", "label": "Center" },
+          { "value": "right center", "label": "Right" }
+        ],
+        "default": "right center",
+        "info": "Which side of the image stays visible on small screens."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin Conditions Hero",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

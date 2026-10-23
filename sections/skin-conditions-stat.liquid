@@ -1,0 +1,88 @@
+{% comment %}
+  Skin Conditions intro + stat — intro copy on the left, divider, then an icon
+  and large stat callout on the right. Stacks on mobile.
+{% endcomment %}
+
+<style>
+  .skin-conditions-stat__heading { font-size: 28px; line-height: 36px; }
+  .skin-conditions-stat__body p { margin-bottom: 10px; }
+  .skin-conditions-stat__body p:last-child { margin-bottom: 0; }
+  .skin-conditions-stat__icon { width: 230px; max-width: 100%; height: auto; }
+  .skin-conditions-stat__text { font-size: 30px; line-height: 36px; }
+  .skin-conditions-stat__text strong { font-weight: 600; }
+  @media (min-width: 1024px) {
+    .skin-conditions-stat__heading { font-size: 36px; line-height: 45px; }
+    .skin-conditions-stat__text { font-size: 40px; line-height: 43px; max-width: 391px; }
+    .skin-conditions-stat__divider { border-left: 2px solid rgba(151, 151, 151, 0.3); }
+  }
+</style>
+
+<section class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px tw-py-12 lg:tw-py-24">
+  <div class="lg:tw-flex lg:tw-items-center">
+    <div class="lg:tw-w-1/2 lg:tw-pr-20">
+      {% if section.settings.heading != blank %}
+        <h2 class="skin-conditions-stat__heading tw-font-encode-sans tw-font-normal tw-text-green tw-pb-10">{{ section.settings.heading }}</h2>
+      {% endif %}
+      <div class="skin-conditions-stat__body tw-font-open-sans tw-text-16px/24px tw-text-black">
+        {{ section.settings.body }}
+      </div>
+    </div>
+
+    <div class="skin-conditions-stat__divider lg:tw-w-1/2 lg:tw-pl-20 lg:tw-py-6 tw-mt-10 lg:tw-mt-0">
+      {% if section.settings.icon != blank %}
+        <img
+          class="skin-conditions-stat__icon tw-mb-3"
+          src="{{ section.settings.icon | image_url: width: 460 }}"
+          alt="{{ section.settings.icon.alt | escape }}"
+          width="230"
+          height="109">
+      {% else %}
+        <img
+          class="skin-conditions-stat__icon tw-mb-3"
+          src="{{ 'skin-conditions-stat-icon.svg' | asset_url }}"
+          alt="One of five people highlighted"
+          width="230"
+          height="109">
+      {% endif %}
+      <p class="skin-conditions-stat__text tw-font-encode-sans tw-font-normal tw-text-green">{{ section.settings.stat_text }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Skin Conditions Stat",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "We know that when your skin is uncomfortable, life is, too."
+      },
+      {
+        "id": "body",
+        "type": "richtext",
+        "label": "Body",
+        "default": "<p><strong>Relieving flare-ups starts with understanding the underlying condition and its triggers.</strong></p><p>Eczema and dermatitis are terms often used interchangeably to describe inflammatory skin conditions. These conditions can cause itching and discomfort, but they are not contagious. About 1 in 5 people experience eczema or dermatitis at some point in their lives.</p><p>While chronic eczema has no cure, treatments can help manage symptoms and prevent flare-ups. Some forms of contact dermatitis can also resolve completely with appropriate treatment and avoidance of the triggering substance.</p>"
+      },
+      {
+        "id": "icon",
+        "type": "image_picker",
+        "label": "Stat icon",
+        "info": "Leave blank to use the default 1-in-5 people icon."
+      },
+      {
+        "id": "stat_text",
+        "type": "inline_richtext",
+        "label": "Stat text",
+        "default": "About <strong>1 in 5 people</strong> experience eczema or dermatitis at some point in their lives."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin Conditions Stat",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
