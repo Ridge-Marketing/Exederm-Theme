@@ -1,0 +1,430 @@
+{% comment %}
+  Text Lander — article-style page body in a single centered column. Everything
+  is a block so pages can be assembled in the theme editor:
+    standard-ish: title, byline, image, text, divider, spacer
+    custom:       text_image, comparison, myth_fact, callout, quote
+  Blank images render a placeholder in the editor and nothing on the storefront.
+{% endcomment %}
+
+<style>
+  .text-lander { max-width: 878px; }
+  .text-lander__block + .text-lander__block { margin-top: 56px; }
+  .text-lander__block--title + .text-lander__block--byline { margin-top: 32px; }
+  .text-lander__block--byline + .text-lander__block,
+  .text-lander__block--image + .text-lander__block,
+  .text-lander__block--text + .text-lander__block--divider { margin-top: 24px; }
+  .text-lander__block--spacer,
+  .text-lander__block--spacer + .text-lander__block { margin-top: 0; }
+  .text-lander__title { font-size: 34px; line-height: 40px; }
+  .text-lander__heading { font-size: 26px; line-height: 32px; margin-bottom: 10px!important; }
+  .text-lander__rte p,
+  .text-lander__rte ul,
+  .text-lander__rte ol { margin-bottom: 10px; }
+  .text-lander__rte p:last-child,
+  .text-lander__rte ul:last-child,
+  .text-lander__rte ol:last-child { margin-bottom: 0; }
+  .text-lander__rte ul { list-style: disc; padding-left: 24px; }
+  .text-lander__rte ol { list-style: decimal; padding-left: 24px; }
+  .text-lander__rte li { margin-bottom: 10px; }
+  .text-lander__rte li:last-child { margin-bottom: 0; }
+  .text-lander__rte a,
+  .text-lander__quote-cite a { color: #3e9a76; text-decoration: underline; }
+  .text-lander__rte a:hover,
+  .text-lander__quote-cite a:hover { color: #267B59; }
+  .text-lander__rte--large p { font-size: 20px; line-height: 28px; padding-top:40px; padding-bottom:20px; }
+  .text-lander__avatar { width: 72px; height: 72px; }
+  .text-lander__divider { height: 5px; }
+  .text-lander__text-image-media { width: 326px; max-width: 100%; }
+  .text-lander__box { max-width: 668px; padding: 40px 24px 48px; }
+  .text-lander__box-heading { font-size: 26px; line-height: 32px; }
+  .text-lander__comparison { gap: 24px 12px; }
+  .text-lander__quote-text { font-size: 24px; line-height: 30px; }
+  @media (min-width: 768px) {
+    .text-lander__title { font-size: 50px; line-height: 55px; }
+    .text-lander__heading,
+    .text-lander__box-heading { font-size: 30px; line-height: 35px; }
+    .text-lander__box { padding: 57px 72px 64px 85px; }
+    .text-lander__text-image { gap: 60px; }
+    .text-lander__quote { padding-left: 85px; padding-right: 85px; }
+    .text-lander__quote-text { font-size: 30px; line-height: 35px; }
+  }
+</style>
+
+<section class="text-lander tw-mx-auto tw-px-5 tw-pt-10 md:tw-pt-16 tw-pb-14 md:tw-pb-20">
+  {% for block in section.blocks %}
+    <div class="text-lander__block text-lander__block--{{ block.type }}" {{ block.shopify_attributes }}>
+      {% case block.type %}
+
+        {% when 'title' %}
+          <h1 class="text-lander__title tw-font-encode-sans tw-font-normal tw-text-matterhorn">{{ block.settings.title | default: page.title }}</h1>
+
+        {% when 'byline' %}
+          {% assign byline_date = block.settings.date %}
+          {% if byline_date == blank %}
+            {% assign byline_date = page.published_at | date: '%B %-d, %Y' %}
+          {% endif %}
+          <div class="tw-flex tw-items-center tw-gap-3">
+            {% if block.settings.avatar != blank %}
+              <img class="text-lander__avatar tw-rounded-full tw-object-cover" src="{{ block.settings.avatar | image_url: width: 144 }}" alt="{{ block.settings.author | escape }}" width="72" height="72">
+            {% else %}
+              <div class="text-lander__avatar tw-flex tw-flex-shrink-0 tw-items-center tw-justify-center tw-rounded-full tw-bg-green">
+                <img src="{{ 'exederm-logo-white.png' | asset_url }}" alt="{{ block.settings.author | escape }}" width="66" height="11">
+              </div>
+            {% endif %}
+            <p class="tw-font-encode-sans tw-text-16px/24px tw-text-matterhorn">
+              by <strong class="tw-font-bold">{{ block.settings.author }}</strong>{% if byline_date != blank %} on {{ byline_date }}{% endif %}
+            </p>
+          </div>
+
+        {% when 'image' %}
+          {% if block.settings.image != blank %}
+            <img
+              class="tw-w-full tw-h-auto"
+              src="{{ block.settings.image | image_url: width: 1674 }}"
+              srcset="{{ block.settings.image | image_url: width: 838 }} 838w, {{ block.settings.image | image_url: width: 1674 }} 1674w"
+              sizes="(min-width: 878px) 838px, 100vw"
+              alt="{{ block.settings.image.alt | escape }}"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}">
+          {% elsif request.design_mode %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
+          {% endif %}
+
+        {% when 'text' %}
+          {% if block.settings.heading != blank %}
+            <h2 class="text-lander__heading tw-font-encode-sans tw-font-normal tw-text-black">{{ block.settings.heading }}</h2>
+          {% endif %}
+          <div class="text-lander__rte {% if block.settings.size == 'large' %}text-lander__rte--large{% else %}tw-text-16px/24px{% endif %} tw-font-open-sans tw-text-black">
+            {{ block.settings.body }}
+          </div>
+
+        {% when 'divider' %}
+          <hr class="text-lander__divider tw-w-full tw-border-0 tw-bg-aliceblue">
+
+        {% when 'spacer' %}
+          <div aria-hidden="true" style="height: {{ block.settings.height }}px;"></div>
+
+        {% when 'text_image' %}
+          <div class="text-lander__text-image tw-flex tw-flex-col md:tw-flex-row md:tw-items-center tw-gap-8">
+            <div class="tw-flex-1">
+              {% if block.settings.heading != blank %}
+                <h2 class="text-lander__heading tw-font-encode-sans tw-font-normal tw-text-black">{{ block.settings.heading }}</h2>
+              {% endif %}
+              {% if block.settings.subheading != blank %}
+                <p class="tw-mt-4 tw-font-open-sans tw-font-bold tw-text-16px/24px tw-text-black">{{ block.settings.subheading }}</p>
+              {% endif %}
+              <div class="text-lander__rte tw-mt-4 tw-font-open-sans tw-text-16px/24px tw-text-black">
+                {{ block.settings.body }}
+              </div>
+            </div>
+            <div class="text-lander__text-image-media tw-flex-shrink-0 tw-mx-auto md:tw-mx-0">
+              {% if block.settings.image != blank %}
+                <img class="tw-w-full tw-h-auto" src="{{ block.settings.image | image_url: width: 652 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+              {% elsif request.design_mode %}
+                {{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
+              {% endif %}
+            </div>
+          </div>
+
+        {% when 'comparison' %}
+          <div class="text-lander__box tw-mx-auto tw-bg-tan">
+            {% if block.settings.heading != blank %}
+              <h2 class="text-lander__box-heading tw-mb-9 tw-font-encode-sans tw-font-normal tw-text-black" style="margin-bottom:2.25rem!important;">{{ block.settings.heading }}</h2>
+            {% endif %}
+            <div class="text-lander__comparison tw-grid sm:tw-grid-cols-2">
+              {% for i in (1..2) %}
+                {% assign comparison_image_key   = 'image_' | append: i %}
+                {% assign comparison_caption_key = 'caption_' | append: i %}
+                {% assign comparison_image       = block.settings[comparison_image_key] %}
+                {% assign comparison_caption     = block.settings[comparison_caption_key] %}
+                <div>
+                  {% if comparison_image != blank %}
+                    <img class="tw-w-full tw-h-auto" src="{{ comparison_image | image_url: width: 486 }}" alt="{{ comparison_image.alt | escape }}" width="{{ comparison_image.width }}" height="{{ comparison_image.height }}">
+                  {% elsif request.design_mode %}
+                    {{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
+                  {% endif %}
+                  <div class="text-lander__rte tw-mt-4 tw-font-open-sans tw-text-16px/24px tw-text-black">{{ comparison_caption }}</div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        {% when 'myth_fact' %}
+          <div class="text-lander__box tw-mx-auto tw-bg-tan">
+            {% if block.settings.heading != blank %}
+              <h2 class="text-lander__box-heading tw-mb-3 tw-font-encode-sans tw-font-normal tw-text-black" style="margin-bottom:0.75rem!important;">{{ block.settings.heading }}</h2>
+            {% endif %}
+            <p class="tw-font-open-sans tw-text-16px/24px tw-text-black"><strong class="tw-font-bold">{{ block.settings.myth_label }}</strong> {{ block.settings.myth }}</p>
+            <p class="tw-mt-5 tw-font-open-sans tw-text-16px/24px tw-text-black"><strong class="tw-font-bold tw-text-green">{{ block.settings.fact_label }}</strong> {{ block.settings.fact }}</p>
+          </div>
+
+        {% when 'callout' %}
+          <div class="text-lander__box tw-mx-auto tw-bg-tan">
+            {% if block.settings.heading != blank %}
+              <h2 class="text-lander__box-heading tw-mb-3 tw-font-encode-sans tw-font-normal tw-text-black" style="margin-bottom:0.75rem!important;">{{ block.settings.heading }}</h2>
+            {% endif %}
+            <div class="text-lander__rte tw-font-open-sans tw-text-16px/24px tw-text-black">
+              {{ block.settings.body }}
+            </div>
+          </div>
+
+        {% when 'quote' %}
+          <figure class="text-lander__quote">
+            <blockquote class="text-lander__quote-text tw-font-encode-sans tw-font-normal tw-text-green tw-not-italic p-0" style="padding:0">{{ block.settings.quote }}</blockquote>
+            {% if block.settings.citation != blank %}
+              <figcaption class="text-lander__quote-cite tw-mt-6 tw-font-open-sans tw-text-14px/20px tw-text-green">
+                {% if block.settings.citation_link != blank %}
+                  <a href="{{ block.settings.citation_link }}" target="_blank" rel="noopener">{{ block.settings.citation }}</a>
+                {% else %}
+                  {{ block.settings.citation }}
+                {% endif %}
+              </figcaption>
+            {% endif %}
+          </figure>
+
+      {% endcase %}
+    </div>
+  {% endfor %}
+</section>
+
+{% schema %}
+  {
+    "name": "Text Lander",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "title",
+        "name": "Title",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "info": "Leave blank to use the page title."
+          }
+        ]
+      },
+      {
+        "type": "byline",
+        "name": "Byline",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author",
+            "default": "exederm"
+          },
+          {
+            "type": "text",
+            "id": "date",
+            "label": "Date",
+            "info": "Leave blank to use the page's published date."
+          },
+          {
+            "type": "image_picker",
+            "id": "avatar",
+            "label": "Avatar",
+            "info": "Leave blank to use the exederm logo badge."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body",
+            "default": "<p>Add your content here.</p>"
+          },
+          {
+            "type": "select",
+            "id": "size",
+            "label": "Body size",
+            "options": [
+              { "value": "regular", "label": "Regular" },
+              { "value": "large", "label": "Large (intro)" }
+            ],
+            "default": "regular"
+          }
+        ]
+      },
+      {
+        "type": "divider",
+        "name": "Divider",
+        "settings": []
+      },
+      {
+        "type": "spacer",
+        "name": "Spacer",
+        "settings": [
+          {
+            "type": "number",
+            "id": "height",
+            "label": "Height (px)",
+            "info": "Replaces the normal gap between the blocks above and below.",
+            "default": 56
+          }
+        ]
+      },
+      {
+        "type": "text_image",
+        "name": "Text with image",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "subheading",
+            "label": "Subheading"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body",
+            "default": "<ul><li>List item</li><li>List item</li></ul>"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Square images work best."
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "name": "Comparison callout",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": "Image 1"
+          },
+          {
+            "type": "richtext",
+            "id": "caption_1",
+            "label": "Caption 1",
+            "default": "<p><strong>Label:</strong> description.</p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image 2"
+          },
+          {
+            "type": "richtext",
+            "id": "caption_2",
+            "label": "Caption 2",
+            "default": "<p><strong>Label:</strong> description.</p>"
+          }
+        ]
+      },
+      {
+        "type": "myth_fact",
+        "name": "Myth vs fact",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Myth vs fact"
+          },
+          {
+            "type": "text",
+            "id": "myth_label",
+            "label": "Myth label",
+            "default": "Myth:"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "myth",
+            "label": "Myth"
+          },
+          {
+            "type": "text",
+            "id": "fact_label",
+            "label": "Fact label",
+            "default": "Fact:"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "fact",
+            "label": "Fact"
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "name": "Callout",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body",
+            "default": "<p>Add your callout text here.</p>"
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "name": "Quote",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "text",
+            "id": "citation",
+            "label": "Citation"
+          },
+          {
+            "type": "url",
+            "id": "citation_link",
+            "label": "Citation link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text Lander",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

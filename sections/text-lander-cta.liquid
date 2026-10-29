@@ -1,0 +1,78 @@
+{% comment %}
+  Text Lander CTA — reuses snippets/nea-award-block.liquid: image on the left,
+  tan panel with copy and up to two buttons on the right. Badge is optional.
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} p a { color: #3e9a76; }
+  #shopify-section-{{ section.id }} p a:hover { color: #267B59; }
+</style>
+
+{% if section.settings.image != blank %}
+  {% assign nea_award_image_url    = section.settings.image | image_url: width: 1620 %}
+  {% assign nea_award_image_alt    = section.settings.image.alt %}
+  {% assign nea_award_image_width  = section.settings.image.width %}
+  {% assign nea_award_image_height = section.settings.image.height %}
+{% endif %}
+{% assign nea_award_text            = section.settings.text %}
+{% assign nea_award_hide_badge      = section.settings.hide_badge %}
+{% assign nea_award_button_label    = section.settings.button_label %}
+{% assign nea_award_button_link     = section.settings.button_link %}
+{% assign nea_award_secondary_label = section.settings.secondary_label %}
+{% assign nea_award_secondary_link  = section.settings.secondary_link %}
+{% include 'nea-award-block' %}
+
+{% schema %}
+  {
+    "name": "Text Lander CTA",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Leave blank to use the Flare Control Cream photo."
+      },
+      {
+        "type": "inline_richtext",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_badge",
+        "label": "Hide NEA badge",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Primary button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Primary button link"
+      },
+      {
+        "type": "text",
+        "id": "secondary_label",
+        "label": "Secondary button label"
+      },
+      {
+        "type": "url",
+        "id": "secondary_link",
+        "label": "Secondary button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text Lander CTA",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

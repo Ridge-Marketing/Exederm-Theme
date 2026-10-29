@@ -1,6 +1,7 @@
 {% comment %}
   Skin Conditions cards — rounded white cards (image, title + chevron, blurb)
-  centered in rows. Block settings match sections/skin-card-section.liquid.
+  centered in rows. Block settings started from sections/skin-card-section.liquid.
+  The title link is stretched over the whole card so the blurb can hold its own links.
 {% endcomment %}
 
 <style>
@@ -11,6 +12,11 @@
   .skin-conditions-cards__chevron { font-size: 30px; }
   .skin-conditions-cards__body,
   .skin-conditions-cards__body * { transition: background-color 0.3s ease, color 0.3s ease; }
+  .skin-conditions-cards__link,
+  .skin-conditions-cards__link:hover { color: inherit; }
+  .skin-conditions-cards__link::after { content: ''; position: absolute; inset: 0; }
+  .skin-conditions-cards__desc a { position: relative; z-index: 1; color: #3e9a76; }
+  .skin-conditions-cards__card:hover .skin-conditions-cards__desc a { color: #fff; text-decoration: underline; }
 </style>
 
 <section class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px tw-pb-12 lg:tw-pb-24">
@@ -22,20 +28,26 @@
 
   <div class="skin-conditions-cards__grid tw-flex tw-flex-wrap tw-justify-center">
     {% for block in section.blocks %}
-      <a class="skin-conditions-cards__card tw-flex tw-flex-col tw-overflow-hidden tw-bg-white tw-group" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
-        {% if block.settings.card-img != blank %}
+      <div class="skin-conditions-cards__card tw-relative tw-flex tw-flex-col tw-overflow-hidden tw-bg-white tw-group" {{ block.shopify_attributes }}>
+        {% if block.settings.card-image != blank %}
+          <img class="skin-conditions-cards__image tw-w-full tw-object-cover" src="{{ block.settings.card-image | image_url: width: 762, height: 388, crop: 'center' }}" alt="{{ block.settings.card-image.alt | default: block.settings.card-text | escape }}" width="381" height="194" loading="lazy">
+        {% elsif block.settings.card-img != blank %}
           <img class="skin-conditions-cards__image tw-w-full tw-object-cover" src="{{ block.settings.card-img }}" alt="{{ block.settings.card-text | escape }} image" width="381" height="194">
         {% endif %}
         <div class="skin-conditions-cards__body tw-flex-grow tw-px-5 tw-pt-5 tw-pb-6 group-hover:tw-bg-green">
           <h2 class="tw-flex tw-justify-between tw-items-center tw-font-encode-sans tw-font-medium tw-text-22px/28px tw-text-green group-hover:tw-text-white">
-            {{ block.settings.card-text }}
-            <i class="skin-conditions-cards__chevron far fa-angle-right tw-ml-4" aria-hidden="true"></i>
+            {% if block.settings.link != blank %}
+              <a class="skin-conditions-cards__link" href="{{ block.settings.link }}">{{ block.settings.card-text }}</a>
+              <i class="skin-conditions-cards__chevron far fa-angle-right tw-ml-4" aria-hidden="true"></i>
+            {% else %}
+              {{ block.settings.card-text }}
+            {% endif %}
           </h2>
           {% if block.settings.card-desc != blank %}
-            <p class="tw-pt-4 tw-font-open-sans tw-text-14px/20px tw-text-black group-hover:tw-text-white">{{ block.settings.card-desc }}</p>
+            <p class="skin-conditions-cards__desc tw-pt-4 tw-font-open-sans tw-text-14px/20px tw-text-black group-hover:tw-text-white">{{ block.settings.card-desc }}</p>
           {% endif %}
         </div>
-      </a>
+      </div>
     {% endfor %}
   </div>
 </section>
@@ -57,6 +69,11 @@
         "name": "Card",
         "settings": [
           {
+            "id": "card-image",
+            "type": "image_picker",
+            "label": "Card Image",
+            "info": "Overrides the image URL below."
+          }, {
             "id": "card-img",
             "type": "url",
             "label": "Card Image URL"
@@ -66,7 +83,7 @@
             "label": "Card Text"
           }, {
             "id": "card-desc",
-            "type": "text",
+            "type": "inline_richtext",
             "label": "Card Description"
           }, {
             "id": "link",

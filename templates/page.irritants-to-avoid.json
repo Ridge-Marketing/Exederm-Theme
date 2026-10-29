@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "skin-conditions-hero",
+      "settings": {
+        "title": "Common Skin Irritants and Allergens",
+        "image": "shopify://shop_images/Irritants-Hero.webp",
+        "image_position": "center center"
+      }
+    },
+    "your-skin": {
+      "type": "skin-conditions-feature",
+      "settings": {
+        "heading": "It’s your skin. You should feel comfortable with what you put on it.",
+        "body": "<p>We believe that eczema, dermatitis and sensitive skin sufferers are different. We're mindful that they may be more susceptible to irritation from certain ingredients in everyday skincare products. Many cosmetics and cleansers are fine for most people, but if you have eczema, dermatitis or reactive skin, labels such as \"hypoallergenic\" or \"sensitive\" don't guarantee that a product will be suitable for you.</p>",
+        "image": "shopify://shop_images/In_page_1.webp",
+        "image_side": "right",
+        "padding_top": 92,
+        "padding_bottom": 100
+      }
+    },
+    "cards": {
+      "type": "skin-conditions-cards",
+      "blocks": {
+        "capb": {
+          "type": "card",
+          "settings": {
+            "card-image": "shopify://shop_images/cocamidoproply_betaine.webp",
+            "card-img": "",
+            "card-text": "Cocamidopropyl betaine (CAPB)",
+            "card-desc": "A foam-boosting surfactant in many shampoos and washes; <a href=\"https://pubmed.ncbi.nlm.nih.gov/18627690/\" target=\"_blank\">named 2004 Allergen of the Year</a> by the American Contact Dermatitis Society.",
+            "link": "shopify://pages/capb"
+          }
+        },
+        "sls": {
+          "type": "card",
+          "settings": {
+            "card-image": "shopify://shop_images/Sodium_Lauryl_Sulfate.webp",
+            "card-img": "",
+            "card-text": "Sodium lauryl sulfate (SLS)",
+            "card-desc": "A strong detergent and known skin irritant, particularly for sensitive skin.",
+            "link": "shopify://pages/sls-or-sles"
+          }
+        },
+        "formaldehyde": {
+          "type": "card",
+          "settings": {
+            "card-image": "shopify://shop_images/Formaldehyde.webp",
+            "card-img": "",
+            "card-text": "Formaldehyde releasers",
+            "card-desc": "Preservatives, such as DMDM hydantoin and quaternium-15, that slowly release formaldehyde.",
+            "link": "shopify://pages/formaldehyde"
+          }
+        },
+        "fragrance": {
+          "type": "card",
+          "settings": {
+            "card-image": "shopify://shop_images/Fragrance.webp",
+            "card-img": "",
+            "card-text": "Fragrance & perfume",
+            "card-desc": "One of the most frequent causes of allergic contact dermatitis.",
+            "link": "shopify://pages/fragrance-perfume"
+          }
+        },
+        "mi-mci": {
+          "type": "card",
+          "settings": {
+            "card-image": "shopify://shop_images/Methylisothiazolinone_MI___MCI.webp",
+            "card-img": "",
+            "card-text": "Methylisothiazolinone (MI / MCI)",
+            "card-desc": "Preservatives associated with allergic contact dermatitis, particularly from personal care products.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "capb",
+        "sls",
+        "formaldehyde",
+        "fragrance",
+        "mi-mci"
+      ],
+      "settings": {
+        "card-heading": "If a dermatologist or allergist has performed patch testing, you may already know which ingredients cause allergic reactions. Otherwise, here are some potential irritants and allergens to look out for:"
+      }
+    },
+    "read-the-label": {
+      "type": "skin-conditions-feature",
+      "settings": {
+        "heading": "Read the label",
+        "body": "<p>\"There are no Federal standards or definitions that govern the use of the term 'hypoallergenic.' The term means whatever a particular company wants it to mean.\" (<a href=\"https://www.fda.gov/cosmetics/cosmetics-labeling-claims/hypoallergenic-cosmetics\" target=\"_blank\">U.S. FDA</a>)</p>",
+        "image": "shopify://shop_images/In_Page_2.webp",
+        "image_side": "right",
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "allergen-of-the-year": {
+      "type": "skin-conditions-feature",
+      "settings": {
+        "heading": "Allergen of the Year",
+        "body": "<p>Four of these have been named Allergen of the Year by the American Contact Dermatitis Society: cocamidopropyl betaine (2004), fragrance (2007), methylisothiazolinone (2013) and formaldehyde, the chemical these preservatives release (2015).</p>",
+        "image": "shopify://shop_images/In_Page_3.webp",
+        "image_side": "left",
+        "padding_top": 48,
+        "padding_bottom": 100
+      }
+    },
+    "quote": {
+      "type": "skin-conditions-quote",
+      "settings": {
+        "quote": "\"People with atopic dermatitis are more likely to have contact dermatitis due to an impaired skin barrier.\"",
+        "citation": "National Eczema Association",
+        "citation_link": "https://nationaleczema.org/types-of-eczema/contact-dermatitis/",
+        "padding_top": 0,
+        "padding_bottom": 84
+      }
+    },
+    "nea": {
+      "type": "skin-conditions-nea-award",
+      "settings": {
+        "image": "shopify://shop_images/product_flare_control.webp",
+        "award_text": "<strong>exederm products are made without the ingredients listed above.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance. Check each product's ingredient list for the full details",
+        "button_label": "See The Products",
+        "button_link": "shopify://pages/products"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "your-skin",
+    "cards",
+    "read-the-label",
+    "allergen-of-the-year",
+    "quote",
+    "nea"
+  ]
+}

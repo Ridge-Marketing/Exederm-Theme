@@ -5,9 +5,11 @@
   Optional `nea_award_image_url` / `nea_award_image_alt` / `nea_award_image_width` /
   `nea_award_image_height` override the product image, and
   `nea_award_button_label` + `nea_award_button_link` add a button under the copy.
+  `nea_award_secondary_label` + `nea_award_secondary_link` add an outlined second button,
+  and `nea_award_hide_badge` hides the NEA badge.
 {% endcomment %}
 {% assign nea_award_default_text = 'eczema Flare Control Cream with Hydrocortisone holds the coveted National Eczema Association "Seal of Acceptance".' %}
-<section class="xl:tw-mt-4 lg:tw-flex">
+<section class="xl:tw-mt-4 lg:tw-flex tw-mb-5">
   <div class="lg:tw-w-1/2">
     <div class="tw-relative tw-h-full">
       {% if nea_award_image_url != blank %}
@@ -42,14 +44,31 @@
   </div>
   <div class="lg:tw-w-1/2">
     <div class="tw-px-4 tw-py-9 tw-flex tw-flex-col tw-justify-center tw-h-full tw-items-center tw-bg-tan tw-text-center">
-      <div class="tw-inline-block tw-mx-auto tw-mb-4 md:tw-mb-8 tw-w-24">
-        <img src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/award-badge.png?v=1626799267" alt="The badge of the National Eczema Association">
-      </div>
+      {% unless nea_award_hide_badge %}
+        <div class="tw-inline-block tw-mx-auto tw-mb-4 md:tw-mb-8 tw-w-24">
+          <img src="https://cdn.shopify.com/s/files/1/0561/8571/6895/files/award-badge.png?v=1626799267" alt="The badge of the National Eczema Association">
+        </div>
+      {% endunless %}
       <p style="max-width:540px; font-weight:500; font-size:25px;" class="h3">
         {{ nea_award_text | default: nea_award_default_text }}
       </p>
+      {% assign nea_award_has_primary   = false %}
+      {% assign nea_award_has_secondary = false %}
       {% if nea_award_button_label != blank and nea_award_button_link != blank %}
-        <a href="{{ nea_award_button_link }}" class="tw-w-48 tw-text-center primary__button tw-py-4 tw-mt-6">{{ nea_award_button_label }}</a>
+        {% assign nea_award_has_primary = true %}
+      {% endif %}
+      {% if nea_award_secondary_label != blank and nea_award_secondary_link != blank %}
+        {% assign nea_award_has_secondary = true %}
+      {% endif %}
+      {% if nea_award_has_primary or nea_award_has_secondary %}
+        <div class="tw-flex tw-flex-wrap tw-justify-center tw-gap-4 tw-mt-6">
+          {% if nea_award_has_primary %}
+            <a href="{{ nea_award_button_link }}" class="tw-text-center primary__button tw-py-4 tw-px-8" style="min-width:192px;">{{ nea_award_button_label }}</a>
+          {% endif %}
+          {% if nea_award_has_secondary %}
+            <a href="{{ nea_award_secondary_link }}" class="tw-text-center secondary__button tw-bg-white tw-py-4 tw-px-8" style="min-width:192px; border-radius:10px;">{{ nea_award_secondary_label }}</a>
+          {% endif %}
+        </div>
       {% endif %}
     </div>
   </div>

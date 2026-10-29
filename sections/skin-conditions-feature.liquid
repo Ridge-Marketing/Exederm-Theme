@@ -1,0 +1,120 @@
+{% comment %}
+  Skin Conditions feature — heading + body beside a square photo, image on
+  either side. Stacks on mobile (image first). Vertical padding is editable so
+  stacked sections can be spaced to the design.
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} .skin-conditions-feature {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .skin-conditions-feature {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .skin-conditions-feature__inner { gap: 32px; max-width: 1011px; }
+  .skin-conditions-feature__heading { font-size: 28px; line-height: 36px; }
+  .skin-conditions-feature__body p { margin-bottom: 10px; }
+  .skin-conditions-feature__body p:last-child { margin-bottom: 0; }
+  .skin-conditions-feature__body a { color: #3e9a76; }
+  .skin-conditions-feature__body a:hover { color: #267B59; }
+  .skin-conditions-feature__media { width: 329px; max-width: 100%; flex-shrink: 0; }
+  @media (min-width: 1024px) {
+    .skin-conditions-feature__inner { gap: 92px; }
+    .skin-conditions-feature__text { max-width: 590px; }
+    .skin-conditions-feature__heading { font-size: 36px; line-height: 45px; }
+  }
+</style>
+
+<section class="skin-conditions-feature tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px">
+  <div class="skin-conditions-feature__inner tw-mx-auto tw-flex tw-flex-col tw-items-center {% if section.settings.image_side == 'left' %}lg:tw-flex-row{% else %}lg:tw-flex-row-reverse{% endif %}">
+    {% if section.settings.image != blank %}
+      <img
+        class="skin-conditions-feature__media tw-object-cover"
+        src="{{ section.settings.image | image_url: width: 658, height: 658, crop: 'center' }}"
+        alt="{{ section.settings.image.alt | escape }}"
+        width="329"
+        height="329"
+        loading="lazy">
+    {% elsif request.design_mode %}
+      <div class="skin-conditions-feature__media">{{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-tan' }}</div>
+    {% endif %}
+
+    <div class="skin-conditions-feature__text tw-w-full">
+      {% if section.settings.heading != blank %}
+        <h2 class="skin-conditions-feature__heading tw-font-encode-sans tw-font-normal tw-text-green tw-pb-3">{{ section.settings.heading }}</h2>
+      {% endif %}
+      <div class="skin-conditions-feature__body tw-font-open-sans tw-text-16px/24px tw-text-black">
+        {{ section.settings.body }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Skin Conditions Feature",
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "body",
+        "type": "richtext",
+        "label": "Body"
+      },
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image",
+        "info": "Shown as a square."
+      },
+      {
+        "id": "image_side",
+        "type": "select",
+        "label": "Image side",
+        "options": [
+          { "value": "right", "label": "Right" },
+          { "value": "left", "label": "Left" }
+        ],
+        "default": "right"
+      },
+      {
+        "type": "header",
+        "content": "Spacing",
+        "info": "Desktop values; mobile uses half."
+      },
+      {
+        "id": "padding_top",
+        "type": "range",
+        "label": "Top padding",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "default": 48
+      },
+      {
+        "id": "padding_bottom",
+        "type": "range",
+        "label": "Bottom padding",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "default": 48
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin Conditions Feature",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

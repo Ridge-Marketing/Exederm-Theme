@@ -1,0 +1,93 @@
+{% comment %}
+  Skin Conditions quote — large centered green pull quote with a linked
+  citation underneath.
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} .skin-conditions-quote {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .skin-conditions-quote {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .skin-conditions-quote__inner { max-width: 1008px; }
+  .skin-conditions-quote__text { font-size: 24px; line-height: 30px; }
+  .skin-conditions-quote__cite a { color: #3e9a76; text-decoration: underline; }
+  .skin-conditions-quote__cite a:hover { color: #267B59; }
+  @media (min-width: 1024px) {
+    .skin-conditions-quote__text { font-size: 30px; line-height: 35px; }
+  }
+</style>
+
+<section class="skin-conditions-quote tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px">
+  <figure class="skin-conditions-quote__inner tw-mx-auto tw-text-center tw-text-green">
+    <blockquote class="skin-conditions-quote__text tw-font-encode-sans tw-font-normal tw-not-italic">{{ section.settings.quote }}</blockquote>
+    {% if section.settings.citation != blank %}
+      <figcaption class="skin-conditions-quote__cite tw-mt-6 tw-font-open-sans tw-text-14px/20px">
+        {% if section.settings.citation_link != blank %}
+          <a href="{{ section.settings.citation_link }}" target="_blank" rel="noopener">{{ section.settings.citation }}</a>
+        {% else %}
+          {{ section.settings.citation }}
+        {% endif %}
+      </figcaption>
+    {% endif %}
+  </figure>
+</section>
+
+{% schema %}
+  {
+    "name": "Skin Conditions Quote",
+    "settings": [
+      {
+        "id": "quote",
+        "type": "textarea",
+        "label": "Quote"
+      },
+      {
+        "id": "citation",
+        "type": "text",
+        "label": "Citation"
+      },
+      {
+        "id": "citation_link",
+        "type": "url",
+        "label": "Citation link"
+      },
+      {
+        "type": "header",
+        "content": "Spacing",
+        "info": "Desktop values; mobile uses half."
+      },
+      {
+        "id": "padding_top",
+        "type": "range",
+        "label": "Top padding",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "default": 48
+      },
+      {
+        "id": "padding_bottom",
+        "type": "range",
+        "label": "Bottom padding",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "default": 48
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin Conditions Quote",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

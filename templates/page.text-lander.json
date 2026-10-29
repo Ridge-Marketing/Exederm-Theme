@@ -1,0 +1,201 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Scalp Eczema: Causes, Symptoms, and How to Manage Flare-Ups"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer_Jd9frj": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Hero.webp"
+          }
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Scalp eczema is an itchy, flaking, scaly scalp caused by inflammation. It overlaps closely with seborrheic dermatitis, a red, greasy, flaking scalp condition (cradle cap in babies) that the National Eczema Association calls the <a href=\"https://nationaleczema.org/body/scalp-eczema/\" title=\"most common form of scalp eczema\">most common form of scalp eczema</a>. It can be stubborn, but it's usually manageable, especially when using the right shampoo.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "causes": {
+          "type": "text",
+          "settings": {
+            "heading": "What causes scalp eczema?",
+            "body": "<p>The causes vary depending on the type of scalp eczema. <a href=\"/pages/seborrheic-dermatitis\" title=\"Seborrheic dermatitis\">Seborrheic dermatitis</a> is associated with naturally occurring yeast on the skin, skin oils, and an inflammatory response. Stress, fatigue, and seasonal changes may trigger flare-ups, which can worsen in winter. Harsh shampoo ingredients can also trigger or worsen scalp eczema.</p>",
+            "size": "regular"
+          }
+        },
+        "look_like": {
+          "type": "text_image",
+          "settings": {
+            "heading": "What does scalp eczema look like?",
+            "subheading": "Common signs include:",
+            "body": "<ul><li>Patchy scaling or thick crusts on the scalp</li><li>Red, greasy skin with flaky white or yellow scales (on darker skin, patches may look pink, purple or lighter than your natural skin tone)</li><li>Itching or soreness</li><li>Flakes or dandruff</li></ul>",
+            "image": "shopify://shop_images/eczema.webp"
+          }
+        },
+        "vs_dandruff": {
+          "type": "text",
+          "settings": {
+            "heading": "Scalp eczema vs. dandruff: what is the difference?",
+            "body": "<p>Dandruff, which the American Academy of Dermatology says <a href=\"https://www.aad.org/public/diseases/a-z/seborrheic-dermatitis-overview\" title=\"may be considered the mildest form of seborrheic dermatitis\">may be considered the mildest form of seborrheic dermatitis</a>, causes flaking without significant visible inflammation. More pronounced scalp eczema or seborrheic dermatitis may involve redness, irritation, itching, and greasy scales.</p>",
+            "size": "regular"
+          }
+        },
+        "comparison": {
+          "type": "comparison",
+          "settings": {
+            "heading": "Scalp eczema or dandruff?",
+            "image_1": "shopify://shop_images/dandruff.webp",
+            "caption_1": "<p><strong>Dandruff:</strong> flakes, little or no redness underneath.</p>",
+            "image_2": "shopify://shop_images/scalp_eczema.webp",
+            "caption_2": "<p><strong>Scalp eczema:</strong> flakes plus redness or discoloration, itching, and greasy, scaly buildup.</p>"
+          }
+        },
+        "psoriasis": {
+          "type": "text",
+          "settings": {
+            "heading": "Is it scalp eczema or scalp psoriasis?",
+            "body": "<p>They can look alike. Other scalp conditions, psoriasis included, can cause similar symptoms, so scalp eczema can be hard to diagnose. Scalp psoriasis tends to form well-defined, raised plaques with a white or silvery surface, sometimes along the hairline, forehead, back of the neck or around the ears. Itch alone won't tell them apart. Seborrheic dermatitis and psoriasis can also occur together, a combination <a href=\"https://dermnetnz.org/topics/seborrhoeic-dermatitis\" title=\"DermNet calls sebopsoriasis\">DermNet calls sebopsoriasis</a>, so if you're not sure which you have, see a dermatologist.</p>",
+            "size": "regular"
+          }
+        },
+        "ingredients": {
+          "type": "text",
+          "settings": {
+            "heading": "What shampoo ingredients should I avoid with scalp eczema?",
+            "body": "<p>Some people with scalp eczema may find that fragrances, certain surfactants such as <a href=\"/pages/capb\" title=\"cocamidopropyl betaine (CAPB)\">cocamidopropyl betaine (CAPB)</a> or <a href=\"/pages/sls-or-sles\" title=\"sodium lauryl sulfate (SLS)\">sodium lauryl sulfate (SLS)</a>, and particular preservatives such as methylisothiazolinone irritate their scalp. Even products labeled \"hypoallergenic,\" \"sensitive,\" or \"natural\" can still contain these irritants.</p>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Try to avoid shampoos and other hair products (such as gels, sprays, hair dyes and perm solutions) that are fragranced, as these may cause irritation and possibly allergy.\"",
+            "citation": "Eczema UK (formerly the National Eczema Society)",
+            "citation_link": "https://www.eczema.org.uk/support/scalp-eczema"
+          }
+        },
+        "myth_fact": {
+          "type": "myth_fact",
+          "settings": {
+            "heading": "Myth vs fact",
+            "myth_label": "Myth:",
+            "myth": "\"Sulfate-free\" means gentle.",
+            "fact_label": "Fact:",
+            "fact": "Sulfate-free shampoos can still contain cocamidopropyl betaine, one of the most common allergens in drugstore shampoos. Check the ingredient list for both."
+          }
+        },
+        "managed": {
+          "type": "text",
+          "settings": {
+            "heading": "How is scalp eczema managed?",
+            "body": "<p>Switching to a gentle shampoo that avoids common triggers is a sensible first step. A doctor may recommend adding medicated shampoos containing ingredients like ketoconazole or zinc pyrithione to your regular haircare routine.</p>",
+            "size": "regular"
+          }
+        },
+        "wash": {
+          "type": "text",
+          "settings": {
+            "heading": "How often should I wash my hair with scalp eczema?",
+            "body": "<p>Most people with scalp eczema <a href=\"https://nationaleczema.org/body/scalp-eczema/\" title=\"do well washing every 2 to 3 days\">do well washing every 2 to 3 days</a>. Washing too often can strip natural oils, and washing too rarely lets buildup collect. If your doctor recommends a medicated dandruff shampoo, the American Academy of Dermatology says people with straight or wavy hair <a href=\"https://www.aad.org/public/diseases/a-z/seborrheic-dermatitis-treatment\" title=\"may use it 2 to 3 times a week\">may use it 2 to 3 times a week</a>, and people with curly or tightly coiled hair may be told to use it once a week. On the days in between, use a gentle shampoo.</p>",
+            "size": "regular"
+          }
+        },
+        "go_away": {
+          "type": "text",
+          "settings": {
+            "heading": "Does scalp eczema go away?",
+            "body": "<p>It usually comes and goes. With proper care and treatment, most people can control scalp eczema and have long periods without symptoms, according to the National Eczema Association. When seborrheic dermatitis is the cause, it may go away without treatment in teens and adults, but some people have it for life, with flare-ups that come and go. In babies, cradle cap usually goes away on its own within a few months.</p>",
+            "size": "regular"
+          }
+        },
+        "hair_loss": {
+          "type": "text",
+          "settings": {
+            "heading": "Can scalp eczema cause hair loss?",
+            "body": "<p>It can, but usually only temporarily. In severe cases, inflammation or heavy scratching may cause temporary hair shedding, per the National Eczema Association, and hair usually grows back once the scalp is treated. With seborrheic dermatitis, shedding comes from scratching and is not permanent hair loss. Scalp psoriasis can also cause hair loss when you scratch the scalp and force scales off, but hair usually regrows after it clears. If you're losing hair, see your doctor or dermatologist.</p>",
+            "size": "regular"
+          }
+        },
+        "see_doctor": {
+          "type": "callout",
+          "settings": {
+            "heading": "See a doctor if:",
+            "body": "<p>Your scalp is oozing, crusting, painful or losing hair, the rash spreads to your face or body, or it does not improve after a few weeks.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer_Jd9frj",
+        "hero_image",
+        "intro",
+        "divider",
+        "causes",
+        "look_like",
+        "vs_dandruff",
+        "comparison",
+        "psoriasis",
+        "ingredients",
+        "quote",
+        "myth_fact",
+        "managed",
+        "wash",
+        "go_away",
+        "hair_loss",
+        "see_doctor"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "image": "shopify://shop_images/product_eczema_shampoo_1.webp",
+        "text": "<a href=\"/products/eczema-shampoo\" title=\"exederm Eczema Shampoo\">exederm Eczema Shampoo</a> <strong>is made for eczema sufferers</strong> and is free of sodium lauryl sulfate and cocamidopropyl betaine. For a persistent or severe scalp condition, see your doctor or dermatologist.",
+        "hide_badge": true,
+        "button_label": "Shop Eczema Shampoo",
+        "button_link": "shopify://products/eczema-shampoo",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}
