@@ -1,0 +1,175 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Is Hydrocortisone Safe for Eczema? How to Use It on a Flare"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Hydrocortisone cream is one of the most common over-the-counter options for an eczema flare. When used as directed, it provides temporary relief of the itching that comes with flare-ups.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "how_to_use_1_hydrocortis": {
+          "type": "callout",
+          "settings": {
+            "heading": "How to use 1% hydrocortisone",
+            "body": "<ul><li>Adults and children 2 and older: apply to the affected area not more than 3 to 4 times daily.</li><li>Children under 2: do not use; ask a doctor.</li><li>Stop and see a doctor if it gets worse, isn't better within 7 days, or clears up and comes back within a few days.</li><li>Keep it out of your eyes. Do not use it for diaper rash.</li><li>Don't start another hydrocortisone product unless a doctor tells you to.</li></ul>"
+          }
+        },
+        "does_hydrocortisone_help": {
+          "type": "text",
+          "settings": {
+            "heading": "Does hydrocortisone help eczema?",
+            "body": "<p>Yes, 1% hydrocortisone provides temporary relief of itching associated with minor skin irritation, inflammation and rashes due to eczema. It can help when moisturizer alone isn't enough. Use it for flares, alongside a gentle cleanser and moisturizer.</p>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Follow the directions on the label carefully. Do not use it more often or longer than recommended on the label or by your healthcare provider.\"",
+            "citation": "National Eczema Association",
+            "citation_link": "https://nationaleczema.org/treatments/over-the-counter/"
+          }
+        },
+        "is_hydrocortisone_safe_f": {
+          "type": "text",
+          "settings": {
+            "heading": "Is hydrocortisone safe for eczema?",
+            "body": "<p>Used as directed on the label, 1% hydrocortisone is meant for short-term relief of eczema flares. The National Eczema Association notes that prolonged or excessive use can cause <a href=\"https://nationaleczema.org/treatments/topicals/\">side effects, including thinning of the skin</a>.</p><p>1% is the maximum strength available without a prescription in the US. Stronger versions, like 2.5%, need a prescription.</p>",
+            "size": "regular"
+          }
+        },
+        "why_does_hydrocortisone_": {
+          "type": "text",
+          "settings": {
+            "heading": "Why does hydrocortisone sting or burn?",
+            "body": "<p>A brief sting can happen when the cream first goes on, because the skin underneath is <a href=\"https://dermnetnz.org/topics/topical-steroid\">inflamed and broken</a>, according to DermNet. If burning or irritation keeps bothering you, ask a pharmacist or doctor for advice. If your skin gets worse, stop using it and ask a doctor.</p>",
+            "size": "regular"
+          }
+        },
+        "how_often_and_how_much_s": {
+          "type": "text",
+          "settings": {
+            "heading": "How often and how much should I apply?",
+            "body": "<p>For adults and children 2 and older, apply to the affected area not more than 3 to 4 times daily. Use just enough to cover the affected area in a thin, even layer and rub it in gently. If you want a guide, the NHS uses the <a href=\"https://www.nhs.uk/medicines/hydrocortisone-for-skin/\">fingertip unit</a>: a line of cream squeezed along your fingertip, from the tip to the first crease, covers an area about twice the size of an adult's palm. Always follow the directions on your product's label.</p>",
+            "size": "regular"
+          }
+        },
+        "does_hydrocortisone_go_o": {
+          "type": "text",
+          "settings": {
+            "heading": "Does hydrocortisone go on before or after moisturizer?",
+            "body": "<p>Eczema UK suggests a simple approach: <a href=\"https://www.eczema.org.uk/support/topical-steroids\">apply the hydrocortisone first, wait about 30 minutes, then moisturize</a>, so the moisturizer doesn't dilute it or spread it to skin that doesn't need it. Either order can work, according to DermNet. If you're unsure, ask your pharmacist.</p>",
+            "size": "regular"
+          }
+        },
+        "how_long_can_i_use_hydro": {
+          "type": "text",
+          "settings": {
+            "heading": "How long can I use hydrocortisone on eczema?",
+            "body": "<p>Use it for the flare-ups, not as an everyday moisturizer. If your eczema worsens, doesn't improve within 7 days or clears up and comes back within a few days, stop using it and see your doctor before starting any other hydrocortisone product. The label doesn't promise a time for relief to start, so that 7-day check-in is the guide.</p>",
+            "size": "regular"
+          }
+        },
+        "what_if_hydrocortisone_d": {
+          "type": "text",
+          "settings": {
+            "heading": "What if hydrocortisone doesn't help my eczema?",
+            "body": "<p>Stop using it and ask a doctor, as the label says, and don't switch to another hydrocortisone product unless a doctor directs you to. A doctor can check what's getting in the way. Creams like hydrocortisone can hide the signs of a skin infection, some people are allergic to an ingredient in the cream, and sometimes a different condition is the cause. If your eczema needs more, a doctor may prescribe a stronger treatment.</p>",
+            "size": "regular"
+          }
+        },
+        "can_i_use_hydrocortisone": {
+          "type": "text",
+          "settings": {
+            "heading": "Can I use hydrocortisone on my face?",
+            "body": "<p>Keep it out of your eyes. On the face, a doctor may advise using it only as long as needed. Stop and ask a doctor if it isn't better within 7 days, and ask before using it on your eyelids or if facial eczema keeps coming back.</p>",
+            "size": "regular"
+          }
+        },
+        "can_i_use_hydrocortisone_2": {
+          "type": "text",
+          "settings": {
+            "heading": "Can I use hydrocortisone on my baby or child?",
+            "body": "<p>Children 2 and older can use 1% hydrocortisone as directed. For children under 2, do not use it; ask your pediatrician. Do not use exederm Flare Control Cream for the treatment of diaper rash. See our <a href=\"/pages/childrens-skin\">guide to baby and kids eczema</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "what_should_i_look_for_i": {
+          "type": "text",
+          "settings": {
+            "heading": "What should I look for in a hydrocortisone cream for eczema?",
+            "body": "<p>Check the inactive ingredients, not just the active one. Some creams include fragrance or other ingredients that can irritate eczema-prone skin and worsen flare-ups. exederm Flare Control Cream is a <a href=\"/products/flare-control-cream\">hydrocortisone cream for eczema</a> with 1% hydrocortisone, made without cocamidopropyl betaine (CAPB), fragrance, sodium lauryl sulfate, parabens and dyes. It was the first hydrocortisone product to earn the National Eczema Association Seal of Acceptance. It does contain chamomile extract, so if you are allergic to chamomile or other plants in the daisy family, ask your doctor whether the product is suitable for you.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "how_to_use_1_hydrocortis",
+        "does_hydrocortisone_help",
+        "quote",
+        "is_hydrocortisone_safe_f",
+        "why_does_hydrocortisone_",
+        "how_often_and_how_much_s",
+        "does_hydrocortisone_go_o",
+        "how_long_can_i_use_hydro",
+        "what_if_hydrocortisone_d",
+        "can_i_use_hydrocortisone",
+        "can_i_use_hydrocortisone_2",
+        "what_should_i_look_for_i"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "text": "<a href=\"/products/flare-control-cream\">exederm Flare Control Cream</a> <strong>was the first hydrocortisone product to earn the National Eczema Association Seal of Acceptance.</strong>",
+        "hide_badge": false,
+        "button_label": "Shop Flare Control Cream",
+        "button_link": "shopify://products/flare-control-cream",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

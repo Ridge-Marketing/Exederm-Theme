@@ -1,0 +1,192 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Baby & Kids Eczema: What It Looks Like at Every Age"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Eczema is common in babies and young children. It is not contagious, and the American Academy of Dermatology says that for many children it improves as they grow, <a href=\"https://www.aad.org/public/diseases/eczema/types/atopic-dermatitis\">often clearing up by their teens</a>. Understanding how it appears at each age makes it easier to spot and care for.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "by_age": {
+          "type": "callout",
+          "settings": {
+            "heading": "Eczema by age",
+            "body": "<ul><li><strong>Babies:</strong> cheeks and scalp.</li><li><strong>Toddlers:</strong> outside of the elbows and knees, then the creases.</li><li><strong>School age:</strong> elbow and knee creases, neck, hands and feet.</li></ul>"
+          }
+        },
+        "what_does_eczema_look_li": {
+          "type": "text",
+          "settings": {
+            "heading": "What does eczema look like in babies?",
+            "body": "<p>In the first few months, eczema usually appears on the face (especially the cheeks) and on the scalp. On lighter skin, the skin may be dry, rough and red, and on darker skin, it can look dark brown, purple or gray.</p><p>Diaper rash, a common skin inflammation that causes redness in the diaper area, differs from baby eczema: DermNet notes that eczema <a href=\"https://dermnetnz.org/topics/atopic-dermatitis\">usually skips the diaper area</a>, likely because the diaper keeps that skin moist. Greasy, yellow scales on the scalp are more often cradle cap; see our <a href=\"/pages/seborrheic-dermatitis\">guide to seborrheic dermatitis</a>. Always consult your pediatrician for proper diagnosis.</p>",
+            "size": "regular"
+          }
+        },
+        "is_it_eczema_or_baby_acn": {
+          "type": "text",
+          "settings": {
+            "heading": "Is it eczema or baby acne?",
+            "body": "<p>According to the American Academy of Dermatology, baby acne looks like small pimples, usually on the cheeks and nose. It usually shows up around 2 weeks of age and tends to go away on its own in a few weeks to months. Eczema causes dry, itchy patches of skin that form a rash, usually on the scalp and face in babies under 6 months. Acne that starts after 6 weeks of age is less common and could be eczema or a skin infection, so check with your pediatrician. Never use acne medicine or acne wash on your baby's skin unless your pediatrician or dermatologist recommends it.</p>",
+            "size": "regular"
+          }
+        },
+        "what_does_eczema_look_li_2": {
+          "type": "text",
+          "settings": {
+            "heading": "What does eczema look like in toddlers?",
+            "body": "<p>As children start crawling and walking, eczema often moves to the outside of the elbows and knees, then into the creases of the elbows, knees, wrists and ankles. Toddlers often scratch hard, which can make the skin look raw and thicken over time.</p>",
+            "size": "regular"
+          }
+        },
+        "what_does_eczema_look_li_3": {
+          "type": "text",
+          "settings": {
+            "heading": "What does eczema look like in school-age children?",
+            "body": "<p>Older children most often get eczema in the creases of the elbows and knees. It can also show up on the neck, hands and feet.</p><p>Nummular eczema produces round, coin-shaped patches that can be mistaken for ringworm, a fungal infection. Consult your pediatrician if you're unsure which condition your child has, so it's treated correctly.</p>",
+            "size": "regular"
+          }
+        },
+        "will_my_baby_outgrow_ecz": {
+          "type": "text",
+          "settings": {
+            "heading": "Will my baby outgrow eczema?",
+            "body": "<p>Many do, often by the teenage years. Some children see it <a href=\"https://www.healthychildren.org/English/health-issues/conditions/skin/Pages/Eczema.aspx\">start to go away by age 4</a>, and some cases clear up by the time children start school. Others keep dry, sensitive skin or have symptoms into adolescence and adulthood.</p>",
+            "size": "regular"
+          }
+        },
+        "is_baby_eczema_linked_to": {
+          "type": "text",
+          "settings": {
+            "heading": "Is baby eczema linked to food allergy?",
+            "body": "<p>They're linked, though the American Academy of Pediatrics says <a href=\"https://www.healthychildren.org/English/health-issues/conditions/skin/Pages/Eczema.aspx\">food doesn't cause eczema</a>. Many children with eczema also have food allergies. About <a href=\"https://www.aad.org/public/diseases/eczema/childhood/treating/food-fix\">40% of babies and young children with moderate or severe eczema</a> have one, according to the American Academy of Dermatology, yet removing those foods rarely stops the eczema. Talk with your child's doctor before taking foods out of their diet, and ask your pediatrician about when to introduce common allergens like peanut, since babies with severe eczema are at higher risk of peanut allergy.</p>",
+            "size": "regular"
+          }
+        },
+        "what_should_i_avoid_in_b": {
+          "type": "text",
+          "settings": {
+            "heading": "What should I avoid in baby and kids' skincare?",
+            "body": "<p>Many baby products add fragrances babies don't need. The American Academy of Dermatology recommends skipping bubble bath and choosing fragrance-free products rather than \"unscented\" ones. Check the ingredient list on any baby product for <a href=\"/pages/fragrance-perfume\">fragrance</a>, <a href=\"/pages/capb\">cocamidopropyl betaine</a> and preservatives like methylisothiazolinone, which has been linked to allergic skin reactions from wet wipes.</p>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Use cleanser only when needed and make sure the cleanser is mild and fragrance-free. Do not use bubble bath.\"",
+            "citation": "American Academy of Dermatology",
+            "citation_link": "https://www.aad.org/public/diseases/eczema/eczema-child-tips"
+          }
+        },
+        "how_can_i_care_for_my_ch": {
+          "type": "text",
+          "settings": {
+            "heading": "How can I care for my child's eczema at home?",
+            "body": "<p>Most at-home eczema care comes down to a few basics your pediatrician may recommend: learn your child's triggers and avoid them, and keep a daily bathing and moisturizing routine to protect the skin and lock in moisture. Call your pediatrician if you see yellow or honey-colored crusting, weepy or oozing skin, blisters or pus-filled bumps, or a rash that isn't improving with usual care. Get care the same day for painful clusters of blisters or open sores, especially with a fever, which can be a serious skin infection.</p>",
+            "size": "regular"
+          }
+        },
+        "how_often_should_i_bathe": {
+          "type": "text",
+          "settings": {
+            "heading": "How often should I bathe a baby with eczema?",
+            "body": "<p>The American Academy of Pediatrics suggests a bath every day or every other day for 5 to 10 minutes in lukewarm water. Wash only the dirty or smelly parts with a mild, fragrance-free cleanser, then pat the skin dry. Within 3 minutes of the bath, while the skin is still damp, apply a fragrance-free moisturizer to the whole body. The National Eczema Association calls this \"soak and seal\" because it locks in moisture.</p>",
+            "size": "regular"
+          }
+        },
+        "how_to_soak_and_seal": {
+          "type": "callout",
+          "settings": {
+            "heading": "How to soak and seal",
+            "body": "<ul><li>Bathe 5 to 10 minutes in lukewarm water, every day or every other day.</li><li>Use a mild, fragrance-free cleanser only where needed.</li><li>Pat dry, leaving the skin a little damp.</li><li>Moisturize the whole body within 3 minutes.</li></ul>"
+          }
+        },
+        "can_i_use_hydrocortisone": {
+          "type": "text",
+          "settings": {
+            "heading": "Can I use hydrocortisone cream on my baby's eczema?",
+            "body": "<p>No, not on your own. Over-the-counter 1% hydrocortisone is labeled for adults and children 2 and older; for children under 2, the label says: \"Do not use. Consult a doctor.\" Do not use exederm Flare Control Cream for the treatment of diaper rash. For older children, see <a href=\"/pages/using-hydrocortisone-for-eczema\">how to use hydrocortisone for eczema</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "which_exederm_products_a": {
+          "type": "text",
+          "settings": {
+            "heading": "Which exederm products are suitable for babies and kids?",
+            "body": "<p><a href=\"/products/baby-eczema-wash\">exederm Baby Eczema Wash</a> is a gentle wash for babies and children with eczema and sensitive skin, made without cocamidopropyl betaine (CAPB), fragrance, MI/MCI and sodium lauryl sulfate. The full exederm line holds the National Eczema Association Seal of Acceptance. For itchy eczema flare-ups in children 2 and older (not babies under 2), <a href=\"/products/flare-control-cream\">Flare Control Cream</a> provides temporary relief of itching associated with minor skin irritation, inflammation and rashes due to eczema.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "by_age",
+        "what_does_eczema_look_li",
+        "is_it_eczema_or_baby_acn",
+        "what_does_eczema_look_li_2",
+        "what_does_eczema_look_li_3",
+        "will_my_baby_outgrow_ecz",
+        "is_baby_eczema_linked_to",
+        "what_should_i_avoid_in_b",
+        "quote",
+        "how_can_i_care_for_my_ch",
+        "how_often_should_i_bathe",
+        "how_to_soak_and_seal",
+        "can_i_use_hydrocortisone",
+        "which_exederm_products_a"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "text": "<a href=\"/products/baby-eczema-wash\">exederm Baby Eczema Wash</a> <strong>is a gentle wash for babies and children</strong> with eczema and sensitive skin, made without cocamidopropyl betaine (CAPB), fragrance, MI/MCI and sodium lauryl sulfate.",
+        "hide_badge": true,
+        "button_label": "Shop Baby Eczema Wash",
+        "button_link": "shopify://products/baby-eczema-wash",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

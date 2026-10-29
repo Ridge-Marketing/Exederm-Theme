@@ -1,0 +1,157 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Atopic Eczema: What Triggers a Flare and How to Calm It"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Atopic eczema, also called atopic dermatitis, is the chronic, itchy form of eczema. It often starts in childhood but can appear at any age, and it tends to come and go in flare-ups.  The National Eczema Association says atopic dermatitis affects <a href=\"https://nationaleczema.org/types-of-eczema/atopic-dermatitis/\">more than </a><a href=\"https://nationaleczema.org/types-of-eczema/atopic-dermatitis/\"><strong>9.6 million children</strong></a><a href=\"https://nationaleczema.org/types-of-eczema/atopic-dermatitis/\"> and about </a><a href=\"https://nationaleczema.org/types-of-eczema/atopic-dermatitis/\"><strong>16.5 million adults</strong></a> in the U.S.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "what_is_atopic_eczema": {
+          "type": "text",
+          "settings": {
+            "heading": "What is atopic eczema?",
+            "body": "<p>It is a long-term condition in which the skin barrier does not retain moisture well, and the immune system overreacts to triggers. \"Atopic\" refers to a tendency toward allergic conditions, so people with atopic eczema often also have asthma or hay fever, and it frequently runs in families.</p>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Lack of filaggrin and natural moisture in the skin results in gaps between the skin cells and an altered skin barrier which allows bacteria, irritants and allergens to enter the skin, causing increased water loss.\"",
+            "citation": "Eczema UK (formerly the National Eczema Society)",
+            "citation_link": "https://www.eczema.org.uk/support/atopic-eczema"
+          }
+        },
+        "is_atopic_eczema_contagi": {
+          "type": "text",
+          "settings": {
+            "heading": "Is atopic eczema contagious?",
+            "body": "<p>No. The American Academy of Dermatology says atopic eczema <a href=\"https://www.aad.org/public/diseases/eczema/types/atopic-dermatitis\">can't spread from person to person</a>, so you can't catch it or pass it on. Children with eczema are more prone to skin infections, but the eczema itself is not contagious.</p>",
+            "size": "regular"
+          }
+        },
+        "what_causes_atopic_eczem": {
+          "type": "text",
+          "settings": {
+            "heading": "What causes atopic eczema?",
+            "body": "<p>There is no single cause. It results from a mix of genetics and environmental factors that leave the skin dry and easily irritated. Flare-ups are often set off by:</p><ul><li>Harsh soaps, cleansers and fragrance</li><li>Dry air and cold weather (often worse in winter)</li><li>Heat and sweat</li><li>Stress</li><li>Scratchy fabrics such as wool</li></ul>",
+            "size": "regular"
+          }
+        },
+        "does_diet_cause_atopic_e": {
+          "type": "text",
+          "settings": {
+            "heading": "Does diet cause atopic eczema?",
+            "body": "<p>The American Academy of Pediatrics says <a href=\"https://www.healthychildren.org/English/health-issues/conditions/skin/Pages/Eczema.aspx\">foods themselves do not cause eczema</a>, though many children with eczema also have food allergies. In some children with a confirmed food allergy, that food can make eczema flare, according to the American Academy of Dermatology. About <a href=\"https://www.aad.org/public/diseases/eczema/childhood/treating/food-fix\">40% of babies and young children with moderate or severe atopic dermatitis</a> have food allergies, yet avoiding those foods rarely stops the eczema. Ask a doctor before cutting foods from your diet, or your child's.</p>",
+            "size": "regular"
+          }
+        },
+        "what_does_atopic_eczema_": {
+          "type": "text",
+          "settings": {
+            "heading": "What does atopic eczema look like?",
+            "body": "<p>During a flare-up, the skin becomes inflamed and very itchy, and it may develop blisters. On lighter skin, it looks red; on brown and Black skin, it can look dark brown, purple, or gray, sometimes with small, rough bumps. Between flare-ups, it may look normal or stay dry, rough and thickened, especially where the skin has been scratched. In adults, it often settles on the hands, eyelids and the creases of the elbows and knees.</p>",
+            "size": "regular"
+          }
+        },
+        "do_children_outgrow_atop": {
+          "type": "text",
+          "settings": {
+            "heading": "Do children outgrow atopic eczema?",
+            "body": "<p>Many do. Atopic eczema often goes away by the teenage years, though some people have it for life. The American Academy of Pediatrics says it <a href=\"https://www.healthychildren.org/English/health-issues/conditions/skin/Pages/Eczema.aspx\">starts to go away by age 4</a> for some children, while others keep dry, sensitive skin as they grow up.</p>",
+            "size": "regular"
+          }
+        },
+        "how_do_i_manage_an_atopi": {
+          "type": "text",
+          "settings": {
+            "heading": "How do I manage an atopic eczema flare?",
+            "body": "<p>Avoiding your triggers and keeping your skin moisturized are the everyday basics a doctor may recommend. For a flare, <a href=\"/products/flare-control-cream\">exederm Flare Control Cream</a> contains 1% hydrocortisone, the maximum strength available without a prescription. It provides temporary relief of itching associated with minor skin irritation, inflammation and rashes due to eczema, for adults and children 2 and older (for children under 2, ask a doctor). Keep it away from your eyes. exederm Flare Control Cream is designed for use during flare-ups, not as an everyday cream. Stop using it and see your doctor if the flare-up worsens, lasts more than 7 days, or clears up and returns within a few days. See <a href=\"/pages/using-hydrocortisone-for-eczema\">how to use hydrocortisone for eczema</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "see_doctor": {
+          "type": "callout",
+          "settings": {
+            "heading": "See a doctor if:",
+            "body": "<p>The flare gets worse, lasts more than 7 days, or clears up and comes back within a few days. Get care the same day for painful clusters of blisters or open sores, especially with a fever, which can be a serious skin infection. Also see a doctor if the skin oozes, crusts yellow, or feels hot and painful.</p>"
+          }
+        },
+        "how_can_i_avoid_triggeri": {
+          "type": "text",
+          "settings": {
+            "heading": "How can I avoid triggering a flare?",
+            "body": "<p>Always read the ingredient list on any product you plan to use on your skin. Many everyday products, including some labeled \"hypoallergenic,\" \"sensitive,\" or \"natural,\" contain fragrance or harsh cleansing agents like <a href=\"/pages/capb\">cocamidopropyl betaine</a> and <a href=\"/pages/sls-or-sles\">sodium lauryl sulfate</a>, which can irritate sensitive skin or cause reactions in susceptible individuals. <a href=\"/products/eczema-wash\">exederm Eczema Body Wash</a> contains neither, and <a href=\"/products/intensive-moisturizer\">Eczema Cream Moisturizer</a> contains no added fragrance. The full exederm line holds the National Eczema Association Seal of Acceptance.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "what_is_atopic_eczema",
+        "quote",
+        "is_atopic_eczema_contagi",
+        "what_causes_atopic_eczem",
+        "does_diet_cause_atopic_e",
+        "what_does_atopic_eczema_",
+        "do_children_outgrow_atop",
+        "how_do_i_manage_an_atopi",
+        "see_doctor",
+        "how_can_i_avoid_triggeri"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "text": "<a href=\"/products/flare-control-cream\">exederm Flare Control Cream</a> <strong>contains 1% hydrocortisone,</strong> the maximum strength available without a prescription, for temporary relief of itching during eczema flare-ups.",
+        "hide_badge": true,
+        "button_label": "Shop Flare Control Cream",
+        "button_link": "shopify://products/flare-control-cream",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

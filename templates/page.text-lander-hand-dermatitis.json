@@ -1,0 +1,157 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Hand Dermatitis: Why Your Hands Flare and How to Protect Them"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Hand dermatitis, or hand eczema, is any eczema or dermatitis affecting the hands. Research suggests about <a href=\"https://pubmed.ncbi.nlm.nih.gov/33548072/\">9% of people experience it each year</a>, and roughly 15% get it at some point in their life. Because your hands are frequently exposed to potential irritants, the causes are often environmental or job-related.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "what_causes_hand_dermati": {
+          "type": "text",
+          "settings": {
+            "heading": "What causes hand dermatitis?",
+            "body": "<p>Most hand dermatitis results from repeated contact with water and irritants, including frequent hand washing, soaps, detergents, cleaning products and solvents. People in industries like healthcare, hairdressing, cleaning, and food service are at higher risk of developing hand dermatitis.</p><p>It can also be triggered by an allergy to nickel, rubber gloves or ingredients in hand soaps and creams. People with atopic eczema are more prone to hand dermatitis, too.</p>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Even something as harmless as water can irritate your skin if you often have wet hands. Many people who frequently have wet hands throughout the day, such as nurses, hair stylists, and plumbers get hand eczema.\"",
+            "citation": "American Academy of Dermatology",
+            "citation_link": "https://www.aad.org/public/diseases/eczema/types/hand-eczema"
+          }
+        },
+        "what_does_hand_dermatiti": {
+          "type": "text",
+          "settings": {
+            "heading": "What does hand dermatitis look like?",
+            "body": "<p>It often starts as mild irritation that gets worse without care. Common signs:</p><ul><li>Dry, chapped or rough skin</li><li>Itchy, scaly patches that look red, or dark brown on darker skin</li><li>Small itchy blisters on the palms or sides of the fingers</li><li>Deep cracks that can bleed and hurt</li></ul>",
+            "size": "regular"
+          }
+        },
+        "how_can_i_protect_my_han": {
+          "type": "text",
+          "settings": {
+            "heading": "How can I protect my hands?",
+            "body": "<p>A dermatologist may suggest steps like these:</p><ul><li>Wear gloves for cleaning and working with liquids. Choose non-latex gloves if you're allergic to latex, and consider cotton liners to reduce moisture buildup.</li><li>Wash with a gentle cleanser and lukewarm water, and pat dry.</li><li>Moisturize after every wash, and keep a hand cream by the sink.</li><li>Avoid nickel jewelry if you're allergic to nickel, and remove rings when washing your hands to prevent soap and water from becoming trapped against the skin.</li><li>Check hand soaps for <a href=\"/pages/capb\">cocamidopropyl betaine</a>, <a href=\"/pages/fragrance-perfume\">fragrance</a> and methylisothiazolinone.</li><li>If hand eczema keeps coming back, ask a dermatologist about patch testing to identify possible allergens.</li></ul><p>To take common irritants out of hand washing, <a href=\"/products/eczema-wash\">exederm Eczema Body Wash</a> is a gentle wash made without cocamidopropyl betaine (CAPB), fragrance and sodium lauryl sulfate. After washing, moisturize with <a href=\"/products/intensive-moisturizer\">exederm Eczema Cream Moisturizer</a>, which contains no added fragrance.</p>",
+            "size": "regular"
+          }
+        },
+        "how_should_i_wash_my_han": {
+          "type": "text",
+          "settings": {
+            "heading": "How should I wash my hands if washing is the cause?",
+            "body": "<p>Lukewarm (not hot) water and a mild, fragrance-free cleanser are gentler on hands. For blistering hand eczema (dyshidrotic eczema), the American Academy of Dermatology also suggests <a href=\"https://www.aad.org/public/diseases/eczema/types/dyshidrotic-eczema/self-care\">skipping antibacterial or deodorant soaps</a>. Rinse carefully and make sure your hands are completely dry afterward, then moisturize (see below).</p>",
+            "size": "regular"
+          }
+        },
+        "what_should_i_look_for_i": {
+          "type": "text",
+          "settings": {
+            "heading": "What should I look for in a hand cream?",
+            "body": "<p>For blistering hand eczema, the American Academy of Dermatology's advice is a fragrance-free cream or ointment rather than a lotion. Lotions are mainly water and can sometimes burn on sensitive skin, while ointments generally don't. Reapply your moisturizer (not hydrocortisone) after every wash and whenever your hands feel dry, which <a href=\"https://dermnetnz.org/topics/hand-dermatitis\">can be 10 to 20 times a day</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "how_can_i_care_for_my_ha": {
+          "type": "text",
+          "settings": {
+            "heading": "How can I care for my hands overnight?",
+            "body": "<p>Bedtime is a good time to use a thicker product. Ointments work best for very dry skin, but some people find them too greasy to use during the day. Before bed, apply a thick layer of fragrance-free ointment, or your thickest moisturizing cream if ointment feels too greasy (a moisturizer, not hydrocortisone), and put on a pair of 100% cotton gloves for the night. The gloves also protect your sheets and help stop scratching damage while you sleep.</p>",
+            "size": "regular"
+          }
+        },
+        "how_do_i_calm_a_hand_ecz": {
+          "type": "text",
+          "settings": {
+            "heading": "How do I calm a hand eczema flare?",
+            "body": "<p>Cutting down on the trigger and moisturizing often are the basics a doctor may suggest. For a hand eczema flare, <a href=\"/products/flare-control-cream\">exederm Flare Control Cream</a> contains 1% hydrocortisone, the maximum strength available without a prescription. It provides temporary relief of itching associated with minor skin irritation, inflammation and rashes due to eczema, in adults and children 2 and older. Apply it not more than 3 to 4 times a day. If your hands get worse, don't improve within 7 days, or clear up and flare again within a few days, stop using it and see your doctor. Don't start another hydrocortisone product unless your doctor tells you to.</p>",
+            "size": "regular"
+          }
+        },
+        "how_long_does_hand_eczem": {
+          "type": "text",
+          "settings": {
+            "heading": "How long does hand eczema take to clear up?",
+            "body": "<p>According to the National Eczema Association, hand eczema flares <a href=\"https://nationaleczema.org/body/hand-eczema/\">often last 3 to 4 weeks</a> and may come back if you keep touching the irritants or allergens behind them. That doesn't mean using hydrocortisone for the whole flare: if it isn't better within 7 days, stop and see your doctor. With careful management, hand dermatitis often clears, though it can come back. If your hands stay very dry and painful even though you moisturize through the day, see a board-certified dermatologist.</p>",
+            "size": "regular"
+          }
+        },
+        "see_doctor": {
+          "type": "callout",
+          "settings": {
+            "heading": "See a doctor if:",
+            "body": "<p>Your hands get worse, aren't better within 7 days, or clear up and come back within a few days, or cracks ooze, crust yellow, or turn hot, swollen or more painful.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "what_causes_hand_dermati",
+        "quote",
+        "what_does_hand_dermatiti",
+        "how_can_i_protect_my_han",
+        "how_should_i_wash_my_han",
+        "what_should_i_look_for_i",
+        "how_can_i_care_for_my_ha",
+        "how_do_i_calm_a_hand_ecz",
+        "how_long_does_hand_eczem",
+        "see_doctor"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "text": "For a hand eczema flare, <a href=\"/products/flare-control-cream\">exederm Flare Control Cream</a> <strong>contains 1% hydrocortisone,</strong> the maximum strength available without a prescription.",
+        "hide_badge": true,
+        "button_label": "Shop Flare Control Cream",
+        "button_link": "shopify://products/flare-control-cream",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

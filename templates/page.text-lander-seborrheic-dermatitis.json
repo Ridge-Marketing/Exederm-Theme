@@ -1,0 +1,185 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Seborrheic Dermatitis: Flaking on the Face, Chest and Beyond"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Seborrheic dermatitis is a common condition that causes red, greasy, flaking skin on the body's oily areas. It is most prevalent on the scalp, but it can also appear on the face, chest, and back. On a baby's scalp, it is called cradle cap.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Seborrheic dermatitis is a chronic, relapsing form of eczema that usually appears on the scalp but can occur anywhere there are a lot of oil-producing (sebaceous) glands, like the chest, groin, beard region, and nose.\"",
+            "citation": "National Eczema Association",
+            "citation_link": "https://nationaleczema.org/types-of-eczema/seborrheic-dermatitis/"
+          }
+        },
+        "what_is_seborrheic_derma": {
+          "type": "text",
+          "settings": {
+            "heading": "What is seborrheic dermatitis?",
+            "body": "<p>Seborrheic dermatitis is a form of dermatitis that develops where the skin has the most oil glands: the scalp, the sides of the nose, the eyebrows, behind the ears, the center of the chest and the upper back. It tends to come and go, and the American Academy of Dermatology notes that flare-ups are often <a href=\"https://www.aad.org/public/diseases/a-z/seborrheic-dermatitis-overview\">worse in winter</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "what_causes_seborrheic_d": {
+          "type": "text",
+          "settings": {
+            "heading": "What causes seborrheic dermatitis?",
+            "body": "<p>The exact cause is not fully understood. It is linked to oil production, a yeast called Malassezia that normally lives on everyone's skin, and how your immune system responds to it. Flares are often tied to stress, lack of sleep, hormonal changes and cold, dry weather.</p>",
+            "size": "regular"
+          }
+        },
+        "is_seborrheic_dermatitis": {
+          "type": "text",
+          "settings": {
+            "heading": "Is seborrheic dermatitis contagious?",
+            "body": "<p>No. According to Cleveland Clinic, seborrheic dermatitis <a href=\"https://my.clevelandclinic.org/health/diseases/14403-seborrheic-dermatitis\">isn't contagious and doesn't spread from person to person</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "seborrheic_dermatitis_vs": {
+          "type": "text",
+          "settings": {
+            "heading": "Seborrheic dermatitis vs eczema: how do you tell them apart?",
+            "body": "<p>The National Eczema Association lists seborrheic dermatitis as <a href=\"https://nationaleczema.org/types-of-eczema/\">a type of eczema</a>, but it looks different from atopic eczema. It produces greasy, yellowish or white scales on oily areas, while <a href=\"/pages/atopic-eczema\">atopic eczema</a> tends to be dry, intensely itchy and found in skin creases like the elbows and knees. With seborrheic dermatitis, the itch is usually mild, though it can be intense on the scalp.</p>",
+            "size": "regular"
+          }
+        },
+        "is_dandruff_the_same_as_": {
+          "type": "text",
+          "settings": {
+            "heading": "Is dandruff the same as seborrheic dermatitis?",
+            "body": "<p>They're closely related. Dandruff may be considered the mildest form of seborrheic dermatitis. DermNet describes seborrheic dermatitis as <a href=\"https://dermnetnz.org/topics/seborrhoeic-dermatitis\">an uninflamed form on the scalp</a>. Seborrheic dermatitis can cause redness and may spread beyond the scalp.</p>",
+            "size": "regular"
+          }
+        },
+        "what_does_seborrheic_der": {
+          "type": "text",
+          "settings": {
+            "heading": "What does seborrheic dermatitis look like on the face and body?",
+            "body": "<ul><li>Red, greasy patches with white or yellow flakes (on darker skin, patches may look pink, purple or lighter than your natural skin tone)</li><li>Flaking in the eyebrows, beard or along the sides of the nose</li><li>Itching or burning</li></ul><p>On the scalp, it looks like stubborn dandruff with redness. For the scalp specifically, see our <a href=\"/pages/scalp-eczema\">guide to scalp eczema</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "what_is_cradle_cap": {
+          "type": "text",
+          "settings": {
+            "heading": "What is cradle cap?",
+            "body": "<p>Cradle cap is seborrheic dermatitis of a baby's scalp: thick, yellowish, crusty patches common in the first few months and, according to the American Academy of Pediatrics, <a href=\"https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Cradle-Cap.aspx\">usually clearing on their own</a>. Gentle washing may help loosen the scales. Don't use medicated or dandruff shampoos on a baby unless your pediatrician recommends one, and see your pediatrician if the rash becomes severe, spreads extensively, or shows signs of infection. See our <a href=\"/pages/childrens-skin\">guide to baby and kids eczema</a> for more.</p>",
+            "size": "regular"
+          }
+        },
+        "how_is_seborrheic_dermat": {
+          "type": "text",
+          "settings": {
+            "heading": "How is seborrheic dermatitis managed?",
+            "body": "<p>For teens and adults, doctors often recommend medicated washes or shampoos with ingredients like ketoconazole, pyrithione zinc, selenium sulfide or salicylic acid to help manage flaking and inflammation. On in-between days, use gentle cleansers that won't irritate the skin. If the rash persists or spreads, or if it's near your eyes, see your doctor.</p>",
+            "size": "regular"
+          }
+        },
+        "what_treats_the_yeast_be": {
+          "type": "text",
+          "settings": {
+            "heading": "What treats the yeast behind seborrheic dermatitis?",
+            "body": "<p>The National Eczema Association says seborrheic dermatitis is linked to an inflammatory reaction to too much Malassezia yeast. Some dandruff shampoos control the overgrowth of yeast, while others mainly help reduce scale, which is why a doctor may suggest one of the medicated shampoos above. If those don't help, a doctor may prescribe a stronger antifungal shampoo such as ciclopirox, an antifungal cream, or a prescription cream that quickly calms inflammation.</p>",
+            "size": "regular"
+          }
+        },
+        "does_seborrheic_dermatit": {
+          "type": "text",
+          "settings": {
+            "heading": "Does seborrheic dermatitis go away?",
+            "body": "<p>It depends on age. In babies, the American Academy of Dermatology says cradle cap usually goes away on its own within a few months. In teens and adults, it may go away without treatment, but some people have it for life, with flare-ups that come and go. Even when it settles on its own, it can take a long time.</p>",
+            "size": "regular"
+          }
+        },
+        "see_doctor": {
+          "type": "callout",
+          "settings": {
+            "heading": "See a doctor if:",
+            "body": "<p>The rash persists or spreads, it's near your eyes, or (for babies) cradle cap becomes severe, spreads beyond the scalp, or shows signs of infection.</p>"
+          }
+        },
+        "which_exederm_products_a": {
+          "type": "text",
+          "settings": {
+            "heading": "Which exederm products are gentle on sensitive skin and scalps?",
+            "body": "<p><a href=\"/products/eczema-shampoo\">exederm Eczema Shampoo</a> is a gentle, low-foam shampoo formulated for sensitive scalps, made without cocamidopropyl betaine (CAPB) and sodium lauryl sulfate (SLS). It is a gentle cleanser, not a medicated shampoo, so use it alongside any treatment your doctor recommends. <a href=\"/products/eczema-wash\">Eczema Body Wash</a> is made without CapB, sodium lauryl sulfate and fragrance.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "quote",
+        "what_is_seborrheic_derma",
+        "what_causes_seborrheic_d",
+        "is_seborrheic_dermatitis",
+        "seborrheic_dermatitis_vs",
+        "is_dandruff_the_same_as_",
+        "what_does_seborrheic_der",
+        "what_is_cradle_cap",
+        "how_is_seborrheic_dermat",
+        "what_treats_the_yeast_be",
+        "does_seborrheic_dermatit",
+        "see_doctor",
+        "which_exederm_products_a"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "image": "shopify://shop_images/product_eczema_shampoo_1.webp",
+        "text": "<a href=\"/products/eczema-shampoo\">exederm Eczema Shampoo</a> <strong>is a gentle, low-foam shampoo formulated for sensitive scalps,</strong> made without cocamidopropyl betaine (CAPB) and sodium lauryl sulfate (SLS).",
+        "hide_badge": true,
+        "button_label": "Shop Eczema Shampoo",
+        "button_link": "shopify://products/eczema-shampoo",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

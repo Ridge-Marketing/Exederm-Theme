@@ -117,13 +117,15 @@
                 {{ block.settings.body }}
               </div>
             </div>
-            <div class="text-lander__text-image-media tw-flex-shrink-0 tw-mx-auto md:tw-mx-0">
-              {% if block.settings.image != blank %}
-                <img class="tw-w-full tw-h-auto" src="{{ block.settings.image | image_url: width: 652 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
-              {% elsif request.design_mode %}
-                {{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
-              {% endif %}
-            </div>
+            {% if block.settings.image != blank or request.design_mode %}
+              <div class="text-lander__text-image-media tw-flex-shrink-0 tw-mx-auto md:tw-mx-0">
+                {% if block.settings.image != blank %}
+                  <img class="tw-w-full tw-h-auto" src="{{ block.settings.image | image_url: width: 652 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
+                {% endif %}
+              </div>
+            {% endif %}
           </div>
 
         {% when 'comparison' %}

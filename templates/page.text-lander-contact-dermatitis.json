@@ -1,0 +1,184 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Contact Dermatitis: When Your Skin Reacts to What Touches It"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Contact dermatitis is an inflammatory skin reaction caused by contact with an irritant or allergen. Unlike atopic eczema, you can usually avoid contact dermatitis once you identify the trigger.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "what_is_contact_dermatit": {
+          "type": "text",
+          "settings": {
+            "heading": "What is contact dermatitis?",
+            "body": "<p>Contact dermatitis is inflammation of the skin caused by direct contact with a substance. There are two types:</p><ul><li><strong>Irritant contact dermatitis</strong> happens when a substance damages the skin's surface faster than the skin can repair itself, which is common with frequent hand washing, detergents and cleaning products.</li><li><strong>Allergic contact dermatitis</strong> is an immune reaction to a specific ingredient. It usually appears a day or two after contact and, according to MedlinePlus, often <a href=\"https://medlineplus.gov/ency/article/000869.htm\">clears within 2 to 3 weeks</a> once you avoid the trigger.</li></ul>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Irritant contact dermatitis is much more common than allergic contact dermatitis; however, it's possible to have both at the same time.\"",
+            "citation": "Eczema UK (formerly the National Eczema Society)",
+            "citation_link": "https://www.eczema.org.uk/support/contact-dermatitis-contact-eczema"
+          }
+        },
+        "what_causes_contact_derm": {
+          "type": "text",
+          "settings": {
+            "heading": "What causes contact dermatitis?",
+            "body": "<p>The most common triggers include:</p><ul><li>Soaps, body washes and shampoos</li><li>Detergents and cleaning products</li><li>Cosmetics and fragrance</li><li>Preservatives</li><li>Poison ivy, oak, and sumac</li><li>Metals, especially nickel in jewelry, watch straps, zippers and buttons</li></ul><p>Research identifies nickel as one of the most common causes of allergic contact dermatitis. In personal care products, common triggers include fragrance, preservatives like methylisothiazolinone and <a href=\"/pages/formaldehyde\">formaldehyde releasers</a>, and cleansing agents such as <a href=\"/pages/capb\">cocamidopropyl betaine</a> and <a href=\"/pages/sls-or-sles\">sodium lauryl sulfate</a>, which can cause allergic reactions or irritation.</p>",
+            "size": "regular"
+          }
+        },
+        "stat": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"More than 15,000 things that touch our skin can cause an allergic reaction.\"",
+            "citation": "American Academy of Dermatology",
+            "citation_link": "https://www.aad.org/public/diseases/eczema/types/contact-dermatitis"
+          }
+        },
+        "what_does_contact_dermat": {
+          "type": "text",
+          "settings": {
+            "heading": "What does contact dermatitis look like?",
+            "body": "<p>Redness (on darker skin it can look dark brown, purple or gray), itching, swelling, dryness and scaling where the substance touched the skin. Allergic reactions can also blister.</p><p>The severity of contact dermatitis depends on how strong the trigger is, how long and how often you are exposed, and how sensitive your skin is.</p>",
+            "size": "regular"
+          }
+        },
+        "what_should_i_do_when_a_": {
+          "type": "text",
+          "settings": {
+            "heading": "What should I do when a reaction starts?",
+            "body": "<p>MedlinePlus advises that you rinse the skin with plenty of water to remove any trace of what caused it. Stop using whatever you think set it off, moisturize often, and try not to scratch, which can break the skin open. Contact your doctor if the reaction is severe, doesn't get better, or shows signs of infection such as tenderness, warmth or fever.</p>",
+            "size": "regular"
+          }
+        },
+        "how_long_does_contact_de": {
+          "type": "text",
+          "settings": {
+            "heading": "How long does contact dermatitis last?",
+            "body": "<p>In most cases it <a href=\"https://medlineplus.gov/ency/article/000869.htm\">clears up without complications in 2 or 3 weeks</a>, per MedlinePlus, and it usually improves or clears up completely once you find and avoid what's causing it. The longer you've had contact dermatitis, the longer it can take to clear once the cause is found.</p>",
+            "size": "regular"
+          }
+        },
+        "is_contact_dermatitis_co": {
+          "type": "text",
+          "settings": {
+            "heading": "Is contact dermatitis contagious, or can it spread?",
+            "body": "<p>The American Academy of Dermatology says contact dermatitis is not contagious, so you can't give it to anyone else. Depending on the cause, it can spread to other parts of your body.</p>",
+            "size": "regular"
+          }
+        },
+        "how_do_i_find_out_what_i": {
+          "type": "text",
+          "settings": {
+            "heading": "How do I find out what is causing it?",
+            "body": "<p>Contact dermatitis is often triggered by a substance your skin isn't used to, but it can also develop in response to a substance you've been exposed to many times before. If you've introduced a new soap, detergent or piece of jewelry, it may be the cause. If you've done yardwork or spent time outside and come in contact with poison ivy, oak or sumac, this is another likely source of irritation.</p><p>See a doctor promptly if the rash is on your face or near your eyes, covers a large area, blisters badly, or shows signs of infection such as pus, warmth or fever. If the reaction keeps coming back, ask your doctor about patch testing. An allergist or dermatologist tapes small amounts of common allergens to your back and reads the reactions over a few days, so you know which ingredients to avoid.</p>",
+            "size": "regular"
+          }
+        },
+        "what_is_patch_testing": {
+          "type": "callout",
+          "settings": {
+            "heading": "What is patch testing?",
+            "body": "<p>\"For allergic contact dermatitis, knowing what to avoid often takes longer to identify and might require special testing, called patch testing, usually performed by a dermatologist.\" (<a href=\"https://nationaleczema.org/types-of-eczema/contact-dermatitis/\">National Eczema Association</a>)</p>"
+          }
+        },
+        "how_can_i_avoid_contact_": {
+          "type": "text",
+          "settings": {
+            "heading": "How can I avoid contact dermatitis?",
+            "body": "<p>Once you know your trigger, avoid it, and read ingredient lists rather than front-of-pack claims. Products labeled \"hypoallergenic,\" \"sensitive,\" or \"natural\" can still contain fragrance, harsh preservatives or the cleansing agents above. Doctors often suggest gloves (cotton-lined, or non-latex if latex bothers you) for cleaning and working with liquids, and keeping your skin moisturized. If the itch doesn't settle once the trigger is gone, ask a pharmacist or doctor what to use.</p>",
+            "size": "regular"
+          }
+        },
+        "read_label": {
+          "type": "callout",
+          "settings": {
+            "heading": "Read the label",
+            "body": "<p>\"There are no Federal standards or definitions that govern the use of the term 'hypoallergenic.' The term means whatever a particular company wants it to mean.\" (<a href=\"https://www.fda.gov/cosmetics/cosmetics-labeling-claims/hypoallergenic-cosmetics\">U.S. FDA</a>)</p>"
+          }
+        },
+        "which_exederm_products_d": {
+          "type": "text",
+          "settings": {
+            "heading": "Which exederm products do not contain common irritants?",
+            "body": "<p>exederm is made for eczema, dermatitis and sensitive skin sufferers. <a href=\"/products/eczema-wash\">exederm Eczema Body Wash</a> and <a href=\"/products/eczema-shampoo\">Eczema Shampoo</a> are made without cocamidopropyl betaine (CAPB), sodium lauryl sulfate, fragrance, formaldehyde releasers, and methylisothiazolinone and methylchloroisothiazolinone (MI/MCI).</p><p><a href=\"/products/intensive-moisturizer\">Eczema Cream Moisturizer</a> contains no added fragrance. The full exederm line holds the National Eczema Association Seal of Acceptance. If a patch test has named a specific allergen, check the full ingredient list on each product page. See our <a href=\"/pages/irritants-to-avoid\">guide to irritants to avoid</a>.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "what_is_contact_dermatit",
+        "quote",
+        "what_causes_contact_derm",
+        "stat",
+        "what_does_contact_dermat",
+        "what_should_i_do_when_a_",
+        "how_long_does_contact_de",
+        "is_contact_dermatitis_co",
+        "how_do_i_find_out_what_i",
+        "what_is_patch_testing",
+        "how_can_i_avoid_contact_",
+        "read_label",
+        "which_exederm_products_d"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "image": "shopify://shop_images/product_flare_control.webp",
+        "text": "<strong>exederm is made for eczema, dermatitis and sensitive skin sufferers.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance.",
+        "hide_badge": false,
+        "button_label": "Shop the products",
+        "button_link": "shopify://pages/products",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}
