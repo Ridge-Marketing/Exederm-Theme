@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -24,7 +33,9 @@
         },
         "hero_image": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/gettyimages-1487944901-170667a_994438a9-0c27-49c6-b888-9fb1b3f837af.webp"
+          }
         },
         "intro": {
           "type": "text",
@@ -77,12 +88,13 @@
             "size": "regular"
           }
         },
-        "how_often_and_how_much_s": {
-          "type": "text",
+        "text_image_ghRWHU": {
+          "type": "text_image",
           "settings": {
             "heading": "How often and how much should I apply?",
+            "subheading": "",
             "body": "<p>For adults and children 2 and older, apply to the affected area not more than 3 to 4 times daily. Use just enough to cover the affected area in a thin, even layer and rub it in gently. If you want a guide, the NHS uses the <a href=\"https://www.nhs.uk/medicines/hydrocortisone-for-skin/\">fingertip unit</a>: a line of cream squeezed along your fingertip, from the tip to the first crease, covers an area about twice the size of an adult's palm. Always follow the directions on your product's label.</p>",
-            "size": "regular"
+            "image": "shopify://shop_images/gettyimages-816711468-170667a.webp"
           }
         },
         "does_hydrocortisone_go_o": {
@@ -109,12 +121,13 @@
             "size": "regular"
           }
         },
-        "can_i_use_hydrocortisone": {
-          "type": "text",
+        "text_image_RnqLUB": {
+          "type": "text_image",
           "settings": {
             "heading": "Can I use hydrocortisone on my face?",
+            "subheading": "",
             "body": "<p>Keep it out of your eyes. On the face, a doctor may advise using it only as long as needed. Stop and ask a doctor if it isn't better within 7 days, and ask before using it on your eyelids or if facial eczema keeps coming back.</p>",
-            "size": "regular"
+            "image": "shopify://shop_images/gettyimages-1560814270-170667a.webp"
           }
         },
         "can_i_use_hydrocortisone_2": {
@@ -146,11 +159,11 @@
         "quote",
         "is_hydrocortisone_safe_f",
         "why_does_hydrocortisone_",
-        "how_often_and_how_much_s",
+        "text_image_ghRWHU",
         "does_hydrocortisone_go_o",
         "how_long_can_i_use_hydro",
         "what_if_hydrocortisone_d",
-        "can_i_use_hydrocortisone",
+        "text_image_RnqLUB",
         "can_i_use_hydrocortisone_2",
         "what_should_i_look_for_i"
       ],

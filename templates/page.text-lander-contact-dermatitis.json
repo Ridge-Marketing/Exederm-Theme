@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -24,7 +33,9 @@
         },
         "hero_image": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/gettyimages-1569770958-170667a.webp"
+          }
         },
         "intro": {
           "type": "text",
@@ -54,6 +65,15 @@
             "citation_link": "https://www.eczema.org.uk/support/contact-dermatitis-contact-eczema"
           }
         },
+        "text_image_UDcwxi": {
+          "type": "text_image",
+          "settings": {
+            "heading": "What causes contact dermatitis?",
+            "subheading": "",
+            "body": "<p>The most common triggers include:</p><ul><li>Soaps, body washes and shampoos</li><li>Detergents and cleaning products</li><li>Cosmetics and fragrance</li><li>Preservatives</li><li>Poison ivy, oak, and sumac</li><li>Metals, especially nickel in jewelry, watch straps, zippers and buttons</li></ul><p>Research identifies nickel as one of the most common causes of allergic contact dermatitis. In personal care products, common triggers include fragrance, preservatives like methylisothiazolinone and <a href=\"/pages/formaldehyde\">formaldehyde releasers</a>, and cleansing agents such as <a href=\"/pages/capb\">cocamidopropyl betaine</a> and <a href=\"/pages/sls-or-sles\">sodium lauryl sulfate</a>, which can cause allergic reactions or irritation.</p>",
+            "image": "shopify://shop_images/gettyimages-1306285628-170667a.webp"
+          }
+        },
         "what_causes_contact_derm": {
           "type": "text",
           "settings": {
@@ -70,12 +90,13 @@
             "citation_link": "https://www.aad.org/public/diseases/eczema/types/contact-dermatitis"
           }
         },
-        "what_does_contact_dermat": {
-          "type": "text",
+        "text_image_ea93by": {
+          "type": "text_image",
           "settings": {
             "heading": "What does contact dermatitis look like?",
+            "subheading": "",
             "body": "<p>Redness (on darker skin it can look dark brown, purple or gray), itching, swelling, dryness and scaling where the substance touched the skin. Allergic reactions can also blister.</p><p>The severity of contact dermatitis depends on how strong the trigger is, how long and how often you are exposed, and how sensitive your skin is.</p>",
-            "size": "regular"
+            "image": "shopify://shop_images/gettyimages-180934156-170667a.webp"
           }
         },
         "what_should_i_do_when_a_": {
@@ -150,9 +171,10 @@
         "divider",
         "what_is_contact_dermatit",
         "quote",
+        "text_image_UDcwxi",
         "what_causes_contact_derm",
         "stat",
-        "what_does_contact_dermat",
+        "text_image_ea93by",
         "what_should_i_do_when_a_",
         "how_long_does_contact_de",
         "is_contact_dermatitis_co",

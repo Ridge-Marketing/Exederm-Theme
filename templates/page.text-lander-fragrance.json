@@ -1,0 +1,148 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Fragrance & Perfume: One of the Most Common Skin Allergens"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Skincare brands add fragrance primarily for its scent. Fragrance is also a common cause of allergic contact dermatitis, making it an important consideration for people with eczema or sensitive skin.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "why_is_fragrance_bad_for": {
+          "type": "text",
+          "settings": {
+            "heading": "Why is fragrance bad for eczema?",
+            "body": "<p>One word, \"fragrance,\" can stand for a <a href=\"https://www.fda.gov/cosmetics/cosmetic-ingredients/fragrances-cosmetics\">complex mix of natural and synthetic chemicals</a>, some of which are known skin sensitizers. DermNet calls fragrance the most common cause of cosmetic-related contact dermatitis. Once your skin becomes allergic to a fragrance ingredient, the allergy is usually lifelong, and the reaction tends to come back each time you are exposed.</p>",
+            "size": "regular"
+          }
+        },
+        "allergen_of_the_year": {
+          "type": "callout",
+          "settings": {
+            "heading": "Allergen of the Year",
+            "body": "<p>2007. Fragrance was named Allergen of the Year by the American Contact Dermatitis Society. (<a href=\"https://dermnetnz.org/topics/fragrance-mix-allergy\">DermNet</a>)</p>"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Skin exposure to fragrances is known to cause perfume contact allergy and eczema.\"",
+            "citation": "Elberling J. et al., British Journal of Dermatology, 2004",
+            "citation_link": "https://pubmed.ncbi.nlm.nih.gov/15606515/"
+          }
+        },
+        "look_like": {
+          "type": "text_image",
+          "settings": {
+            "heading": "What does a fragrance reaction look like?",
+            "subheading": "",
+            "body": "<p>According to DermNet, a fragrance allergy usually appears as itchy, red, scaly patches that may burn or sting, and with continued exposure the skin can swell or blister. The rash appears hours to days after contact, most often on the hands and face, and also on the neck, lower legs or armpits. Fragrance can be carried to other places too: touch a scented product and then your face, and a rash can appear on your face.</p>"
+          }
+        },
+        "why_can_t_i_see_the_frag": {
+          "type": "text",
+          "settings": {
+            "heading": "Why can't I see the fragrance ingredients on the label?",
+            "body": "<p>In the US, a fragrance blend can currently be listed simply as \"fragrance\" or \"perfume\" (you may also see \"parfum\"), without naming the exact ingredients in it. Allergists test for the most common culprits in a fragrance mix on the standard patch-test panel, including ingredients like cinnamal, eugenol, isoeugenol and oakmoss. If you think you react to fragrance, ask a dermatologist or allergist about patch testing.</p>",
+            "size": "regular"
+          }
+        },
+        "is_unscented_the_same_as": {
+          "type": "text",
+          "settings": {
+            "heading": "Is \"unscented\" the same as \"fragrance-free\"?",
+            "body": "<p>Not necessarily. The FDA says there is <a href=\"https://www.fda.gov/cosmetics/cosmetic-ingredients/allergens-cosmetics\">no federal definition of \"fragrance-free,\"</a> and that <a href=\"https://www.fda.gov/cosmetics/cosmetic-ingredients/fragrances-cosmetics\">some products labeled \"unscented\" contain fragrance ingredients</a> added to mask the odor of other ingredients. \"Fragrance-free\" generally means no fragrance was added for scent. Essential oils added for scent count as fragrance too, and <a href=\"https://pubmed.ncbi.nlm.nih.gov/27427818/\">nearly 80 of them have been reported to cause contact allergy</a>, so a product that smells of lavender or citrus may still contain fragrance ingredients. Check the ingredient list, not the front of the pack.</p>",
+            "size": "regular"
+          }
+        },
+        "how_do_i_avoid_fragrance": {
+          "type": "text",
+          "settings": {
+            "heading": "How do I avoid fragrance?",
+            "body": "<p>Check the ingredient list for these names. Be especially careful with leave-on products like moisturizers and creams, which stay on the skin for hours.</p>",
+            "size": "regular"
+          }
+        },
+        "label_check": {
+          "type": "callout",
+          "settings": {
+            "heading": "Label check",
+            "body": "<p>Look for: fragrance, parfum, perfume, aroma, and essential oils (lavender, citrus, tea tree and others).</p>"
+          }
+        },
+        "which_exederm_products_a": {
+          "type": "text",
+          "settings": {
+            "heading": "Which exederm products are fragrance-free?",
+            "body": "<p>exederm products contain no added fragrance or perfume. Check each product's ingredient list for the full details. We believe fragrance isn't necessary in a cleanser or moisturizer, and leaving it out removes one of the most common contact allergens. For a fragrance-free moisturizer, start with exederm <a href=\"/products/intensive-moisturizer\" title=\"Eczema Cream Moisturizer\">Eczema Cream Moisturizer</a>. The full exederm line holds the National Eczema Association Seal of Acceptance.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "why_is_fragrance_bad_for",
+        "allergen_of_the_year",
+        "quote",
+        "look_like",
+        "why_can_t_i_see_the_frag",
+        "is_unscented_the_same_as",
+        "how_do_i_avoid_fragrance",
+        "label_check",
+        "which_exederm_products_a"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "image": "shopify://shop_images/product_flare_control.webp",
+        "text": "<strong>exederm products contain no added fragrance or perfume.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance.",
+        "hide_badge": false,
+        "button_label": "Shop fragrance-free eczema care",
+        "button_link": "shopify://pages/products",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Methylisothiazolinone (MI / MCI): The Preservative Behind a Wave of Reactions"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {}
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Methylisothiazolinone, usually shortened to MI, is a preservative used in shampoos, body washes, baby wipes and household products. It caused so many allergic reactions in the early 2010s, especially in Europe, that dermatologists described it as an epidemic.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "what_is_methylisothiazol": {
+          "type": "text",
+          "settings": {
+            "heading": "What is methylisothiazolinone?",
+            "body": "<p>It is a preservative that stops bacteria and fungi from growing in water-based products. It is often paired with a close relative, methylchloroisothiazolinone (MCI). You will find them in rinse-off products like shampoos, washes and liquid soaps, and outside the bathroom in cleaning products and some paints.</p>",
+            "size": "regular"
+          }
+        },
+        "is_methylisothiazolinone": {
+          "type": "text",
+          "settings": {
+            "heading": "Is methylisothiazolinone bad for eczema?",
+            "body": "<p>For some people, MI can be a strong trigger, and a reaction can look like an eczema flare. It is a strong contact sensitizer, and the American Contact Dermatitis Society named it 2013 Contact Allergen of the Year, as reactions climbed in Europe and its use grew in US products. It is on the standard allergist patch-test panel. Reactions can appear on the hands and face, sometimes from products you wouldn't expect, like wipes or hand soap. If a rash keeps coming back where you use them, ask a dermatologist about patch testing.</p>",
+            "size": "regular"
+          }
+        },
+        "allergen_of_the_year": {
+          "type": "callout",
+          "settings": {
+            "heading": "Allergen of the Year",
+            "body": "<p>2013. Named Contact Allergen of the Year by the American Contact Dermatitis Society. (<a href=\"https://pubmed.ncbi.nlm.nih.gov/23340392/\">Castanedo-Tardana &amp; Zug, <em>Dermatitis</em>, 2013</a>)</p>"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"ACD [allergic contact dermatitis] to MI in wet wipes is frequently misdiagnosed as eczema, impetigo, or psoriasis.\"",
+            "citation": "Chang & Nakrani, Pediatrics, 2014",
+            "citation_link": "https://pubmed.ncbi.nlm.nih.gov/24420805/"
+          }
+        },
+        "look_like": {
+          "type": "text_image",
+          "settings": {
+            "heading": "What does an MI reaction look like?",
+            "subheading": "",
+            "body": "<p>According to DermNet, an MI allergy causes <a href=\"/pages/contact-dermatitis\" title=\"allergic contact dermatitis\">allergic contact dermatitis</a>, an itchy red rash that can blister. It usually starts where the product touches the skin. Common spots include the hands, face and scalp, and the eyelids, which may swell. When wipes are the source, the rash often appears in the diaper area or around the bottom.</p>"
+          }
+        },
+        "how_is_mi_allergy_diagno": {
+          "type": "text",
+          "settings": {
+            "heading": "How is MI allergy diagnosed, and how long does the rash last?",
+            "body": "<p>A dermatologist or allergist confirms it with patch testing. MI should be tested on its own, because testing only the MI/MCI mix misses more than a quarter of people allergic to MI, according to DermNet. Once you avoid MI, most allergic rashes clear within 2 to 3 weeks, though some last longer. The allergy itself is usually lifelong, so the rash can come back if you are exposed again.</p>",
+            "size": "regular"
+          }
+        },
+        "why_did_mi_cause_so_many": {
+          "type": "text",
+          "settings": {
+            "heading": "Why did MI cause so many reactions?",
+            "body": "<p>In 2005, the European Union allowed MI on its own at up to 100 parts per million, a <a href=\"https://pubmed.ncbi.nlm.nih.gov/27579576/\">substantially higher concentration</a> than was previously permitted in the combined MI/MCI preservative mixture. Manufacturers began using MI in more products, including items like wet wipes and moisturizers. More exposure at higher levels meant more people became allergic.</p>",
+            "size": "regular"
+          }
+        },
+        "quote_2": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"The increase in MI contact allergy is alarming, and urgent action is needed.\"",
+            "citation": "Lundov, Opstrup & Johansen, Contact Dermatitis, 2013",
+            "citation_link": "https://pubmed.ncbi.nlm.nih.gov/24117738/"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>The European Union voted in 2016 to <a href=\"https://eur-lex.europa.eu/eli/reg/2016/1198/oj/eng\">ban MI in leave-on cosmetics</a> and in 2017 to <a href=\"https://eur-lex.europa.eu/eli/reg/2017/1224/oj/eng\">cap it at 15 parts per million in rinse-off products</a>. The US has no equivalent federal limit, so the ingredient list is your check.</p>",
+            "size": "regular"
+          }
+        },
+        "eu_ban": {
+          "type": "callout",
+          "settings": {
+            "heading": "EU ban",
+            "body": "<p>EU vote in 2016 to ban it in leave-on cosmetics, in effect February 2017. The US has no equivalent federal limit.</p>"
+          }
+        },
+        "how_do_i_know_if_a_produ": {
+          "type": "text",
+          "settings": {
+            "heading": "How do I know if a product contains MI or MCI?",
+            "body": "<p>Read the ingredient list for \"methylisothiazolinone\" and \"methylchloroisothiazolinone.\" Benzisothiazolinone (BIT) is a related preservative. People allergic to MI may also react to other isothiazolinones, including BIT, although cross-reactivity varies. A dermatologist can determine which preservatives to include in patch testing. exederm products do not contain BIT.</p>",
+            "size": "regular"
+          }
+        },
+        "label_check": {
+          "type": "callout",
+          "settings": {
+            "heading": "Label check",
+            "body": "<p>Look for: methylisothiazolinone, methylchloroisothiazolinone, benzisothiazolinone.</p>"
+          }
+        },
+        "is_mi_in_laundry_and_hou": {
+          "type": "text",
+          "settings": {
+            "heading": "Is MI in laundry and household products?",
+            "body": "<p>It can be. DermNet lists liquid laundry products, fabric softeners, detergents, cleaning products, paint and tiling glue among MI's sources outside cosmetics. Highly sensitive people may need to avoid freshly painted rooms for up to 4 weeks. If you have a confirmed MI allergy, ask your dermatologist which household products to check.</p>",
+            "size": "regular"
+          }
+        },
+        "which_exederm_products_a": {
+          "type": "text",
+          "settings": {
+            "heading": "Which exederm products are free of MI and MCI?",
+            "body": "<p>exederm products are made without methylisothiazolinone (MI) and methylchloroisothiazolinone (MCI). Check each product's ingredient list for the full details. That includes our <a href=\"/products/eczema-wash\" title=\"Eczema Body Wash\">Eczema Body Wash</a>, <a href=\"/products/eczema-shampoo\" title=\"Eczema Shampoo\">Eczema Shampoo</a> and <a href=\"/products/baby-eczema-wash\" title=\"Baby Eczema Wash\">Baby Eczema Wash</a>. The full exederm line holds the National Eczema Association Seal of Acceptance.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "what_is_methylisothiazol",
+        "is_methylisothiazolinone",
+        "allergen_of_the_year",
+        "quote",
+        "look_like",
+        "how_is_mi_allergy_diagno",
+        "why_did_mi_cause_so_many",
+        "quote_2",
+        "text",
+        "eu_ban",
+        "how_do_i_know_if_a_produ",
+        "label_check",
+        "is_mi_in_laundry_and_hou",
+        "which_exederm_products_a"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "image": "shopify://shop_images/product_eczema_shampoo_1.webp",
+        "text": "<strong>exederm products are made without MI and MCI.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance.",
+        "hide_badge": false,
+        "button_label": "Shop the washes & shampoo",
+        "button_link": "shopify://pages/products",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

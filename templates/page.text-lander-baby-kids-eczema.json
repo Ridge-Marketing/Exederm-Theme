@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -24,7 +33,9 @@
         },
         "hero_image": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/gettyimages-1467105515-170667a.webp"
+          }
         },
         "intro": {
           "type": "text",
@@ -45,12 +56,13 @@
             "body": "<ul><li><strong>Babies:</strong> cheeks and scalp.</li><li><strong>Toddlers:</strong> outside of the elbows and knees, then the creases.</li><li><strong>School age:</strong> elbow and knee creases, neck, hands and feet.</li></ul>"
           }
         },
-        "what_does_eczema_look_li": {
-          "type": "text",
+        "text_image_hfCmRk": {
+          "type": "text_image",
           "settings": {
             "heading": "What does eczema look like in babies?",
+            "subheading": "",
             "body": "<p>In the first few months, eczema usually appears on the face (especially the cheeks) and on the scalp. On lighter skin, the skin may be dry, rough and red, and on darker skin, it can look dark brown, purple or gray.</p><p>Diaper rash, a common skin inflammation that causes redness in the diaper area, differs from baby eczema: DermNet notes that eczema <a href=\"https://dermnetnz.org/topics/atopic-dermatitis\">usually skips the diaper area</a>, likely because the diaper keeps that skin moist. Greasy, yellow scales on the scalp are more often cradle cap; see our <a href=\"/pages/seborrheic-dermatitis\">guide to seborrheic dermatitis</a>. Always consult your pediatrician for proper diagnosis.</p>",
-            "size": "regular"
+            "image": "shopify://shop_images/gettyimages-2259895011-170667a.webp"
           }
         },
         "is_it_eczema_or_baby_acn": {
@@ -61,12 +73,13 @@
             "size": "regular"
           }
         },
-        "what_does_eczema_look_li_2": {
-          "type": "text",
+        "text_image_YpcKmA": {
+          "type": "text_image",
           "settings": {
             "heading": "What does eczema look like in toddlers?",
+            "subheading": "",
             "body": "<p>As children start crawling and walking, eczema often moves to the outside of the elbows and knees, then into the creases of the elbows, knees, wrists and ankles. Toddlers often scratch hard, which can make the skin look raw and thicken over time.</p>",
-            "size": "regular"
+            "image": "shopify://shop_images/gettyimages-2244110556-170667a.webp"
           }
         },
         "what_does_eczema_look_li_3": {
@@ -157,9 +170,9 @@
         "intro",
         "divider",
         "by_age",
-        "what_does_eczema_look_li",
+        "text_image_hfCmRk",
         "is_it_eczema_or_baby_acn",
-        "what_does_eczema_look_li_2",
+        "text_image_YpcKmA",
         "what_does_eczema_look_li_3",
         "will_my_baby_outgrow_ecz",
         "is_baby_eczema_linked_to",

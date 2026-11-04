@@ -43,7 +43,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/seborrheic-dermatitis-boximg.png?v=1614327593",
             "card-text": "Seborrheic dermatitis",
             "card-desc": "An inflammatory skin condition causing greasy scales, flaking, and sometimes itching, commonly affecting the scalp, face, and other oily areas; called cradle cap in infants.",
-            "link": "shopify://pages/seborrheic-dermatitis"
+            "link": "shopify://pages/seborrheic-dermatitis-1"
           }
         },
         "atopic-eczema": {
@@ -52,7 +52,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/atopic-eczema-boximg.png?v=1614327593",
             "card-text": "Atopic eczema",
             "card-desc": "A chronic, itchy form of eczema that often begins in childhood and is associated with a weakened skin barrier and increased allergy risk.",
-            "link": "shopify://pages/atopic-eczema"
+            "link": "shopify://pages/atopic-eczema-1"
           }
         },
         "contact-dermatitis": {
@@ -61,7 +61,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/contact-dermatitis-boximg.png?v=1614327593",
             "card-text": "Contact dermatitis",
             "card-desc": "Skin inflammation caused by contact with an irritant or an allergen.",
-            "link": "shopify://pages/contact-dermatitis"
+            "link": "shopify://pages/contact-dermatitis-1"
           }
         },
         "baby-kids-eczema": {
@@ -70,7 +70,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/childrens-skin-boximg.png?v=1614327593",
             "card-text": "Baby & kids eczema",
             "card-desc": "Eczema affecting infants and children, often causing dry, itchy, inflamed skin.",
-            "link": "shopify://pages/childrens-skin"
+            "link": "shopify://pages/baby-kids-eczema"
           }
         }
       },

@@ -38,7 +38,7 @@
             "card-img": "",
             "card-text": "Cocamidopropyl betaine (CAPB)",
             "card-desc": "A foam-boosting surfactant in many shampoos and washes; <a href=\"https://pubmed.ncbi.nlm.nih.gov/18627690/\" target=\"_blank\">named 2004 Allergen of the Year</a> by the American Contact Dermatitis Society.",
-            "link": "shopify://pages/capb"
+            "link": "shopify://pages/cocamidopropyl-betaine-capb"
           }
         },
         "sls": {
@@ -48,7 +48,7 @@
             "card-img": "",
             "card-text": "Sodium lauryl sulfate (SLS)",
             "card-desc": "A strong detergent and known skin irritant, particularly for sensitive skin.",
-            "link": "shopify://pages/sls-or-sles"
+            "link": "shopify://pages/spoke-sodium-lauryl-sulfate-sls"
           }
         },
         "formaldehyde": {
@@ -58,7 +58,7 @@
             "card-img": "",
             "card-text": "Formaldehyde releasers",
             "card-desc": "Preservatives, such as DMDM hydantoin and quaternium-15, that slowly release formaldehyde.",
-            "link": "shopify://pages/formaldehyde"
+            "link": "shopify://pages/formaldehyde-releasers"
           }
         },
         "fragrance": {
@@ -68,7 +68,7 @@
             "card-img": "",
             "card-text": "Fragrance & perfume",
             "card-desc": "One of the most frequent causes of allergic contact dermatitis.",
-            "link": "shopify://pages/fragrance-perfume"
+            "link": "shopify://pages/fragrance-perfume-1"
           }
         },
         "mi-mci": {
@@ -78,7 +78,7 @@
             "card-img": "",
             "card-text": "Methylisothiazolinone (MI / MCI)",
             "card-desc": "Preservatives associated with allergic contact dermatitis, particularly from personal care products.",
-            "link": ""
+            "link": "shopify://pages/mi-mci"
           }
         }
       },

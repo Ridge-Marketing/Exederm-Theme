@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -24,7 +33,9 @@
         },
         "hero_image": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/gettyimages-2268868260-170667a.webp"
+          }
         },
         "intro": {
           "type": "text",
@@ -54,12 +65,13 @@
             "citation_link": "https://www.aad.org/public/diseases/eczema/types/hand-eczema"
           }
         },
-        "what_does_hand_dermatiti": {
-          "type": "text",
+        "text_image_iy6HWb": {
+          "type": "text_image",
           "settings": {
             "heading": "What does hand dermatitis look like?",
-            "body": "<p>It often starts as mild irritation that gets worse without care. Common signs:</p><ul><li>Dry, chapped or rough skin</li><li>Itchy, scaly patches that look red, or dark brown on darker skin</li><li>Small itchy blisters on the palms or sides of the fingers</li><li>Deep cracks that can bleed and hurt</li></ul>",
-            "size": "regular"
+            "subheading": "",
+            "body": "<p>It often starts as mild irritation that gets worse without care. Common signs:</p><ul><li>Dry, chapped or rough skin</li><li>Itchy, scaly patches that look red, or dark brown on darker skin</li><li>Small itchy blisters on the palms or sides of the fingers</li><li>Deep cracks that can bleed and hurt</li></ul><p>Image Credit: <a href=\"https://commons.wikimedia.org/wiki/File:Dermatitis2015.jpg\" target=\"_blank\" title=\"https://commons.wikimedia.org/wiki/File:Dermatitis2015.jpg\">James Heilman, MD</a></p>",
+            "image": "shopify://shop_images/Hand_Dermetitis.webp"
           }
         },
         "how_can_i_protect_my_han": {
@@ -127,7 +139,7 @@
         "divider",
         "what_causes_hand_dermati",
         "quote",
-        "what_does_hand_dermatiti",
+        "text_image_iy6HWb",
         "how_can_i_protect_my_han",
         "how_should_i_wash_my_han",
         "what_should_i_look_for_i",

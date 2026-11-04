@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -24,7 +33,9 @@
         },
         "hero_image": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/gettyimages_1396403999_2.webp"
+          }
         },
         "intro": {
           "type": "text",
@@ -78,12 +89,13 @@
             "size": "regular"
           }
         },
-        "what_does_atopic_eczema_": {
-          "type": "text",
+        "text_image_jpNjka": {
+          "type": "text_image",
           "settings": {
             "heading": "What does atopic eczema look like?",
+            "subheading": "",
             "body": "<p>During a flare-up, the skin becomes inflamed and very itchy, and it may develop blisters. On lighter skin, it looks red; on brown and Black skin, it can look dark brown, purple, or gray, sometimes with small, rough bumps. Between flare-ups, it may look normal or stay dry, rough and thickened, especially where the skin has been scratched. In adults, it often settles on the hands, eyelids and the creases of the elbows and knees.</p>",
-            "size": "regular"
+            "image": "shopify://shop_images/atopic_eczema.webp"
           }
         },
         "do_children_outgrow_atop": {
@@ -130,7 +142,7 @@
         "is_atopic_eczema_contagi",
         "what_causes_atopic_eczem",
         "does_diet_cause_atopic_e",
-        "what_does_atopic_eczema_",
+        "text_image_jpNjka",
         "do_children_outgrow_atop",
         "how_do_i_manage_an_atopi",
         "see_doctor",
