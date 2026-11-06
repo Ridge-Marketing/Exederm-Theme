@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -24,7 +33,9 @@
         },
         "hero_image": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Methylisothiazolinone.webp"
+          }
         },
         "intro": {
           "type": "text",
@@ -74,7 +85,8 @@
           "settings": {
             "heading": "What does an MI reaction look like?",
             "subheading": "",
-            "body": "<p>According to DermNet, an MI allergy causes <a href=\"/pages/contact-dermatitis\" title=\"allergic contact dermatitis\">allergic contact dermatitis</a>, an itchy red rash that can blister. It usually starts where the product touches the skin. Common spots include the hands, face and scalp, and the eyelids, which may swell. When wipes are the source, the rash often appears in the diaper area or around the bottom.</p>"
+            "body": "<p>According to DermNet, an MI allergy causes <a href=\"/pages/contact-dermatitis\" title=\"allergic contact dermatitis\">allergic contact dermatitis</a>, an itchy red rash that can blister. It usually starts where the product touches the skin. Common spots include the hands, face and scalp, and the eyelids, which may swell. When wipes are the source, the rash often appears in the diaper area or around the bottom.</p>",
+            "image": "shopify://shop_images/MI_Rash.webp"
           }
         },
         "how_is_mi_allergy_diagno": {

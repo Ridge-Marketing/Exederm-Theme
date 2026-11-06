@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -24,7 +33,9 @@
         },
         "hero_image": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Cocamidopropyl_betaine_CAPB.webp"
+          }
         },
         "intro": {
           "type": "text",
@@ -74,7 +85,8 @@
           "settings": {
             "heading": "What does a CAPB reaction look like?",
             "subheading": "",
-            "body": "<p>DermNet notes that a CAPB allergy usually shows up as an <a href=\"https://dermnetnz.org/topics/contact-allergy-to-cocamidopropyl-betaine\">itchy red rash, sometimes with swelling or small blisters</a>. It is most common on the face and hands, and it can also irritate the eyes. In a North American patch-test study, the head and neck were the most frequent sites, and CAPB-related allergens are a known cause of eyelid and facial dermatitis. After you stop using the product, the rash may take a few weeks to settle. If you have a patch test, ask whether the manufacturing impurities (amidoamine and DMAPA) should be tested too, because testing purified CAPB alone can miss the reaction.</p>"
+            "body": "<p>DermNet notes that a CAPB allergy usually shows up as an <a href=\"https://dermnetnz.org/topics/contact-allergy-to-cocamidopropyl-betaine\">itchy red rash, sometimes with swelling or small blisters</a>. It is most common on the face and hands, and it can also irritate the eyes. In a North American patch-test study, the head and neck were the most frequent sites, and CAPB-related allergens are a known cause of eyelid and facial dermatitis. After you stop using the product, the rash may take a few weeks to settle. If you have a patch test, ask whether the manufacturing impurities (amidoamine and DMAPA) should be tested too, because testing purified CAPB alone can miss the reaction.</p>",
+            "image": "shopify://shop_images/CAPB_Rash.webp"
           }
         },
         "how_do_i_know_if_a_produ": {
