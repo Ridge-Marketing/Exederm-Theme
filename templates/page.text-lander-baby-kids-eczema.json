@@ -61,7 +61,7 @@
           "settings": {
             "heading": "What does eczema look like in babies?",
             "subheading": "",
-            "body": "<p>In the first few months, eczema usually appears on the face (especially the cheeks) and on the scalp. On lighter skin, the skin may be dry, rough and red, and on darker skin, it can look dark brown, purple or gray.</p><p>Diaper rash, a common skin inflammation that causes redness in the diaper area, differs from baby eczema: DermNet notes that eczema <a href=\"https://dermnetnz.org/topics/atopic-dermatitis\">usually skips the diaper area</a>, likely because the diaper keeps that skin moist. Greasy, yellow scales on the scalp are more often cradle cap; see our <a href=\"/pages/seborrheic-dermatitis\">guide to seborrheic dermatitis</a>. Always consult your pediatrician for proper diagnosis.</p>",
+            "body": "<p>In the first few months, eczema usually appears on the face (especially the cheeks) and on the scalp. On lighter skin, the skin may be dry, rough and red, and on darker skin, it can look dark brown, purple or gray.</p><p>Diaper rash, a common skin inflammation that causes redness in the diaper area, differs from baby eczema: DermNet notes that eczema <a href=\"https://dermnetnz.org/topics/atopic-dermatitis\">usually skips the diaper area</a>, likely because the diaper keeps that skin moist. Greasy, yellow scales on the scalp are more often cradle cap; see our <a href=\"/pages/seborrheic-dermatitis-1\">guide to seborrheic dermatitis</a>. Always consult your pediatrician for proper diagnosis.</p>",
             "image": "shopify://shop_images/05-GettyImages-2259895011-652x652.webp"
           }
         },
@@ -110,7 +110,7 @@
           "type": "text",
           "settings": {
             "heading": "What should I avoid in baby and kids' skincare?",
-            "body": "<p>Many baby products add fragrances babies don't need. The American Academy of Dermatology recommends skipping bubble bath and choosing fragrance-free products rather than \"unscented\" ones. Check the ingredient list on any baby product for <a href=\"/pages/fragrance-perfume\">fragrance</a>, <a href=\"/pages/capb\">cocamidopropyl betaine</a> and preservatives like methylisothiazolinone, which has been linked to allergic skin reactions from wet wipes.</p>",
+            "body": "<p>Many baby products add fragrances babies don't need. The American Academy of Dermatology recommends skipping bubble bath and choosing fragrance-free products rather than \"unscented\" ones. Check the ingredient list on any baby product for <a href=\"/pages/fragrance-perfume-1\">fragrance</a>, <a href=\"/pages/cocamidopropyl-betaine-capb\">cocamidopropyl betaine</a> and preservatives like methylisothiazolinone, which has been linked to allergic skin reactions from wet wipes.</p>",
             "size": "regular"
           }
         },
@@ -149,7 +149,7 @@
           "type": "text",
           "settings": {
             "heading": "Can I use hydrocortisone cream on my baby's eczema?",
-            "body": "<p>No, not on your own. Over-the-counter 1% hydrocortisone is labeled for adults and children 2 and older; for children under 2, the label says: \"Do not use. Consult a doctor.\" Do not use exederm Flare Control Cream for the treatment of diaper rash. For older children, see <a href=\"/pages/using-hydrocortisone-for-eczema\">how to use hydrocortisone for eczema</a>.</p>",
+            "body": "<p>No, not on your own. Over-the-counter 1% hydrocortisone is labeled for adults and children 2 and older; for children under 2, the label says: \"Do not use. Consult a doctor.\" Do not use exederm Flare Control Cream for the treatment of diaper rash. For older children, see <a href=\"/pages/using-hydrocortisone\">how to use hydrocortisone for eczema</a>.</p>",
             "size": "regular"
           }
         },

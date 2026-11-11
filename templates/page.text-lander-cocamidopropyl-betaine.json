@@ -108,7 +108,7 @@
           "type": "text",
           "settings": {
             "heading": "Is a \"sulfate-free\" shampoo also CAPB-free?",
-            "body": "<p>Not necessarily. \"Sulfate-free\" only tells you that a product leaves out sulfates such as <a href=\"/pages/sls-or-sles\" title=\"sodium lauryl sulfate\">sodium lauryl sulfate</a>. CAPB is a different kind of cleansing agent, so it can still be in a sulfate-free bottle. It is also common: a <a href=\"https://pubmed.ncbi.nlm.nih.gov/19426617/\">survey of shampoos sold at a major US drugstore</a> found CAPB was the second most frequent allergen, after fragrance. Whatever the front label says, check the ingredient list for \"cocamidopropyl betaine.\"</p>",
+            "body": "<p>Not necessarily. \"Sulfate-free\" only tells you that a product leaves out sulfates such as <a href=\"/pages/spoke-sodium-lauryl-sulfate-sls\" title=\"sodium lauryl sulfate\">sodium lauryl sulfate</a>. CAPB is a different kind of cleansing agent, so it can still be in a sulfate-free bottle. It is also common: a <a href=\"https://pubmed.ncbi.nlm.nih.gov/19426617/\">survey of shampoos sold at a major US drugstore</a> found CAPB was the second most frequent allergen, after fragrance. Whatever the front label says, check the ingredient list for \"cocamidopropyl betaine.\"</p>",
             "size": "regular"
           }
         },

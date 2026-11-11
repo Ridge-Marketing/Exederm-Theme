@@ -31,6 +31,8 @@
   .text-lander__quote-cite a { color: #3e9a76; text-decoration: underline; }
   .text-lander__rte a:hover,
   .text-lander__quote-cite a:hover { color: #267B59; }
+  .text-lander__credit { font-size: 12px; line-height: 16px; margin-top: 8px; }
+  .text-lander__credit a { color: inherit; text-decoration: underline; }
   .text-lander__rte--large p { font-size: 20px; line-height: 28px; padding-top:40px; padding-bottom:20px; }
   .text-lander__avatar { width: 72px; height: 72px; }
   .text-lander__divider { height: 5px; }
@@ -60,9 +62,6 @@
 
         {% when 'byline' %}
           {% assign byline_date = block.settings.date %}
-          {% if byline_date == blank %}
-            {% assign byline_date = page.published_at | date: '%B %-d, %Y' %}
-          {% endif %}
           <div class="tw-flex tw-items-center tw-gap-3">
             {% if block.settings.avatar != blank %}
               <img class="text-lander__avatar tw-rounded-full tw-object-cover" src="{{ block.settings.avatar | image_url: width: 144 }}" alt="{{ block.settings.author | escape }}" width="72" height="72">
@@ -88,6 +87,9 @@
               height="{{ block.settings.image.height }}">
           {% elsif request.design_mode %}
             {{ 'lifestyle-1' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
+          {% endif %}
+          {% if block.settings.credit != blank %}
+            <p class="text-lander__credit tw-font-open-sans tw-text-black">{{ block.settings.credit }}</p>
           {% endif %}
 
         {% when 'text' %}
@@ -123,6 +125,9 @@
                   <img class="tw-w-full tw-h-auto" src="{{ block.settings.image | image_url: width: 652 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
                 {% else %}
                   {{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
+                {% endif %}
+                {% if block.settings.credit != blank %}
+                  <p class="text-lander__credit tw-font-open-sans tw-text-black">{{ block.settings.credit }}</p>
                 {% endif %}
               </div>
             {% endif %}
@@ -189,6 +194,22 @@
   {% endfor %}
 </section>
 
+<script>
+  {% comment %} Links that leave the site open in a new tab (rich text can't set target). {% endcomment %}
+  (function () {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var links = section.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      if (/^https?:$/.test(link.protocol) && link.hostname !== window.location.hostname && !/(^|\.)exederm\.com$/.test(link.hostname)) {
+        link.target = '_blank';
+        link.rel    = 'noopener';
+      }
+    }
+  })();
+</script>
+
 {% schema %}
   {
     "name": "Text Lander",
@@ -222,7 +243,7 @@
             "type": "text",
             "id": "date",
             "label": "Date",
-            "info": "Leave blank to use the page's published date."
+            "info": "Optional. Leave blank to show no date."
           },
           {
             "type": "image_picker",
@@ -240,6 +261,12 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "credit",
+            "label": "Image credit",
+            "info": "Shown in small type directly under the image."
           }
         ]
       },
@@ -313,6 +340,12 @@
             "id": "image",
             "label": "Image",
             "info": "Square images work best."
+          },
+          {
+            "type": "inline_richtext",
+            "id": "credit",
+            "label": "Image credit",
+            "info": "Shown in small type directly under the image."
           }
         ]
       },

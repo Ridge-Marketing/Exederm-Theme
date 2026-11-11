@@ -53,7 +53,7 @@
           "type": "text",
           "settings": {
             "heading": "What causes scalp eczema?",
-            "body": "<p>The causes vary depending on the type of scalp eczema. <a href=\"/pages/seborrheic-dermatitis\" title=\"Seborrheic dermatitis\">Seborrheic dermatitis</a> is associated with naturally occurring yeast on the skin, skin oils, and an inflammatory response. Stress, fatigue, and seasonal changes may trigger flare-ups, which can worsen in winter. Harsh shampoo ingredients can also trigger or worsen scalp eczema.</p>",
+            "body": "<p>The causes vary depending on the type of scalp eczema. <a href=\"/pages/seborrheic-dermatitis-1\" title=\"Seborrheic dermatitis\">Seborrheic dermatitis</a> is associated with naturally occurring yeast on the skin, skin oils, and an inflammatory response. Stress, fatigue, and seasonal changes may trigger flare-ups, which can worsen in winter. Harsh shampoo ingredients can also trigger or worsen scalp eczema.</p>",
             "size": "regular"
           }
         },
@@ -96,7 +96,7 @@
           "type": "text",
           "settings": {
             "heading": "What shampoo ingredients should I avoid with scalp eczema?",
-            "body": "<p>Some people with scalp eczema may find that fragrances, certain surfactants such as <a href=\"/pages/capb\" title=\"cocamidopropyl betaine (CAPB)\">cocamidopropyl betaine (CAPB)</a> or <a href=\"/pages/sls-or-sles\" title=\"sodium lauryl sulfate (SLS)\">sodium lauryl sulfate (SLS)</a>, and particular preservatives such as methylisothiazolinone irritate their scalp. Even products labeled \"hypoallergenic,\" \"sensitive,\" or \"natural\" can still contain these irritants.</p>",
+            "body": "<p>Some people with scalp eczema may find that fragrances, certain surfactants such as <a href=\"/pages/cocamidopropyl-betaine-capb\" title=\"cocamidopropyl betaine (CAPB)\">cocamidopropyl betaine (CAPB)</a> or <a href=\"/pages/spoke-sodium-lauryl-sulfate-sls\" title=\"sodium lauryl sulfate (SLS)\">sodium lauryl sulfate (SLS)</a>, and particular preservatives such as methylisothiazolinone irritate their scalp. Even products labeled \"hypoallergenic,\" \"sensitive,\" or \"natural\" can still contain these irritants.</p>",
             "size": "regular"
           }
         },
@@ -185,7 +185,7 @@
       "type": "text-lander-cta",
       "settings": {
         "image": "shopify://shop_images/product_eczema_shampoo_1.webp",
-        "text": "<a href=\"/products/eczema-shampoo\" title=\"exederm Eczema Shampoo\">exederm Eczema Shampoo</a> <strong>is made for eczema sufferers</strong> and is free of sodium lauryl sulfate and cocamidopropyl betaine. For a persistent or severe scalp condition, see your doctor or dermatologist.",
+        "text": "<a href=\"/products/eczema-shampoo\" title=\"exederm Eczema Shampoo\">exederm Eczema Shampoo</a> <strong>is made for eczema sufferers</strong> and is free of sodium lauryl sulfate and cocamidopropyl betaine.",
         "hide_badge": true,
         "button_label": "Shop Eczema Shampoo",
         "button_link": "shopify://products/eczema-shampoo",

@@ -21,7 +21,7 @@
       "type": "skin-conditions-stat",
       "settings": {
         "heading": "We know that when your skin is uncomfortable, life is, too.",
-        "body": "<p><strong>Relieving flare-ups starts with understanding the underlying condition and its triggers.</strong></p><p>Eczema and dermatitis are terms often used interchangeably to describe inflammatory skin conditions. These conditions can cause itching and discomfort, but they are not contagious. About 1 in 5 people experience eczema or dermatitis at some point in their lives.</p><p>While chronic eczema has no cure, treatments can help manage symptoms and prevent flare-ups. Some forms of contact dermatitis can also resolve completely with appropriate treatment and avoidance of the triggering substance.</p>",
+        "body": "<p><strong>Relieving flare-ups starts with understanding the underlying condition and its triggers.</strong></p><p>Eczema and dermatitis are terms often used interchangeably to describe inflammatory skin conditions. According to DermNet, <a href=\"https://dermnetnz.org/topics/dermatitis\" target=\"_blank\" title=\"about 1 in 5 people\">about 1 in 5 people</a> experience eczema or dermatitis at some point in their lives. These conditions can cause itching and discomfort, but they are not contagious.</p><p>Eczema can <a href=\"https://www.aad.org/public/diseases/eczema/types/atopic-dermatitis/symptoms\" target=\"_blank\" title=\"come and go for years\">come and go for years</a>, the American Academy of Dermatology notes, but treatments can help manage symptoms and prevent flare-ups. Some forms of contact dermatitis can also resolve completely with appropriate treatment and avoidance of the triggering substance.</p>",
         "stat_text": "About <strong>1 in 5 people</strong> experience eczema or dermatitis at some point in their lives."
       }
     },
@@ -72,6 +72,31 @@
             "card-desc": "Eczema affecting infants and children, often causing dry, itchy, inflamed skin.",
             "link": "shopify://pages/baby-kids-eczema"
           }
+        },
+        "hand-dermatitis": {
+          "type": "card",
+          "settings": {
+            "card-image": "shopify://shop_images/hand_dermatitis.webp",
+            "card-text": "Hand dermatitis",
+            "card-desc": "Dry, cracked, itchy hands, often from frequent washing and working with liquids.",
+            "link": "shopify://pages/hand-dermatitis-1"
+          }
+        },
+        "hydrocortisone": {
+          "type": "wide_card",
+          "settings": {
+            "card-text": "Using hydrocortisone for eczema",
+            "card-desc": "How to use 1% hydrocortisone during a flare.",
+            "link": "shopify://pages/using-hydrocortisone"
+          }
+        },
+        "irritants": {
+          "type": "wide_card",
+          "settings": {
+            "card-text": "Common skin irritants",
+            "card-desc": "Not sure what is irritating your skin? See our guide for <a href=\"/pages/irritants-to-avoid\" title=\"irritants to avoid\">irritants to avoid</a>.",
+            "link": "shopify://pages/irritants-to-avoid"
+          }
         }
       },
       "block_order": [
@@ -79,10 +104,13 @@
         "seborrheic-dermatitis",
         "atopic-eczema",
         "contact-dermatitis",
-        "baby-kids-eczema"
+        "baby-kids-eczema",
+        "hand-dermatitis",
+        "hydrocortisone",
+        "irritants"
       ],
       "settings": {
-        "card-heading": "exederm offers products to help relieve symptoms associated with the following skin conditions, formulated without certain additives that can irritate sensitive skin:"
+        "card-heading": "Formulated without <a href=\"/pages/irritants-to-avoid\" title=\"common irritants\">common irritants</a>, exederm is made for sufferers of eczema and dermatitis with sensitive skin. Learn more about each condition by clicking below:"
       }
     },
     "nea": {
@@ -93,12 +121,20 @@
         "button_label": "See The Products",
         "button_link": "shopify://pages/products"
       }
+    },
+    "see-doctor": {
+      "type": "skin-conditions-callout",
+      "settings": {
+        "heading": "See a doctor if:",
+        "body": "<p>Your rash is severe, spreading, oozing or crusting, or not improving after 1 to 2 weeks of gentle care. For a baby under 2, ask your pediatrician before using any medicated cream.</p>"
+      }
     }
   },
   "order": [
     "hero",
     "stat",
     "cards",
+    "see-doctor",
     "nea"
   ]
 }

@@ -1,0 +1,53 @@
+{% comment %}
+  Skin Conditions callout — centered tan box with a heading and rich text
+  (e.g. "See a doctor if:"). Same look as the text-lander callout block.
+{% endcomment %}
+
+<style>
+  .skin-conditions-callout__box { max-width: 669px; padding: 40px 24px 48px; }
+  .skin-conditions-callout__heading { font-size: 26px; line-height: 32px; }
+  .skin-conditions-callout__body p { margin-bottom: 10px; }
+  .skin-conditions-callout__body p:last-child { margin-bottom: 0; }
+  .skin-conditions-callout__body a { color: #3e9a76; text-decoration: underline; }
+  .skin-conditions-callout__body a:hover { color: #267B59; }
+  @media (min-width: 768px) {
+    .skin-conditions-callout__box { padding: 57px 72px 64px 85px; }
+    .skin-conditions-callout__heading { font-size: 30px; line-height: 35px; }
+  }
+</style>
+
+<section class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 tw-pb-12 lg:tw-pb-24">
+  <div class="skin-conditions-callout__box tw-mx-auto tw-bg-tan">
+    {% if section.settings.heading != blank %}
+      <h2 class="skin-conditions-callout__heading tw-font-encode-sans tw-font-normal tw-text-black" style="margin-bottom:0.75rem!important;">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="skin-conditions-callout__body tw-font-open-sans tw-text-16px/24px tw-text-black">
+      {{ section.settings.body }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Skin Conditions Callout",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "See a doctor if:"
+      },
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Body"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Skin Conditions Callout",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

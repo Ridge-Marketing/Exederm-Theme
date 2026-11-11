@@ -85,7 +85,7 @@
           "type": "text",
           "settings": {
             "heading": "Seborrheic dermatitis vs eczema: how do you tell them apart?",
-            "body": "<p>The National Eczema Association lists seborrheic dermatitis as <a href=\"https://nationaleczema.org/types-of-eczema/\">a type of eczema</a>, but it looks different from atopic eczema. It produces greasy, yellowish or white scales on oily areas, while <a href=\"/pages/atopic-eczema\">atopic eczema</a> tends to be dry, intensely itchy and found in skin creases like the elbows and knees. With seborrheic dermatitis, the itch is usually mild, though it can be intense on the scalp.</p>",
+            "body": "<p>The National Eczema Association lists seborrheic dermatitis as <a href=\"https://nationaleczema.org/types-of-eczema/\">a type of eczema</a>, but it looks different from atopic eczema. It produces greasy, yellowish or white scales on oily areas, while <a href=\"/pages/atopic-eczema-1\">atopic eczema</a> tends to be dry, intensely itchy and found in skin creases like the elbows and knees. With seborrheic dermatitis, the itch is usually mild, though it can be intense on the scalp.</p>",
             "size": "regular"
           }
         },
@@ -111,8 +111,9 @@
           "settings": {
             "heading": "What is cradle cap?",
             "subheading": "",
-            "body": "<p>Cradle cap is seborrheic dermatitis of a baby's scalp: thick, yellowish, crusty patches common in the first few months and, according to the American Academy of Pediatrics, <a href=\"https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Cradle-Cap.aspx\">usually clearing on their own</a>. Gentle washing may help loosen the scales. Don't use medicated or dandruff shampoos on a baby unless your pediatrician recommends one, and see your pediatrician if the rash becomes severe, spreads extensively, or shows signs of infection. See our <a href=\"/pages/childrens-skin\">guide to baby and kids eczema</a> for more.</p><p>Image Credit: <a href=\"https://commons.wikimedia.org/wiki/File:Baby_With_Cradle_Cap.jpg\">Starfoxy</a>, via Wikimedia Commons, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a></p>",
-            "image": "shopify://shop_images/Baby_With_Cradle_Cap.jpg"
+            "body": "<p>Cradle cap is seborrheic dermatitis of a baby's scalp: thick, yellowish, crusty patches common in the first few months and, according to the American Academy of Pediatrics, <a href=\"https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Cradle-Cap.aspx\">usually clearing on their own</a>. Gentle washing may help loosen the scales. Don't use medicated or dandruff shampoos on a baby unless your pediatrician recommends one, and see your pediatrician if the rash becomes severe, spreads extensively, or shows signs of infection. See our <a href=\"/pages/baby-kids-eczema\">guide to baby and kids eczema</a> for more.</p>",
+            "image": "shopify://shop_images/Baby_With_Cradle_Cap.jpg",
+            "credit": "Image Credit: <a href=\"https://commons.wikimedia.org/wiki/File:Baby_With_Cradle_Cap.jpg\">Starfoxy</a>, via Wikimedia Commons, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>"
           }
         },
         "how_is_seborrheic_dermat": {

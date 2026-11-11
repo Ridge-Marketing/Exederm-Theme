@@ -17,6 +17,11 @@
   .skin-conditions-cards__link::after { content: ''; position: absolute; inset: 0; }
   .skin-conditions-cards__desc a { position: relative; z-index: 1; color: #3e9a76; }
   .skin-conditions-cards__card:hover .skin-conditions-cards__desc a { color: #fff; text-decoration: underline; }
+  .skin-conditions-cards__heading a { font-weight: 700; text-decoration: underline; color: inherit; }
+  .skin-conditions-cards__card--wide { width: 580px; min-height: 200px; }
+  .skin-conditions-cards__card--wide .skin-conditions-cards__body { padding: 57px 22px 40px 34px; }
+  .skin-conditions-cards__card--wide .skin-conditions-cards__desc { padding-top: 16px; }
+  .skin-conditions-cards__card--wide .skin-conditions-cards__desc a { font-weight: 600; text-decoration: underline; }
 </style>
 
 <section class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px tw-pb-12 lg:tw-pb-24">
@@ -28,7 +33,7 @@
 
   <div class="skin-conditions-cards__grid tw-flex tw-flex-wrap tw-justify-center">
     {% for block in section.blocks %}
-      <div class="skin-conditions-cards__card tw-relative tw-flex tw-flex-col tw-overflow-hidden tw-bg-white tw-group" {{ block.shopify_attributes }}>
+      <div class="skin-conditions-cards__card{% if block.type == 'wide_card' %} skin-conditions-cards__card--wide{% endif %} tw-relative tw-flex tw-flex-col tw-overflow-hidden tw-bg-white tw-group" {{ block.shopify_attributes }}>
         {% if block.settings.card-image != blank %}
           <img class="skin-conditions-cards__image tw-w-full tw-object-cover" src="{{ block.settings.card-image | image_url: width: 762, height: 388, crop: 'center' }}" alt="{{ block.settings.card-image.alt | default: block.settings.card-text | escape }}" width="381" height="194" loading="lazy">
         {% elsif block.settings.card-img != blank %}
@@ -58,7 +63,7 @@
     "settings": [
       {
         "id": "card-heading",
-        "type": "text",
+        "type": "inline_richtext",
         "label": "Card Heading",
         "default": "exederm offers products to help relieve symptoms associated with the following skin conditions, formulated without certain additives that can irritate sensitive skin:"
       }
@@ -77,6 +82,28 @@
             "id": "card-img",
             "type": "url",
             "label": "Card Image URL"
+          }, {
+            "id": "card-text",
+            "type": "text",
+            "label": "Card Text"
+          }, {
+            "id": "card-desc",
+            "type": "inline_richtext",
+            "label": "Card Description"
+          }, {
+            "id": "link",
+            "type": "url",
+            "label": "Link URL"
+          }
+        ]
+      },
+      {
+        "type": "wide_card",
+        "name": "Wide card (no image)",
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "Two wide cards fill one row."
           }, {
             "id": "card-text",
             "type": "text",
