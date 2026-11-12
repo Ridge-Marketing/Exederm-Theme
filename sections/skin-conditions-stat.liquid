@@ -1,6 +1,7 @@
 {% comment %}
-  Skin Conditions intro + stat — intro copy on the left, divider, then an icon
-  and large stat callout on the right. Stacks on mobile.
+  Skin Conditions intro + stat — intro copy on the left, divider, then a stat
+  callout on the right. The right side is either an icon + stat text (Skin
+  Conditions page) or a text-only big number (Irritants page). Stacks on mobile.
 {% endcomment %}
 
 <style>
@@ -12,7 +13,19 @@
   .skin-conditions-stat__icon { width: 230px; max-width: 100%; height: auto; }
   .skin-conditions-stat__text { font-size: 30px; line-height: 36px; }
   .skin-conditions-stat__text strong { font-weight: 600; }
+  .skin-conditions-stat__eyebrow { font-size: 30px; line-height: 36px; margin-bottom: 24px; }
+  .skin-conditions-stat__number { font-size: 96px; line-height: 1; font-weight: 700; margin-bottom: 16px; }
+  .skin-conditions-stat__pct { font-size: 0.645em; font-weight: 600; }
+  .skin-conditions-stat__source { font-size: 16px; line-height: 24px; margin-top: 12px; }
+  .skin-conditions-stat__source a { color: inherit; text-decoration: underline; }
+  .skin-conditions-stat__source a:hover { color: #267B59; }
+  @media (max-width: 1023px) {
+    .skin-conditions-stat__divider { text-align: center; }
+    .skin-conditions-stat__icon { display: block; margin-left: auto; margin-right: auto; }
+  }
   @media (min-width: 1024px) {
+    .skin-conditions-stat__eyebrow { font-size: 40px; line-height: 43px; margin-bottom: 43px; }
+    .skin-conditions-stat__number { font-size: 140px; line-height: 56px; margin-bottom: 30px; }
     .skin-conditions-stat__heading { font-size: 36px; line-height: 45px; }
     .skin-conditions-stat__text { font-size: 40px; line-height: 43px; max-width: 391px; }
     .skin-conditions-stat__divider { border-left: 2px solid rgba(151, 151, 151, 0.3); }
@@ -21,7 +34,7 @@
 
 <section class="tw-container tw-mx-auto tw-px-5 lg:tw-px-10 xl:tw-max-w-1336px tw-py-12 lg:tw-py-24">
   <div class="lg:tw-flex lg:tw-items-center">
-    <div class="lg:tw-w-1/2 lg:tw-pr-20">
+    <div class="lg:tw-w-3/5 lg:tw-pr-20">
       {% if section.settings.heading != blank %}
         <h2 class="skin-conditions-stat__heading tw-font-encode-sans tw-font-normal tw-text-green tw-pb-10">{{ section.settings.heading }}</h2>
       {% endif %}
@@ -31,7 +44,14 @@
     </div>
 
     <div class="skin-conditions-stat__divider lg:tw-w-1/2 lg:tw-pl-20 lg:tw-py-6 tw-mt-10 lg:tw-mt-0">
-      {% if section.settings.icon != blank %}
+      {% if section.settings.stat_style == 'number' %}
+        {% if section.settings.stat_eyebrow != blank %}
+          <p class="skin-conditions-stat__eyebrow tw-font-encode-sans tw-font-normal tw-text-green">{{ section.settings.stat_eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.stat_number != blank %}
+          <p class="skin-conditions-stat__number tw-font-encode-sans tw-text-green">{{ section.settings.stat_number | escape | replace: '%', '<span class="skin-conditions-stat__pct">%</span>' }}</p>
+        {% endif %}
+      {% elsif section.settings.icon != blank %}
         <img
           class="skin-conditions-stat__icon tw-mb-3"
           src="{{ section.settings.icon | image_url: width: 460 }}"
@@ -47,6 +67,9 @@
           height="109">
       {% endif %}
       <p class="skin-conditions-stat__text tw-font-encode-sans tw-font-normal tw-text-green">{{ section.settings.stat_text }}</p>
+      {% if section.settings.stat_style == 'number' and section.settings.stat_source != blank %}
+        <p class="skin-conditions-stat__source tw-font-encode-sans tw-font-normal tw-text-green">{{ section.settings.stat_source }}</p>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -68,16 +91,48 @@
         "default": "<p><strong>Relieving flare-ups starts with understanding the underlying condition and its triggers.</strong></p><p>Eczema and dermatitis are terms often used interchangeably to describe inflammatory skin conditions. These conditions can cause itching and discomfort, but they are not contagious. About 1 in 5 people experience eczema or dermatitis at some point in their lives.</p><p>While chronic eczema has no cure, treatments can help manage symptoms and prevent flare-ups. Some forms of contact dermatitis can also resolve completely with appropriate treatment and avoidance of the triggering substance.</p>"
       },
       {
+        "type": "header",
+        "content": "Stat (right side)"
+      },
+      {
+        "id": "stat_style",
+        "type": "select",
+        "label": "Stat style",
+        "options": [
+          { "value": "icon", "label": "Icon + text" },
+          { "value": "number", "label": "Big number + text" }
+        ],
+        "default": "icon"
+      },
+      {
         "id": "icon",
         "type": "image_picker",
         "label": "Stat icon",
-        "info": "Leave blank to use the default 1-in-5 people icon."
+        "info": "Icon style only. Leave blank to use the default 1-in-5 people icon."
+      },
+      {
+        "id": "stat_eyebrow",
+        "type": "text",
+        "label": "Text above number",
+        "info": "Big number style only, e.g. \"About\"."
+      },
+      {
+        "id": "stat_number",
+        "type": "text",
+        "label": "Big number",
+        "info": "Big number style only, e.g. \"10%\". A % sign is shown smaller."
       },
       {
         "id": "stat_text",
         "type": "inline_richtext",
         "label": "Stat text",
         "default": "About <strong>1 in 5 people</strong> experience eczema or dermatitis at some point in their lives."
+      },
+      {
+        "id": "stat_source",
+        "type": "inline_richtext",
+        "label": "Source",
+        "info": "Big number style only. Shown under the stat text; add a link to the source."
       }
     ],
     "presets": [

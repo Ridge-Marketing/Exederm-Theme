@@ -13,19 +13,8 @@
       "type": "skin-conditions-hero",
       "settings": {
         "title": "Common Skin Irritants and Allergens",
-        "image": "shopify://shop_images/Irritants-Hero.webp",
+        "image": "shopify://shop_images/Skin-Irritants-Hero.webp",
         "image_position": "center center"
-      }
-    },
-    "your-skin": {
-      "type": "skin-conditions-feature",
-      "settings": {
-        "heading": "It’s your skin. You should feel comfortable with what you put on it.",
-        "body": "<p>We believe that eczema, dermatitis and sensitive skin sufferers are different. We're mindful that they may be more susceptible to irritation from certain ingredients in everyday skincare products. Many cosmetics and cleansers are fine for most people, but if you have eczema, dermatitis or reactive skin, labels such as \"hypoallergenic\" or \"sensitive\" don't guarantee that a product will be suitable for you.</p>",
-        "image": "shopify://shop_images/In_page_1.webp",
-        "image_side": "right",
-        "padding_top": 92,
-        "padding_bottom": 100
       }
     },
     "cards": {
@@ -80,6 +69,16 @@
             "card-desc": "Preservatives associated with allergic contact dermatitis, particularly from personal care products.",
             "link": "shopify://pages/mi-mci"
           }
+        },
+        "lanolin": {
+          "type": "card",
+          "settings": {
+            "card-image": "shopify://shop_images/Lanolin.webp",
+            "card-img": "",
+            "card-text": "Lanolin",
+            "card-desc": "A wool-derived moisturizer that can trigger allergic contact dermatitis, especially in eczema-prone skin.",
+            "link": "shopify://pages/lanolin"
+          }
         }
       },
       "block_order": [
@@ -87,10 +86,11 @@
         "sls",
         "formaldehyde",
         "fragrance",
-        "mi-mci"
+        "mi-mci",
+        "lanolin"
       ],
       "settings": {
-        "card-heading": "If a dermatologist or allergist has performed patch testing, you may already know which ingredients cause allergic reactions. Otherwise, here are some potential irritants and allergens to look out for:"
+        "card-heading": "exederm products contain the mildest ingredients possible and <strong>always avoid irritants like these</strong> that can trigger eczema and other <a href=\"/pages/skin-conditions\">sensitive skin conditions</a>."
       }
     },
     "read-the-label": {
@@ -101,18 +101,18 @@
         "image": "shopify://shop_images/In_Page_2.webp",
         "image_side": "right",
         "padding_top": 0,
-        "padding_bottom": 52
+        "padding_bottom": 96
       }
     },
     "allergen-of-the-year": {
       "type": "skin-conditions-feature",
       "settings": {
         "heading": "Allergen of the Year",
-        "body": "<p>Four of these have been named Allergen of the Year by the American Contact Dermatitis Society: cocamidopropyl betaine (2004), fragrance (2007), methylisothiazolinone (2013) and formaldehyde, the chemical these preservatives release (2015).</p>",
-        "image": "shopify://shop_images/In_Page_3.webp",
+        "body": "<p>Unlike exederm, many everyday skincare products contain the potential irritants listed above. In fact, five of them have been named Allergen of the Year by the American Contact Dermatitis Society:</p><ul><li>Cocamidopropyl betaine (CAPB) – 2004</li><li>Fragrance – 2007</li><li>Methylisothiazolinone (MI / MCI) – 2013</li><li>Formaldehyde releasers – 2015</li><li>Lanolin – 2023</li></ul>",
+        "image": "shopify://shop_images/allergen_of_the_year_image_1.webp",
         "image_side": "left",
-        "padding_top": 48,
-        "padding_bottom": 100
+        "padding_top": 0,
+        "padding_bottom": 24
       }
     },
     "quote": {
@@ -129,18 +129,30 @@
       "type": "skin-conditions-nea-award",
       "settings": {
         "image": "shopify://shop_images/product_flare_control.webp",
-        "award_text": "<strong>exederm products are made without the ingredients listed above.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance. Check each product's ingredient list for the full details",
+        "award_text": "<strong>exederm products are made without the ingredients listed above.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance. Check each product's ingredient list for the full details.",
         "button_label": "See The Products",
         "button_link": "shopify://pages/products"
+      }
+    },
+    "intro": {
+      "type": "skin-conditions-stat",
+      "settings": {
+        "heading": "It’s your skin. You should feel comfortable with what you put on it.",
+        "body": "<p><strong>We believe that eczema, dermatitis and sensitive skin sufferers are different.</strong></p><p>We're mindful that they may be more susceptible to irritation from certain ingredients in everyday skincare products. Many cosmetics and cleansers are fine for most people, but if you have eczema, dermatitis or reactive skin, labels such as \"hypoallergenic\" or \"sensitive\" don't guarantee that a product will be suitable for you.</p><p>If a dermatologist or allergist has performed patch testing, you may already know which ingredients cause allergic reactions. If you’re unsure, we’ve listed some potential irritants and allergens to watch for below.</p>",
+        "stat_style": "number",
+        "stat_eyebrow": "About",
+        "stat_number": "10%",
+        "stat_text": "of patients undergoing patch testing have a cosmetic allergy.",
+        "stat_source": "<a href=\"https://dermnetnz.org/topics/contact-reactions-to-cosmetics\" target=\"_blank\">Source: DermNet</a>"
       }
     }
   },
   "order": [
     "hero",
-    "your-skin",
+    "intro",
     "cards",
-    "read-the-label",
     "allergen-of-the-year",
+    "read-the-label",
     "quote",
     "nea"
   ]
