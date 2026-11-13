@@ -34,7 +34,7 @@
           {% else %}
             {% assign textColor = "tw-text-black" %}
           {% endif %}
-          {% if link.title == 'Products' %}
+          {% if link.links.size > 0 %}
             <li class="tw-group tw-pb-4">
               <a href="{{ link.url }}" class="tw-whitespace-nowrap tw-block {{textColor}} tw-py-3 tw-px-2 xl:tw-px-3 tw-text-14px/20px tw-font-semibold tw-font-encode-sans">
                 {{ link.title }}

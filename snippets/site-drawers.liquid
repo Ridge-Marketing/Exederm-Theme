@@ -12,14 +12,14 @@
   <div class="tw-pt-9">
     {% for link in linklists.main-menu-new.links %}
       <hr class=" tw-mx-5 tw-border-t tw-border-t-solid tw-border-gainsboro">
-      <!-- need different logic for nav item with individual dropdown lists -->
-      {% if link.title == "Products" %}
-        <a class="nav__dropdown__test tw-flex tw-justify-between tw-items-center tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white tw-cursor-pointer" value="#{{link.title | replace: ' ', '_'}}__list">
+      <!-- any menu item with child links becomes an expandable dropdown -->
+      {% if link.links.size > 0 %}
+        <a class="nav__dropdown__test tw-flex tw-justify-between tw-items-center tw-py-2 tw-block tw-px-5 tw-text-14px/34px tw-font-open-sans tw-text-black hover:tw-bg-green hover:tw-text-white tw-cursor-pointer" value="#{{ link.handle }}__list">
           {{ link.title }}
           <span class="far fa-plus" aria-label="expand submenu"></span>
           <span class="far fa-minus tw-hidden" aria-label="close submenu"></span>
         </a>
-        <div id="Products__list" class="tw-bg-aliceblue tw-hidden tw-overflow-hidden">
+        <div id="{{ link.handle }}__list" class="tw-bg-aliceblue tw-hidden tw-overflow-hidden">
           <div class="tw-py-2">
             <ul class="tw-m-0 tw-list-none">
               {% for sub_link in link.links %}
