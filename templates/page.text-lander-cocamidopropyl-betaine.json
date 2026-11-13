@@ -53,7 +53,7 @@
           "type": "callout",
           "settings": {
             "heading": "Allergen of the Year",
-            "body": "<p>2004. Named Contact Allergen of the Year by the American Contact Dermatitis Society. (<a href=\"https://pubmed.ncbi.nlm.nih.gov/18627690/\">Jacob &amp; Amini, <em>Dermatitis</em>, 2008</a>)</p>"
+            "body": "<p>Named the 2004 Contact Allergen of the Year by the American Contact Dermatitis Society. (<a href=\"https://pubmed.ncbi.nlm.nih.gov/18627690/\">Jacob &amp; Amini, Dermatitis, 2008</a>)</p>"
           }
         },
         "what_is_cocamidopropyl_b": {
@@ -68,14 +68,14 @@
           "type": "text",
           "settings": {
             "heading": "Is cocamidopropyl betaine bad for eczema or sensitive skin?",
-            "body": "<p>It depends on your skin. CAPB is associated with allergic contact dermatitis and may be included in allergist patch testing when an allergy is suspected. Some reactions are linked to manufacturing impurities (amidoamine and DMAPA) rather than CAPB itself. The American Contact Dermatitis Society named it the 2004 Allergen of the Year, and a <a href=\"https://pubmed.ncbi.nlm.nih.gov/24507163/\">2014 study</a> found that people with atopic dermatitis were more likely to react to it. If you have a confirmed sensitivity to CAPB or related compounds, avoiding products containing it may help prevent reactions.</p>",
+            "body": "<p>It depends on your skin. CAPB is associated with allergic contact dermatitis and may be included in allergist patch testing when an allergy is suspected. Some reactions are linked to manufacturing impurities (amidoamine and DMAPA) rather than CAPB itself. The American Contact Dermatitis Society named it the <strong>2004 Allergen of the Year</strong>, and a <a href=\"https://pubmed.ncbi.nlm.nih.gov/24507163/\">2014 study</a> found that people with atopic dermatitis were more likely to react to it. If you have a confirmed sensitivity to CAPB or related compounds, avoiding products containing it may help prevent reactions.</p>",
             "size": "regular"
           }
         },
         "quote": {
           "type": "quote",
           "settings": {
-            "quote": "\"This is a common foaming agent used in various shampoos, conditioners and body washes. Touted for its tear-free properties (often in baby shampoos), it can cause allergic contact dermatitis in adults and children.\"",
+            "quote": "\"[Cocamidopropyl betaine] is a common foaming agent used in various shampoos, conditioners and body washes. Touted for its tear-free properties (often in baby shampoos), it can cause allergic contact dermatitis in adults and children.\"",
             "citation": "Jeff Yu, MD, quoted by the National Eczema Association",
             "citation_link": "https://nationaleczema.org/blog/8-skincare-ingredients-to-avoid/"
           }
@@ -108,7 +108,7 @@
           "type": "text",
           "settings": {
             "heading": "Is a \"sulfate-free\" shampoo also CAPB-free?",
-            "body": "<p>Not necessarily. \"Sulfate-free\" only tells you that a product leaves out sulfates such as <a href=\"/pages/spoke-sodium-lauryl-sulfate-sls\" title=\"sodium lauryl sulfate\">sodium lauryl sulfate</a>. CAPB is a different kind of cleansing agent, so it can still be in a sulfate-free bottle. It is also common: a <a href=\"https://pubmed.ncbi.nlm.nih.gov/19426617/\">survey of shampoos sold at a major US drugstore</a> found CAPB was the second most frequent allergen, after fragrance. Whatever the front label says, check the ingredient list for \"cocamidopropyl betaine.\"</p>",
+            "body": "<p>No. \"Sulfate-free\" only tells you that a product leaves out sulfates such as <a href=\"/pages/spoke-sodium-lauryl-sulfate-sls\" title=\"sodium lauryl sulfate\">sodium lauryl sulfate</a>. CAPB is a different kind of cleansing agent, so it can still be in a sulfate-free bottle. It is also common: a <a href=\"https://pubmed.ncbi.nlm.nih.gov/19426617/\">survey of shampoos sold at a major US drugstore</a> found CAPB was the second most frequent allergen, after fragrance. Whatever the front label says, check the ingredient list for \"cocamidopropyl betaine.\"</p>",
             "size": "regular"
           }
         },

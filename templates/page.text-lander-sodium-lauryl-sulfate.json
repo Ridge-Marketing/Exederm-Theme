@@ -61,7 +61,7 @@
           "type": "text",
           "settings": {
             "heading": "Is sodium lauryl sulfate safe?",
-            "body": "<p>In rinse-off products, safety reviewers consider it safe to use. A 2015 <a href=\"https://ema.europa.eu/documents/report/background-review-sodium-laurilsulfate-used-excipient-context-revision-guideline-excipients-label_en.pdf\">European Medicines Agency review</a> notes that the US Cosmetic Ingredient Review panel found SLS appears safe in products designed for brief use followed by thorough rinsing, and that products left on the skin should contain no more than 1%. You may have seen claims that SLS causes cancer. The same review found nothing in genetic or long-term toxicity studies to suggest that it does. For sensitive skin, the better-documented concern is irritation. The UK medicines regulator calls SLS a <a href=\"https://www.gov.uk/drug-safety-update/aqueous-cream-may-cause-skin-irritation\">known skin irritant</a>.</p>",
+            "body": "<p>In rinse-off products, safety reviewers consider it safe. A 2015 <a href=\"https://ema.europa.eu/documents/report/background-review-sodium-laurilsulfate-used-excipient-context-revision-guideline-excipients-label_en.pdf\">European Medicines Agency review</a> notes that the US Cosmetic Ingredient Review panel found SLS appears safe in products designed for brief use followed by thorough rinsing, and that products left on the skin should contain no more than 1%. For sensitive skin, the better-documented concern is irritation. The UK medicines regulator calls SLS a <a href=\"https://www.gov.uk/drug-safety-update/aqueous-cream-may-cause-skin-irritation\">known skin irritant</a>.</p>",
             "size": "regular"
           }
         },
@@ -93,7 +93,7 @@
           "type": "text",
           "settings": {
             "heading": "Who should avoid sulfates?",
-            "body": "<p>There is no rule that everyone should, but some skin is more sensitive than others. In studies, people with atopic eczema and seborrheic dermatitis reacted more strongly to SLS than people without those conditions, and children with eczema were the group the UK regulator flagged. If that describes you or your child, check leave-on products for SLS first, and choose cleansers that don't leave skin stinging or red.</p>",
+            "body": "<p>Some skin is more sensitive than others. In studies, people with atopic eczema and seborrheic dermatitis reacted more strongly to SLS than people without those conditions. The UK medicines regulator has also warned that aqueous cream containing SLS may cause skin irritation, particularly in children with eczema. If you or your child have eczema-prone skin, check leave-on products for SLS first, and choose cleansers that don't leave skin stinging or red.</p>",
             "size": "regular"
           }
         },

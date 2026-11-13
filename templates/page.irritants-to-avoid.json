@@ -17,6 +17,18 @@
         "image_position": "center center"
       }
     },
+    "intro": {
+      "type": "skin-conditions-stat",
+      "settings": {
+        "heading": "It’s your skin. You should feel comfortable with what you put on it.",
+        "body": "<p><strong>We believe that eczema, dermatitis and sensitive skin sufferers are different.</strong></p><p>We're mindful that they may be more susceptible to irritation from certain ingredients in everyday skincare products. Many cosmetics and cleansers are fine for most people, but if you have eczema, dermatitis or reactive skin, labels such as \"hypoallergenic\" or \"sensitive\" don't guarantee that a product will be suitable for you.</p><p>If a dermatologist or allergist has performed patch testing, you may already know which ingredients cause allergic reactions. If you’re unsure, we’ve listed some potential irritants and allergens to watch for below.</p>",
+        "stat_style": "number",
+        "stat_eyebrow": "About",
+        "stat_number": "10%",
+        "stat_text": "of patients undergoing patch testing have a cosmetic allergy.",
+        "stat_source": "<a href=\"https://dermnetnz.org/topics/contact-reactions-to-cosmetics\" target=\"_blank\">Source: DermNet</a>"
+      }
+    },
     "cards": {
       "type": "skin-conditions-cards",
       "blocks": {
@@ -93,17 +105,6 @@
         "card-heading": "exederm products contain the mildest ingredients possible and <strong>always avoid irritants like these</strong> that can trigger eczema and other <a href=\"/pages/skin-conditions\">sensitive skin conditions</a>."
       }
     },
-    "read-the-label": {
-      "type": "skin-conditions-feature",
-      "settings": {
-        "heading": "Read the label",
-        "body": "<p>\"There are no Federal standards or definitions that govern the use of the term 'hypoallergenic.' The term means whatever a particular company wants it to mean.\" (<a href=\"https://www.fda.gov/cosmetics/cosmetics-labeling-claims/hypoallergenic-cosmetics\" target=\"_blank\">U.S. FDA</a>)</p>",
-        "image": "shopify://shop_images/In_Page_2.webp",
-        "image_side": "right",
-        "padding_top": 0,
-        "padding_bottom": 96
-      }
-    },
     "allergen-of-the-year": {
       "type": "skin-conditions-feature",
       "settings": {
@@ -113,6 +114,17 @@
         "image_side": "left",
         "padding_top": 0,
         "padding_bottom": 24
+      }
+    },
+    "read-the-label": {
+      "type": "skin-conditions-feature",
+      "settings": {
+        "heading": "Read the label",
+        "body": "<p>\"There are no Federal standards or definitions that govern the use of the term 'hypoallergenic.' The term means whatever a particular company wants it to mean.\" (<a href=\"https://www.fda.gov/cosmetics/cosmetics-labeling-claims/hypoallergenic-cosmetics\" target=\"_blank\">U.S. FDA</a>) So it’s important to read the ingredients list on the label and do your research before buying a product that will come into contact with your skin.</p>",
+        "image": "shopify://shop_images/In_Page_2.webp",
+        "image_side": "right",
+        "padding_top": 0,
+        "padding_bottom": 96
       }
     },
     "quote": {
@@ -132,18 +144,6 @@
         "award_text": "<strong>exederm products are made without the ingredients listed above.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance. Check each product's ingredient list for the full details.",
         "button_label": "See The Products",
         "button_link": "shopify://pages/products"
-      }
-    },
-    "intro": {
-      "type": "skin-conditions-stat",
-      "settings": {
-        "heading": "It’s your skin. You should feel comfortable with what you put on it.",
-        "body": "<p><strong>We believe that eczema, dermatitis and sensitive skin sufferers are different.</strong></p><p>We're mindful that they may be more susceptible to irritation from certain ingredients in everyday skincare products. Many cosmetics and cleansers are fine for most people, but if you have eczema, dermatitis or reactive skin, labels such as \"hypoallergenic\" or \"sensitive\" don't guarantee that a product will be suitable for you.</p><p>If a dermatologist or allergist has performed patch testing, you may already know which ingredients cause allergic reactions. If you’re unsure, we’ve listed some potential irritants and allergens to watch for below.</p>",
-        "stat_style": "number",
-        "stat_eyebrow": "About",
-        "stat_number": "10%",
-        "stat_text": "of patients undergoing patch testing have a cosmetic allergy.",
-        "stat_source": "<a href=\"https://dermnetnz.org/topics/contact-reactions-to-cosmetics\" target=\"_blank\">Source: DermNet</a>"
       }
     }
   },

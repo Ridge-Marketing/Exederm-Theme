@@ -61,7 +61,7 @@
           "type": "text",
           "settings": {
             "heading": "Is methylisothiazolinone bad for eczema?",
-            "body": "<p>For some people, MI can be a strong trigger, and a reaction can look like an eczema flare. It is a strong contact sensitizer, and the American Contact Dermatitis Society named it 2013 Contact Allergen of the Year, as reactions climbed in Europe and its use grew in US products. It is on the standard allergist patch-test panel. Reactions can appear on the hands and face, sometimes from products you wouldn't expect, like wipes or hand soap. If a rash keeps coming back where you use them, ask a dermatologist about patch testing.</p>",
+            "body": "<p>For some people, MI can be a strong trigger, and a reaction can look like an eczema flare. It is a strong contact sensitizer, and the American Contact Dermatitis Society named it <strong>2013 Contact Allergen of the Year</strong>, as reactions climbed in Europe and its use grew in US products. It is on the standard allergist patch-test panel. Reactions can appear on the hands and face, sometimes from products you wouldn't expect, like wipes or hand soap. If a rash keeps coming back where you use them, ask a dermatologist about patch testing.</p>",
             "size": "regular"
           }
         },
@@ -69,7 +69,7 @@
           "type": "callout",
           "settings": {
             "heading": "Allergen of the Year",
-            "body": "<p>2013. Named Contact Allergen of the Year by the American Contact Dermatitis Society. (<a href=\"https://pubmed.ncbi.nlm.nih.gov/23340392/\">Castanedo-Tardana &amp; Zug, <em>Dermatitis</em>, 2013</a>)</p>"
+            "body": "<p>2013. Named 2013 Contact Allergen of the Year by the American Contact Dermatitis Society. (<a href=\"https://pubmed.ncbi.nlm.nih.gov/23340392/\">Castanedo-Tardana &amp; Zug, Dermatitis, 2013</a>)</p>"
           }
         },
         "quote": {
