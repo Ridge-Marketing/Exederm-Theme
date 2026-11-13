@@ -62,7 +62,7 @@
           "type": "text",
           "settings": {
             "heading": "Is sodium lauryl sulfate safe?",
-            "body": "<p>In rinse-off products, safety reviewers consider it safe. A 2015 <a href=\"https://ema.europa.eu/documents/report/background-review-sodium-laurilsulfate-used-excipient-context-revision-guideline-excipients-label_en.pdf\">European Medicines Agency review</a> notes that the US Cosmetic Ingredient Review panel found SLS appears safe in products designed for brief use followed by thorough rinsing, and that products left on the skin should contain no more than 1%. For sensitive skin, the better-documented concern is irritation. The UK medicines regulator calls SLS a <a href=\"https://www.gov.uk/drug-safety-update/aqueous-cream-may-cause-skin-irritation\">known skin irritant</a>.</p>",
+            "body": "<p>In rinse-off products, safety reviewers consider it safe. A 2015 <a href=\"https://www.ema.europa.eu/en/documents/report/background-review-sodium-laurilsulfate-used-excipient-context-revision-guideline-excipients-label-and-package-leaflet-medicinal-products-human-use-draft-report_en.pdf\">European Medicines Agency review</a> notes that the US Cosmetic Ingredient Review panel found SLS appears safe in products designed for brief use followed by thorough rinsing, and that products left on the skin should contain no more than 1%. For sensitive skin, the better-documented concern is irritation. The UK medicines regulator calls SLS a <a href=\"https://www.gov.uk/drug-safety-update/aqueous-cream-may-cause-skin-irritation\">known skin irritant</a>.</p>",
             "size": "regular"
           }
         },
