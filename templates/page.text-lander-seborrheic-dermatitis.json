@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/01-GettyImages-2161579863-1674x948.webp"
+            "image": "shopify://shop_images/01-GettyImages-2161579863-1674x948.webp",
+            "image_alt": "Bearded man smiling outdoors on a tree-lined street"
           }
         },
         "intro": {
@@ -103,7 +104,8 @@
             "heading": "What does seborrheic dermatitis look like on the face and body?",
             "subheading": "",
             "body": "<ul><li>Red, greasy patches with white or yellow flakes (on darker skin, patches may look pink, purple or lighter than your natural skin tone)</li><li>Flaking in the eyebrows, beard or along the sides of the nose</li><li>Itching or burning</li></ul><p>On the scalp, it looks like stubborn dandruff with redness. For the scalp specifically, see our <a href=\"/pages/scalp-eczema\">guide to scalp eczema</a>.</p>",
-            "image": "shopify://shop_images/Seborrheic_Dermatitis.webp"
+            "image": "shopify://shop_images/Seborrheic_Dermatitis.webp",
+            "image_alt": "Red, flaky seborrheic dermatitis around a man’s beard and chin"
           }
         },
         "text_image_3kXMw6": {
@@ -113,7 +115,8 @@
             "subheading": "",
             "body": "<p>Cradle cap is seborrheic dermatitis of a baby's scalp: thick, yellowish, crusty patches common in the first few months and, according to the American Academy of Pediatrics, <a href=\"https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Cradle-Cap.aspx\">usually clearing on their own</a>. Gentle washing may help loosen the scales. Don't use medicated or dandruff shampoos on a baby unless your pediatrician recommends one, and see your pediatrician if the rash becomes severe, spreads extensively, or shows signs of infection. See our <a href=\"/pages/baby-kids-eczema\">guide to baby and kids eczema</a> for more.</p>",
             "image": "shopify://shop_images/Baby_With_Cradle_Cap.jpg",
-            "credit": "Image Credit: <a href=\"https://commons.wikimedia.org/wiki/File:Baby_With_Cradle_Cap.jpg\">Starfoxy</a>, via Wikimedia Commons, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>"
+            "credit": "Image Credit: <a href=\"https://commons.wikimedia.org/wiki/File:Baby_With_Cradle_Cap.jpg\">Starfoxy</a>, via Wikimedia Commons, <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a>",
+            "image_alt": "Baby’s scalp with yellow, flaky cradle cap scales"
           }
         },
         "how_is_seborrheic_dermat": {
@@ -188,7 +191,8 @@
         "button_label": "Shop Eczema Shampoo",
         "button_link": "shopify://products/eczema-shampoo",
         "secondary_label": "Request a sample",
-        "secondary_link": "shopify://pages/free-exederm-samples"
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "Hand holding exederm Eczema Care Daily Shampoo in the shower"
       }
     }
   },

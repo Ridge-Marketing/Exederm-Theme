@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Sodium Lauryl Sulfate (SLS): Why It Irritates Sensitive Skin"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Sodium_lauryl_sulfate_f05ce7de-4288-43c2-9ba7-a2b99eba949c.webp",
+            "image_alt": "Person lathering body wash on their shoulder"
+          }
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Sodium lauryl sulfate, or SLS, is one of the most common detergents in shampoos, washes and toothpastes. It cleans and foams well, but researchers describe it as a harsh surfactant and a known skin irritant, particularly for people with eczema-prone skin.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "what_is_sodium_lauryl_su": {
+          "type": "text",
+          "settings": {
+            "heading": "What is sodium lauryl sulfate?",
+            "body": "<p>SLS is a high-foaming detergent used to create lather. A close relative, sodium laureth sulfate (SLES), is a milder surfactant that comes from the same family.</p>",
+            "size": "regular"
+          }
+        },
+        "is_sodium_lauryl_sulfate": {
+          "type": "text",
+          "settings": {
+            "heading": "Is sodium lauryl sulfate safe?",
+            "body": "<p>In rinse-off products, safety reviewers consider it safe. A 2015 <a href=\"https://ema.europa.eu/documents/report/background-review-sodium-laurilsulfate-used-excipient-context-revision-guideline-excipients-label_en.pdf\">European Medicines Agency review</a> notes that the US Cosmetic Ingredient Review panel found SLS appears safe in products designed for brief use followed by thorough rinsing, and that products left on the skin should contain no more than 1%. For sensitive skin, the better-documented concern is irritation. The UK medicines regulator calls SLS a <a href=\"https://www.gov.uk/drug-safety-update/aqueous-cream-may-cause-skin-irritation\">known skin irritant</a>.</p>",
+            "size": "regular"
+          }
+        },
+        "is_sodium_lauryl_sulfate_2": {
+          "type": "text",
+          "settings": {
+            "heading": "Is sodium lauryl sulfate bad for eczema?",
+            "body": "<p>For reactive and eczema-prone skin, it can be. Researchers have linked SLS to flares of atopic eczema. In one study, a leave-on cream containing SLS damaged the skin barrier in people with a history of eczema. SLS is widely used as a skin irritant in research precisely because of this effect. Most people can tolerate it, but some people with sensitive skin may experience irritation.</p>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"Aqueous cream is no longer recommended, either as a leave-on emollient or as a soap substitute. In addition to being a poor moisturiser, it contains the ingredient sodium lauryl sulphate (SLS), which can irritate the skin and make eczema worse.\"",
+            "citation": "Eczema UK (formerly the National Eczema Society), on aqueous cream, a moisturizer once widely used in the UK",
+            "citation_link": "https://www.eczema.org.uk/support/emollients"
+          }
+        },
+        "does_it_matter_if_sls_is": {
+          "type": "text",
+          "settings": {
+            "heading": "Does it matter if SLS is rinsed off or left on?",
+            "body": "<p>Yes. UK guidance cited by the medicines regulator reports that aqueous cream, which contains SLS, can cause burning, stinging, itching and redness mainly when used as a leave-on moisturizer rather than as a wash. Contact time and concentration both matter. How strongly skin reacts to SLS depends on the amount, how long it stays on and the person's skin. If a cleanser still leaves your skin stinging or tight, try a different one.</p>",
+            "size": "regular"
+          }
+        },
+        "who_should_avoid_sulfate": {
+          "type": "text",
+          "settings": {
+            "heading": "Who should avoid sulfates?",
+            "body": "<p>Some skin is more sensitive than others. In studies, people with atopic eczema and seborrheic dermatitis reacted more strongly to SLS than people without those conditions. The UK medicines regulator has also warned that aqueous cream containing SLS may cause skin irritation, particularly in children with eczema. If you or your child have eczema-prone skin, check leave-on products for SLS first, and choose cleansers that don't leave skin stinging or red.</p>",
+            "size": "regular"
+          }
+        },
+        "how_do_i_know_if_a_produ": {
+          "type": "text",
+          "settings": {
+            "heading": "How do I know if a product contains sodium lauryl sulfate?",
+            "body": "<p>Read the ingredient list for \"sodium lauryl sulfate\" (and its milder cousin \"sodium laureth sulfate\"). Both are commonly found in shampoos and washes.</p>",
+            "size": "regular"
+          }
+        },
+        "myth_fact": {
+          "type": "myth_fact",
+          "settings": {
+            "heading": "Myth vs fact",
+            "myth_label": "Myth:",
+            "myth": "\"Sulfate-free\" means gentle.",
+            "fact_label": "Fact:",
+            "fact": "Sulfate-free shampoos can still contain <a href=\"/blogs/irritants/cocamidopropyl-betaine\" title=\"cocamidopropyl betaine\">cocamidopropyl betaine</a>, the American Contact Dermatitis Society's 2004 Allergen of the Year. Check for both."
+          }
+        },
+        "label_check": {
+          "type": "callout",
+          "settings": {
+            "heading": "Label check",
+            "body": "<p>Look for: sodium lauryl sulfate, sodium laureth sulfate.</p>"
+          }
+        },
+        "which_exederm_products_a": {
+          "type": "text",
+          "settings": {
+            "heading": "Which exederm products are free of sodium lauryl sulfate?",
+            "body": "<p>exederm <a href=\"/products/eczema-wash\" title=\"Eczema Body Wash\">Eczema Body Wash</a>, <a href=\"/products/eczema-shampoo\" title=\"Eczema Shampoo\">Eczema Shampoo</a> and <a href=\"/products/baby-eczema-wash\" title=\"Baby Eczema Wash\">Baby Eczema Wash</a> are made without sodium lauryl sulfate or cocamidopropyl betaine (CAPB) and formulated to cleanse gently. The full exederm line holds the National Eczema Association Seal of Acceptance.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "what_is_sodium_lauryl_su",
+        "is_sodium_lauryl_sulfate",
+        "is_sodium_lauryl_sulfate_2",
+        "quote",
+        "does_it_matter_if_sls_is",
+        "who_should_avoid_sulfate",
+        "how_do_i_know_if_a_produ",
+        "myth_fact",
+        "label_check",
+        "which_exederm_products_a"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "image": "shopify://shop_images/product_eczema_shampoo_1.webp",
+        "text": "<strong>exederm Eczema Body Wash, Eczema Shampoo and Baby Eczema Wash are made without sodium lauryl sulfate.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance.",
+        "hide_badge": false,
+        "button_label": "Shop the wash & shampoo",
+        "button_link": "shopify://pages/products",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "Hand holding exederm Eczema Care Daily Shampoo in the shower"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

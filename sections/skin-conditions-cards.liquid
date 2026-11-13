@@ -35,7 +35,7 @@
     {% for block in section.blocks %}
       <div class="skin-conditions-cards__card{% if block.type == 'wide_card' %} skin-conditions-cards__card--wide{% endif %} tw-relative tw-flex tw-flex-col tw-overflow-hidden tw-bg-white tw-group" {{ block.shopify_attributes }}>
         {% if block.settings.card-image != blank %}
-          <img class="skin-conditions-cards__image tw-w-full tw-object-cover" src="{{ block.settings.card-image | image_url: width: 762, height: 388, crop: 'center' }}" alt="{{ block.settings.card-image.alt | default: block.settings.card-text | escape }}" width="381" height="194" loading="lazy">
+          <img class="skin-conditions-cards__image tw-w-full tw-object-cover" src="{{ block.settings.card-image | image_url: width: 762, height: 388, crop: 'center' }}" alt="{{ block.settings.card-image-alt | default: block.settings.card-image.alt | default: block.settings.card-text | escape }}" width="381" height="194" loading="lazy">
         {% elsif block.settings.card-img != blank %}
           <img class="skin-conditions-cards__image tw-w-full tw-object-cover" src="{{ block.settings.card-img }}" alt="{{ block.settings.card-text | escape }} image" width="381" height="194">
         {% endif %}
@@ -78,6 +78,11 @@
             "type": "image_picker",
             "label": "Card Image",
             "info": "Overrides the image URL below."
+          }, {
+            "id": "card-image-alt",
+            "type": "text",
+            "label": "Card Image alt text",
+            "info": "Overrides the image file's alt text."
           }, {
             "id": "card-img",
             "type": "url",

@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Hero.webp"
+            "image": "shopify://shop_images/Hero.webp",
+            "image_alt": "Smiling woman in a denim jacket against a blue sky"
           }
         },
         "intro": {
@@ -63,7 +64,8 @@
             "heading": "What does scalp eczema look like?",
             "subheading": "Common signs include:",
             "body": "<ul><li>Patchy scaling or thick crusts on the scalp</li><li>Red, greasy skin with flaky white or yellow scales (on darker skin, patches may look pink, purple or lighter than your natural skin tone)</li><li>Itching or soreness</li><li>Flakes or dandruff</li></ul>",
-            "image": "shopify://shop_images/eczema.webp"
+            "image": "shopify://shop_images/eczema.webp",
+            "image_alt": "Red, scaly scalp eczema patches along the hairline and neck"
           }
         },
         "vs_dandruff": {
@@ -81,7 +83,9 @@
             "image_1": "shopify://shop_images/dandruff.webp",
             "caption_1": "<p><strong>Dandruff:</strong> flakes, little or no redness underneath.</p>",
             "image_2": "shopify://shop_images/scalp_eczema.webp",
-            "caption_2": "<p><strong>Scalp eczema:</strong> flakes plus redness or discoloration, itching, and greasy, scaly buildup.</p>"
+            "caption_2": "<p><strong>Scalp eczema:</strong> flakes plus redness or discoloration, itching, and greasy, scaly buildup.</p>",
+            "image_alt_1": "Man parting his hair to show white dandruff flakes",
+            "image_alt_2": "Red scalp eczema patches at a woman’s hairline"
           }
         },
         "psoriasis": {
@@ -190,7 +194,8 @@
         "button_label": "Shop Eczema Shampoo",
         "button_link": "shopify://products/eczema-shampoo",
         "secondary_label": "Request a sample",
-        "secondary_link": "shopify://pages/free-exederm-samples"
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "Hand holding exederm Eczema Care Daily Shampoo in the shower"
       }
     }
   },

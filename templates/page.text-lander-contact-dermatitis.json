@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/03-GettyImages-1569770958-1674x948.webp"
+            "image": "shopify://shop_images/03-GettyImages-1569770958-1674x948.webp",
+            "image_alt": "Person applying cream to a dry, irritated patch on their elbow"
           }
         },
         "intro": {
@@ -71,7 +72,8 @@
             "heading": "What causes contact dermatitis?",
             "subheading": "",
             "body": "<p>The most common triggers include:</p><ul><li>Soaps, body washes and shampoos</li><li>Detergents and cleaning products</li><li>Cosmetics and fragrance</li><li>Preservatives</li><li>Poison ivy, oak, and sumac</li><li>Metals, especially nickel in jewelry, watch straps, zippers and buttons</li></ul><p>Research identifies nickel as one of the most common causes of allergic contact dermatitis. In personal care products, common triggers include fragrance, preservatives like methylisothiazolinone and <a href=\"/pages/formaldehyde-releasers\">formaldehyde releasers</a>, and cleansing agents such as <a href=\"/pages/cocamidopropyl-betaine-capb\">cocamidopropyl betaine</a> and <a href=\"/pages/spoke-sodium-lauryl-sulfate-sls\">sodium lauryl sulfate</a>, which can cause allergic reactions or irritation.</p>",
-            "image": "shopify://shop_images/04-GettyImages-1306285628-652x652.webp"
+            "image": "shopify://shop_images/04-GettyImages-1306285628-652x652.webp",
+            "image_alt": "Hiker walking a trail past dense leafy plants"
           }
         },
         "what_causes_contact_derm": {
@@ -96,7 +98,8 @@
             "heading": "What does contact dermatitis look like?",
             "subheading": "",
             "body": "<p>Redness (on darker skin it can look dark brown, purple or gray), itching, swelling, dryness and scaling where the substance touched the skin. Allergic reactions can also blister.</p><p>The severity of contact dermatitis depends on how strong the trigger is, how long and how often you are exposed, and how sensitive your skin is.</p>",
-            "image": "shopify://shop_images/03-GettyImages-180934156-652x652.webp"
+            "image": "shopify://shop_images/03-GettyImages-180934156-652x652.webp",
+            "image_alt": "Red, bumpy contact dermatitis rash on the side of a woman’s neck"
           }
         },
         "what_should_i_do_when_a_": {
@@ -195,7 +198,8 @@
         "button_label": "Shop the products",
         "button_link": "shopify://pages/products",
         "secondary_label": "Request a sample",
-        "secondary_link": "shopify://pages/free-exederm-samples"
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "The exederm eczema care product line"
       }
     }
   },

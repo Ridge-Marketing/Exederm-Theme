@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Formaldeyhyde_Releaser.webp"
+            "image": "shopify://shop_images/Formaldeyhyde_Releaser.webp",
+            "image_alt": "Gloved hand holding a flask labeled formaldehyde"
           }
         },
         "intro": {
@@ -158,7 +159,8 @@
         "button_label": "Shop the washes & shampoo",
         "button_link": "shopify://pages/products",
         "secondary_label": "Request a sample",
-        "secondary_link": "shopify://pages/free-exederm-samples"
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "Hand holding exederm Eczema Care Daily Shampoo in the shower"
       }
     }
   },

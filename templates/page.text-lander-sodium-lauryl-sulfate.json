@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Sodium_lauryl_sulfate_f05ce7de-4288-43c2-9ba7-a2b99eba949c.webp"
+            "image": "shopify://shop_images/Sodium_lauryl_sulfate_f05ce7de-4288-43c2-9ba7-a2b99eba949c.webp",
+            "image_alt": "Person lathering body wash on their shoulder"
           }
         },
         "intro": {
@@ -160,7 +161,8 @@
         "button_label": "Shop the wash & shampoo",
         "button_link": "shopify://pages/products",
         "secondary_label": "Request a sample",
-        "secondary_link": "shopify://pages/free-exederm-samples"
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "Hand holding exederm Eczema Care Daily Shampoo in the shower"
       }
     }
   },

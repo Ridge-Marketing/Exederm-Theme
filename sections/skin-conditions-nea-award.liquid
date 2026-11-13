@@ -4,7 +4,7 @@
 {% endcomment %}
 {% if section.settings.image != blank %}
   {% assign nea_award_image_url    = section.settings.image | image_url: width: 1620 %}
-  {% assign nea_award_image_alt    = section.settings.image.alt | default: 'exederm product line' %}
+  {% assign nea_award_image_alt    = section.settings.image_alt | default: section.settings.image.alt | default: 'exederm product line' %}
   {% assign nea_award_image_width  = section.settings.image.width %}
   {% assign nea_award_image_height = section.settings.image.height %}
 {% else %}
@@ -27,6 +27,12 @@
         "id": "image",
         "label": "Image",
         "info": "Leave blank to use the default product-line photo."
+      },
+      {
+        "type": "text",
+        "id": "image_alt",
+        "label": "Image alt text",
+        "info": "Overrides the image file's alt text."
       },
       {
         "type": "inline_richtext",

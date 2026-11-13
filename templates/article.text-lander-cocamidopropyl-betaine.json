@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "text-lander",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Cocamidopropyl Betaine (CAPB): The Shampoo Irritant on the Patch-Test Panel"
+          }
+        },
+        "byline": {
+          "type": "byline",
+          "settings": {
+            "author": "exederm",
+            "date": ""
+          }
+        },
+        "spacer": {
+          "type": "spacer",
+          "settings": {
+            "height": 56
+          }
+        },
+        "hero_image": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Cocamidopropyl_betaine_CAPB.webp",
+            "image_alt": "Person lathering shampoo into their hair in the shower"
+          }
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "body": "<p>Cocamidopropyl betaine, often shortened to CAPB, is a foam-boosting cleansing agent found in many shampoos, body washes and liquid soaps. Most people tolerate it, but it can cause allergic contact dermatitis in some individuals, including people with eczema-prone skin.</p>",
+            "size": "large"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {}
+        },
+        "allergen_of_the_year": {
+          "type": "callout",
+          "settings": {
+            "heading": "Allergen of the Year",
+            "body": "<p>Named the 2004 Contact Allergen of the Year by the American Contact Dermatitis Society. (<a href=\"https://pubmed.ncbi.nlm.nih.gov/18627690/\">Jacob &amp; Amini, Dermatitis, 2008</a>)</p>"
+          }
+        },
+        "what_is_cocamidopropyl_b": {
+          "type": "text",
+          "settings": {
+            "heading": "What is cocamidopropyl betaine?",
+            "body": "<p>CAPB is a surfactant derived from coconut oil, used to cleanse and add lather. People expect shampoo to be thick and foamy, so manufacturers add ingredients like CAPB to meet that expectation, including in many baby products.</p>",
+            "size": "regular"
+          }
+        },
+        "is_cocamidopropyl_betain": {
+          "type": "text",
+          "settings": {
+            "heading": "Is cocamidopropyl betaine bad for eczema or sensitive skin?",
+            "body": "<p>It depends on your skin. CAPB is associated with allergic contact dermatitis and may be included in allergist patch testing when an allergy is suspected. Some reactions are linked to manufacturing impurities (amidoamine and DMAPA) rather than CAPB itself. The American Contact Dermatitis Society named it the <strong>2004 Allergen of the Year</strong>, and a <a href=\"https://pubmed.ncbi.nlm.nih.gov/24507163/\">2014 study</a> found that people with atopic dermatitis were more likely to react to it. If you have a confirmed sensitivity to CAPB or related compounds, avoiding products containing it may help prevent reactions.</p>",
+            "size": "regular"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"[Cocamidopropyl betaine] is a common foaming agent used in various shampoos, conditioners and body washes. Touted for its tear-free properties (often in baby shampoos), it can cause allergic contact dermatitis in adults and children.\"",
+            "citation": "Jeff Yu, MD, quoted by the National Eczema Association",
+            "citation_link": "https://nationaleczema.org/blog/8-skincare-ingredients-to-avoid/"
+          }
+        },
+        "look_like": {
+          "type": "text_image",
+          "settings": {
+            "heading": "What does a CAPB reaction look like?",
+            "subheading": "",
+            "body": "<p>DermNet notes that a CAPB allergy usually shows up as an <a href=\"https://dermnetnz.org/topics/contact-allergy-to-cocamidopropyl-betaine\">itchy red rash, sometimes with swelling or small blisters</a>. It is most common on the face and hands, and it can also irritate the eyes. In a North American patch-test study, the head and neck were the most frequent sites, and CAPB-related allergens are a known cause of eyelid and facial dermatitis. After you stop using the product, the rash may take a few weeks to settle. If you have a patch test, ask whether the manufacturing impurities (amidoamine and DMAPA) should be tested too, because testing purified CAPB alone can miss the reaction.</p>",
+            "image": "shopify://shop_images/CAPB_Rash.webp",
+            "image_alt": "Red, itchy rash on an inner arm being scratched"
+          }
+        },
+        "how_do_i_know_if_a_produ": {
+          "type": "text",
+          "settings": {
+            "heading": "How do I know if a product contains it?",
+            "body": "<p>Check the ingredient list on your product and look for \"cocamidopropyl betaine.\" Many products labeled \"gentle,\" \"natural,\" or \"hypoallergenic\" still contain it.</p>",
+            "size": "regular"
+          }
+        },
+        "label_check": {
+          "type": "callout",
+          "settings": {
+            "heading": "Label check",
+            "body": "<p>Look for: cocamidopropyl betaine.</p>"
+          }
+        },
+        "is_a_sulfate_free_shampo": {
+          "type": "text",
+          "settings": {
+            "heading": "Is a \"sulfate-free\" shampoo also CAPB-free?",
+            "body": "<p>No. \"Sulfate-free\" only tells you that a product leaves out sulfates such as <a href=\"/blogs/irritants/sodium-lauryl-sulfate\" title=\"sodium lauryl sulfate\">sodium lauryl sulfate</a>. CAPB is a different kind of cleansing agent, so it can still be in a sulfate-free bottle. It is also common: a <a href=\"https://pubmed.ncbi.nlm.nih.gov/19426617/\">survey of shampoos sold at a major US drugstore</a> found CAPB was the second most frequent allergen, after fragrance. Whatever the front label says, check the ingredient list for \"cocamidopropyl betaine.\"</p>",
+            "size": "regular"
+          }
+        },
+        "which_exederm_products_a": {
+          "type": "text",
+          "settings": {
+            "heading": "Which exederm products are free of cocamidopropyl betaine?",
+            "body": "<p><a href=\"/products/eczema-shampoo\" title=\"exederm Eczema Shampoo\">exederm Eczema Shampoo</a> is formulated without cocamidopropyl betaine, making it a suitable option for eczema sufferers or people seeking to avoid this ingredient. So are <a href=\"/products/eczema-conditioner\" title=\"Eczema Conditioner\">Eczema Conditioner</a>, <a href=\"/products/eczema-wash\" title=\"Eczema Body Wash\">Eczema Body Wash</a>, <a href=\"/products/baby-eczema-wash\" title=\"Baby Eczema Wash\">Baby Eczema Wash</a> and <a href=\"/products/flare-control-cream\" title=\"Flare Control Cream\">Flare Control Cream</a>. CAPB is a known allergen for some people with sensitive or reactive skin, so we leave it out. The full exederm line holds the National Eczema Association Seal of Acceptance.</p>",
+            "size": "regular"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "byline",
+        "spacer",
+        "hero_image",
+        "intro",
+        "divider",
+        "allergen_of_the_year",
+        "what_is_cocamidopropyl_b",
+        "is_cocamidopropyl_betain",
+        "quote",
+        "look_like",
+        "how_do_i_know_if_a_produ",
+        "label_check",
+        "is_a_sulfate_free_shampo",
+        "which_exederm_products_a"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "text-lander-cta",
+      "settings": {
+        "image": "shopify://shop_images/product_eczema_shampoo_1.webp",
+        "text": "<strong>exederm Eczema Shampoo is made without cocamidopropyl betaine.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance.",
+        "hide_badge": false,
+        "button_label": "Shop Eczema Shampoo",
+        "button_link": "shopify://products/eczema-shampoo",
+        "secondary_label": "Request a sample",
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "Hand holding exederm Eczema Care Daily Shampoo in the shower"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

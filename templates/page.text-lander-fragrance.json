@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Fragrance_783a78e7-3eb1-4079-97ab-80e42114b0f8.webp"
+            "image": "shopify://shop_images/Fragrance_783a78e7-3eb1-4079-97ab-80e42114b0f8.webp",
+            "image_alt": "Man spraying cologne on his wrist"
           }
         },
         "intro": {
@@ -78,7 +79,8 @@
             "heading": "What does a fragrance reaction look like?",
             "subheading": "",
             "body": "<p>According to DermNet, a fragrance allergy usually appears as itchy, red, scaly patches that may burn or sting, and with continued exposure the skin can swell or blister. The rash appears hours to days after contact, most often on the hands and face, and also on the neck, lower legs or armpits. Fragrance can be carried to other places too: touch a scented product and then your face, and a rash can appear on your face.</p>",
-            "image": "shopify://shop_images/fragrance_reaction.webp"
+            "image": "shopify://shop_images/fragrance_reaction.webp",
+            "image_alt": "Red fragrance allergy rash on a woman’s chest and neck"
           }
         },
         "why_can_t_i_see_the_frag": {
@@ -149,7 +151,8 @@
         "button_label": "Shop fragrance-free eczema care",
         "button_link": "shopify://pages/products",
         "secondary_label": "Request a sample",
-        "secondary_link": "shopify://pages/free-exederm-samples"
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "The exederm eczema care product line"
       }
     }
   },

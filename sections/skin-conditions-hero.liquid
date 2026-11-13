@@ -25,7 +25,7 @@
       sizes="100vw"
       width="{{ section.settings.image.width }}"
       height="{{ section.settings.image.height }}"
-      alt="{{ section.settings.image.alt | default: hero_title | escape }}">
+      alt="{{ section.settings.image_alt | default: section.settings.image.alt | default: hero_title | escape }}">
   {% else %}
     <img
       class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover"
@@ -59,6 +59,12 @@
         "type": "image_picker",
         "label": "Hero image",
         "info": "Leave blank to use the default hero photo."
+      },
+      {
+        "id": "image_alt",
+        "type": "text",
+        "label": "Image alt text",
+        "info": "Overrides the image file's alt text."
       },
       {
         "id": "image_position",

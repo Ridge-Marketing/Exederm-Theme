@@ -58,7 +58,7 @@
       {% case block.type %}
 
         {% when 'title' %}
-          <h1 class="text-lander__title tw-font-encode-sans tw-font-normal tw-text-matterhorn">{{ block.settings.title | default: page.title }}</h1>
+          <h1 class="text-lander__title tw-font-encode-sans tw-font-normal tw-text-matterhorn">{{ block.settings.title | default: article.title | default: page.title }}</h1>
 
         {% when 'byline' %}
           {% assign byline_date = block.settings.date %}
@@ -82,7 +82,7 @@
               src="{{ block.settings.image | image_url: width: 1674 }}"
               srcset="{{ block.settings.image | image_url: width: 838 }} 838w, {{ block.settings.image | image_url: width: 1674 }} 1674w"
               sizes="(min-width: 878px) 838px, 100vw"
-              alt="{{ block.settings.image.alt | escape }}"
+              alt="{{ block.settings.image_alt | default: block.settings.image.alt | escape }}"
               width="{{ block.settings.image.width }}"
               height="{{ block.settings.image.height }}">
           {% elsif request.design_mode %}
@@ -122,7 +122,7 @@
             {% if block.settings.image != blank or request.design_mode %}
               <div class="text-lander__text-image-media tw-flex-shrink-0 tw-mx-auto md:tw-mx-0">
                 {% if block.settings.image != blank %}
-                  <img class="tw-w-full tw-h-auto" src="{{ block.settings.image | image_url: width: 652 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+                  <img class="tw-w-full tw-h-auto" src="{{ block.settings.image | image_url: width: 652 }}" alt="{{ block.settings.image_alt | default: block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
                 {% else %}
                   {{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
                 {% endif %}
@@ -144,9 +144,11 @@
                 {% assign comparison_caption_key = 'caption_' | append: i %}
                 {% assign comparison_image       = block.settings[comparison_image_key] %}
                 {% assign comparison_caption     = block.settings[comparison_caption_key] %}
+                {% assign comparison_alt_key     = 'image_alt_' | append: i %}
+                {% assign comparison_image_alt   = block.settings[comparison_alt_key] %}
                 <div>
                   {% if comparison_image != blank %}
-                    <img class="tw-w-full tw-h-auto" src="{{ comparison_image | image_url: width: 486 }}" alt="{{ comparison_image.alt | escape }}" width="{{ comparison_image.width }}" height="{{ comparison_image.height }}">
+                    <img class="tw-w-full tw-h-auto" src="{{ comparison_image | image_url: width: 486 }}" alt="{{ comparison_image_alt | default: comparison_image.alt | escape }}" width="{{ comparison_image.width }}" height="{{ comparison_image.height }}">
                   {% elsif request.design_mode %}
                     {{ 'image' | placeholder_svg_tag: 'tw-w-full tw-h-auto tw-bg-gray-100' }}
                   {% endif %}
@@ -263,6 +265,12 @@
             "label": "Image"
           },
           {
+            "type": "text",
+            "id": "image_alt",
+            "label": "Image alt text",
+            "info": "Overrides the image file's alt text."
+          },
+          {
             "type": "inline_richtext",
             "id": "credit",
             "label": "Image credit",
@@ -342,6 +350,12 @@
             "info": "Square images work best."
           },
           {
+            "type": "text",
+            "id": "image_alt",
+            "label": "Image alt text",
+            "info": "Overrides the image file's alt text."
+          },
+          {
             "type": "inline_richtext",
             "id": "credit",
             "label": "Image credit",
@@ -364,6 +378,12 @@
             "label": "Image 1"
           },
           {
+            "type": "text",
+            "id": "image_alt_1",
+            "label": "Image 1 alt text",
+            "info": "Overrides the image file's alt text."
+          },
+          {
             "type": "richtext",
             "id": "caption_1",
             "label": "Caption 1",
@@ -373,6 +393,12 @@
             "type": "image_picker",
             "id": "image_2",
             "label": "Image 2"
+          },
+          {
+            "type": "text",
+            "id": "image_alt_2",
+            "label": "Image 2 alt text",
+            "info": "Overrides the image file's alt text."
           },
           {
             "type": "richtext",

@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/02-GettyImages-2198109004-1674x948.webp"
+            "image": "shopify://shop_images/02-GettyImages-2198109004-1674x948.webp",
+            "image_alt": "Smiling man shaking hands with a colleague in an office"
           }
         },
         "intro": {
@@ -95,7 +96,8 @@
             "heading": "What does atopic eczema look like?",
             "subheading": "",
             "body": "<p>During a flare-up, the skin becomes inflamed and very itchy, and it may develop blisters. On lighter skin, it looks red; on brown and Black skin, it can look dark brown, purple, or gray, sometimes with small, rough bumps. Between flare-ups, it may look normal or stay dry, rough and thickened, especially where the skin has been scratched. In adults, it often settles on the hands, eyelids and the creases of the elbows and knees.</p>",
-            "image": "shopify://shop_images/atopic_eczema.webp"
+            "image": "shopify://shop_images/atopic_eczema.webp",
+            "image_alt": "Hand with a red, bumpy atopic eczema rash having cream applied"
           }
         },
         "do_children_outgrow_atop": {

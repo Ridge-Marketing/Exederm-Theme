@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Methylisothiazolinone.webp"
+            "image": "shopify://shop_images/Methylisothiazolinone.webp",
+            "image_alt": "Person cleaning their hands with a wet wipe"
           }
         },
         "intro": {
@@ -86,7 +87,8 @@
             "heading": "What does an MI reaction look like?",
             "subheading": "",
             "body": "<p>According to DermNet, an MI allergy causes <a href=\"/pages/contact-dermatitis-1\" title=\"allergic contact dermatitis\">allergic contact dermatitis</a>, an itchy red rash that can blister. It usually starts where the product touches the skin. Common spots include the hands, face and scalp, and the eyelids, which may swell. When wipes are the source, the rash often appears in the diaper area or around the bottom.</p>",
-            "image": "shopify://shop_images/MI_Rash.webp"
+            "image": "shopify://shop_images/MI_Rash.webp",
+            "image_alt": "Red allergic contact dermatitis rash on an inner arm"
           }
         },
         "how_is_mi_allergy_diagno": {
@@ -193,7 +195,8 @@
         "button_label": "Shop the washes & shampoo",
         "button_link": "shopify://pages/products",
         "secondary_label": "Request a sample",
-        "secondary_link": "shopify://pages/free-exederm-samples"
+        "secondary_link": "shopify://pages/free-exederm-samples",
+        "image_alt": "Hand holding exederm Eczema Care Daily Shampoo in the shower"
       }
     }
   },

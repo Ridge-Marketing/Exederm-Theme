@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/04-GettyImages-1467105515-1674x948.webp"
+            "image": "shopify://shop_images/04-GettyImages-1467105515-1674x948.webp",
+            "image_alt": "Parent applying cream to a child’s eczema-prone hand"
           }
         },
         "intro": {
@@ -62,7 +63,8 @@
             "heading": "What does eczema look like in babies?",
             "subheading": "",
             "body": "<p>In the first few months, eczema usually appears on the face (especially the cheeks) and on the scalp. On lighter skin, the skin may be dry, rough and red, and on darker skin, it can look dark brown, purple or gray.</p><p>Diaper rash, a common skin inflammation that causes redness in the diaper area, differs from baby eczema: DermNet notes that eczema <a href=\"https://dermnetnz.org/topics/atopic-dermatitis\">usually skips the diaper area</a>, likely because the diaper keeps that skin moist. Greasy, yellow scales on the scalp are more often cradle cap; see our <a href=\"/pages/seborrheic-dermatitis-1\">guide to seborrheic dermatitis</a>. Always consult your pediatrician for proper diagnosis.</p>",
-            "image": "shopify://shop_images/05-GettyImages-2259895011-652x652.webp"
+            "image": "shopify://shop_images/05-GettyImages-2259895011-652x652.webp",
+            "image_alt": "Baby in a bath with red eczema patches on the back and arms"
           }
         },
         "is_it_eczema_or_baby_acn": {
@@ -79,7 +81,8 @@
             "heading": "What does eczema look like in toddlers?",
             "subheading": "",
             "body": "<p>As children start crawling and walking, eczema often moves to the outside of the elbows and knees, then into the creases of the elbows, knees, wrists and ankles. Toddlers often scratch hard, which can make the skin look raw and thicken over time.</p>",
-            "image": "shopify://shop_images/06-GettyImages-2244110556-652x652.webp"
+            "image": "shopify://shop_images/06-GettyImages-2244110556-652x652.webp",
+            "image_alt": "Toddler with a red eczema patch on the wrist, held by a parent"
           }
         },
         "what_does_eczema_look_li_3": {

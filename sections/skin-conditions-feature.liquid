@@ -45,7 +45,7 @@
       <img
         class="skin-conditions-feature__media tw-object-cover"
         src="{{ section.settings.image | image_url: width: 658, height: 658, crop: 'center' }}"
-        alt="{{ section.settings.image.alt | escape }}"
+        alt="{{ section.settings.image_alt | default: section.settings.image.alt | escape }}"
         width="329"
         height="329"
         loading="lazy">
@@ -83,6 +83,12 @@
         "type": "image_picker",
         "label": "Image",
         "info": "Shown as a square."
+      },
+      {
+        "id": "image_alt",
+        "type": "text",
+        "label": "Image alt text",
+        "info": "Overrides the image file's alt text."
       },
       {
         "id": "image_side",

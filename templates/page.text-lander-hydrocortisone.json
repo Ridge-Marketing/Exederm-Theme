@@ -34,7 +34,8 @@
         "hero_image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/06-GettyImages-1487944901-1674x948.webp"
+            "image": "shopify://shop_images/06-GettyImages-1487944901-1674x948.webp",
+            "image_alt": "Person applying a dab of cream to the back of their hand"
           }
         },
         "intro": {
@@ -94,7 +95,8 @@
             "heading": "How often and how much should I apply?",
             "subheading": "",
             "body": "<p>For adults and children 2 and older, apply to the affected area not more than 3 to 4 times daily. Use just enough to cover the affected area in a thin, even layer and rub it in gently. If you want a guide, the NHS uses the <a href=\"https://www.nhs.uk/medicines/hydrocortisone-for-skin/\">fingertip unit</a>: a line of cream squeezed along your fingertip, from the tip to the first crease, covers an area about twice the size of an adult's palm. Always follow the directions on your product's label.</p>",
-            "image": "shopify://shop_images/09-GettyImages-816711468-652x652.webp"
+            "image": "shopify://shop_images/09-GettyImages-816711468-652x652.webp",
+            "image_alt": "Small amount of cream squeezed from a tube onto a fingertip"
           }
         },
         "does_hydrocortisone_go_o": {
@@ -127,7 +129,8 @@
             "heading": "Can I use hydrocortisone on my face?",
             "subheading": "",
             "body": "<p>Keep it out of your eyes. On the face, a doctor may advise using it only as long as needed. Stop and ask a doctor if it isn't better within 7 days, and ask before using it on your eyelids or if facial eczema keeps coming back.</p>",
-            "image": "shopify://shop_images/08-GettyImages-1560814270-652x652.webp"
+            "image": "shopify://shop_images/08-GettyImages-1560814270-652x652.webp",
+            "image_alt": "Person applying cream to their cheek"
           }
         },
         "can_i_use_hydrocortisone_2": {

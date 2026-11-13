@@ -14,7 +14,8 @@
       "settings": {
         "title": "Common Skin Irritants and Allergens",
         "image": "shopify://shop_images/Skin-Irritants-Hero.webp",
-        "image_position": "center center"
+        "image_position": "center center",
+        "image_alt": "Man applying skincare to his face in a mirror"
       }
     },
     "intro": {
@@ -39,7 +40,8 @@
             "card-img": "",
             "card-text": "Cocamidopropyl betaine (CAPB)",
             "card-desc": "A foam-boosting surfactant in many shampoos and washes; <a href=\"https://pubmed.ncbi.nlm.nih.gov/18627690/\" target=\"_blank\">named 2004 Allergen of the Year</a> by the American Contact Dermatitis Society.",
-            "link": "shopify://pages/cocamidopropyl-betaine-capb"
+            "link": "shopify://blogs/irritants/cocamidopropyl-betaine",
+            "card-image-alt": "Baby bath products in a basket with a rubber duck and sponge"
           }
         },
         "sls": {
@@ -49,7 +51,8 @@
             "card-img": "",
             "card-text": "Sodium lauryl sulfate (SLS)",
             "card-desc": "A strong detergent and known skin irritant, particularly for sensitive skin.",
-            "link": "shopify://pages/spoke-sodium-lauryl-sulfate-sls"
+            "link": "shopify://blogs/irritants/sodium-lauryl-sulfate",
+            "card-image-alt": "Bottles of colorful shampoo in a laboratory"
           }
         },
         "formaldehyde": {
@@ -59,7 +62,8 @@
             "card-img": "",
             "card-text": "Formaldehyde releasers",
             "card-desc": "Preservatives, such as DMDM hydantoin and quaternium-15, that slowly release formaldehyde.",
-            "link": "shopify://pages/formaldehyde-releasers"
+            "link": "shopify://blogs/irritants/formaldehyde-releasers",
+            "card-image-alt": "Bottle of formaldehyde solution in a laboratory"
           }
         },
         "fragrance": {
@@ -69,7 +73,8 @@
             "card-img": "",
             "card-text": "Fragrance & perfume",
             "card-desc": "One of the most frequent causes of allergic contact dermatitis.",
-            "link": "shopify://pages/fragrance-perfume-1"
+            "link": "shopify://blogs/irritants/fragrance-perfume",
+            "card-image-alt": "Woman spraying perfume on her neck"
           }
         },
         "mi-mci": {
@@ -79,7 +84,8 @@
             "card-img": "",
             "card-text": "Methylisothiazolinone (MI / MCI)",
             "card-desc": "Preservatives associated with allergic contact dermatitis, particularly from personal care products.",
-            "link": "shopify://pages/mi-mci"
+            "link": "shopify://blogs/irritants/methylisothiazolinone",
+            "card-image-alt": "Lotion being squeezed from a bottle into a hand at the beach"
           }
         },
         "lanolin": {
@@ -89,7 +95,8 @@
             "card-img": "",
             "card-text": "Lanolin",
             "card-desc": "A wool-derived moisturizer that can trigger allergic contact dermatitis, especially in eczema-prone skin.",
-            "link": "shopify://pages/lanolin"
+            "link": "shopify://pages/lanolin",
+            "card-image-alt": "Close-up of thick, golden lanolin"
           }
         }
       },
@@ -113,7 +120,8 @@
         "image": "shopify://shop_images/allergen_of_the_year_image_1.webp",
         "image_side": "left",
         "padding_top": 0,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "image_alt": "American Contact Dermatitis Society Allergen of the Year logo"
       }
     },
     "read-the-label": {
@@ -124,7 +132,8 @@
         "image": "shopify://shop_images/In_Page_2.webp",
         "image_side": "right",
         "padding_top": 0,
-        "padding_bottom": 96
+        "padding_bottom": 96,
+        "image_alt": "Shopper reading the ingredient label on a pump bottle"
       }
     },
     "quote": {
@@ -143,7 +152,8 @@
         "image": "shopify://shop_images/product_flare_control.webp",
         "award_text": "<strong>exederm products are made without the ingredients listed above.</strong> The full exederm line holds the National Eczema Association Seal of Acceptance. Check each product's ingredient list for the full details.",
         "button_label": "See The Products",
-        "button_link": "shopify://pages/products"
+        "button_link": "shopify://pages/products",
+        "image_alt": "The exederm eczema care product line"
       }
     }
   },

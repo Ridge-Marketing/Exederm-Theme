@@ -1,0 +1,21 @@
+<!-- /snippets/structured-data-article.liquid -->
+{% comment %}
+  Article JSON-LD — included from layout/theme.liquid on article templates (the
+  /blogs/conditions and /blogs/irritants text-lander posts). Uses the article's
+  featured image when one is set.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ article.title | json }},
+  "description": {{ page_description | default: article.excerpt_or_content | strip_html | truncate: 300 | json }},
+  "url": "{{ shop.url }}{{ article.url }}",
+  "mainEntityOfPage": "{{ shop.url }}{{ article.url }}",
+  "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+  "dateModified": "{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+  {% if article.image %}"image": "https:{{ article.image | image_url: width: 1200 }}",{% endif %}
+  "author": { "@type": "Organization", "name": {{ shop.name | json }}, "url": "{{ shop.url }}" },
+  "publisher": { "@type": "Organization", "name": {{ shop.name | json }}, "url": "{{ shop.url }}" }
+}
+</script>

@@ -14,7 +14,8 @@
       "settings": {
         "title": "Understanding Skin Conditions",
         "image": "shopify://shop_images/Skin-Hero.webp",
-        "image_position": "right center"
+        "image_position": "right center",
+        "image_alt": "Woman smiling while jogging outdoors"
       }
     },
     "stat": {
@@ -34,7 +35,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/1211/7332/files/scalp-eczema.webp?v=1792772044",
             "card-text": "Scalp eczema",
             "card-desc": "Itchy, dry, scaly, or flaking skin on the scalp, with several possible causes including seborrheic dermatitis, atopic dermatitis, and contact dermatitis.",
-            "link": "shopify://pages/scalp-eczema"
+            "link": "shopify://blogs/conditions/scalp-eczema"
           }
         },
         "seborrheic-dermatitis": {
@@ -43,7 +44,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/seborrheic-dermatitis-boximg.png?v=1614327593",
             "card-text": "Seborrheic dermatitis",
             "card-desc": "An inflammatory skin condition causing greasy scales, flaking, and sometimes itching, commonly affecting the scalp, face, and other oily areas; called cradle cap in infants.",
-            "link": "shopify://pages/seborrheic-dermatitis-1"
+            "link": "shopify://blogs/conditions/seborrheic-dermatitis"
           }
         },
         "atopic-eczema": {
@@ -52,7 +53,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/atopic-eczema-boximg.png?v=1614327593",
             "card-text": "Atopic eczema",
             "card-desc": "A chronic, itchy form of eczema that often begins in childhood and is associated with a weakened skin barrier and increased allergy risk.",
-            "link": "shopify://pages/atopic-eczema-1"
+            "link": "shopify://blogs/conditions/atopic-eczema"
           }
         },
         "contact-dermatitis": {
@@ -61,7 +62,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/contact-dermatitis-boximg.png?v=1614327593",
             "card-text": "Contact dermatitis",
             "card-desc": "Skin inflammation caused by contact with an irritant or an allergen.",
-            "link": "shopify://pages/contact-dermatitis-1"
+            "link": "shopify://blogs/conditions/contact-dermatitis"
           }
         },
         "baby-kids-eczema": {
@@ -70,7 +71,7 @@
             "card-img": "https://cdn.shopify.com/s/files/1/0524/5622/7007/files/childrens-skin-boximg.png?v=1614327593",
             "card-text": "Baby & kids eczema",
             "card-desc": "Eczema affecting infants and children, often causing dry, itchy, inflamed skin.",
-            "link": "shopify://pages/baby-kids-eczema"
+            "link": "shopify://blogs/conditions/baby-eczema"
           }
         },
         "hand-dermatitis": {
@@ -79,7 +80,8 @@
             "card-image": "shopify://shop_images/hand_dermatitis.webp",
             "card-text": "Hand dermatitis",
             "card-desc": "Dry, cracked, itchy hands, often from frequent washing and working with liquids.",
-            "link": "shopify://pages/hand-dermatitis-1"
+            "link": "shopify://blogs/conditions/hand-dermatitis",
+            "card-image-alt": "Person rubbing their dry, irritated hands together"
           }
         },
         "hydrocortisone": {
@@ -87,7 +89,7 @@
           "settings": {
             "card-text": "Using hydrocortisone for eczema",
             "card-desc": "How to use 1% hydrocortisone during a flare.",
-            "link": "shopify://pages/using-hydrocortisone"
+            "link": "shopify://blogs/conditions/using-hydrocortisone-for-eczema"
           }
         },
         "irritants": {
@@ -119,7 +121,8 @@
         "image": "shopify://shop_images/product_flare_control.webp",
         "award_text": "Our full exederm line holds the National Eczema Association Seal of Acceptance.",
         "button_label": "See The Products",
-        "button_link": "shopify://pages/products"
+        "button_link": "shopify://pages/products",
+        "image_alt": "The exederm eczema care product line"
       }
     },
     "see-doctor": {
